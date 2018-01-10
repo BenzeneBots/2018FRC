@@ -1,0 +1,15 @@
+﻿"Symbol";"Value";"Unit";
+"REFERENCE";"CL-6-A";"";
+"TraceParts.PartVersion";"1.1.9";"";
+"SUPPLIER";"RULAND";"";
+"TraceParts.PartStatus";"Published";"";
+"TraceParts.PartNumber";"10-19082015-110155";"";
+"TraceParts.PartLanguage";"en";"";
+"DESIGN";"Shaft Collar, One-Piece, Bore 0.3750"", OD 7/8"", W 0.343"", Screw #6-32x3/8, 2024 Aluminum, COO USA";"";
+"TraceParts.InstanceId";"10-19082015-11015548LLQG61C8RXLYO2X1EBOFNPQ";"";
+"TraceParts.PartTitle";"CL - One-Piece Shaft Collar, Inch";"";
+"NOTE";"No backslot";"";
+"TRACEPARTS";"TRACEPARTS";"";
+"TraceParts.PartStatusId";"";"";
+"TraceParts.ClassPath";"RULAND:10-19082015-110155";"";
+"product_page";"<a target=""_blank"" href=""http://www.ruland.com/shaft-collar.php?recordID=CL-6-A"">http://www.ruland.com/shaft-collar.php?recordID=CL-6-A</a>";"";
