@@ -46,3 +46,167 @@ arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
+14:46:09 **** Incremental Build of configuration Debug for project TestCode ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
+                 from ..\src\Robot.cpp:22:
+C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
+ #include "CANSpeedController.h"
+                                ^
+compilation terminated.
+15:03:24 **** Incremental Build of configuration Debug for project TestCode ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
+                 from ..\src\Robot.cpp:22:
+C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
+ #include "CANSpeedController.h"
+                                ^
+compilation terminated.
+15:03:47 **** Incremental Build of configuration Debug for project TestCode ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
+In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
+                 from ..\src\Pigeon.cpp:6:
+C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
+ #include "CANSpeedController.h"
+                                ^
+compilation terminated.
+15:05:31 **** Incremental Build of configuration Debug for project TestCode ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
+                 from ..\src\Robot.cpp:22:
+C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
+ #include "CANSpeedController.h"
+                                ^
+compilation terminated.
+15:05:48 **** Incremental Build of configuration Debug for project TestCode ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+In file included from C:\Users\James Kemp/wpilib/cpp/current/include/RobotBase.h:15:0,
+                 from C:\Users\James Kemp/wpilib/cpp/current/include/IterativeRobotBase.h:10,
+                 from C:\Users\James Kemp/wpilib/cpp/current/include/IterativeRobot.h:10,
+                 from ..\src\Robot.cpp:15:
+C:\Users\James Kemp/wpilib/cpp/current/include/Base.h:11:1: error: static assertion failed: GCC must be 5 or greater. If building for the roboRIO, please update to the 2018 toolchains.
+ static_assert(0,
+ ^
+..\src\Robot.cpp:38:1: error: 'PigeonImu' does not name a type
+ PigeonImu *gyro;
+ ^
+..\src\Robot.cpp:42:1: error: 'CANTalon' does not name a type
+ CANTalon *shooterMotor;
+ ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:80:3: error: 'gyro' was not declared in this scope
+   gyro = new PigeonImu( 14 );
+   ^
+..\src\Robot.cpp:80:14: error: expected type-specifier before 'PigeonImu'
+   gyro = new PigeonImu( 14 );
+              ^
+..\src\Robot.cpp:115:3: error: 'shooterMotor' was not declared in this scope
+   shooterMotor = new CANTalon( 11 ); // CAN Id = 11
+   ^
+..\src\Robot.cpp:115:22: error: expected type-specifier before 'CANTalon'
+   shooterMotor = new CANTalon( 11 ); // CAN Id = 11
+                      ^
+..\src\Robot.cpp:119:36: error: 'CANTalon' has not been declared
+   shooterMotor->SetFeedbackDevice( CANTalon::CtreMagEncoder_Relative );
+                                    ^
+..\src\Robot.cpp:124:38: error: 'CANTalon' has not been declared
+   shooterMotor->SetTalonControlMode( CANTalon::kDisabled );
+                                      ^
+..\src\Robot.cpp:130:34: error: 'CANTalon' has not been declared
+   shooterMotor->ConfigLimitMode( CANTalon::kLimitMode_SrxDisableSwitchInputs ); 
+                                  ^
+..\src\Robot.cpp:155:51: warning: 'static std::shared_ptr<nt::NetworkTable> nt::NetworkTable::GetTable(llvm::StringRef)' is deprecated (declared at C:\Users\James Kemp/wpilib/cpp/current/include/NetworkTables/NetworkTable.h:277): use NetworkTableInstance::GetTable() or NetworkTableInstance::GetEntry() instead [-Wdeprecated-declarations]
+   table = NetworkTable::GetTable( "DriverStation" );
+                                                   ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TestInit()':
+..\src\Robot.cpp:224:3: error: 'gyro' was not declared in this scope
+   gyro->SetFusedHeading( 0.0 );  // This just zeros the heading.
+   ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TestPeriodic()':
+..\src\Robot.cpp:247:11: warning: 'void frc::LiveWindow::Run()' is deprecated (declared at C:\Users\James Kemp/wpilib/cpp/current/include/LiveWindow/LiveWindow.h:31): no longer required [-Wdeprecated-declarations]
+   lw->Run();
+           ^
+..\src\Robot.cpp:285:4: error: 'shooterMotor' was not declared in this scope
+    shooterMotor->Set( 0.5 );
+    ^
+..\src\Robot.cpp:288:4: error: 'shooterMotor' was not declared in this scope
+    shooterMotor->Set( 0.75 );
+    ^
+..\src\Robot.cpp:291:4: error: 'shooterMotor' was not declared in this scope
+    shooterMotor->Set( 0.0 );
+    ^
+..\src\Robot.cpp:333:16: error: 'shooterMotor' was not declared in this scope
+   int shRate = shooterMotor->GetSpeed();
+                ^
+..\src\Robot.cpp: In member function 'void Robot::shootBalls(bool)':
+..\src\Robot.cpp:394:4: error: 'shooterMotor' was not declared in this scope
+    shooterMotor->Set( 0.5 );
+    ^
+..\src\Robot.cpp:400:4: error: 'shooterMotor' was not declared in this scope
+    shooterMotor->Set( 0.0 );   // Stop motors if flag is false.
+    ^
+..\src\Robot.cpp: In member function 'void Robot::gyroTestForReset()':
+..\src\Robot.cpp:437:4: error: 'gyro' was not declared in this scope
+    gyro->SetFusedHeading( 0.0 );
+    ^
+..\src\Robot.cpp: In member function 'void Robot::gyroUpdate(double*, double*)':
+..\src\Robot.cpp:449:3: error: 'gyro' was not declared in this scope
+   gyro->GetRawGyro( rates );
+   ^
+15:06:57 **** Incremental Build of configuration Debug for project TestCode ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
+In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
+                 from ..\src\Pigeon.cpp:6:
+C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
+ #include "CANSpeedController.h"
+                                ^
+compilation terminated.
+15:07:39 **** Incremental Build of configuration Debug for project TestCode ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
+In file included from C:\Users\James Kemp/wpilib/cpp/current/include/ErrorBase.h:14:0,
+                 from C:\Users\James Kemp/wpilib/cpp/current/include/I2C.h:12,
+                 from C:\Users\James Kemp/wpilib/cpp/current/include/ADXL345_I2C.h:10,
+                 from C:\Users\James Kemp/wpilib/cpp/current/include/WPILib.h:10,
+                 from ..\src\Pigeon.cpp:6:
+C:\Users\James Kemp/wpilib/cpp/current/include/Base.h:11:1: error: static assertion failed: GCC must be 5 or greater. If building for the roboRIO, please update to the 2018 toolchains.
+ static_assert(0,
+ ^
+..\src\Pigeon.cpp:14:1: error: 'PigeonImu' does not name a type
+ PigeonImu * pidgey = new PigeonImu(14);
+ ^
+..\src\Pigeon.cpp:16:5: error: 'Pigeon' has not been declared
+ int Pigeon::NormalizeAngle(int angle){
+     ^
+..\src\Pigeon.cpp:26:6: error: 'Pigeon' has not been declared
+ void Pigeon::ResetYaw(){
+      ^
+..\src\Pigeon.cpp: In function 'void ResetYaw()':
+..\src\Pigeon.cpp:27:2: error: 'pidgey' was not declared in this scope
+  pidgey->SetYaw(0.0);
+  ^
+..\src\Pigeon.cpp: At global scope:
+..\src\Pigeon.cpp:30:8: error: 'Pigeon' has not been declared
+ double Pigeon::GetYaw(){
+        ^
+..\src\Pigeon.cpp: In function 'double GetYaw()':
+..\src\Pigeon.cpp:32:2: error: 'pidgey' was not declared in this scope
+  pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Pigeon.cpp: At global scope:
+..\src\Pigeon.cpp:36:8: error: 'Pigeon' has not been declared
+ double Pigeon::GetFusedHeading(){
+        ^
+..\src\Pigeon.cpp: In function 'double GetFusedHeading()':
+..\src\Pigeon.cpp:37:9: error: 'pidgey' was not declared in this scope
+  return pidgey->GetFusedHeading();
+         ^
+..\src\Pigeon.cpp:38:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^

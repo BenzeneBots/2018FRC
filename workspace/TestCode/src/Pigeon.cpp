@@ -1,14 +1,15 @@
 //
 //  Pigeon.cpp
+// this code was written by FRC team 4384s
 //
 
 #include "WPILib.h"
-#include "PigeonImu.h"
-#include "CANTalon.h"
+//s#include "PigeonImu.h"
+//#include "CANTalon.h"
 
-#include "Pigeon.h"
+//#include "Pigeon.h"
 
-using namespace Pigeon;
+//using namespace Pigeon;
 
 PigeonImu * pidgey = new PigeonImu(14);
 

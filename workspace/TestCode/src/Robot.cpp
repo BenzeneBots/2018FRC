@@ -19,7 +19,7 @@
 #include "NetworkTables/NetworkTable.h"
 
 #include "WPILib.h"
-#include "PigeonImu.h"
+//s#include "PigeonImu.h"
 
 #include "GenericHID.h"
 
@@ -35,11 +35,11 @@ PowerDistributionPanel *pdp;
 Encoder *leftEnc;
 Encoder *rightEnc;
 //PIDController *pidLeft, *pidRight;
-PigeonImu *gyro;
+P//igeonImu *gyro;
 Talon *leftMtr, *rightMtr;
 Timer *tm;
 DigitalOutput *dioOut1;
-CANTalon *shooterMotor;
+//CANTalon *shooterMotor;
 Talon *murWheel1, *murWheel2;
 GearTooth *leftMtrSp, *rightMtrSp;
 std::shared_ptr<NetworkTable> table;
@@ -77,7 +77,7 @@ public:
 		//frc::SmartDashboard::PutData("Auto Modes", &chooser);
 
 		// Setup Gyro
-		gyro = new PigeonImu( 14 );
+	//	gyro = new PigeonImu( 14 );
 		gyro->SetFusedHeading( 0.0 );
 
 		// Setup Motor Controllers
@@ -112,22 +112,22 @@ public:
 		// murWheel2 = new Talon( ??? );		// ToDo Assign Channel
 
 		// Shooter - CAN TalonSRX Setup
-		shooterMotor = new CANTalon( 11 );	// CAN Id = 11
+	//	shooterMotor = new CANTalon( 11 );	// CAN Id = 11
 		shooterMotor->SetInverted( true );
 
 		// Shooter - Encoder Setup
-		shooterMotor->SetFeedbackDevice( CANTalon::CtreMagEncoder_Relative );
+	//	shooterMotor->SetFeedbackDevice( CANTalon::CtreMagEncoder_Relative );
 		shooterMotor->SetSensorDirection( true );
 		shooterMotor->ConfigEncoderCodesPerRev( 4096 );
 
 		// Shooter - PID Controller Setup
-		shooterMotor->SetTalonControlMode( CANTalon::kDisabled );
+	//	shooterMotor->SetTalonControlMode( CANTalon::kDisabled );
 		// Use slot one (can be zero or one).
 		shooterMotor->SelectProfileSlot( 1 );											
 		shooterMotor->ConfigNominalOutputVoltage( +0.f, -0.f );
 		shooterMotor->ConfigPeakOutputVoltage( +12.f, -12.f );
 		// Disable Limit SW and Soft Limits.
-		shooterMotor->ConfigLimitMode( CANTalon::kLimitMode_SrxDisableSwitchInputs );	
+	//	shooterMotor->ConfigLimitMode( CANTalon::kLimitMode_SrxDisableSwitchInputs );
 		// Ramp: (Xsec/V / 12V)
 		shooterMotor->SetVoltageRampRate( 12.0 );										
 
