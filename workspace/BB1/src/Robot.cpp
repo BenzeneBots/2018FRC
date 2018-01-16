@@ -19,7 +19,7 @@
 #include "NetworkTables/NetworkTable.h"
 
 #include "WPILib.h"
-//s#include "PigeonImu.h"
+//#include "PigeonImu.h"
 
 #include "GenericHID.h"
 
@@ -34,12 +34,12 @@ Solenoid *gearOpener;
 PowerDistributionPanel *pdp;
 Encoder *leftEnc;
 Encoder *rightEnc;
-//PIDController *pidLeft, *pidRight;
-P//igeonImu *gyro;
+PIDController *pidLeft, *pidRight;
+//PigeonImu *gyro;
 Talon *leftMtr, *rightMtr;
 Timer *tm;
 DigitalOutput *dioOut1;
-//CANTalon *shooterMotor;
+Talon *shooterMotor;
 Talon *murWheel1, *murWheel2;
 GearTooth *leftMtrSp, *rightMtrSp;
 std::shared_ptr<NetworkTable> table;
@@ -78,7 +78,7 @@ public:
 
 		// Setup Gyro
 	//	gyro = new PigeonImu( 14 );
-		gyro->SetFusedHeading( 0.0 );
+		//gyro->SetFusedHeading( 0.0 );
 
 		// Setup Motor Controllers
 		leftDrv = new Talon( 3 );	leftDrv->SetInverted( false );
@@ -108,28 +108,28 @@ public:
 		gearOpener = new Solenoid( 0 );				// Channel 0
 		shifter = new DoubleSolenoid( 1, 2 );		// Setup double acting sol on channel 1, 2.
 
-		//murWheel1 = new Talon( 4 );
+		murWheel1 = new Talon( 4 );
 		// murWheel2 = new Talon( ??? );		// ToDo Assign Channel
 
 		// Shooter - CAN TalonSRX Setup
-	//	shooterMotor = new CANTalon( 11 );	// CAN Id = 11
+	    shooterMotor = new Talon( 11 );	// CAN Id = 11
 		shooterMotor->SetInverted( true );
 
 		// Shooter - Encoder Setup
-	//	shooterMotor->SetFeedbackDevice( CANTalon::CtreMagEncoder_Relative );
-		shooterMotor->SetSensorDirection( true );
-		shooterMotor->ConfigEncoderCodesPerRev( 4096 );
+		//shooterMotor->SetFeedbackDevice( Talon::CtreMagEncoder_Relative );
+		//shooterMotor->SetSensorDirection( true );
+		//shooterMotor->ConfigEncoderCodesPerRev( 4096 );
 
 		// Shooter - PID Controller Setup
-	//	shooterMotor->SetTalonControlMode( CANTalon::kDisabled );
+	 	//shooterMotor->SetTalonControlMode( Talon::kDisabled );
 		// Use slot one (can be zero or one).
-		shooterMotor->SelectProfileSlot( 1 );											
-		shooterMotor->ConfigNominalOutputVoltage( +0.f, -0.f );
-		shooterMotor->ConfigPeakOutputVoltage( +12.f, -12.f );
+		//shooterMotor->SelectProfileSlot( 1 );
+		//shooterMotor->ConfigNominalOutputVoltage( +0.f, -0.f );
+		//shooterMotor->ConfigPeakOutputVoltage( +12.f, -12.f );
 		// Disable Limit SW and Soft Limits.
-	//	shooterMotor->ConfigLimitMode( CANTalon::kLimitMode_SrxDisableSwitchInputs );
+		//shooterMotor->ConfigLimitMode( Talon::kLimitMode_SrxDisableSwitchInputs );
 		// Ramp: (Xsec/V / 12V)
-		shooterMotor->SetVoltageRampRate( 12.0 );										
+		//shooterMotor->SetVoltageRampRate( 12.0 );
 
 		// Murali - Two Wheel Shooter
 		leftMtr = new Talon( 4 );
@@ -152,7 +152,7 @@ public:
 
 		dioOut1 = new DigitalOutput( 4 );	// Setup test output pin.
 
-		table = NetworkTable::GetTable( "DriverStation" );
+		//table = NetworkTable::GetTable( "DriverStation" );
 
     	std::thread t1(thread200Hz);	// This starts the thread right away!
     	t1.detach();					// Detach from this thread.
@@ -221,7 +221,7 @@ public:
 	void TestInit() override {
 		printf( "TestInit...\n" );
 		shifter->Set( shifter->kForward );	// Set solenoid to a default state.
-		gyro->SetFusedHeading( 0.0 );		// This just zeros the heading.
+		//gyro->SetFusedHeading( 0.0 );		// This just zeros the heading.
 
 		//pidLeft->Enable();
 		//pidRight->Enable();
@@ -244,7 +244,7 @@ public:
 		static uint16_t cntDebug=0;
 		static bool flg=false;
 
-		lw->Run();
+		//lw->Run();
 
 		// Run cntDebug up to 50 and then roll over back to zero.  When cntDebug
 		// is zero then print out debug messages.  This slows the rate of messages!
@@ -434,7 +434,7 @@ private:
 		bool flg = SmartDashboard::GetBoolean( "imuReset", false );
 
 		if( flg ) {
-			gyro->SetFusedHeading( 0.0 );
+			//gyro->SetFusedHeading( 0.0 );
 			// Reset the SmartDash button back to off / false.
 			SmartDashboard::PutBoolean( "imuReset", false );
 		}
@@ -446,9 +446,9 @@ private:
 	void gyroUpdate( double *angle, double *rate ) {
 
 		double rates[3];	// Holes gyro rates for x, y, and z.
-		gyro->GetRawGyro( rates );
+		//gyro->GetRawGyro( rates );
 		*rate = rates[2];	// Return gyro rate for Z axis.
-		*angle = gyro->GetFusedHeading();
+		//*angle = gyro->GetFusedHeading();
 
 		SmartDashboard::PutNumber( "imuHeading", *angle );
 		SmartDashboard::PutNumber( "imuRate", *rate );
