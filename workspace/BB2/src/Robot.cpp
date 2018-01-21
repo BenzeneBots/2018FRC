@@ -12,7 +12,9 @@
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
 #include <TimedRobot.h>
-#include <ctre/Phoenix.h>
+//#include <ctre/Phoenix.h>
+#include <WPILib.h>
+#include <Talon.h>
 
 class Robot : public frc::TimedRobot {
 public:
@@ -23,15 +25,7 @@ public:
 
 
 		//Initialize motor controllers
-		TalonSRX *leftDriveMotor = new TalonSRX(0);
-		leftDriveMotor->EnableDeadbandElimination(false);
-		leftDriveMotor->SetControlMode(kPercentVbus);
-		leftDriveMotor->Set(0.0);
 
-		TalonSRX *rightDriveMotor = new TalonSRX(1);
-		rightDriveMotor->EnableDeadbandElimination(false);
-		rightDriveMotor->SetControlMode(kPercentVbus);
-		rightDriveMotor->Set(0.0);
 
 	}
 
@@ -69,7 +63,14 @@ public:
 		}
 	}
 
-	void TeleopInit() {}
+	void TeleopInit() {
+		Victor *leftDriveMotor = new Victor(1);
+		Victor *rightDriveMotor = new Victor(2);
+
+		//Create RobotDriveObject
+		DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
+
+	}
 
 	void TeleopPeriodic() {}
 
