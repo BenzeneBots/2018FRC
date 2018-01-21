@@ -18,6 +18,12 @@
 
 class Robot : public frc::TimedRobot {
 public:
+	Victor *leftDriveMotor = new Victor(1);
+	Victor *rightDriveMotor = new Victor(2);
+
+	//Create RobotDriveObject
+	RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
+
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
 		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
@@ -64,11 +70,6 @@ public:
 	}
 
 	void TeleopInit() {
-		Victor *leftDriveMotor = new Victor(1);
-		Victor *rightDriveMotor = new Victor(2);
-
-		//Create RobotDriveObject
-		DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
 
 	}
 
