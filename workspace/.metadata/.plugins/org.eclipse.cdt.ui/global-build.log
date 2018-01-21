@@ -1,212 +1,144 @@
-18:56:34 **** Rebuild of configuration Debug for project InteractiveTest ****
+14:25:46 **** Rebuild of configuration Debug for project BB1 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\InteractiveTest\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\InteractiveTest\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
-18:57:34 **** Clean-only build of configuration Debug for project TestCode ****
-rm -rf FRCUserProgram src/Robot.d src/Robot.o src/Pigeon.d src/Pigeon.o 
-Cannot run program "rm": Launching failed
-
-Error: Program "rm" not found in PATH
-PATH=[\usr\local\bin;C:/Program Files/Java/jre1.8.0_111/bin/server;C:/Program Files/Java/jre1.8.0_111/bin;C:/Program Files/Java/jre1.8.0_111/lib/amd64;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\frc\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files (x86)\serialplot\bin;C:\Program Files (x86)\SlickEdit\win;C:\Program Files\eclipse]
-
-18:57:34 **** Clean-only build of configuration Debug for project TestCode ****
-18:57:38 **** Rebuild of configuration Debug for project TestCode ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB1\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB1\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/user/cpp/lib" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+14:28:36 **** Incremental Build of configuration Debug for project BB1 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
-19:02:49 **** Incremental Build of configuration Debug for project TestCode ****
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/user/cpp/lib" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB1
+14:28:58 **** Incremental Build of configuration Debug for project BB1 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
-19:06:36 **** Clean-only build of configuration Debug for project TestCode ****
-rm -rf FRCUserProgram src/Robot.d src/Robot.o src/Pigeon.d src/Pigeon.o 
-Cannot run program "rm": Launching failed
-
-Error: Program "rm" not found in PATH
-PATH=[\usr\local\bin;C:/Program Files/Java/jre1.8.0_111/bin/server;C:/Program Files/Java/jre1.8.0_111/bin;C:/Program Files/Java/jre1.8.0_111/lib/amd64;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\Tools\Binn\;c:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\frc\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files (x86)\serialplot\bin;C:\Program Files (x86)\SlickEdit\win;C:\Program Files\eclipse]
-
-19:06:36 **** Clean-only build of configuration Debug for project TestCode ****
-19:06:42 **** Rebuild of configuration Debug for project TestCode ****
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/user/cpp/lib" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB1
+15:20:29 **** Incremental Build of configuration Debug for project BB1 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
-Info: Nothing to build for TestCode
-Info: Nothing to build for TestCode
-19:08:22 **** Incremental Build of configuration Debug for project TestCode ****
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/user/cpp/lib" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+15:39:16 **** Rebuild of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
-19:22:52 **** Incremental Build of configuration Debug for project TestCode ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB1
+15:54:32 **** Rebuild of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
-19:34:49 **** Incremental Build of configuration Debug for project TestCode ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\James Kemp/wpilib/cpp/current/lib" "-LC:\\Users\\James Kemp/wpilib/user/cpp/lib" -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM -o FRCUserProgram "src\\Pigeon.o" "src\\Robot.o" -lCTRLib -lwpi 
-14:46:09 **** Incremental Build of configuration Debug for project TestCode ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
-                 from ..\src\Robot.cpp:22:
-C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
- #include "CANSpeedController.h"
-                                ^
-compilation terminated.
-15:03:24 **** Incremental Build of configuration Debug for project TestCode ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
-                 from ..\src\Robot.cpp:22:
-C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
- #include "CANSpeedController.h"
-                                ^
-compilation terminated.
-15:03:47 **** Incremental Build of configuration Debug for project TestCode ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
-In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
-                 from ..\src\Pigeon.cpp:6:
-C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
- #include "CANSpeedController.h"
-                                ^
-compilation terminated.
-15:05:31 **** Incremental Build of configuration Debug for project TestCode ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
-                 from ..\src\Robot.cpp:22:
-C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
- #include "CANSpeedController.h"
-                                ^
-compilation terminated.
-15:05:48 **** Incremental Build of configuration Debug for project TestCode ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-In file included from C:\Users\James Kemp/wpilib/cpp/current/include/RobotBase.h:15:0,
-                 from C:\Users\James Kemp/wpilib/cpp/current/include/IterativeRobotBase.h:10,
-                 from C:\Users\James Kemp/wpilib/cpp/current/include/IterativeRobot.h:10,
-                 from ..\src\Robot.cpp:15:
-C:\Users\James Kemp/wpilib/cpp/current/include/Base.h:11:1: error: static assertion failed: GCC must be 5 or greater. If building for the roboRIO, please update to the 2018 toolchains.
- static_assert(0,
- ^
-..\src\Robot.cpp:38:1: error: 'PigeonImu' does not name a type
- PigeonImu *gyro;
- ^
-..\src\Robot.cpp:42:1: error: 'CANTalon' does not name a type
- CANTalon *shooterMotor;
- ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 ..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:80:3: error: 'gyro' was not declared in this scope
-   gyro = new PigeonImu( 14 );
+..\src\Robot.cpp:25:3: error: 'TalonSRX' was not declared in this scope
+   TalonSRX *leftDriveMotor = new TalonSRX(0);
    ^
-..\src\Robot.cpp:80:14: error: expected type-specifier before 'PigeonImu'
-   gyro = new PigeonImu( 14 );
-              ^
-..\src\Robot.cpp:115:3: error: 'shooterMotor' was not declared in this scope
-   shooterMotor = new CANTalon( 11 ); // CAN Id = 11
-   ^
-..\src\Robot.cpp:115:22: error: expected type-specifier before 'CANTalon'
-   shooterMotor = new CANTalon( 11 ); // CAN Id = 11
-                      ^
-..\src\Robot.cpp:119:36: error: 'CANTalon' has not been declared
-   shooterMotor->SetFeedbackDevice( CANTalon::CtreMagEncoder_Relative );
-                                    ^
-..\src\Robot.cpp:124:38: error: 'CANTalon' has not been declared
-   shooterMotor->SetTalonControlMode( CANTalon::kDisabled );
-                                      ^
-..\src\Robot.cpp:130:34: error: 'CANTalon' has not been declared
-   shooterMotor->ConfigLimitMode( CANTalon::kLimitMode_SrxDisableSwitchInputs ); 
+..\src\Robot.cpp:25:13: error: 'leftDriveMotor' was not declared in this scope
+   TalonSRX *leftDriveMotor = new TalonSRX(0);
+             ^
+..\src\Robot.cpp:25:34: error: expected type-specifier before 'TalonSRX'
+   TalonSRX *leftDriveMotor = new TalonSRX(0);
                                   ^
-..\src\Robot.cpp:155:51: warning: 'static std::shared_ptr<nt::NetworkTable> nt::NetworkTable::GetTable(llvm::StringRef)' is deprecated (declared at C:\Users\James Kemp/wpilib/cpp/current/include/NetworkTables/NetworkTable.h:277): use NetworkTableInstance::GetTable() or NetworkTableInstance::GetEntry() instead [-Wdeprecated-declarations]
-   table = NetworkTable::GetTable( "DriverStation" );
-                                                   ^
-..\src\Robot.cpp: In member function 'virtual void Robot::TestInit()':
-..\src\Robot.cpp:224:3: error: 'gyro' was not declared in this scope
-   gyro->SetFusedHeading( 0.0 );  // This just zeros the heading.
-   ^
-..\src\Robot.cpp: In member function 'virtual void Robot::TestPeriodic()':
-..\src\Robot.cpp:247:11: warning: 'void frc::LiveWindow::Run()' is deprecated (declared at C:\Users\James Kemp/wpilib/cpp/current/include/LiveWindow/LiveWindow.h:31): no longer required [-Wdeprecated-declarations]
-   lw->Run();
-           ^
-..\src\Robot.cpp:285:4: error: 'shooterMotor' was not declared in this scope
-    shooterMotor->Set( 0.5 );
-    ^
-..\src\Robot.cpp:288:4: error: 'shooterMotor' was not declared in this scope
-    shooterMotor->Set( 0.75 );
-    ^
-..\src\Robot.cpp:291:4: error: 'shooterMotor' was not declared in this scope
-    shooterMotor->Set( 0.0 );
-    ^
-..\src\Robot.cpp:333:16: error: 'shooterMotor' was not declared in this scope
-   int shRate = shooterMotor->GetSpeed();
-                ^
-..\src\Robot.cpp: In member function 'void Robot::shootBalls(bool)':
-..\src\Robot.cpp:394:4: error: 'shooterMotor' was not declared in this scope
-    shooterMotor->Set( 0.5 );
-    ^
-..\src\Robot.cpp:400:4: error: 'shooterMotor' was not declared in this scope
-    shooterMotor->Set( 0.0 );   // Stop motors if flag is false.
-    ^
-..\src\Robot.cpp: In member function 'void Robot::gyroTestForReset()':
-..\src\Robot.cpp:437:4: error: 'gyro' was not declared in this scope
-    gyro->SetFusedHeading( 0.0 );
-    ^
-..\src\Robot.cpp: In member function 'void Robot::gyroUpdate(double*, double*)':
-..\src\Robot.cpp:449:3: error: 'gyro' was not declared in this scope
-   gyro->GetRawGyro( rates );
-   ^
-15:06:57 **** Incremental Build of configuration Debug for project TestCode ****
+..\src\Robot.cpp:29:13: error: 'rightDriveMotor' was not declared in this scope
+   TalonSRX *rightDriveMotor = new TalonSRX(1);
+             ^
+..\src\Robot.cpp:29:35: error: expected type-specifier before 'TalonSRX'
+   TalonSRX *rightDriveMotor = new TalonSRX(1);
+                                   ^
+Info: Nothing to build for BB1
+15:58:32 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
-In file included from C:\Users\James Kemp/wpilib/user/cpp/include/PigeonImu.h:27:0,
-                 from ..\src\Pigeon.cpp:6:
-C:\Users\James Kemp/wpilib/user/cpp/include/CANTalon.h:13:32: fatal error: CANSpeedController.h: No such file or directory
- #include "CANSpeedController.h"
-                                ^
-compilation terminated.
-15:07:39 **** Incremental Build of configuration Debug for project TestCode ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
+   leftDriveMotor->EnableDeadbandElimination(false);
+                   ^
+..\src\Robot.cpp:28:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
+   leftDriveMotor->Set(1.0);
+                          ^
+In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
+                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
+                 from ..\src\Robot.cpp:15:
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
+  virtual void Set(ControlMode Mode, double value);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
+  virtual void Set(ControlMode mode, double demand0, double demand1);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
+..\src\Robot.cpp:30:13: warning: unused variable 'rightDriveMotor' [-Wunused-variable]
+   TalonSRX *rightDriveMotor = new TalonSRX(1);
+             ^
+Info: Nothing to build for BB1
+16:09:42 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\James Kemp/wpilib/cpp/current/include" "-IZ:\\Documents\\Sync\\FIRST\\2018FRC\\workspace\\TestCode\\src" "-IC:\\Users\\James Kemp/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Pigeon.o" "..\\src\\Pigeon.cpp" 
-In file included from C:\Users\James Kemp/wpilib/cpp/current/include/ErrorBase.h:14:0,
-                 from C:\Users\James Kemp/wpilib/cpp/current/include/I2C.h:12,
-                 from C:\Users\James Kemp/wpilib/cpp/current/include/ADXL345_I2C.h:10,
-                 from C:\Users\James Kemp/wpilib/cpp/current/include/WPILib.h:10,
-                 from ..\src\Pigeon.cpp:6:
-C:\Users\James Kemp/wpilib/cpp/current/include/Base.h:11:1: error: static assertion failed: GCC must be 5 or greater. If building for the roboRIO, please update to the 2018 toolchains.
- static_assert(0,
- ^
-..\src\Pigeon.cpp:14:1: error: 'PigeonImu' does not name a type
- PigeonImu * pidgey = new PigeonImu(14);
- ^
-..\src\Pigeon.cpp:16:5: error: 'Pigeon' has not been declared
- int Pigeon::NormalizeAngle(int angle){
-     ^
-..\src\Pigeon.cpp:26:6: error: 'Pigeon' has not been declared
- void Pigeon::ResetYaw(){
-      ^
-..\src\Pigeon.cpp: In function 'void ResetYaw()':
-..\src\Pigeon.cpp:27:2: error: 'pidgey' was not declared in this scope
-  pidgey->SetYaw(0.0);
-  ^
-..\src\Pigeon.cpp: At global scope:
-..\src\Pigeon.cpp:30:8: error: 'Pigeon' has not been declared
- double Pigeon::GetYaw(){
-        ^
-..\src\Pigeon.cpp: In function 'double GetYaw()':
-..\src\Pigeon.cpp:32:2: error: 'pidgey' was not declared in this scope
-  pidgey->GetYawPitchRoll(ypr_array);
-  ^
-..\src\Pigeon.cpp: At global scope:
-..\src\Pigeon.cpp:36:8: error: 'Pigeon' has not been declared
- double Pigeon::GetFusedHeading(){
-        ^
-..\src\Pigeon.cpp: In function 'double GetFusedHeading()':
-..\src\Pigeon.cpp:37:9: error: 'pidgey' was not declared in this scope
-  return pidgey->GetFusedHeading();
-         ^
-..\src\Pigeon.cpp:38:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
+   leftDriveMotor->EnableDeadbandElimination(false);
+                   ^
+..\src\Robot.cpp:28:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
+   leftDriveMotor->SetControlMode(kPercentVbus);
+                   ^
+..\src\Robot.cpp:28:34: error: 'kPercentVbus' was not declared in this scope
+   leftDriveMotor->SetControlMode(kPercentVbus);
+                                  ^
+..\src\Robot.cpp:29:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
+   leftDriveMotor->Set(0.0)
+                          ^
+In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
+                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
+                 from ..\src\Robot.cpp:15:
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
+  virtual void Set(ControlMode Mode, double value);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
+  virtual void Set(ControlMode mode, double demand0, double demand1);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
+..\src\Robot.cpp:32:3: error: 'rightDriveMotor' was not declared in this scope
+   rightDriveMotor->EnableDeadbandElimination(false);
+   ^
+Info: Nothing to build for BB1
+16:09:50 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
+   leftDriveMotor->EnableDeadbandElimination(false);
+                   ^
+..\src\Robot.cpp:28:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
+   leftDriveMotor->SetControlMode(kPercentVbus);
+                   ^
+..\src\Robot.cpp:28:34: error: 'kPercentVbus' was not declared in this scope
+   leftDriveMotor->SetControlMode(kPercentVbus);
+                                  ^
+..\src\Robot.cpp:29:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
+   leftDriveMotor->Set(0.0);
+                          ^
+In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
+                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
+                 from ..\src\Robot.cpp:15:
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
+  virtual void Set(ControlMode Mode, double value);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
+  virtual void Set(ControlMode mode, double demand0, double demand1);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
+..\src\Robot.cpp:32:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
+   rightDriveMotor->EnableDeadbandElimination(false);
+                    ^
+..\src\Robot.cpp:33:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
+   rightDriveMotor->SetControlMode(kPercentVbus);
+                    ^
+..\src\Robot.cpp:34:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
+   rightDriveMotor->Set(0.0);
+                           ^
+In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
+                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
+                 from ..\src\Robot.cpp:15:
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
+  virtual void Set(ControlMode Mode, double value);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
+  virtual void Set(ControlMode mode, double demand0, double demand1);
+               ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
