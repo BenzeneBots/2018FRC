@@ -16,18 +16,17 @@
 #include <WPILib.h>
 #include <Talon.h>
 
-
 class Robot : public frc::TimedRobot {
 public:
-	class RobotDrive *drivetrain;
-	class TalonSRX *frontLeft, *frontRight, *rearLeft, *rearRight;
-	class Joystick *driveStick;
+	RobotDrive *drivetrain;
+	TalonSRX *frontLeft, *frontRight, *rearLeft, *rearRight;
+	Joystick *driveStick;
 
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
 		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
-	}
+	};
 
 	/*
 	 * This autonomous (along with the chooser code above) shows how to
@@ -53,7 +52,7 @@ public:
 		} else {
 			// Default Auto goes here
 		}
-	}
+	};
 
 	void AutonomousPeriodic() {
 		if (m_autoSelected == kAutoNameCustom) {
@@ -61,18 +60,18 @@ public:
 		} else {
 			// Default Auto goes here
 		}
-	}
+	};
 
 	void TeleopInit() {
 		//Initialize motor controllers
 
 		        // front set
-		        frc::TalonSRX frontLeft(1);
-		        frc::TalonSRX rearLeft(2);
+		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX frontLeft(1);
+		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX rearLeft(2);
 
 		        // rear set
-		        frc::TalonSRX frontRight(3);
-		        frc::TalonSRX rearRight(4);
+		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX frontRight(3);
+		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX rearRight(4);
 
 		        // speed controllers
 		        SpeedControllerGroup m_left(frontLeft, rearLeft);
@@ -84,19 +83,19 @@ public:
 		       // Use differential drive object
 		        driveStick = new Joystick(1);
 		        drivetrain->SetSafetyEnabled(true);
-			}
-	}
+	};
 
-	void TeleopPeriodic() {}
+	void TeleopPeriodic() {};
 
-	void TestPeriodic() {}
+	void TestPeriodic() {};
 
-private:
+	private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
 	frc::SendableChooser<std::string> m_chooser;
 	const std::string kAutoNameDefault = "Default";
 	const std::string kAutoNameCustom = "My Auto";
 	std::string m_autoSelected;
+
 };
 
-START_ROBOT_CLASS(Robot)
+START_ROBOT_CLASS(Robot);
