@@ -1158,3 +1158,258 @@ C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared her
    RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
    ^
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+23:29:31 **** Rebuild of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+Cannot run program "arm-frc-linux-gnueabi-g++": Launching failed
+
+Error: Program "arm-frc-linux-gnueabi-g++" not found in PATH
+PATH=[\usr\local\bin;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\Sanket Nayak\AppData\Local\Microsoft\WindowsApps;C:\Users\Sanket Nayak\AppData\Local\GitHubDesktop\bin;\\vmware-host\Shared Folders\Desktop]
+
+23:40:39 **** Rebuild of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+Cannot run program "arm-frc-linux-gnueabi-g++": Launching failed
+
+Error: Program "arm-frc-linux-gnueabi-g++" not found in PATH
+PATH=[\usr\local\bin;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\Sanket Nayak\AppData\Local\Microsoft\WindowsApps;C:\Users\Sanket Nayak\AppData\Local\GitHubDesktop\bin;\\vmware-host\Shared Folders\Desktop]
+
+23:40:39 **** Incremental Build of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+Cannot run program "arm-frc-linux-gnueabi-g++": Launching failed
+
+Error: Program "arm-frc-linux-gnueabi-g++" not found in PATH
+PATH=[\usr\local\bin;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\Sanket Nayak\AppData\Local\Microsoft\WindowsApps;C:\Users\Sanket Nayak\AppData\Local\GitHubDesktop\bin;\\vmware-host\Shared Folders\Desktop]
+
+23:45:39 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+Cannot run program "arm-frc-linux-gnueabi-g++": Launching failed
+
+Error: Program "arm-frc-linux-gnueabi-g++" not found in PATH
+PATH=[\usr\local\bin;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\Sanket Nayak\AppData\Local\Microsoft\WindowsApps;C:\Users\Sanket Nayak\AppData\Local\GitHubDesktop\bin;\\vmware-host\Shared Folders\Desktop]
+
+23:45:39 **** Rebuild of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+Cannot run program "arm-frc-linux-gnueabi-g++": Launching failed
+
+Error: Program "arm-frc-linux-gnueabi-g++" not found in PATH
+PATH=[\usr\local\bin;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\Sanket Nayak\AppData\Local\Microsoft\WindowsApps;C:\Users\Sanket Nayak\AppData\Local\GitHubDesktop\bin;\\vmware-host\Shared Folders\Desktop]
+
+00:09:17 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:26:73: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+  RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
+                                                                         ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared here
+   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
+   ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(frc::Victor, frc::Victor, frc::Victor, frc::Victor)':
+..\src\Subsystems\Drive.cpp:18:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::SpeedControllerGroup*&, frc::SpeedControllerGroup*&)'
+     drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+                                                             ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:45:0,
+                 from \\VMWARE-HOST\Shared Folders\Desktop\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
+   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
+   ^
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::SpeedControllerGroup*' to 'frc::SpeedController&'
+00:09:33 **** Incremental Build of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:75:2: error: expected ';' after class definition
+  }
+  ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:3: error: 'm_chooser' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+   ^
+..\src\Robot.cpp:27:24: error: 'kAutoNameDefault' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+                        ^
+..\src\Robot.cpp:28:23: error: 'kAutoNameCustom' was not declared in this scope
+   m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:46:3: error: 'm_autoSelected' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:46:20: error: 'm_chooser' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+                    ^
+..\src\Robot.cpp:51:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:59:7: error: 'm_autoSelected' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+       ^
+..\src\Robot.cpp:59:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:71:32: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                           ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:53: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                     ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 3 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:65: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                 ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 4 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:74: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                          ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:72:40: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain = new RobotDrive(1,2,3,4);
+                                        ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp: At global scope:
+..\src\Robot.cpp:81:1: error: expected unqualified-id before 'private'
+ private:
+ ^
+..\src\Robot.cpp:87:1: error: expected declaration before '}' token
+ };
+ ^
+00:10:44 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(frc::Victor, frc::Victor, frc::Victor, frc::Victor)':
+..\src\Subsystems\Drive.cpp:18:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::SpeedControllerGroup*&, frc::SpeedControllerGroup*&)'
+     drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+                                                             ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:45:0,
+                 from \\VMWARE-HOST\Shared Folders\Desktop\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
+   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
+   ^
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::SpeedControllerGroup*' to 'frc::SpeedController&'
+00:10:47 **** Incremental Build of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:75:2: error: expected ';' after class definition
+  }
+  ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:3: error: 'm_chooser' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+   ^
+..\src\Robot.cpp:27:24: error: 'kAutoNameDefault' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+                        ^
+..\src\Robot.cpp:28:23: error: 'kAutoNameCustom' was not declared in this scope
+   m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:46:3: error: 'm_autoSelected' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:46:20: error: 'm_chooser' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+                    ^
+..\src\Robot.cpp:51:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:59:7: error: 'm_autoSelected' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+       ^
+..\src\Robot.cpp:59:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:71:32: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                           ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:53: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                     ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 3 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:65: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                 ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 4 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:74: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                          ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:72:40: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain = new RobotDrive(1,2,3,4);
+                                        ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp: At global scope:
+..\src\Robot.cpp:81:1: error: expected unqualified-id before 'private'
+ private:
+ ^
+..\src\Robot.cpp:87:1: error: expected declaration before '}' token
+ };
+ ^
