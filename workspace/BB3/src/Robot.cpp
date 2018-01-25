@@ -74,11 +74,11 @@ public:
 		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX rearRight(4);
 
 		        // speed controllers
-		        SpeedControllerGroup m_left(frontLeft, rearLeft);
-		        SpeedControllerGroup m_right{frontRight, rearRight};
+		        SpeedControllerGroup leftDrive(frontLeft, rearLeft);
+		        SpeedControllerGroup rightDrive{frontRight, rearRight};
 
 		        // Create drive object
-		        DifferentialDrive *drivetrain = new DifferentialDrive(m_left, m_right);
+		        DifferentialDrive *drivetrain = new DifferentialDrive(leftDrive, rightDrive);
 
 		       // Use differential drive object
 		        driveStick = new Joystick(1);
