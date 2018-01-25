@@ -12,17 +12,17 @@
 #include <SmartDashboard/SendableChooser.h>
 #include <SmartDashboard/SmartDashboard.h>
 #include <TimedRobot.h>
-//#include <ctre/Phoenix.h>
+#include <ctre/Phoenix.h>
 #include <WPILib.h>
 #include <Talon.h>
 
 class Robot : public frc::TimedRobot {
 public:
-	Victor *leftDriveMotor = new Victor(1);
-	Victor *rightDriveMotor = new Victor(2);
+	//Victor *leftDriveMotor = new Victor(1);
+	//Victor *rightDriveMotor = new Victor(2);
 
 	//Create RobotDriveObject
-	RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
+	//RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
 
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
