@@ -1,26 +1,22 @@
 /*
  * Drive.cpp
  *
- *  Created on: Jan 24, 2018
- *      Author: Murali
+ *  Created on: Jan 23, 2018
+ *      Author: sabitadhal
  */
 
 #include <Subsystems/Drive.h>
-#include <ctre/Phoenix.h>
 #include <WPILib.h>
-#include <Talon.h>
+#include <ctre/Phoenix.h>
 
-Drive::Drive(int left1ID, int left2ID, int right1ID, int right2ID) {
-	//Initialize motor controllers based on inputs
-	left1 = new TalonSRX(left1ID);
-	left2 = new TalonSRX(left2ID);
-	right1 = new TalonSRX(right1ID);
-	right2 = new TalonSRX(right2ID);
+DifferentialDrive *drivetrain;
 
-	left2->Set(ControlMode::Follower, left1ID);
-	right2->Set(ControlMode::Follower, left2ID);
+Drive::Drive(Victor left1, Victor left2, Victor right1, Victor right2) {
+	SpeedControllerGroup *leftDrive = new SpeedControllerGroup(left1, left2);
+	SpeedControllerGroup *rightDrive = new SpeedControllerGroup(right1, right2);
 
-	drivetrain = new DifferentialDrive(left1, right1);
+    drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+	// TODO Auto-generated constructor stub
 
 }
 
@@ -29,5 +25,5 @@ Drive::~Drive() {
 }
 
 void ArcadeDrive(double speed, double turn){
-	drivetrain->ArcadeDrive(speed, turn);
+	drivetrain->ArcadeDrive(speed, turn, false);
 }
