@@ -5291,3 +5291,12 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY org.eclipse.cdt.core 1 0 2018-01-25 00:10:49.632
 !MESSAGE Indexed 'BB3' (1 sources, 481 headers) in 11.7 sec: 42,814 declarations; 66,297 references; 0 unresolved inclusions; 9 syntax errors; 20 unresolved names (0.018%)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-01-25 00:28:07.830
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-01-25 00:28:07.846
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-01-25 00:28:07.846
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType

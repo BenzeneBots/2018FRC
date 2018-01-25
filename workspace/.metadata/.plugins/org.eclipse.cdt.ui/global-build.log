@@ -1413,3 +1413,415 @@ C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declar
 ..\src\Robot.cpp:87:1: error: expected declaration before '}' token
  };
  ^
+00:16:57 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(frc::Victor, frc::Victor, frc::Victor, frc::Victor)':
+..\src\Subsystems\Drive.cpp:18:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::SpeedControllerGroup*&, frc::SpeedControllerGroup*&)'
+     drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+                                                             ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:45:0,
+                 from \\VMWARE-HOST\Shared Folders\Desktop\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
+   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
+   ^
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::SpeedControllerGroup*' to 'frc::SpeedController&'
+00:16:59 **** Incremental Build of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:75:2: error: expected ';' after class definition
+  }
+  ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:3: error: 'm_chooser' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+   ^
+..\src\Robot.cpp:27:24: error: 'kAutoNameDefault' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+                        ^
+..\src\Robot.cpp:28:23: error: 'kAutoNameCustom' was not declared in this scope
+   m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:46:3: error: 'm_autoSelected' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:46:20: error: 'm_chooser' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+                    ^
+..\src\Robot.cpp:51:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:59:7: error: 'm_autoSelected' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+       ^
+..\src\Robot.cpp:59:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:71:32: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                           ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:53: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                     ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 3 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:65: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                 ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 4 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:74: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                          ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:72:40: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain = new RobotDrive(1,2,3,4);
+                                        ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp: At global scope:
+..\src\Robot.cpp:81:1: error: expected unqualified-id before 'private'
+ private:
+ ^
+..\src\Robot.cpp:87:1: error: expected declaration before '}' token
+ };
+ ^
+00:28:30 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(frc::Victor, frc::Victor, frc::Victor, frc::Victor)':
+..\src\Subsystems\Drive.cpp:18:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::SpeedControllerGroup*&, frc::SpeedControllerGroup*&)'
+     drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+                                                             ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:45:0,
+                 from \\VMWARE-HOST\Shared Folders\Desktop\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
+   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
+   ^
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::SpeedControllerGroup*' to 'frc::SpeedController&'
+00:28:41 **** Incremental Build of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:75:2: error: expected ';' after class definition
+  }
+  ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:3: error: 'm_chooser' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+   ^
+..\src\Robot.cpp:27:24: error: 'kAutoNameDefault' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+                        ^
+..\src\Robot.cpp:28:23: error: 'kAutoNameCustom' was not declared in this scope
+   m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:46:3: error: 'm_autoSelected' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:46:20: error: 'm_chooser' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+                    ^
+..\src\Robot.cpp:51:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:59:7: error: 'm_autoSelected' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+       ^
+..\src\Robot.cpp:59:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:71:32: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                           ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:53: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                     ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 3 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:65: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                 ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 4 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:74: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                          ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:72:40: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain = new RobotDrive(1,2,3,4);
+                                        ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp: At global scope:
+..\src\Robot.cpp:81:1: error: expected unqualified-id before 'private'
+ private:
+ ^
+..\src\Robot.cpp:87:1: error: expected declaration before '}' token
+ };
+ ^
+00:35:07 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(frc::Victor, frc::Victor, frc::Victor, frc::Victor)':
+..\src\Subsystems\Drive.cpp:18:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::SpeedControllerGroup*&, frc::SpeedControllerGroup*&)'
+     drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+                                                             ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:45:0,
+                 from \\VMWARE-HOST\Shared Folders\Desktop\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
+   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
+   ^
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::SpeedControllerGroup*' to 'frc::SpeedController&'
+00:35:19 **** Incremental Build of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:75:2: error: expected ';' after class definition
+  }
+  ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:3: error: 'm_chooser' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+   ^
+..\src\Robot.cpp:27:24: error: 'kAutoNameDefault' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+                        ^
+..\src\Robot.cpp:28:23: error: 'kAutoNameCustom' was not declared in this scope
+   m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:46:3: error: 'm_autoSelected' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:46:20: error: 'm_chooser' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+                    ^
+..\src\Robot.cpp:51:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:59:7: error: 'm_autoSelected' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+       ^
+..\src\Robot.cpp:59:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:71:32: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                           ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:53: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                     ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 3 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:65: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                 ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 4 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:74: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                          ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:72:40: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain = new RobotDrive(1,2,3,4);
+                                        ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp: At global scope:
+..\src\Robot.cpp:81:1: error: expected unqualified-id before 'private'
+ private:
+ ^
+..\src\Robot.cpp:87:1: error: expected declaration before '}' token
+ };
+ ^
+00:37:38 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Desktop\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(frc::Victor, frc::Victor, frc::Victor, frc::Victor)':
+..\src\Subsystems\Drive.cpp:18:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::SpeedControllerGroup*&, frc::SpeedControllerGroup*&)'
+     drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+                                                             ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:45:0,
+                 from \\VMWARE-HOST\Shared Folders\Desktop\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
+   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
+   ^
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::SpeedControllerGroup*' to 'frc::SpeedController&'
+00:37:40 **** Incremental Build of configuration Debug for project BB3 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB3\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:75:2: error: expected ';' after class definition
+  }
+  ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:27:3: error: 'm_chooser' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+   ^
+..\src\Robot.cpp:27:24: error: 'kAutoNameDefault' was not declared in this scope
+   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
+                        ^
+..\src\Robot.cpp:28:23: error: 'kAutoNameCustom' was not declared in this scope
+   m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:46:3: error: 'm_autoSelected' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:46:20: error: 'm_chooser' was not declared in this scope
+   m_autoSelected = m_chooser.GetSelected();
+                    ^
+..\src\Robot.cpp:51:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:59:7: error: 'm_autoSelected' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+       ^
+..\src\Robot.cpp:59:25: error: 'kAutoNameCustom' was not declared in this scope
+   if (m_autoSelected == kAutoNameCustom) {
+                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:71:32: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                           ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:53: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                     ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 3 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:65: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                 ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   initializing argument 4 of 'frc::RobotDrive::RobotDrive(int, int, int, int)'
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:71:74: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+                                                                          ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp:72:40: warning: 'frc::RobotDrive::RobotDrive(int, int, int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
+     drivetrain = new RobotDrive(1,2,3,4);
+                                        ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/WPILib.h:73:0,
+                 from ..\src\Robot.cpp:16:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotDrive.h:47:3: note: declared here
+   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
+   ^
+..\src\Robot.cpp: At global scope:
+..\src\Robot.cpp:81:1: error: expected unqualified-id before 'private'
+ private:
+ ^
+..\src\Robot.cpp:87:1: error: expected declaration before '}' token
+ };
+ ^

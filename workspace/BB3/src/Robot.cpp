@@ -64,13 +64,26 @@ public:
 	}
 
 	void TeleopInit() {
-				frontLeft = new TalonSRX(1);
-				frontRight = new TalonSRX(2);
-				rearLeft = new TalonSRX(3);
-				rearRight = new TalonSRX(4);
-				drivetrain= new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
-				drivetrain = new RobotDrive(1,2,3,4);
-				driveStick = new Joystick(1);
+		//Initialize motor controllers
+
+		        // front set
+		        frc::TalonSRX frontLeft(1);
+		        frc::TalonSRX rearLeft(2);
+
+		        // rear set
+		        frc::TalonSRX frontRight(3);
+		        frc::TalonSRX rearRight(4);
+
+		        // speed controllers
+		        SpeedControllerGroup m_left(frontLeft, rearLeft);
+		        SpeedControllerGroup m_right{frontRight, rearRight};
+
+		        // Create drive object
+		        DifferentialDrive *drivetrain = new DifferentialDrive(m_left, m_right);
+
+		       // Use differential drive object
+		        driveStick = new Joystick(1);
+		        drivetrain->SetSafetyEnabled(true);
 			}
 	}
 
