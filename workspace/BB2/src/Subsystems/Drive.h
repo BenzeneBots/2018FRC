@@ -17,13 +17,11 @@ public:
 	virtual ~Drive();
 	void ArcadeDrive(double, double);
 
+private:
 	TalonSRX *left1;
 	TalonSRX *left2;
 	TalonSRX *right1;
 	TalonSRX *right2;
-
-	SpeedControllerGroup *leftDrive;
-	SpeedControllerGroup *rightDrive;
 
 	DifferentialDrive *drivetrain;
 };
