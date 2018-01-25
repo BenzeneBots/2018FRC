@@ -1,1820 +1,54 @@
-16:14:14 **** Incremental Build of configuration Debug for project BB2 ****
+18:04:51 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:27:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
-   leftDriveMotor->EnableDeadbandElimination(false);
-                   ^
-..\src\Robot.cpp:28:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   leftDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                   ^
-..\src\Robot.cpp:28:34: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                                  ^
-..\src\Robot.cpp:29:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   leftDriveMotor->Set(0.0);
-                          ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-..\src\Robot.cpp:32:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
-   rightDriveMotor->EnableDeadbandElimination(false);
-                    ^
-..\src\Robot.cpp:33:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                    ^
-..\src\Robot.cpp:33:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                                   ^
-..\src\Robot.cpp:34:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:14:53 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:27:18: error: request for member 'EnableDeadbandElimination' in 'leftDriveMotor', which is of pointer type 'ctre::phoenix::motorcontrol::can::TalonSRX*' (maybe you meant to use '->' ?)
-   leftDriveMotor.EnableDeadbandElimination(false);
-                  ^
-..\src\Robot.cpp:28:18: error: request for member 'SetControlMode' in 'leftDriveMotor', which is of pointer type 'ctre::phoenix::motorcontrol::can::TalonSRX*' (maybe you meant to use '->' ?)
-   leftDriveMotor.SetControlMode(CANSpeedController::kPercentVbus);
-                  ^
-..\src\Robot.cpp:28:33: error: 'CANSpeedController' has not been declared
-   leftDriveMotor.SetControlMode(CANSpeedController::kPercentVbus);
-                                 ^
-..\src\Robot.cpp:29:18: error: request for member 'Set' in 'leftDriveMotor', which is of pointer type 'ctre::phoenix::motorcontrol::can::TalonSRX*' (maybe you meant to use '->' ?)
-   leftDriveMotor.Set(0.0);
-                  ^
-..\src\Robot.cpp:32:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
-   rightDriveMotor->EnableDeadbandElimination(false);
-                    ^
-..\src\Robot.cpp:33:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                    ^
-..\src\Robot.cpp:33:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                                   ^
-..\src\Robot.cpp:34:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:15:03 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:27:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
-   leftDriveMotor->EnableDeadbandElimination(false);
-                   ^
-..\src\Robot.cpp:28:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   leftDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                   ^
-..\src\Robot.cpp:28:34: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                                  ^
-..\src\Robot.cpp:29:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   leftDriveMotor->Set(0.0);
-                          ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-..\src\Robot.cpp:32:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
-   rightDriveMotor->EnableDeadbandElimination(false);
-                    ^
-..\src\Robot.cpp:33:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                    ^
-..\src\Robot.cpp:33:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                                   ^
-..\src\Robot.cpp:34:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:15:23 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   leftDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                   ^
-..\src\Robot.cpp:28:34: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                                  ^
-..\src\Robot.cpp:29:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   leftDriveMotor->Set(0.0);
-                          ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-..\src\Robot.cpp:33:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                    ^
-..\src\Robot.cpp:33:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->SetControlMode(CANSpeedController::kPercentVbus);
-                                   ^
-..\src\Robot.cpp:34:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:16:58 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   leftDriveMotor->SetControlMode(CANSpeedController::PercentOutput);
-                   ^
-..\src\Robot.cpp:28:34: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->SetControlMode(CANSpeedController::PercentOutput);
-                                  ^
-..\src\Robot.cpp:29:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   leftDriveMotor->Set(0.0);
-                          ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-..\src\Robot.cpp:33:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetControlMode'
-   rightDriveMotor->SetControlMode(CANSpeedController::PercentOutput);
-                    ^
-..\src\Robot.cpp:33:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->SetControlMode(CANSpeedController::PercentOutput);
-                                   ^
-..\src\Robot.cpp:34:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:17:17 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'setControlMode'
-   leftDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                   ^
-..\src\Robot.cpp:28:34: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                                  ^
-..\src\Robot.cpp:29:26: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   leftDriveMotor->Set(0.0);
-                          ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-..\src\Robot.cpp:33:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'setControlMode'
-   rightDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                    ^
-..\src\Robot.cpp:33:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                                   ^
-..\src\Robot.cpp:34:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:18:59 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:22: error: invalid use of member function (did you forget the '()' ?)
-   leftDriveMotor->Set->(CANSpeedController::PercentOutput, 0.0);
-                      ^
-..\src\Robot.cpp:28:22: error: base operand of '->' is not a pointer
-..\src\Robot.cpp:28:24: error: expected unqualified-id before '(' token
-   leftDriveMotor->Set->(CANSpeedController::PercentOutput, 0.0);
-                        ^
-..\src\Robot.cpp:28:25: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->Set->(CANSpeedController::PercentOutput, 0.0);
-                         ^
-..\src\Robot.cpp:32:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'setControlMode'
-   rightDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                    ^
-..\src\Robot.cpp:32:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                                   ^
-..\src\Robot.cpp:33:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:19:10 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:23: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->Set(CANSpeedController::PercentOutput, 0.0);
-                       ^
-..\src\Robot.cpp:32:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'setControlMode'
-   rightDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                    ^
-..\src\Robot.cpp:32:35: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->setControlMode(CANSpeedController::PercentOutput);
-                                   ^
-..\src\Robot.cpp:33:27: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::Set(double)'
-   rightDriveMotor->Set(0.0);
-                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
-                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double)
-  virtual void Set(ControlMode Mode, double value);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:63:15: note:   candidate expects 2 arguments, 1 provided
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note: candidate: virtual void ctre::phoenix::motorcontrol::can::BaseMotorController::Set(ctre::phoenix::motorcontrol::ControlMode, double, double)
-  virtual void Set(ControlMode mode, double demand0, double demand1);
-               ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:64:15: note:   candidate expects 3 arguments, 1 provided
-Info: Nothing to build for BB1
-16:19:22 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:23: error: 'CANSpeedController' has not been declared
-   leftDriveMotor->Set(CANSpeedController::PercentOutput, 0.0);
-                       ^
-..\src\Robot.cpp:32:24: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->Set(CANSpeedController::PercentOutput, 0.0);
-                        ^
-Info: Nothing to build for BB1
-16:20:38 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:34: error: expected primary-expression before '.' token
-   leftDriveMotor->Set(ControlMode.PercentOutput, 0.0);
-                                  ^
-..\src\Robot.cpp:32:24: error: 'CANSpeedController' has not been declared
-   rightDriveMotor->Set(CANSpeedController::PercentOutput, 0.0);
-                        ^
-Info: Nothing to build for BB1
-16:20:47 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:34: error: expected primary-expression before '.' token
-   leftDriveMotor->Set(ControlMode.PercentOutput, 0.0);
-                                  ^
-..\src\Robot.cpp:32:35: error: expected primary-expression before '.' token
-   rightDriveMotor->Set(ControlMode.PercentOutput, 0.0);
-                                   ^
-Info: Nothing to build for BB1
-16:21:02 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:18: error: request for member 'Set' in 'leftDriveMotor', which is of pointer type 'ctre::phoenix::motorcontrol::can::TalonSRX*' (maybe you meant to use '->' ?)
-   leftDriveMotor.Set(ControlMode.PercentOutput, 0.0);
-                  ^
-..\src\Robot.cpp:28:33: error: expected primary-expression before '.' token
-   leftDriveMotor.Set(ControlMode.PercentOutput, 0.0);
-                                 ^
-..\src\Robot.cpp:32:35: error: expected primary-expression before '.' token
-   rightDriveMotor->Set(ControlMode.PercentOutput, 0.0);
-                                   ^
-Info: Nothing to build for BB1
-16:21:27 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:28:18: error: request for member 'Set' in 'leftDriveMotor', which is of pointer type 'ctre::phoenix::motorcontrol::can::TalonSRX*' (maybe you meant to use '->' ?)
-   leftDriveMotor.Set(ControlMode.PercentOutput, 0.0);
-                  ^
-..\src\Robot.cpp:28:33: error: expected primary-expression before '.' token
-   leftDriveMotor.Set(ControlMode.PercentOutput, 0.0);
-                                 ^
-..\src\Robot.cpp:32:35: error: expected primary-expression before '.' token
-   rightDriveMotor->Set(ControlMode.PercentOutput, 0.0);
-                                   ^
-Info: Nothing to build for BB1
-16:21:38 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB1
-16:24:46 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:27:19: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
-   leftDriveMotor->EnableDeadbandElimination(false);
-                   ^
-..\src\Robot.cpp:31:20: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'EnableDeadbandElimination'
-   rightDriveMotor->EnableDeadbandElimination(false);
-                    ^
-Info: Nothing to build for BB1
-16:26:27 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:30:1: error: 'b' was not declared in this scope
- b  rightDriveMotor->Set(ControlMode::PercentOutput, 0.0);
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:13:7: error: redefinition of 'class Drive'
+ class Drive {
+       ^
+In file included from ..\src\Subsystems\Drive.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:14:7: error: previous definition of 'class Drive'
+ class Drive {
+       ^
+..\src\Subsystems\Drive.cpp:39:1: error: expected unqualified-id at end of input
+ }
  ^
-..\src\Robot.cpp:29:13: warning: unused variable 'rightDriveMotor' [-Wunused-variable]
-   TalonSRX *rightDriveMotor = new TalonSRX(1);
-             ^
-Info: Nothing to build for BB1
-16:26:35 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB1
-16:27:46 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:33:3: error: 'RobotDrive' was not declared in this scope
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-   ^
-..\src\Robot.cpp:33:15: error: 'drivetrain' was not declared in this scope
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-..\src\Robot.cpp:33:32: error: expected type-specifier before 'RobotDrive'
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                ^
-Info: Nothing to build for BB1
-16:38:09 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:33:3: error: 'RobotDrive' was not declared in this scope
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-   ^
-..\src\Robot.cpp:33:15: error: 'drivetrain' was not declared in this scope
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-..\src\Robot.cpp:33:32: error: expected type-specifier before 'RobotDrive'
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                ^
-Info: Nothing to build for BB1
-16:38:29 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:42:74: error: invalid use of incomplete type 'class RobotDrive'
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-..\src\Robot.cpp:25:8: note: forward declaration of 'class RobotDrive'
-  class RobotDrive *drivetrain;
-        ^
-..\src\Robot.cpp:42:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:83:62: error: invalid use of incomplete type 'class RobotDrive'
-   drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                              ^
-..\src\Robot.cpp:25:8: note: forward declaration of 'class RobotDrive'
-  class RobotDrive *drivetrain;
-        ^
-Info: Nothing to build for BB1
-16:39:41 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:34:74: error: invalid use of incomplete type 'class RobotDrive'
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-..\src\Robot.cpp:89:8: note: forward declaration of 'class RobotDrive'
-  class RobotDrive *drivetrain;
-        ^
-..\src\Robot.cpp:34:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:75:62: error: invalid use of incomplete type 'class RobotDrive'
-   drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                              ^
-..\src\Robot.cpp:89:8: note: forward declaration of 'class RobotDrive'
-  class RobotDrive *drivetrain;
-        ^
-Info: Nothing to build for BB1
-16:40:07 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:64:62: error: invalid use of incomplete type 'class RobotDrive'
-   drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                              ^
-..\src\Robot.cpp:78:8: note: forward declaration of 'class RobotDrive'
-  class RobotDrive *drivetrain;
-        ^
-Info: Nothing to build for BB1
-16:58:10 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:64:62: error: invalid use of incomplete type 'class RobotDrive'
-   drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                              ^
-..\src\Robot.cpp:71:8: note: forward declaration of 'class RobotDrive'
-  class RobotDrive *drivetrain;
-        ^
-Info: Nothing to build for BB1
-17:04:14 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:33:3: error: 'RobotDrive' was not declared in this scope
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-   ^
-..\src\Robot.cpp:33:15: error: 'drivetrain' was not declared in this scope
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-..\src\Robot.cpp:33:32: error: expected type-specifier before 'RobotDrive'
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                ^
-Info: Nothing to build for BB1
-17:11:19 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:34:74: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int)'
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:34:74: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int)'
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:34:74: warning: 'frc::RobotDrive::RobotDrive(int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: declared here
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:34:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-17:12:46 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:34:76: error: no matching function for call to 'frc::RobotDrive::RobotDrive(ctre::phoenix::motorcontrol::can::TalonSRX&, ctre::phoenix::motorcontrol::can::TalonSRX&)'
-   RobotDrive *drivetrain = new RobotDrive(*leftDriveMotor, *rightDriveMotor);
-                                                                            ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:63:3: note: candidate: frc::RobotDrive::RobotDrive(std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>)
-   RobotDrive(std::shared_ptr<SpeedController> frontLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:63:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:60:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&, frc::SpeedController&, frc::SpeedController&)
-   RobotDrive(SpeedController& frontLeftMotor, SpeedController& rearLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:60:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:57:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*, frc::SpeedController*, frc::SpeedController*)
-   RobotDrive(SpeedController* frontLeftMotor, SpeedController* rearLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:57:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:54:3: note: candidate: frc::RobotDrive::RobotDrive(std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>)
-   RobotDrive(std::shared_ptr<SpeedController> leftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:54:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'std::shared_ptr<frc::SpeedController>'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&)
-   RobotDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'frc::SpeedController&'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'frc::SpeedController*'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:47:3: note: candidate: frc::RobotDrive::RobotDrive(int, int, int, int)
-   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: candidate: frc::RobotDrive::RobotDrive(int, int)
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'int'
-..\src\Robot.cpp:34:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(*leftDriveMotor, *rightDriveMotor);
-               ^
-17:13:25 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:34:81: error: no matching function for call to 'frc::RobotDrive::RobotDrive(ctre::phoenix::motorcontrol::can::TalonSRX&, ctre::phoenix::motorcontrol::can::TalonSRX&)'
-   frc::RobotDrive *drivetrain = new RobotDrive(*leftDriveMotor, *rightDriveMotor);
-                                                                                 ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:63:3: note: candidate: frc::RobotDrive::RobotDrive(std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>)
-   RobotDrive(std::shared_ptr<SpeedController> frontLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:63:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:60:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&, frc::SpeedController&, frc::SpeedController&)
-   RobotDrive(SpeedController& frontLeftMotor, SpeedController& rearLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:60:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:57:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*, frc::SpeedController*, frc::SpeedController*)
-   RobotDrive(SpeedController* frontLeftMotor, SpeedController* rearLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:57:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:54:3: note: candidate: frc::RobotDrive::RobotDrive(std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>)
-   RobotDrive(std::shared_ptr<SpeedController> leftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:54:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'std::shared_ptr<frc::SpeedController>'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&)
-   RobotDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'frc::SpeedController&'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'frc::SpeedController*'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:47:3: note: candidate: frc::RobotDrive::RobotDrive(int, int, int, int)
-   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: candidate: frc::RobotDrive::RobotDrive(int, int)
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'int'
-..\src\Robot.cpp:34:20: warning: unused variable 'drivetrain' [-Wunused-variable]
-   frc::RobotDrive *drivetrain = new RobotDrive(*leftDriveMotor, *rightDriveMotor);
-                    ^
-Info: Nothing to build for BB1
-17:14:55 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:73:79: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   frc::RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                               ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int)'
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:73:79: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   frc::RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                               ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int)'
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:73:79: warning: 'frc::RobotDrive::RobotDrive(int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   frc::RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                               ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: declared here
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:73:20: warning: unused variable 'drivetrain' [-Wunused-variable]
-   frc::RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                    ^
-Info: Nothing to build for BB1
-17:15:11 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:73:74: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   initializing argument 1 of 'frc::RobotDrive::RobotDrive(int, int)'
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:73:74: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   initializing argument 2 of 'frc::RobotDrive::RobotDrive(int, int)'
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:73:74: warning: 'frc::RobotDrive::RobotDrive(int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: declared here
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:73:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-Info: Nothing to build for BB1
-17:16:32 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:67:47: warning: 'frc::RobotDrive::RobotDrive(int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(0, 1);
-                                               ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: declared here
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:67:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(0, 1);
-               ^
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB1
-17:17:20 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:67:54: warning: 'frc::RobotDrive::RobotDrive(int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   DifferentialDrive *drivetrain = new RobotDrive(0, 1);
-                                                      ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: declared here
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:67:54: error: cannot convert 'frc::RobotDrive*' to 'frc::DifferentialDrive*' in initialization
-   DifferentialDrive *drivetrain = new RobotDrive(0, 1);
-                                                      ^
-..\src\Robot.cpp:67:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new RobotDrive(0, 1);
-                      ^
-Info: Nothing to build for BB1
-17:17:27 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:67:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(int, int)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(0, 1);
-                                                             ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'int' to 'frc::SpeedController&'
-..\src\Robot.cpp:67:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(0, 1);
-                      ^
-Info: Nothing to build for BB1
-17:17:39 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:67:54: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(int, int)'
-   RobotDrive *drivetrain = new DifferentialDrive(0, 1);
-                                                      ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'int' to 'frc::SpeedController&'
-..\src\Robot.cpp:67:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new DifferentialDrive(0, 1);
-               ^
-Info: Nothing to build for BB1
-17:17:48 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:67:47: warning: 'frc::RobotDrive::RobotDrive(int, int)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(0, 1);
-                                               ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: declared here
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-..\src\Robot.cpp:67:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(0, 1);
-               ^
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB1
-17:18:35 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:66:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   TalonSRX leftDriveMotor = new TalonSRX(1);
-                                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Robot.cpp:66:43: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-   TalonSRX leftDriveMotor = new TalonSRX(1);
-                                           ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Robot.cpp:66:43: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   TalonSRX leftDriveMotor = new TalonSRX(1);
-                                           ^
-..\src\Robot.cpp:67:44: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   TalonSRX rightDriveMotor = new TalonSRX(2);
-                                            ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Robot.cpp:67:44: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-   TalonSRX rightDriveMotor = new TalonSRX(2);
-                                            ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from ..\src\Robot.cpp:15:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Robot.cpp:67:44: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-   TalonSRX rightDriveMotor = new TalonSRX(2);
-                                            ^
-..\src\Robot.cpp:70:74: error: no matching function for call to 'frc::RobotDrive::RobotDrive(ctre::phoenix::motorcontrol::can::TalonSRX&, ctre::phoenix::motorcontrol::can::TalonSRX&)'
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:63:3: note: candidate: frc::RobotDrive::RobotDrive(std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>)
-   RobotDrive(std::shared_ptr<SpeedController> frontLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:63:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:60:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&, frc::SpeedController&, frc::SpeedController&)
-   RobotDrive(SpeedController& frontLeftMotor, SpeedController& rearLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:60:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:57:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*, frc::SpeedController*, frc::SpeedController*)
-   RobotDrive(SpeedController* frontLeftMotor, SpeedController* rearLeftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:57:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:54:3: note: candidate: frc::RobotDrive::RobotDrive(std::shared_ptr<frc::SpeedController>, std::shared_ptr<frc::SpeedController>)
-   RobotDrive(std::shared_ptr<SpeedController> leftMotor,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:54:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'std::shared_ptr<frc::SpeedController>'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&)
-   RobotDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'frc::SpeedController&'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: candidate: frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'frc::SpeedController*'
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:47:3: note: candidate: frc::RobotDrive::RobotDrive(int, int, int, int)
-   RobotDrive(int frontLeftMotorChannel, int rearLeftMotorChannel,
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:47:3: note:   candidate expects 4 arguments, 2 provided
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note: candidate: frc::RobotDrive::RobotDrive(int, int)
-   RobotDrive(int leftMotorChannel, int rightMotorChannel);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:45:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX' to 'int'
-..\src\Robot.cpp:70:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-Info: Nothing to build for BB1
-17:20:49 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:66:37: error: conversion from 'frc::Talon*' to non-scalar type 'frc::Talon' requested
-   Talon leftDriveMotor = new Talon(1);
-                                     ^
-..\src\Robot.cpp:67:38: error: conversion from 'frc::Talon*' to non-scalar type 'frc::Talon' requested
-   Talon rightDriveMotor = new Talon(2);
-                                      ^
-..\src\Robot.cpp:70:74: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note: declared here
-   RobotDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-..\src\Robot.cpp:70:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-Info: Nothing to build for BB1
-17:21:05 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:66:39: error: conversion from 'frc::Victor*' to non-scalar type 'frc::Victor' requested
-   Victor leftDriveMotor = new Victor(1);
-                                       ^
-..\src\Robot.cpp:67:40: error: conversion from 'frc::Victor*' to non-scalar type 'frc::Victor' requested
-   Victor rightDriveMotor = new Victor(2);
-                                        ^
-..\src\Robot.cpp:70:74: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController&, frc::SpeedController&)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:52:3: note: declared here
-   RobotDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-..\src\Robot.cpp:70:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-Info: Nothing to build for BB1
-17:21:56 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:70:74: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared here
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-..\src\Robot.cpp:70:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB1
-17:22:47 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:74: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                          ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared here
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-..\src\Robot.cpp:71:15: warning: unused variable 'drivetrain' [-Wunused-variable]
-   RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-               ^
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB1
-17:23:09 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:88: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Talon*&, frc::Talon*&)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Talon*' to 'frc::SpeedController&'
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:28:30 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:57: error: 'leftDriveMotor' was not declared in this scope
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                         ^
-..\src\Robot.cpp:67:10: warning: unused variable 'leftBackDriveMotor' [-Wunused-variable]
-   Talon *leftBackDriveMotor = new Talon(1);
-          ^
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:28:55 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:88: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Talon*&, frc::Talon*&)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Talon*' to 'frc::SpeedController&'
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:29:14 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:88: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Victor*&, frc::Victor*&)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Victor*' to 'frc::SpeedController&'
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:29:17 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:88: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Victor*&, frc::Victor*&)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Victor*' to 'frc::SpeedController&'
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:29:30 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:61: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(int, int)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(1, 2);
-                                                             ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'int' to 'frc::SpeedController&'
-..\src\Robot.cpp:67:11: warning: unused variable 'leftDriveMotor' [-Wunused-variable]
-   Victor *leftDriveMotor = new Victor(1);
-           ^
-..\src\Robot.cpp:68:11: warning: unused variable 'rightDriveMotor' [-Wunused-variable]
-   Victor *rightDriveMotor = new Victor(2);
-           ^
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(1, 2);
-                      ^
-Info: Nothing to build for BB1
-17:31:37 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:88: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Victor*&, frc::Victor*&)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Victor*' to 'frc::SpeedController&'
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:32:06 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:88: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Victor*&, frc::Victor*&)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Victor*' to 'frc::SpeedController&'
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:32:14 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:71:88: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Victor*&, frc::Victor*&)'
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Victor*' to 'frc::SpeedController&'
-..\src\Robot.cpp:71:22: warning: unused variable 'drivetrain' [-Wunused-variable]
-   DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                      ^
-Info: Nothing to build for BB1
-17:45:30 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp:25:89: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(frc::Victor*&, frc::Victor*&)'
-    DifferentialDrive *drivetrain = new DifferentialDrive(leftDriveMotor, rightDriveMotor);
-                                                                                         ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'frc::Victor*' to 'frc::SpeedController&'
-Info: Nothing to build for BB1
-17:46:53 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp:25:73: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-  RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                         ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared here
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:29:29 **** Incremental Build of configuration Debug for project BB2 ****
+18:07:01 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:30:49 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp:25:73: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-  RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                         ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared here
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:33:14 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:33:30 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp:25:73: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-  RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                         ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared here
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:33:40 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp:21:41: error: cannot convert 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'frc::Victor*' in initialization
-  Victor *leftDriveMotor = new TalonSRX(1);
-                                         ^
-..\src\Robot.cpp:25:73: warning: 'frc::RobotDrive::RobotDrive(frc::SpeedController*, frc::SpeedController*)' is deprecated: Use DifferentialDrive or MecanumDrive classes instead. [-Wdeprecated-declarations]
-  RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
-                                                                         ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:73:0,
-                 from ..\src\Robot.cpp:16:
-C:\Users\Murali/wpilib/cpp/current/include/RobotDrive.h:50:3: note: declared here
-   RobotDrive(SpeedController* leftMotor, SpeedController* rightMotor);
-   ^
-20:35:15 **** Incremental Build of configuration Debug for project BB2 ****
+..\src\Subsystems\Drive.cpp:13:7: error: redefinition of 'class Drive'
+ class Drive {
+       ^
+In file included from ..\src\Subsystems\Drive.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:14:7: error: previous definition of 'class Drive'
+ class Drive {
+       ^
+..\src\Subsystems\Drive.cpp:39:1: error: expected unqualified-id at end of input
+ }
+ ^
+18:07:16 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
 ..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:14:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(left1ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
+..\src\Subsystems\Drive.cpp:18:2: error: 'left1' was not declared in this scope
+  left1 = new TalonSRX(left1ID);
   ^
-..\src\Subsystems\Drive.cpp:14:39: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left1 = new TalonSRX(left1ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
+..\src\Subsystems\Drive.cpp:19:2: error: 'left2' was not declared in this scope
+  left2 = new TalonSRX(left2ID);
   ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
+..\src\Subsystems\Drive.cpp:20:2: error: 'right1' was not declared in this scope
+  right1 = new TalonSRX(right1ID);
   ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:14:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(left1ID);
-                                       ^
-..\src\Subsystems\Drive.cpp:15:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(left2ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
+..\src\Subsystems\Drive.cpp:21:2: error: 'right2' was not declared in this scope
+  right2 = new TalonSRX(right2ID);
   ^
-..\src\Subsystems\Drive.cpp:15:39: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left2 = new TalonSRX(left2ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:35:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
   ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:15:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(left2ID);
-                                       ^
-..\src\Subsystems\Drive.cpp:16:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(right1ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:16:41: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right1 = new TalonSRX(right1ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:16:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(right1ID);
-                                         ^
-..\src\Subsystems\Drive.cpp:17:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right2 = new TalonSRX(right2ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:17:41: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right2 = new TalonSRX(right2ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:17:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right2 = new TalonSRX(right2ID);
-                                         ^
-20:46:12 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:14:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(left1ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:14:39: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left1 = new TalonSRX(left1ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:14:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(left1ID);
-                                       ^
-..\src\Subsystems\Drive.cpp:15:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(left2ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:15:39: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left2 = new TalonSRX(left2ID);
-                                       ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:15:39: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(left2ID);
-                                       ^
-..\src\Subsystems\Drive.cpp:16:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(right1ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:16:41: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right1 = new TalonSRX(right1ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:16:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(right1ID);
-                                         ^
-..\src\Subsystems\Drive.cpp:17:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right2 = new TalonSRX(right2ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:17:41: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right2 = new TalonSRX(right2ID);
-                                         ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:17:41: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right2 = new TalonSRX(right2ID);
-                                         ^
-20:48:24 **** Incremental Build of configuration Debug for project BB2 ****
+18:07:23 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
 ..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:14:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:14:33: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:14:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-..\src\Subsystems\Drive.cpp:15:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:15:33: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:15:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-..\src\Subsystems\Drive.cpp:16:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:16:34: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:16:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-..\src\Subsystems\Drive.cpp:17:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right2 = new TalonSRX(4);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:17:34: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right2 = new TalonSRX(4);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:17:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right2 = new TalonSRX(4);
-                                  ^
-20:48:37 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:14:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:14:33: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:14:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-..\src\Subsystems\Drive.cpp:15:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:15:33: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:15:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-..\src\Subsystems\Drive.cpp:16:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:16:34: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:16:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-..\src\Subsystems\Drive.cpp:17:32: error: invalid conversion from 'frc::Victor*' to 'int' [-fpermissive]
-  TalonSRX right2 = new Victor(4);
-                                ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:17:32: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right2 = new Victor(4);
-                                ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:17:32: error: invalid conversion from 'frc::Victor*' to 'int' [-fpermissive]
-  TalonSRX right2 = new Victor(4);
-                                ^
-20:48:47 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:14:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:14:33: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:14:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left1 = new TalonSRX(1);
-                                 ^
-..\src\Subsystems\Drive.cpp:15:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:15:33: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:15:33: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX left2 = new TalonSRX(2);
-                                 ^
-..\src\Subsystems\Drive.cpp:16:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   initializing argument 1 of 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int)'
-  TalonSRX(int deviceNumber);
-  ^
-..\src\Subsystems\Drive.cpp:16:34: error: use of deleted function 'ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(const ctre::phoenix::motorcontrol::can::TalonSRX&)'
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:10,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:21:2: note: declared here
-  TalonSRX(TalonSRX const&) = delete;
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   after user-defined conversion: ctre::phoenix::motorcontrol::can::TalonSRX::TalonSRX(int) <near match>
-  TalonSRX(int deviceNumber);
-  ^
-C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:17:2: note:   conversion of argument 1 would be ill-formed:
-..\src\Subsystems\Drive.cpp:16:34: error: invalid conversion from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'int' [-fpermissive]
-  TalonSRX right1 = new TalonSRX(3);
-                                  ^
-..\src\Subsystems\Drive.cpp:17:30: error: conversion from 'frc::Victor*' to non-scalar type 'frc::Victor' requested
-  Victor right2 = new Victor(4);
-                              ^
-20:52:47 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:16:2: error: 'right1' was not declared in this scope
-  right1 = new TalonSRX(3);
-  ^
-..\src\Subsystems\Drive.cpp:17:9: error: cannot convert 'frc::Victor*' to 'ctre::phoenix::motorcontrol::can::TalonSRX*' in assignment
-  right2 = new Victor(4);
-         ^
-20:53:15 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:16:2: error: 'right1' was not declared in this scope
-  right1 = new TalonSRX(2);
-  ^
-20:53:48 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:54:05 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:16:24: error: 'left3ID' was not declared in this scope
-  right1 = new TalonSRX(left3ID);
-                        ^
-..\src\Subsystems\Drive.cpp:17:24: error: 'left4ID' was not declared in this scope
-  right2 = new TalonSRX(left4ID);
-                        ^
-20:54:20 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:17:24: error: 'right3ID' was not declared in this scope
-  right2 = new TalonSRX(right3ID);
-                        ^
-20:54:27 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:55:31 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:20:72: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
-  SpeedControllerGroup leftDrive = new SpeedControllerGroup(left1, left2);
-                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
-   explicit SpeedControllerGroup(SpeedController& speedController,
-            ^
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
-..\src\Subsystems\Drive.cpp:20:60: note:   cannot convert '((Drive*)this)->Drive::left1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
-  SpeedControllerGroup leftDrive = new SpeedControllerGroup(left1, left2);
-                                                            ^
-..\src\Subsystems\Drive.cpp:21:75: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
-  SpeedControllerGroup rightDrive = new SpeedControllerGroup(right1, right2);
-                                                                           ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
-   explicit SpeedControllerGroup(SpeedController& speedController,
-            ^
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
-..\src\Subsystems\Drive.cpp:21:61: note:   cannot convert '((Drive*)this)->Drive::right1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
-  SpeedControllerGroup rightDrive = new SpeedControllerGroup(right1, right2);
-                                                             ^
-20:55:56 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:20:72: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
-  SpeedControllerGroup leftDrive = new SpeedControllerGroup(left1, left2);
-                                                                        ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
-   explicit SpeedControllerGroup(SpeedController& speedController,
-            ^
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
-..\src\Subsystems\Drive.cpp:20:60: note:   cannot convert '((Drive*)this)->Drive::left1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
-  SpeedControllerGroup leftDrive = new SpeedControllerGroup(left1, left2);
-                                                            ^
-..\src\Subsystems\Drive.cpp:21:75: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
-  SpeedControllerGroup rightDrive = new SpeedControllerGroup(right1, right2);
-                                                                           ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
-   explicit SpeedControllerGroup(SpeedController& speedController,
-            ^
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
-..\src\Subsystems\Drive.cpp:21:61: note:   cannot convert '((Drive*)this)->Drive::right1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
-  SpeedControllerGroup rightDrive = new SpeedControllerGroup(right1, right2);
-                                                             ^
-20:59:03 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-20:59:48 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:23:50: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+..\src\Subsystems\Drive.cpp:26:50: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
   drivetrain = new DifferentialDrive(left1, right1);
                                                   ^
 In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
@@ -1824,62 +58,11 @@ C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note
    DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
    ^
 C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'frc::SpeedController&'
-21:00:57 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:23:57: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&, bool)'
-  drivetrain = new DifferentialDrive(left1, right1, false);
-                                                         ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   candidate expects 2 arguments, 3 provided
-21:01:04 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:23:50: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
-  drivetrain = new DifferentialDrive(left1, right1);
-                                                  ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'frc::SpeedController&'
-21:01:59 **** Incremental Build of configuration Debug for project BB2 ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
-..\src\Subsystems\Drive.cpp:23:54: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
-  rightDrive = new SpeedControllerGroup(right1, right2);
-                                                      ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
-   explicit SpeedControllerGroup(SpeedController& speedController,
-            ^
-C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
-..\src\Subsystems\Drive.cpp:23:40: note:   cannot convert '((Drive*)this)->Drive::right1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
-  rightDrive = new SpeedControllerGroup(right1, right2);
-                                        ^
-..\src\Subsystems\Drive.cpp:25:50: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
-  drivetrain = new DifferentialDrive(left1, right1);
-                                                  ^
-In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
-                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
-                 from ..\src\Subsystems\Drive.cpp:8:
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
-   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
-   ^
-C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'frc::SpeedController&'
-21:04:05 **** Incremental Build of configuration Debug for project BB2 ****
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:35:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:07:29 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
 ..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
@@ -1895,5 +78,282 @@ C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note
 C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'frc::SpeedController&'
 ..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
 ..\src\Subsystems\Drive.cpp:32:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:08:54 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:20:30: error: 'frontLeft' was not declared in this scope
+  SpeedControllerGroup m_left(frontLeft, rearLeft);
+                              ^
+..\src\Subsystems\Drive.cpp:20:41: error: 'rearLeft' was not declared in this scope
+  SpeedControllerGroup m_left(frontLeft, rearLeft);
+                                         ^
+..\src\Subsystems\Drive.cpp:21:31: error: 'frontRight' was not declared in this scope
+  SpeedControllerGroup m_right(frontRight, rearRight);
+                               ^
+..\src\Subsystems\Drive.cpp:21:43: error: 'rearRight' was not declared in this scope
+  SpeedControllerGroup m_right(frontRight, rearRight);
+                                           ^
+..\src\Subsystems\Drive.cpp:23:50: error: no matching function for call to 'frc::DifferentialDrive::DifferentialDrive(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  drivetrain = new DifferentialDrive(left1, right1);
+                                                  ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:45:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note: candidate: frc::DifferentialDrive::DifferentialDrive(frc::SpeedController&, frc::SpeedController&)
+   DifferentialDrive(SpeedController& leftMotor, SpeedController& rightMotor);
+   ^
+C:\Users\Murali/wpilib/cpp/current/include/Drive/DifferentialDrive.h:104:3: note:   no known conversion for argument 1 from 'ctre::phoenix::motorcontrol::can::TalonSRX*' to 'frc::SpeedController&'
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:32:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:09:04 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:20:30: error: 'frontLeft' was not declared in this scope
+  SpeedControllerGroup m_left(frontLeft, rearLeft);
+                              ^
+..\src\Subsystems\Drive.cpp:20:41: error: 'rearLeft' was not declared in this scope
+  SpeedControllerGroup m_left(frontLeft, rearLeft);
+                                         ^
+..\src\Subsystems\Drive.cpp:21:31: error: 'frontRight' was not declared in this scope
+  SpeedControllerGroup m_right(frontRight, rearRight);
+                               ^
+..\src\Subsystems\Drive.cpp:21:43: error: 'rearRight' was not declared in this scope
+  SpeedControllerGroup m_right(frontRight, rearRight);
+                                           ^
+..\src\Subsystems\Drive.cpp:23:13: error: cannot convert 'frc::DifferentialDrive*' to 'frc::RobotDrive*' in assignment
+  drivetrain = new DifferentialDrive(m_left, m_right);
+             ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:32:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:09:21 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:20:42: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_left(left1, left2);
+                                          ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:20:30: note:   cannot convert '((Drive*)this)->Drive::left1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_left(left1, left2);
+                              ^
+..\src\Subsystems\Drive.cpp:21:45: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_right(right1, right2);
+                                             ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:21:31: note:   cannot convert '((Drive*)this)->Drive::right1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_right(right1, right2);
+                               ^
+..\src\Subsystems\Drive.cpp:23:13: error: cannot convert 'frc::DifferentialDrive*' to 'frc::RobotDrive*' in assignment
+  drivetrain = new DifferentialDrive(m_left, m_right);
+             ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:32:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:09:50 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:20:42: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_left(left1, left2);
+                                          ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:20:30: note:   cannot convert '((Drive*)this)->Drive::left1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_left(left1, left2);
+                              ^
+..\src\Subsystems\Drive.cpp:21:45: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_right(right1, right2);
+                                             ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:21:31: note:   cannot convert '((Drive*)this)->Drive::right1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_right(right1, right2);
+                               ^
+..\src\Subsystems\Drive.cpp:23:70: error: conversion from 'frc::DifferentialDrive*' to non-scalar type 'frc::DifferentialDrive' requested
+  DifferentialDrive drivetrain = new DifferentialDrive(m_left, m_right);
+                                                                      ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:32:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:10:46 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:20:42: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_left(left1, left2);
+                                          ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:20:30: note:   cannot convert '((Drive*)this)->Drive::left1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_left(left1, left2);
+                              ^
+..\src\Subsystems\Drive.cpp:21:45: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_right(right1, right2);
+                                             ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:21:31: note:   cannot convert '((Drive*)this)->Drive::right1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_right(right1, right2);
+                               ^
+..\src\Subsystems\Drive.cpp:23:70: error: conversion from 'frc::DifferentialDrive*' to non-scalar type 'frc::DifferentialDrive' requested
+  DifferentialDrive drivetrain = new DifferentialDrive(m_left, m_right);
+                                                                      ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:32:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:12:05 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:20:42: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_left(left1, left2);
+                                          ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:20:30: note:   cannot convert '((Drive*)this)->Drive::left1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_left(left1, left2);
+                              ^
+..\src\Subsystems\Drive.cpp:21:45: error: no matching function for call to 'frc::SpeedControllerGroup::SpeedControllerGroup(ctre::phoenix::motorcontrol::can::TalonSRX*&, ctre::phoenix::motorcontrol::can::TalonSRX*&)'
+  SpeedControllerGroup m_right(right1, right2);
+                                             ^
+In file included from C:\Users\Murali/wpilib/cpp/current/include/WPILib.h:85:0,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Drive.h:11,
+                 from ..\src\Subsystems\Drive.cpp:8:
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note: candidate: template<class ... SpeedControllers> frc::SpeedControllerGroup::SpeedControllerGroup(frc::SpeedController&, SpeedControllers& ...)
+   explicit SpeedControllerGroup(SpeedController& speedController,
+            ^
+C:\Users\Murali/wpilib/cpp/current/include/SpeedControllerGroup.h:21:12: note:   template argument deduction/substitution failed:
+..\src\Subsystems\Drive.cpp:21:31: note:   cannot convert '((Drive*)this)->Drive::right1' (type 'ctre::phoenix::motorcontrol::can::TalonSRX*') to type 'frc::SpeedController&'
+  SpeedControllerGroup m_right(right1, right2);
+                               ^
+..\src\Subsystems\Drive.cpp:23:70: error: conversion from 'frc::DifferentialDrive*' to non-scalar type 'frc::DifferentialDrive' requested
+  DifferentialDrive drivetrain = new DifferentialDrive(m_left, m_right);
+                                                                      ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:32:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:14:05 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:26:24: warning: unused variable 'drivetrain' [-Wunused-variable]
+     DifferentialDrive *drivetrain = new DifferentialDrive(m_left, m_right);
+                        ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:36:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:14:34 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:26:24: warning: unused variable 'drivetrain' [-Wunused-variable]
+     DifferentialDrive *drivetrain = new DifferentialDrive(m_left, m_right);
+                        ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:36:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:15:01 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:26:16: error: cannot convert 'frc::DifferentialDrive*' to 'frc::RobotDrive*' in assignment
+     drivetrain = new DifferentialDrive(m_left, m_right);
+                ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:36:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:15:19 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:26:5: error: expected primary-expression before 'private'
+     private DifferentialDrive *drivetrain = new DifferentialDrive(m_left, m_right);
+     ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:36:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:16:03 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:26:24: warning: unused variable 'drivetrain' [-Wunused-variable]
+     DifferentialDrive *drivetrain = new DifferentialDrive(m_left, m_right);
+                        ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:36:2: error: 'drivetrain' was not declared in this scope
+  drivetrain->ArcadeDrive(speed, turn);
+  ^
+18:16:48 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:8:19: fatal error: Drive.h: No such file or directory
+compilation terminated.
+18:16:53 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:8:19: fatal error: Drive.h: No such file or directory
+compilation terminated.
+18:16:57 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In constructor 'Drive::Drive(int, int, int, int)':
+..\src\Subsystems\Drive.cpp:26:24: warning: unused variable 'drivetrain' [-Wunused-variable]
+     DifferentialDrive *drivetrain = new DifferentialDrive(m_left, m_right);
+                        ^
+..\src\Subsystems\Drive.cpp: In function 'void ArcadeDrive(double, double)':
+..\src\Subsystems\Drive.cpp:36:2: error: 'drivetrain' was not declared in this scope
   drivetrain->ArcadeDrive(speed, turn);
   ^
