@@ -19,7 +19,7 @@
 class Robot : public frc::TimedRobot {
 public:
 	RobotDrive *drivetrain;
-	TalonSRX *frontLeft, *frontRight, *rearLeft, *rearRight;
+	Victor *frontLeft, *frontRight, *rearLeft, *rearRight;
 	Joystick *driveStick;
 
 	void RobotInit() {
@@ -52,6 +52,7 @@ public:
 		} else {
 			// Default Auto goes here
 		}
+
 	};
 
 	void AutonomousPeriodic() {
@@ -66,12 +67,18 @@ public:
 		//Initialize motor controllers
 
 		        // front set
-		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX frontLeft(1);
-		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX rearLeft(2);
+		        //ctre::phoenix::motorcontrol::can::WPI_TalonSRX frontLeft(1);
+		       // ctre::phoenix::motorcontrol::can::WPI_TalonSRX rearLeft(2);
+
+				frc::Victor frontLeft(0);
+				frc::Victor rearLeft(1);
 
 		        // rear set
-		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX frontRight(3);
-		        ctre::phoenix::motorcontrol::can::WPI_TalonSRX rearRight(4);
+		        //ctre::phoenix::motorcontrol::can::WPI_TalonSRX frontRight(3);
+		        //ctre::phoenix::motorcontrol::can::WPI_TalonSRX rearRight(4);
+
+				frc::Victor frontRight(4);
+				frc::Victor rearRight(5);
 
 		        // speed controllers
 		        SpeedControllerGroup leftDrive(frontLeft, rearLeft);
@@ -83,13 +90,21 @@ public:
 		       // Use differential drive object
 		        driveStick = new Joystick(1);
 		        drivetrain->SetSafetyEnabled(true);
+
 	};
 
 	void TeleopPeriodic() {};
 
 	void TestPeriodic() {};
 
-	private:
+	void operatorControl() {
+			while (IsOperatorControl() && IsEnabled()) {
+				drivetrain->ArcadeDrive(driveStick);
+				Wait(0.01);
+			}
+		}
+
+private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
 	frc::SendableChooser<std::string> m_chooser;
 	const std::string kAutoNameDefault = "Default";
@@ -98,4 +113,4 @@ public:
 
 };
 
-START_ROBOT_CLASS(Robot);
+START_ROBOT_CLASS(Robot)
