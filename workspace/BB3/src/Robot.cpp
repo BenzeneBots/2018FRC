@@ -15,12 +15,23 @@
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
 #include <Talon.h>
+#include <Victor.h>
+#include <Drive/DifferentialDrive.h>
+
+
 
 class Robot : public frc::TimedRobot {
 public:
-	RobotDrive *drivetrain;
+
+	//Drive Components
+	DifferentialDrive *drivetrain;
 	Victor *frontLeft, *frontRight, *rearLeft, *rearRight;
+
+	//Joystick Values
 	Joystick *driveStick;
+	double speed = driveStick->GetRawAxis(1);
+	double turn = driveStick->GetRawAxis(2);
+	bool squaredInputs = true;
 
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
@@ -85,24 +96,26 @@ public:
 		        SpeedControllerGroup rightDrive{frontRight, rearRight};
 
 		        // Create drive object
-		        DifferentialDrive *drivetrain = new DifferentialDrive(leftDrive, rightDrive);
+		       drivetrain = new DifferentialDrive (leftDrive, rightDrive);
 
 		       // Use differential drive object
 		        driveStick = new Joystick(1);
 		        drivetrain->SetSafetyEnabled(true);
 
+
 	};
 
 	void TeleopPeriodic() {};
 
-	void TestPeriodic() {};
-
 	void operatorControl() {
 			while (IsOperatorControl() && IsEnabled()) {
-				drivetrain->ArcadeDrive(driveStick);
+				drivetrain->ArcadeDrive(speed,turn,squaredInputs);
+
 				Wait(0.01);
 			}
 		}
+
+	void TestPeriodic() {};
 
 private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
