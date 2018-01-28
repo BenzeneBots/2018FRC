@@ -16,18 +16,19 @@
 #include <WPILib.h>
 #include <Talon.h>
 
+//include subsystems
+#include <Subsystems/Intake.h>
+
 class Robot : public frc::TimedRobot {
 public:
-	//Victor *leftDriveMotor = new Victor(1);
-	//Victor *rightDriveMotor = new Victor(2);
-
-	//Create RobotDriveObject
-	//RobotDrive *drivetrain = new RobotDrive(leftDriveMotor, rightDriveMotor);
+	Intake::Intake *myIntake;
 
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
 		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+
+		myIntake = new Intake::Intake(1,2,3);
 
 
 		//Initialize motor controllers
