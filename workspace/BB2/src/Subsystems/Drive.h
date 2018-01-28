@@ -12,7 +12,7 @@ namespace Drive {
 
 class Drive {
 public:
-	Drive();
+	Drive(int,int,int,int);
 };
 
 } /* namespace Drive */
