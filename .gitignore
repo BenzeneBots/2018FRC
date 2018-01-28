@@ -1,0 +1,12 @@
+
+.DS_Store
+workspace/.DS_Store
+workspace/.metadata/.log
+workspace/.metadata/.plugins/org.eclipse.cdt.core/.log
+workspace/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+workspace/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+workspace/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json
+workspace/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml
+workspace/.metadata/version.ini
+workspace/BB2/.settings/language.settings.xml
