@@ -22,16 +22,17 @@
 
 class Robot : public frc::TimedRobot {
 public:
+	Victor *testMotor;
 
-	//Drive Components
-	DifferentialDrive *drivetrain;
+	/*DifferentialDrive *drivetrain;
 	Victor *frontLeft, *frontRight, *rearLeft, *rearRight;
 
-	//Joystick Values
+	//Joystick inputs
 	Joystick *driveStick;
 	double speed = driveStick->GetRawAxis(1);
 	double turn = driveStick->GetRawAxis(2);
 	bool squaredInputs = true;
+	*/
 
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
@@ -61,7 +62,7 @@ public:
 		if (m_autoSelected == kAutoNameCustom) {
 			// Custom Auto goes here
 		} else {
-			// Default Auto goes here
+			// Default Auto goes here :)
 		}
 
 	};
@@ -75,6 +76,12 @@ public:
 	};
 
 	void TeleopInit() {
+
+		testMotor = new Victor(1);
+
+
+
+		/*
 		//Initialize motor controllers
 
 		        // front set
@@ -101,19 +108,24 @@ public:
 		       // Use differential drive object
 		        driveStick = new Joystick(1);
 		        drivetrain->SetSafetyEnabled(true);
+		*/
 
 
 	};
 
-	void TeleopPeriodic() {};
+	void TeleopPeriodic() {
 
-	void operatorControl() {
-			while (IsOperatorControl() && IsEnabled()) {
-				drivetrain->ArcadeDrive(speed,turn,squaredInputs);
+		testMotor->Set(0.5);
+		/*
+		while (IsOperatorControl() && IsEnabled()) {
+						drivetrain->ArcadeDrive(speed,turn,squaredInputs);
 
-				Wait(0.01);
-			}
-		}
+						Wait(0.01);
+					}
+		*/
+	};
+
+
 
 	void TestPeriodic() {};
 
