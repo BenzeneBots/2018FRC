@@ -14,7 +14,7 @@ namespace Intake {
 Intake::Intake(int intake1Port, int intake2Port, int anglePort) {
 	intake1 = new Victor(intake1Port);
 	intake2 = new Victor(intake2Port);
-	angleMotor = new Victor(anglePort);
+	angleMotor = new TalonSRX(anglePort);
 
 }
 
@@ -33,8 +33,12 @@ void Intake::StopIntake(){
 	intake2->Set(0.0);
 }
 
-void Intake::TiltIntake(){
-	//TODO implement this
+void Intake::DeployIntake(){
+
+}
+
+void Intake::StowIntake(){
+
 }
 
 } /* namespace Intake */

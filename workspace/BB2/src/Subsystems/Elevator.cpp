@@ -9,9 +9,11 @@
 
 namespace Elevator {
 
-Elevator::Elevator() {
+Elevator::Elevator(int elevatorPort) {
+	elevatorMotor = new TalonSRX(elevatorPort);
 	// TODO Auto-generated constructor stub
-
 }
+
+
 
 } /* namespace Elevator */

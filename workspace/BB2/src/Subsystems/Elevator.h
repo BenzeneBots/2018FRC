@@ -8,11 +8,18 @@
 #ifndef SRC_SUBSYSTEMS_ELEVATOR_H_
 #define SRC_SUBSYSTEMS_ELEVATOR_H_
 
+#include <WPILib.h>
+#include <ctre/Phoenix.h>
+
 namespace Elevator {
 
 class Elevator {
 public:
-	Elevator();
+	Elevator(int);
+
+private:
+	TalonSRX *elevatorMotor;
+
 
 };
 

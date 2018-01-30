@@ -9,6 +9,7 @@
 #define SRC_SUBSYSTEMS_INTAKE_H_
 
 #include <WPILib.h>
+#include <ctre/Phoenix.h>
 
 namespace Intake {
 
@@ -18,10 +19,12 @@ public:
 	void IntakeCubes();
 	void OuttakeCubes();
 	void StopIntake();
-	void TiltIntake();
+	void DeployIntake();
+	void StowIntake();
 
 private:
-	Victor *intake1, *intake2, *angleMotor;
+	Victor *intake1, *intake2;
+	TalonSRX *angleMotor;
 };
 
 } /* namespace Intake */
