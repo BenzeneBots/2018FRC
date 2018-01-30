@@ -13,6 +13,12 @@ namespace Drive {
 class Drive {
 public:
 	Drive(int,int,int,int);
+	void ArcadeDrive(double, double);
+	void ResetEncoders();
+	double getRightEncoderValue();
+	double getLeftEncoderValue();
+	double getRightRate();
+	double getLeftRate();
 };
 
 } /* namespace Drive */

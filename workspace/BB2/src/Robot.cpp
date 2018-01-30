@@ -21,6 +21,7 @@
 
 class Robot : public frc::TimedRobot {
 public:
+	//Initialize all the subystems
 	Intake::Intake *myIntake;
 
 	void RobotInit() {
