@@ -18,23 +18,27 @@
 
 //include subsystems
 #include <Subsystems/Intake.h>
+#include <Subsystems/Drive.h>
 
 class Robot : public frc::TimedRobot {
 public:
 	//Initialize all the subystems
-	Intake::Intake *myIntake;
+	Intake::Intake *robotIntake;
+	Drive::Drive *robotDrive;
+
+	//Init joysticks
+	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
 		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
-		myIntake = new Intake::Intake(1,2,3);
-
+		//init subsystems
+		robotIntake = new Intake::Intake(1,2,3);
+		robotDrive = new Drive::Drive(1,2,3,4);
 
 		//Initialize motor controllers
-
-
 	}
 
 	/*
@@ -72,10 +76,15 @@ public:
 	}
 
 	void TeleopInit() {
-
+		mainDriverStick = new Joystick(1);
+		secondaryDriverStick = new Joystick(2);
+		manipStick = new Joystick(3);
 	}
 
-	void TeleopPeriodic() {}
+	void TeleopPeriodic() {
+		//drives robot according to joystick inputs
+		robotDrive->ArcadeDrive(mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(0));
+	}
 
 	void TestPeriodic() {}
 
