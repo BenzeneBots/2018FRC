@@ -16,7 +16,7 @@ namespace Elevator {
 class Elevator {
 public:
 	Elevator(int);
-
+	void LiftElevatorToHeight(double);
 private:
 	TalonSRX *elevatorMotor;
 

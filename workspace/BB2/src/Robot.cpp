@@ -35,8 +35,8 @@ public:
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//init subsystems
-		robotIntake = new Intake::Intake(1,2,3);
-		robotDrive = new Drive::Drive(1,2,3,4);
+		//robotIntake = new Intake::Intake(1,2,3);
+		robotDrive = new Drive::Drive(0,1,4,5);
 
 		//Initialize motor controllers
 	}
@@ -83,7 +83,7 @@ public:
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		robotDrive->ArcadeDrive(mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(0));
+		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(0));
 	}
 
 	void TestPeriodic() {}

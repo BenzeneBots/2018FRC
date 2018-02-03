@@ -14,6 +14,7 @@ class Drive {
 public:
 	Drive(int,int,int,int);
 	void ArcadeDrive(double, double);
+	double InuptScale(double, double);
 	void ResetEncoders();
 	double getRightEncoderValue();
 	double getLeftEncoderValue();
