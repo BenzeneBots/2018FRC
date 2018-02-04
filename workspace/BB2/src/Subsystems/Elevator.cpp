@@ -10,8 +10,7 @@
 #include <ctre/Phoenix.h>
 
 //constants
-//#define INCHES_PER_TICK 0.04125//need to actually measure
-#define INCHES_PER_ROTATION 120//not measured yet
+#define TICKS_PER_ROTATION 120//not measured yet
 /*
 
  */
@@ -42,10 +41,16 @@ double Elevator::getElevatorRate(){
 	return VelocityVal;
 }
 
-void Elevator::LiftElevatorToHeight(double){
+void Elevator::LimitElevator(){
+	//Configure to limit to 5 Rotations Forward
+	 elevatorMotor->ConfigForwardSoftLimitThreshold(+5*TICKS_PER_ROTATION, 10);
+	 //COnfigure to limit to 0 Rotations Backward
+	 elevatorMotor->ConfigReverseSoftLimitThreshold(0,10);
 
+	 //Enable Soft Limits
+	 elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
+	 elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
 }
-
 
 
 } /* namespace Elevator */

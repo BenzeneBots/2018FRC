@@ -91,6 +91,7 @@ public:
 		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(0));
 
 		robotElevator->getElevatorEncoderValue();
+		robotElevator->LimitElevator();
 		robotElevator->SetToSpeed(manipStick->GetRawAxis(1));
 	}
 

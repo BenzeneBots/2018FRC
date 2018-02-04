@@ -16,11 +16,11 @@ namespace Elevator {
 class Elevator {
 public:
 	Elevator(int);
-	void LiftElevatorToHeight(double);
 	void ResetEncoder();
 	double getElevatorEncoderValue();
 	double getElevatorRate();
 	void SetToSpeed(double);
+	void LimitElevator();
 
 private:
 	TalonSRX *elevatorMotor;
