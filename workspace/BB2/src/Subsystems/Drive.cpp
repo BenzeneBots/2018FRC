@@ -9,6 +9,8 @@
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
 
+
+
 //Defined drive constants
 #define INCHES_PER_TICK 0.01410; //TODO measure this guy
 
@@ -45,6 +47,7 @@ void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based
 	frontRight->Set(rightSpeed);
 	backRight->Set(rightSpeed);
 
+	}
 }
 	//frontLeft->Set(ControlMode::PercentOutput, leftSpeed);
 	//backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());

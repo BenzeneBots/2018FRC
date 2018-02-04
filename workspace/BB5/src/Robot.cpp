@@ -16,35 +16,17 @@
 #include <WPILib.h>
 #include <Talon.h>
 
-
-//include subsystems
-#include <Subsystems/Intake.h>
-#include <Subsystems/Drive.h>
-#include <Subsystems/Elevator.h>
-
 class Robot : public frc::TimedRobot {
+	TalonSRX *elevatorMotor = new TalonSRX(4);
+
 public:
-	//Initialize all the subystems
-	Intake::Intake *robotIntake;
-	Drive::Drive *robotDrive;
-	Elevator::Elevator *robotElevator;
-
-	//Init joysticks
-	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
-
-
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
 		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
-
-		//init subsystems
-		//robotIntake = new Intake::Intake(1,2,3);
-		robotDrive = new Drive::Drive(0,1,4,5);
-		robotElevator = new Elevator::Elevator(4);
-
-		//Initialize motor controllers
 	}
+
+
 
 	/*
 	 * This autonomous (along with the chooser code above) shows how to
@@ -81,18 +63,11 @@ public:
 	}
 
 	void TeleopInit() {
-		mainDriverStick = new Joystick(1);
-		secondaryDriverStick = new Joystick(2);
-		manipStick = new Joystick(3);
+
+		elevatorMotor->Set(ControlMode::PercentOutput, 1.00);
 	}
 
-	void TeleopPeriodic() {
-		//drives robot according to joystick inputs
-		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(0));
-
-		robotElevator->getElevatorEncoderValue();
-		robotElevator->SetToSpeed(manipStick->GetRawAxis(1));
-	}
+	void TeleopPeriodic() {}
 
 	void TestPeriodic() {}
 
