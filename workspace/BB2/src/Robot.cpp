@@ -41,7 +41,7 @@ public:
 		//init subsystems
 		//robotIntake = new Intake::Intake(1,2,3);
 		robotDrive = new Drive::Drive(0,1,4,5);
-		robotElevator = new Elevator::Elevator(4);
+		robotElevator = new Elevator::Elevator(4,5,4);
 
 		//Initialize motor controllers
 	}
@@ -84,14 +84,16 @@ public:
 		mainDriverStick = new Joystick(1);
 		secondaryDriverStick = new Joystick(2);
 		manipStick = new Joystick(3);
+
+		robotElevator->ResetEncoder();
 	}
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(0));
+		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(2));
 
 		robotElevator->getElevatorEncoderValue();
-		robotElevator->LimitElevator();
+		robotElevator->SoftLimitElevator();
 		robotElevator->SetToSpeed(manipStick->GetRawAxis(1));
 	}
 

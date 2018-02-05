@@ -17,12 +17,18 @@
 
 namespace Elevator {
 
-Elevator::Elevator(int elevatorPort) {
+Elevator::Elevator(int elevatorPort, int topSwitchPort, int bottomSwitchPort) {
 	elevatorMotor = new TalonSRX(elevatorPort);
+	bottomSwitch = new DigitalInput(bottomSwitchPort);
+	topSwitch = new DigitalInput(topSwitchPort);
 	// TODO Auto-generated constructor stub
 }
+
+
 void Elevator::SetToSpeed(double IntakeSpeed){
-	elevatorMotor->Set(ControlMode::PercentOutput,IntakeSpeed);
+
+		elevatorMotor->Set(ControlMode::PercentOutput,IntakeSpeed);
+
 }
 void Elevator::ResetEncoder(){
 	//Resets Encoders to 0
@@ -41,15 +47,19 @@ double Elevator::getElevatorRate(){
 	return VelocityVal;
 }
 
-void Elevator::LimitElevator(){
+void Elevator::SoftLimitElevator(){
 	//Configure to limit to 5 Rotations Forward
-	 elevatorMotor->ConfigForwardSoftLimitThreshold(+5*TICKS_PER_ROTATION, 10);
-	 //COnfigure to limit to 0 Rotations Backward
-	 elevatorMotor->ConfigReverseSoftLimitThreshold(0,10);
+	//elevatorMotor->ConfigForwardSoftLimitThreshold(5.0*TICKS_PER_ROTATION, 10);
+	 elevatorMotor->ConfigForwardSoftLimitThreshold(1.0, 10);
+	 //Configure to limit to 5 Rotations Backward
+	 //elevatorMotor->ConfigReverseSoftLimitThreshold(0,10);
+	 elevatorMotor->ConfigReverseSoftLimitThreshold(-1.0,10);
 
 	 //Enable Soft Limits
-	 elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
+	 elevatorMotor->ConfigForwardSoftLimitEnable(false,10);
 	 elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
+
+	 elevatorMotor->OverrideLimitSwitchesEnable(true);
 }
 
 
