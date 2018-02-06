@@ -3584,3 +3584,15 @@ java.io.IOException: The handle is invalid
 
 !ENTRY riolog 1 0 2018-02-04 18:13:35.972
 !MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-06 16:05:25.261
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-06 16:05:25.261
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-06 16:05:25.261
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY riolog 1 0 2018-02-06 17:45:18.581
+!MESSAGE exiting listener

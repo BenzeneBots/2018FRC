@@ -10,7 +10,9 @@
 #include <ctre/Phoenix.h>
 
 //constants
-#define TICKS_PER_ROTATION 120//not measured yet
+#define TICKS_PER_ROTATION 4096//not measured yet
+#define INCHES_PER_TICK .01416//not measured yet
+#define ELEVATOR_SPEED 0.7
 /*
 
  */
@@ -21,7 +23,8 @@ Elevator::Elevator(int elevatorPort, int topSwitchPort, int bottomSwitchPort) {
 	elevatorMotor = new TalonSRX(elevatorPort);
 	bottomSwitch = new DigitalInput(bottomSwitchPort);
 	topSwitch = new DigitalInput(topSwitchPort);
-	// TODO Auto-generated constructor stub
+	targetHeight = 0;
+	//Auto-generated constructor stub
 }
 
 
@@ -30,24 +33,24 @@ void Elevator::SetToSpeed(double IntakeSpeed){
 		elevatorMotor->Set(ControlMode::PercentOutput,IntakeSpeed);
 
 }
-void Elevator::ResetEncoder(){
+void Elevator::SetEncoderPosition(int pos){
 	//Resets Encoders to 0
-	elevatorMotor->GetSensorCollection().SetQuadraturePosition(0, 0); //should the timeoutMS be 0
+	elevatorMotor->GetSensorCollection().SetQuadraturePosition(pos, 0); //should the timeoutMS be 0
 }
 
-double Elevator::getElevatorEncoderValue(){
+double Elevator::GetElevatorPosition(){
 
 	double rawEncVal = elevatorMotor->GetSensorCollection().GetQuadraturePosition();
 	return rawEncVal;
 	printf("Enc Val: %f\n",rawEncVal);
 }
 
-double Elevator::getElevatorRate(){
+double Elevator::GetElevatorRate(){
 	double VelocityVal = elevatorMotor->GetSensorCollection().GetQuadratureVelocity();
 	return VelocityVal;
 }
 
-void Elevator::SoftLimitElevator(){
+void Elevator::EnableSoftLimits(){
 	//Configure to limit to 5 Rotations Forward
 	//elevatorMotor->ConfigForwardSoftLimitThreshold(5.0*TICKS_PER_ROTATION, 10);
 	 elevatorMotor->ConfigForwardSoftLimitThreshold(1.0, 10);
@@ -60,6 +63,13 @@ void Elevator::SoftLimitElevator(){
 	 elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
 
 	 elevatorMotor->OverrideLimitSwitchesEnable(true);
+}
+
+void Elevator::SetElevatorSetPoint(double pos){
+	targetHeight = pos;
+}
+
+void Elevator::MoveElevatorToSetPoint(){//TODO implement this
 }
 
 

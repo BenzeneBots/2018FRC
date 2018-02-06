@@ -16,17 +16,19 @@ namespace Elevator {
 class Elevator {
 public:
 	Elevator(int,int,int);
-	void ResetEncoder();
-	double getElevatorEncoderValue();
-	double getElevatorRate();
+	void SetEncoderPosition(int);
+	double GetElevatorPosition();
+	double GetElevatorRate();
 	void SetToSpeed(double);
-	void SoftLimitElevator();
-	void LimitSwitch();
+	void EnableSoftLimits();
+	void SetElevatorSetPoint(double);
+	void MoveElevatorToSetPoint();
 
 private:
 	TalonSRX *elevatorMotor;
 	DigitalInput *bottomSwitch;
 	DigitalInput *topSwitch;
+	double targetHeight;
 
 
 };
