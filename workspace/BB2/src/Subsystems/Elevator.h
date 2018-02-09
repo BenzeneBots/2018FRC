@@ -19,7 +19,7 @@ public:
 	void SetEncoderPosition(int);
 	double GetElevatorPosition();
 	double GetElevatorRate();
-	void SetToSpeed(double);
+	void SetToOutput(double);
 	void EnableSoftLimits();
 	void SetElevatorSetPoint(double);
 	void MoveElevatorToSetPoint();

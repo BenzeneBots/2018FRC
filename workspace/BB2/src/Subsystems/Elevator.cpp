@@ -10,8 +10,8 @@
 #include <ctre/Phoenix.h>
 
 //constants
-#define TICKS_PER_ROTATION 4096//not measured yet
-#define INCHES_PER_TICK .01416//not measured yet
+#define TICKS_PER_ROTATION 4096//measured
+#define INCHES_PER_TICK 0.0019175//calculated, but may need tuning
 #define ELEVATOR_SPEED 0.7
 /*
 
@@ -28,13 +28,12 @@ Elevator::Elevator(int elevatorPort, int topSwitchPort, int bottomSwitchPort) {
 }
 
 
-void Elevator::SetToSpeed(double IntakeSpeed){
+void Elevator::SetToOutput(double ElevatorSpeed){
 
-		elevatorMotor->Set(ControlMode::PercentOutput,IntakeSpeed);
+		elevatorMotor->Set(ControlMode::PercentOutput,ElevatorSpeed);
 
 }
 void Elevator::SetEncoderPosition(int pos){
-	//Resets Encoders to 0
 	elevatorMotor->GetSensorCollection().SetQuadraturePosition(pos, 0); //should the timeoutMS be 0
 }
 
@@ -51,15 +50,14 @@ double Elevator::GetElevatorRate(){
 }
 
 void Elevator::EnableSoftLimits(){
-	//Configure to limit to 5 Rotations Forward
-	//elevatorMotor->ConfigForwardSoftLimitThreshold(5.0*TICKS_PER_ROTATION, 10);
-	 elevatorMotor->ConfigForwardSoftLimitThreshold(1.0, 10);
-	 //Configure to limit to 5 Rotations Backward
-	 //elevatorMotor->ConfigReverseSoftLimitThreshold(0,10);
-	 elevatorMotor->ConfigReverseSoftLimitThreshold(-1.0,10);
+	//
+
+	//Configure limits at 0 and 5 rotations forward
+	elevatorMotor->ConfigForwardSoftLimitThreshold(5.0*TICKS_PER_ROTATION, 10);
+	elevatorMotor->ConfigReverseSoftLimitThreshold(0,10);
 
 	 //Enable Soft Limits
-	 elevatorMotor->ConfigForwardSoftLimitEnable(false,10);
+	 elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
 	 elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
 
 	 elevatorMotor->OverrideLimitSwitchesEnable(true);

@@ -38,12 +38,12 @@ public:
 		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
-		//init subsystems
-		//robotIntake = new Intake::Intake(1,2,3);
-		robotDrive = new Drive::Drive(0,1,4,5);
-		robotElevator = new Elevator::Elevator(4,5,4);
+		//initialize subsystems
+		robotDrive = new Drive::Drive(0,1,4,5); 			//drive uses Talons 0,1,2,3
+		robotElevator = new Elevator::Elevator(4,5,4); 		//elevator uses Talon 4 and DIOs 4 and 5
 
-		//Initialize motor controllers
+
+
 	}
 
 	/*
@@ -81,20 +81,21 @@ public:
 	}
 
 	void TeleopInit() {
+		//Initialize all the joysticks
 		mainDriverStick = new Joystick(1);
 		secondaryDriverStick = new Joystick(2);
 		manipStick = new Joystick(3);
 
-	//	robotElevator->ResetEncoder();
+		robotElevator->SetEncoderPosition(0);
 	}
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
 		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(2));
+		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
+		robotElevator->EnableSoftLimits();
+		robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
 
-	//	robotElevator->getElevatorEncoderValue();
-	//	robotElevator->SoftLimitElevator();
-	//	robotElevator->SetToSpeed(manipStick->GetRawAxis(1));
 	}
 
 	void TestPeriodic() {}
