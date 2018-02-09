@@ -85,16 +85,16 @@ public:
 		secondaryDriverStick = new Joystick(2);
 		manipStick = new Joystick(3);
 
-		robotElevator->ResetEncoder();
+	//	robotElevator->ResetEncoder();
 	}
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
 		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(2));
 
-		robotElevator->getElevatorEncoderValue();
-		robotElevator->SoftLimitElevator();
-		robotElevator->SetToSpeed(manipStick->GetRawAxis(1));
+	//	robotElevator->getElevatorEncoderValue();
+	//	robotElevator->SoftLimitElevator();
+	//	robotElevator->SetToSpeed(manipStick->GetRawAxis(1));
 	}
 
 	void TestPeriodic() {}

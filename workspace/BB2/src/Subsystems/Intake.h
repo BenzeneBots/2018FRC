@@ -10,6 +10,7 @@
 
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
+#include <Talon.h>
 
 namespace Intake {
 

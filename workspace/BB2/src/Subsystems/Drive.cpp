@@ -85,6 +85,6 @@ double getLeftRate(){//gets inches per second travelled by right side of drivetr
 	return VelocityVal;
 }
 
-} /* namespace Drive *
+}  namespace Drive */
 
-*/
+//*/

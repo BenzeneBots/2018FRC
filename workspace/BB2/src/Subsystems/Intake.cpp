@@ -8,7 +8,6 @@
 #include <Subsystems/Intake.h>
 #define INTAKE_SPEED 0.75
 
-
 namespace Intake {
 
 Intake::Intake(int intake1Port, int intake2Port, int anglePort) {
@@ -41,4 +40,4 @@ void Intake::StowIntake(){
 
 }
 
-} /* namespace Intake */
+}
