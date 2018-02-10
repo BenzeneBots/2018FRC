@@ -5,6 +5,9 @@
  *      Author: Murali
  */
 
+#include <WPILib.h>
+#include <ctre/Phoenix.h>
+#include <Talon.h>
 #include <Subsystems/Intake.h>
 #define INTAKE_SPEED 0.75
 
@@ -39,5 +42,5 @@ void Intake::DeployIntake(){
 void Intake::StowIntake(){
 
 }
-
+//Don't deploy intake if the intake is stowed
 }

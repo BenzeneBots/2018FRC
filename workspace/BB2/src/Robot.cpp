@@ -87,14 +87,18 @@ public:
 		manipStick = new Joystick(3);
 
 		robotElevator->SetEncoderPosition(0);
+		robotElevator->PIDInit();
 	}
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
+
 		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(2));
 		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
 		robotElevator->EnableSoftLimits();
-		robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
+		robotElevator->MoveElevatorToSetPoint(manipStick->GetRawButton(1),manipStick->GetRawButton(2),manipStick->GetRawButton(3),manipStick->GetRawAxis(1));;
+
+		//robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
 
 	}
 

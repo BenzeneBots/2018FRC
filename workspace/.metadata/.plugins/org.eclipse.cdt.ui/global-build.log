@@ -674,3 +674,259 @@ arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/inc
    ^
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+21:30:01 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2
+21:31:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:47:08 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In member function 'void Elevator::Elevator::MoveElevatorToSetPoint(bool, bool, bool)':
+..\src\Subsystems\Elevator.cpp:69:7: error: declaration of 'bool _Floor' shadows a parameter
+  bool _Floor = false;
+       ^
+..\src\Subsystems\Elevator.cpp:70:7: error: declaration of 'bool _Switch' shadows a parameter
+  bool _Switch = false;
+       ^
+..\src\Subsystems\Elevator.cpp:71:7: error: declaration of 'bool _Scale' shadows a parameter
+  bool _Scale = false;
+       ^
+..\src\Subsystems\Elevator.cpp:69:7: warning: unused variable '_Floor' [-Wunused-variable]
+  bool _Floor = false;
+       ^
+..\src\Subsystems\Elevator.cpp:70:7: warning: unused variable '_Switch' [-Wunused-variable]
+  bool _Switch = false;
+       ^
+..\src\Subsystems\Elevator.cpp:71:7: warning: unused variable '_Scale' [-Wunused-variable]
+  bool _Scale = false;
+       ^
+12:47:51 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:92:8: error: redeclaration of 'bool _Floor'
+   bool _Floor = false;
+        ^
+..\src\Robot.cpp:88:8: note: 'bool _Floor' previously declared here
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:93:8: error: redeclaration of 'bool _Switch'
+   bool _Switch = false;
+        ^
+..\src\Robot.cpp:89:8: note: 'bool _Switch' previously declared here
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:94:8: error: redeclaration of 'bool _Scale'
+   bool _Scale = false;
+        ^
+..\src\Robot.cpp:90:8: note: 'bool _Scale' previously declared here
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+..\src\Robot.cpp:88:8: warning: unused variable '_Floor' [-Wunused-variable]
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:89:8: warning: unused variable '_Switch' [-Wunused-variable]
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:90:8: warning: unused variable '_Scale' [-Wunused-variable]
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+12:48:06 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:88:8: warning: unused variable '_Floor' [-Wunused-variable]
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:89:8: warning: unused variable '_Switch' [-Wunused-variable]
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:90:8: warning: unused variable '_Scale' [-Wunused-variable]
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In member function 'void Elevator::Elevator::MoveElevatorToSetPoint(bool, bool, bool)':
+..\src\Subsystems\Elevator.cpp:69:7: error: declaration of 'bool _Floor' shadows a parameter
+  bool _Floor = false;
+       ^
+..\src\Subsystems\Elevator.cpp:70:7: error: declaration of 'bool _Switch' shadows a parameter
+  bool _Switch = false;
+       ^
+..\src\Subsystems\Elevator.cpp:71:7: error: declaration of 'bool _Scale' shadows a parameter
+  bool _Scale = false;
+       ^
+..\src\Subsystems\Elevator.cpp:69:7: warning: unused variable '_Floor' [-Wunused-variable]
+  bool _Floor = false;
+       ^
+..\src\Subsystems\Elevator.cpp:70:7: warning: unused variable '_Switch' [-Wunused-variable]
+  bool _Switch = false;
+       ^
+..\src\Subsystems\Elevator.cpp:71:7: warning: unused variable '_Scale' [-Wunused-variable]
+  bool _Scale = false;
+       ^
+12:48:41 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:94:8: warning: unused variable '_Floor' [-Wunused-variable]
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:95:8: warning: unused variable '_Switch' [-Wunused-variable]
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:96:8: warning: unused variable '_Scale' [-Wunused-variable]
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In member function 'void Elevator::Elevator::MoveElevatorToSetPoint(bool, bool, bool)':
+..\src\Subsystems\Elevator.cpp:69:7: error: declaration of 'bool _Floor' shadows a parameter
+  bool _Floor = false;
+       ^
+..\src\Subsystems\Elevator.cpp:70:7: error: declaration of 'bool _Switch' shadows a parameter
+  bool _Switch = false;
+       ^
+..\src\Subsystems\Elevator.cpp:71:7: error: declaration of 'bool _Scale' shadows a parameter
+  bool _Scale = false;
+       ^
+..\src\Subsystems\Elevator.cpp:69:7: warning: unused variable '_Floor' [-Wunused-variable]
+  bool _Floor = false;
+       ^
+..\src\Subsystems\Elevator.cpp:70:7: warning: unused variable '_Switch' [-Wunused-variable]
+  bool _Switch = false;
+       ^
+..\src\Subsystems\Elevator.cpp:71:7: warning: unused variable '_Scale' [-Wunused-variable]
+  bool _Scale = false;
+       ^
+12:48:58 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+13:04:35 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:94:8: warning: unused variable '_Floor' [-Wunused-variable]
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:95:8: warning: unused variable '_Switch' [-Wunused-variable]
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:96:8: warning: unused variable '_Scale' [-Wunused-variable]
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp:68:6: error: prototype for 'void Elevator::Elevator::MoveElevatorToSetPoint(bool, bool, bool)' does not match any in class 'Elevator::Elevator'
+ void Elevator::MoveElevatorToSetPoint(bool _Floor,bool _Switch,bool _Scale ){//TODO implement this
+      ^
+In file included from ..\src\Subsystems\Elevator.cpp:8:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Elevator.h:25:7: error: candidate is: void Elevator::Elevator::MoveElevatorToSetPoint()
+  void MoveElevatorToSetPoint();
+       ^
+13:14:27 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:102:18: error: 'class Elevator::Elevator' has no member named 'SetToOutput'
+   robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
+                  ^
+..\src\Robot.cpp:94:8: warning: unused variable '_Floor' [-Wunused-variable]
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:95:8: warning: unused variable '_Switch' [-Wunused-variable]
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:96:8: warning: unused variable '_Scale' [-Wunused-variable]
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+13:14:49 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp:72:6: error: prototype for 'void Elevator::Elevator::MoveElevatorToSetPoint(bool, double)' does not match any in class 'Elevator::Elevator'
+ void Elevator::MoveElevatorToSetPoint(bool button1,double ElevatorSpeed){//TODO implement this
+      ^
+In file included from ..\src\Subsystems\Elevator.cpp:8:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Elevator.h:25:7: error: candidate is: void Elevator::Elevator::MoveElevatorToSetPoint(bool)
+  void MoveElevatorToSetPoint(bool);
+       ^
+13:23:27 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In function 'void Elevator::PIDInit()':
+..\src\Subsystems\Elevator.cpp:73:2: error: 'elevatorMotor' was not declared in this scope
+  elevatorMotor->ConfigNominalOutputForward(0, kTimeoutMs);
+  ^
+..\src\Subsystems\Elevator.cpp:73:47: error: 'kTimeoutMs' was not declared in this scope
+  elevatorMotor->ConfigNominalOutputForward(0, kTimeoutMs);
+                                               ^
+..\src\Subsystems\Elevator.cpp:79:27: error: 'kPIDLoopIdx' was not declared in this scope
+  elevatorMotor->Config_kF(kPIDLoopIdx, 0.0, kTimeoutMs);
+                           ^
+13:26:55 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In member function 'void Elevator::Elevator::PIDInit()':
+..\src\Subsystems\Elevator.cpp:73:48: error: 'kTimeoutMs' was not declared in this scope
+  elevatorMotor-> ConfigNominalOutputForward(0, kTimeoutMs);
+                                                ^
+..\src\Subsystems\Elevator.cpp:79:27: error: 'kPIDLoopIdx' was not declared in this scope
+  elevatorMotor->Config_kF(kPIDLoopIdx, 0.0, kTimeoutMs);
+                           ^
+13:39:00 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:94:8: warning: unused variable '_Floor' [-Wunused-variable]
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:95:8: warning: unused variable '_Switch' [-Wunused-variable]
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:96:8: warning: unused variable '_Scale' [-Wunused-variable]
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+14:50:36 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:94:8: warning: unused variable '_Floor' [-Wunused-variable]
+   bool _Floor = manipStick->GetRawButton(1); /* get buttons */
+        ^
+..\src\Robot.cpp:95:8: warning: unused variable '_Switch' [-Wunused-variable]
+   bool _Switch = manipStick->GetRawButton(2);
+        ^
+..\src\Robot.cpp:96:8: warning: unused variable '_Scale' [-Wunused-variable]
+   bool _Scale = manipStick->GetRawButton(3);
+        ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+15:03:45 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:99:147: error: no matching function for call to 'Elevator::Elevator::SetElevatorSetPoint(bool, bool, bool, double)'
+   robotElevator->SetElevatorSetPoint(manipStick->GetRawButton(1),manipStick->GetRawButton(2),manipStick->GetRawButton(3),manipStick->GetRawAxis(1));;
+                                                                                                                                                   ^
+In file included from ..\src\Robot.cpp:23:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Elevator.h:24:7: note: candidate: void Elevator::Elevator::SetElevatorSetPoint(double)
+  void SetElevatorSetPoint(double);
+       ^
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Elevator.h:24:7: note:   candidate expects 1 argument, 4 provided
+15:04:30 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 

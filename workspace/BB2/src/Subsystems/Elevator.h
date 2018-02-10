@@ -19,10 +19,11 @@ public:
 	void SetEncoderPosition(int);
 	double GetElevatorPosition();
 	double GetElevatorRate();
-	void SetToOutput(double);
+	//void SetToOutput(double);
 	void EnableSoftLimits();
 	void SetElevatorSetPoint(double);
-	void MoveElevatorToSetPoint();
+	void MoveElevatorToSetPoint(bool,bool,bool,double);
+	void PIDInit();
 
 private:
 	TalonSRX *elevatorMotor;
