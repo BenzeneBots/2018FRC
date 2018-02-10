@@ -38,7 +38,7 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 }
 
 void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
-	double leftSpeed = LimitVal( -127, (turn- speed)/2, 127 );
+	double leftSpeed = LimitVal( -127, (turn -speed)/2, 127 );
 	double rightSpeed = LimitVal( -127, (turn + speed)/2, 127 );
 
 	frontLeft->Set(leftSpeed);

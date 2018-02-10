@@ -24,6 +24,7 @@
 
 class Robot : public frc::TimedRobot {
 public:
+	PigeonIMU * _pidgey;
 	//Initialize all the subystems
 	Intake::Intake *robotIntake;
 	Drive::Drive *robotDrive;
@@ -31,7 +32,6 @@ public:
 
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
-
 
 	void RobotInit() {
 		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
@@ -41,7 +41,7 @@ public:
 		//initialize subsystems
 		robotDrive = new Drive::Drive(0,1,4,5); 			//drive uses Talons 0,1,2,3
 		robotElevator = new Elevator::Elevator(4,5,4); 		//elevator uses Talon 4 and DIOs 4 and 5
-
+				_pidgey = new PigeonIMU(0);
 
 
 	}
