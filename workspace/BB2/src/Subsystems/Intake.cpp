@@ -9,14 +9,19 @@
 #include <ctre/Phoenix.h>
 #include <Talon.h>
 #include <Subsystems/Intake.h>
-#define INTAKE_SPEED 0.75
+#define INTAKE_SPEED 0.6
 
 namespace Intake {
 
-Intake::Intake(int intake1Port, int intake2Port, int anglePort) {
+Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort) {
 	intake1 = new Victor(intake1Port);
 	intake2 = new Victor(intake2Port);
-	angleMotor = new TalonSRX(anglePort);
+	clawActuator = new Solenoid(clawPort);
+	angleActuator = new Solenoid(anglePort);
+
+	//defaults position to starting config
+	intakeDeployedStatus = false;
+	clawOpenStatus = false;
 
 }
 
@@ -26,8 +31,11 @@ void Intake::IntakeCubes(){
 }
 
 void Intake::OuttakeCubes(){
-	intake1->Set(-1.0 * INTAKE_SPEED);
-	intake2->Set(-1.0 * INTAKE_SPEED);
+	if(intakeDeployedStatus){//only outtake if intake is deployed
+		intake1->Set(-1.0 * INTAKE_SPEED);
+		intake2->Set(-1.0 * INTAKE_SPEED);
+	}
+
 }
 
 void Intake::StopIntake(){
@@ -35,12 +43,47 @@ void Intake::StopIntake(){
 	intake2->Set(0.0);
 }
 
+void Intake::OpenClaw(){
+	if(intakeDeployedStatus){//only open claw if intake is deployed
+		clawActuator->Set(false);
+		clawOpenStatus = true;
+	}
+}
+
+void Intake::CloseClaw(){
+	clawActuator->Set(true);//since extended cylinder is closed claw
+	clawOpenStatus = false;
+}
+
 void Intake::DeployIntake(){
+	angleActuator->Set(true);
+	intakeDeployedStatus = true;
+}
+
+void Intake::StowIntake(){//
+	if(clawOpenStatus){//if claw is open, close it before stowing
+		this->CloseClaw();
+	}
+	//now that we are sure intake is closed, proceed with stowing
+	angleActuator->Set(false);
+	intakeDeployedStatus = false;
+}
+
+bool Intake::IsIntakeDeployed(){
+	return intakeDeployedStatus;
+}
+
+bool Intake::IsClawOpen(){
+	return clawOpenStatus;
+}
+
+void Intake::SetIntakeStatus(bool newStatus){
+	intakeDeployedStatus = newStatus;
 
 }
 
-void Intake::StowIntake(){
-
+void Intake::SetClawStatus(bool newStatus){
+	clawOpenStatus = newStatus;
 }
-//Don't deploy intake if the intake is stowed
+
 }

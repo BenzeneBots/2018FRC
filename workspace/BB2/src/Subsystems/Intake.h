@@ -16,16 +16,22 @@ namespace Intake {
 
 class Intake {
 public:
-	Intake(int, int, int);
+	Intake(int, int, int, int);
 	void IntakeCubes();
 	void OuttakeCubes();
 	void StopIntake();
+	void OpenClaw();
+	void CloseClaw();
 	void DeployIntake();
 	void StowIntake();
-
+	bool IsIntakeDeployed();
+	bool IsClawOpen();
+	void SetIntakeStatus(bool);
+	void SetClawStatus(bool);
 private:
 	Victor *intake1, *intake2;
-	TalonSRX *angleMotor;
+	Solenoid *clawActuator, *angleActuator;
+	bool intakeDeployedStatus, clawOpenStatus;
 };
 
 } /* namespace Intake */
