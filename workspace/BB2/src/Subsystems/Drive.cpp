@@ -22,39 +22,38 @@
 
 namespace Drive {
 
-DifferentialDrive *drivetrain;
-Victor *frontLeft, *frontRight, *backLeft, *backRight;
-
-
-
 Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort) {
 	// TODO Auto-generated constructor stub
 
     // Create all drive motors
+
 	frontLeft = new Victor(frontLeftPort);
 	backLeft = new Victor(backLeftPort);
 	frontRight = new Victor(frontRightPort);
 	backRight = new Victor(backRightPort);
+
+	//SpeedControllerGroup leftDrive = new SpeedControllerGroup(frontLeft, backLeft);
+	//SpeedControllerGroup rightDrive = new SpeedControllerGroup(frontRight, backRight);
+
+	//talon code
+	/*frontLeft = new WPI_TalonSRX(frontLeftPort);
+	backLeft = new WPI_TalonSRX(backLeftPort);
+	frontRight = new WPI_TalonSRX(frontRightPort);
+	backRight = new WPI_TalonSRX(backRightPort);
+
+	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
+	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());*/
+
+	drivetrain = new DifferentialDrive(*frontLeft, *frontRight);
 }
 
 void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
-	double leftSpeed = LimitVal( -127, (turn -speed)/2, 127 );
-	double rightSpeed = LimitVal( -127, (turn + speed)/2, 127 );
 
-	frontLeft->Set(leftSpeed);
-	backLeft->Set(leftSpeed);
 
-	frontRight->Set(rightSpeed);
-	backRight->Set(rightSpeed);
+	drivetrain->ArcadeDrive(speed, turn, false);
 
 	}
 }
-	//frontLeft->Set(ControlMode::PercentOutput, leftSpeed);
-	//backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
-
-	//frontRight->Set(ControlMode::PercentOutput, rightSpeed);
-	//backLeft->Set(ControlMode::Follower, frontRight->GetDeviceID());
-
 /*
 void Drive::ResetEncoders(){//Resets Encoders to 0
 	frontRight->GetSensorCollection().SetQuadraturePosition(0, 0); //should the timeoutMS be 0?

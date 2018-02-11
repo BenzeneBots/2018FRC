@@ -8,18 +8,25 @@
 #ifndef SRC_SUBSYSTEMS_DRIVE_H_
 #define SRC_SUBSYSTEMS_DRIVE_H_
 
+#include <WPILib.h>
+#include <ctre/Phoenix.h>
+
 namespace Drive {
 
 class Drive {
 public:
 	Drive(int,int,int,int);
 	void ArcadeDrive(double, double);
-	double InuptScale(double, double);
+	double InputScale(double, double);
 	void ResetEncoders();
 	double getRightEncoderValue();
 	double getLeftEncoderValue();
 	double getRightRate();
 	double getLeftRate();
+
+private:
+	DifferentialDrive *drivetrain;
+	Victor *frontLeft, *frontRight, *backLeft, *backRight;
 };
 
 } /* namespace Drive */
