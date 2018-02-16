@@ -29,28 +29,20 @@ namespace Elevator {
 Elevator::Elevator(int elevatorPort) {
 	elevatorMotor = new TalonSRX(elevatorPort);
 	elevatorMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0); //sets the quad encoder as the primary sensor. What do PIDLoop and timeoutMS (the parameters) do?
-	elevatorMotor->SetSensorPhase(true); //reverses sensor phase
+	//Enable Soft Limits
+	elevatorMotor->ConfigForwardSoftLimitThreshold(MAX_ELEVATOR_HEIGHT, 10);
+	elevatorMotor->ConfigReverseSoftLimitThreshold(MIN_ELEVATOR_HEIGHT,10);
+	elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
+	elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
+
+
 	targetHeight = 0;
 	//Auto-generated constructor stub
 }
 
 
 void Elevator::SetToOutput(double elevatorSpeed){
-	if(this->GetElevatorPosition() >= MIN_ELEVATOR_HEIGHT && this->GetElevatorPosition() <= MAX_ELEVATOR_HEIGHT){
-		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
-	}
-	else if(this->GetElevatorPosition() >= MAX_ELEVATOR_HEIGHT && elevatorSpeed >= 0){//if its above 7000 it should only go down
-		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
-	}
-	else if(this->GetElevatorPosition() <= MIN_ELEVATOR_HEIGHT && elevatorSpeed <= 0){//it its below -1000 they should only go up
-		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
-	}
-	else{
-		elevatorMotor->Set(ControlMode::PercentOutput, 0.0);
-	}
-	printf("elevator speed: %f \n", elevatorSpeed);
-
-
+	elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
 }
 
 void Elevator::SetEncoderPosition(int pos){

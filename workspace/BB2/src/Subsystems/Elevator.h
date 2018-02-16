@@ -27,8 +27,6 @@ public:
 
 private:
 	TalonSRX *elevatorMotor;
-	DigitalInput *bottomSwitch;
-	DigitalInput *topSwitch;
 	double targetHeight;
 
 
