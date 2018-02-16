@@ -25,7 +25,7 @@
 class Robot : public frc::TimedRobot {
 public:
 
-	//Initialize all the subystems
+	//Initialize the subsystem
 	Intake::Intake *robotIntake;
 	Drive::Drive *robotDrive;
 	Elevator::Elevator *robotElevator;
