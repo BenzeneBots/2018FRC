@@ -27,63 +27,66 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 
     // Create all drive motors
 
-	frontLeft = new Victor(frontLeftPort);
-	backLeft = new Victor(backLeftPort);
-	frontRight = new Victor(frontRightPort);
-	backRight = new Victor(backRightPort);
-
-	//SpeedControllerGroup leftDrive = new SpeedControllerGroup(frontLeft, backLeft);
-	//SpeedControllerGroup rightDrive = new SpeedControllerGroup(frontRight, backRight);
-
 	//talon code
-	/*frontLeft = new WPI_TalonSRX(frontLeftPort);
+	frontLeft = new WPI_TalonSRX(frontLeftPort);
 	backLeft = new WPI_TalonSRX(backLeftPort);
 	frontRight = new WPI_TalonSRX(frontRightPort);
 	backRight = new WPI_TalonSRX(backRightPort);
 
 	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
-	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());*/
+	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
+
+	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0); //sets the quad encoder as the primary sensor
+	frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
 
 	drivetrain = new DifferentialDrive(*frontLeft, *frontRight);
 }
 
 void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
-
-
 	drivetrain->ArcadeDrive(speed, turn, false);
 
-	}
 }
-/*
+
+
 void Drive::ResetEncoders(){//Resets Encoders to 0
 	frontRight->GetSensorCollection().SetQuadraturePosition(0, 0); //should the timeoutMS be 0?
 	frontLeft->GetSensorCollection().SetQuadraturePosition(0, 0);
 }
 
-double getRightEncoderValue(){//returns inches travelled by right side of drivetrain
+double Drive::getRightEncoderDistance(){//returns inches travelled by right side of drivetrain
 	double rawEncVal = frontRight->GetSensorCollection().GetQuadraturePosition();
 	double rightDistanceVal = rawEncVal * INCHES_PER_TICK;
 	return rightDistanceVal;
 }
 
-double getLeftEncoderValue(){//returns inches travelled by left side of drivetrain
+double Drive::getLeftEncoderDistance(){//returns inches travelled by left side of drivetrain
 	double rawEncVal = frontLeft->GetSensorCollection().GetQuadraturePosition();
 	double leftDistanceVal = rawEncVal * INCHES_PER_TICK;
 	return leftDistanceVal;
 }
 
-double getRightRate(){//gets inches per second travelled by left side of drivetrain
+double Drive::getRightRate(){//gets inches per second travelled by left side of drivetrain
 	double rate = frontRight->GetSensorCollection().GetQuadratureVelocity();
 	double VelocityVal = rate * INCHES_PER_TICK;
 	return VelocityVal;
 }
 
-double getLeftRate(){//gets inches per second travelled by right side of drivetrain
+double Drive::getLeftRate(){//gets inches per second travelled by right side of drivetrain
 	double rate = frontLeft->GetSensorCollection().GetQuadratureVelocity();
 	double VelocityVal = rate * INCHES_PER_TICK;
 	return VelocityVal;
 }
 
-}  namespace Drive */
+double Drive::getRightEncoderValue(){
+	double rightEncVal = frontRight->GetSensorCollection().GetQuadraturePosition();
+	return rightEncVal;
+}
+
+double Drive::getLeftEncoderValue(){
+	double leftEncVal = frontLeft->GetSensorCollection().GetQuadraturePosition();
+	return leftEncVal;
+}
+
+}  /* namespace Drive */
 
 //*/

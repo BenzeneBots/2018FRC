@@ -23,10 +23,11 @@ public:
 	double getLeftEncoderValue();
 	double getRightRate();
 	double getLeftRate();
-
+	double getLeftEncoderDistance();
+	double getRightEncoderDistance();
 private:
 	DifferentialDrive *drivetrain;
-	Victor *frontLeft, *frontRight, *backLeft, *backRight;
+	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
 };
 
 } /* namespace Drive */

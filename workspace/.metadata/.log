@@ -15304,3 +15304,2947 @@ org.eclipse.swt.SWTException: Widget is disposed
 
 !ENTRY riolog 1 0 2018-02-15 22:11:49.013
 !MESSAGE failed to send keep alive, reconnecting
+!SESSION 2018-02-16 15:45:22.472 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:37.401
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:37.401
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Elevator.cpp'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Subsystems/Elevator.cpp'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2137)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.showTab(StackRenderer.java:1293)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:97)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:679)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.run(PartRenderingEngine.java:546)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:530)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:70)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:137)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:137)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:137)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:137)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveRenderer.processContents(PerspectiveRenderer.java:49)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:79)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:97)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.postProcess(PerspectiveStackRenderer.java:61)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:679)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SashRenderer.processContents(SashRenderer.java:137)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.workbench.renderers.swt.SWTPartRenderer.processContents(SWTPartRenderer.java:69)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.processContents(WBWRenderer.java:704)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:675)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1076)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:37.401
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Elevator.cpp'.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2018-02-16 15:45:39.119
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<. ; version: 2.0.6.v20170906-1226
+!STACK 0
+com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.Gson.fromJson(Gson.java:902)
+	at com.google.gson.Gson.fromJson(Gson.java:852)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:100)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:109)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.loadConfiguration(IO.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:121)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1559)
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:530)
+	at com.google.gson.stream.JsonReader.skipValue(JsonReader.java:1224)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:218)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-16 15:45:39.229
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Sanket Nayak'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:40.963
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:40.963
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Intake.h'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Subsystems/Intake.h'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:437)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:353)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2195)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2191)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:144)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4889)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:212)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:52)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$3.widgetSelected(StackRenderer.java:1053)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:802)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3187)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1870)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:328)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:40.979
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Intake.h'.
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:43.166
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:43.166
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Elevator.h'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Subsystems/Elevator.h'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:437)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:353)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2195)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2191)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:144)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4889)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:212)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:52)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$3.widgetSelected(StackRenderer.java:1053)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:802)
+	at org.eclipse.swt.custom.CTabFolder.setSelection(CTabFolder.java:3187)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1870)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:328)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:43.182
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Elevator.h'.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:44.432
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:44.447
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:44.447
+!MESSAGE Installing common if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:44.447
+!MESSAGE Installedcommon
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:44.463
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:45.182
+!MESSAGE Installedcpp
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-16 15:45:45.197
+!MESSAGE Updating projects
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:45.651
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:45:45.651
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-02-16 15:45:45.666
+!MESSAGE Updating projects
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:47.916
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:47.916
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Climber.cpp'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Subsystems/Climber.cpp'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:437)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:353)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2195)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2191)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:144)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4889)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:212)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:52)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1308)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1258)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.closePart(StackRenderer.java:1266)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.access$1(StackRenderer.java:1252)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$5.close(StackRenderer.java:1121)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1950)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:333)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:47.932
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Climber.cpp'.
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:49.385
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:49.385
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Climber.h'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Subsystems/Climber.h'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:437)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:353)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2195)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2191)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:144)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4889)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:212)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:52)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1308)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1258)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.closePart(StackRenderer.java:1266)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.access$1(StackRenderer.java:1252)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$5.close(StackRenderer.java:1121)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1950)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:333)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:49.385
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Climber.h'.
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:50.494
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:50.494
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Drive.cpp'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Subsystems/Drive.cpp'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:437)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:353)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2195)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2191)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:144)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4889)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:212)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:52)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1308)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1258)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.closePart(StackRenderer.java:1266)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.access$1(StackRenderer.java:1252)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$5.close(StackRenderer.java:1121)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1950)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:333)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:50.494
+!MESSAGE Cannot determine URI for '/BB2/src/Subsystems/Drive.cpp'.
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:51.572
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:51.572
+!MESSAGE Cannot determine URI for '/BB2/src/Auton/AutoCommand.cpp'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Auton/AutoCommand.cpp'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:437)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:353)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2195)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2191)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:144)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4889)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:212)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:52)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1308)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1258)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.closePart(StackRenderer.java:1266)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.access$1(StackRenderer.java:1252)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$5.close(StackRenderer.java:1121)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1950)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:333)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:51.572
+!MESSAGE Cannot determine URI for '/BB2/src/Auton/AutoCommand.cpp'.
+
+!ENTRY org.eclipse.ui 4 4 2018-02-16 15:45:52.697
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:52.697
+!MESSAGE Cannot determine URI for '/BB2/src/Auton/AutoCommand.h'.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Cannot determine URI for '/BB2/src/Auton/AutoCommand.h'.
+	at org.eclipse.core.internal.filebuffers.ResourceFileBuffer.create(ResourceFileBuffer.java:236)
+	at org.eclipse.core.internal.filebuffers.TextFileBufferManager.connect(TextFileBufferManager.java:112)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.createFileInfo(TextFileDocumentProvider.java:560)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.createFileInfo(CDocumentProvider.java:791)
+	at org.eclipse.ui.editors.text.TextFileDocumentProvider.connect(TextFileDocumentProvider.java:478)
+	at org.eclipse.cdt.internal.ui.editor.CDocumentProvider.connect(CDocumentProvider.java:723)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.doSetInput(AbstractTextEditor.java:4178)
+	at org.eclipse.ui.texteditor.StatusTextEditor.doSetInput(StatusTextEditor.java:257)
+	at org.eclipse.ui.texteditor.AbstractDecoratedTextEditor.doSetInput(AbstractDecoratedTextEditor.java:1466)
+	at org.eclipse.ui.editors.text.TextEditor.doSetInput(TextEditor.java:150)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.internalDoSetInput(CEditor.java:1440)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.doSetInput(CEditor.java:1405)
+	at org.eclipse.ui.texteditor.AbstractTextEditor$5.run(AbstractTextEditor.java:3154)
+	at org.eclipse.jface.operation.ModalContext.runInCurrentThread(ModalContext.java:437)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:353)
+	at org.eclipse.ui.internal.WorkbenchWindow$14.run(WorkbenchWindow.java:2195)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2191)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.internalInit(AbstractTextEditor.java:3172)
+	at org.eclipse.ui.texteditor.AbstractTextEditor.init(AbstractTextEditor.java:3197)
+	at org.eclipse.ui.internal.EditorReference.initialize(EditorReference.java:362)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:333)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:990)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:955)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:124)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:399)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:318)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:105)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:74)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:56)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:129)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:992)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:661)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:767)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$0(PartRenderingEngine.java:738)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$2.run(PartRenderingEngine.java:732)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:716)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:104)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:233)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:144)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4889)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:212)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:201)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:52)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:60)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:173)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1308)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.hidePart(PartServiceImpl.java:1258)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.closePart(StackRenderer.java:1266)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer.access$1(StackRenderer.java:1252)
+	at org.eclipse.e4.ui.workbench.renderers.swt.StackRenderer$5.close(StackRenderer.java:1121)
+	at org.eclipse.swt.custom.CTabFolder.onMouse(CTabFolder.java:1950)
+	at org.eclipse.swt.custom.CTabFolder.lambda$0(CTabFolder.java:333)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 2 org.eclipse.core.filebuffers 4 0 2018-02-16 15:45:52.697
+!MESSAGE Cannot determine URI for '/BB2/src/Auton/AutoCommand.h'.
+!SESSION 2018-02-16 15:46:35.838 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2018-02-16 15:46:45.364
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<. ; version: 2.0.6.v20170906-1226
+!STACK 0
+com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.Gson.fromJson(Gson.java:902)
+	at com.google.gson.Gson.fromJson(Gson.java:852)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:100)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:109)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.loadConfiguration(IO.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:121)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1559)
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:530)
+	at com.google.gson.stream.JsonReader.skipValue(JsonReader.java:1224)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:218)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-16 15:46:45.583
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Sanket Nayak'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.395
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.395
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.426
+!MESSAGE Installing common if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.426
+!MESSAGE Installedcommon
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.473
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.505
+!MESSAGE Installedcpp
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-16 15:46:47.505
+!MESSAGE Updating projects
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.536
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-16 15:46:47.536
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-02-16 15:46:47.723
+!MESSAGE Updating projects
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-16 15:47:38.331
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-16 15:47:38.425
+!MESSAGE Error: Cannot run program "g++": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "g++": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-16 15:47:38.503
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-16 15:47:38.566
+!MESSAGE Error: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-02-16 15:47:59.035
+!MESSAGE Indexed 'BB2' (6 sources, 495 headers) in 20.2 sec: 43,359 declarations; 66,961 references; 0 unresolved inclusions; 6 syntax errors; 1 unresolved names (0.00091%)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-16 16:19:57.318
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-16 16:19:57.318
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-16 16:19:57.333
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-16 17:26:13.020
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-16 17:26:13.023
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-16 17:26:13.026
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-16 17:26:14.898
+!MESSAGE Running ant file: \\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-16 17:26:14.902
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-16 17:26:37.960
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-16 17:32:18.475
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:32:18.488
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:32:20.038
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 17:32:20.038
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:32:20.052
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:32:22.058
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:32:22.075
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 17:32:52.663
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:32:53.835
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:32:54.666
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 17:32:54.669
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:32:54.677
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-16 17:33:06.524
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:33:06.550
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:33:06.681
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 17:33:06.684
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:33:06.692
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:33:27.636
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:33:28.697
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 17:33:28.702
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:33:28.710
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:35:06.463
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:35:06.731
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 17:35:06.734
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:35:06.744
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:49:46.917
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:49:46.926
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 17:49:48.917
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 17:49:48.919
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 17:49:48.935
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 18:03:38.890
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 18:03:39.084
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:03:39.087
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:03:39.102
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 18:06:41.146
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:06:41.155
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 18:06:43.147
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:06:43.149
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:06:43.160
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 18:06:56.231
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-16 18:06:57.165
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:06:57.168
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:06:57.178
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 18:08:22.127
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-16 18:08:23.203
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:08:23.205
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:08:23.217
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-16 18:15:54.598
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:15:55.279
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:20:10.557
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-16 18:22:07.961
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:22:08.576
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:22:48.844
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-16 18:23:00.556
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:23:00.863
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:23:10.581
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-16 18:23:38.074
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:23:38.592
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:08.109
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:08.120
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:10.114
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:10.116
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:10.127
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:10.138
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:12.129
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:12.131
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:12.242
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:12.586
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:14.245
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:14.248
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:14.287
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:14.300
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:16.291
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:16.294
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:16.339
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:16.360
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:18.342
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:18.344
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:18.502
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:18.697
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:20.505
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:20.508
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:20.595
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:20.619
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:22.598
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:22.600
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:22.692
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:22.701
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:24.695
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:24.697
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:24.775
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:24.801
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:26.777
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:26.780
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:26.792
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:26.799
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:28.795
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:28.798
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:28.819
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:28.840
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:30.823
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:30.826
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:30.834
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:30.863
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:32.837
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:32.839
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:32.851
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:32.860
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:34.855
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:34.857
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:34.868
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:34.878
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:36.872
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:36.874
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:36.920
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:36.939
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:38.923
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:38.925
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:38.944
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:38.960
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:40.947
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:40.950
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:40.968
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:40.986
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:42.972
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:42.975
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:42.986
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:42.998
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:44.989
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:44.992
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:45.003
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:45.020
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:47.006
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:47.008
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:47.021
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:47.042
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:49.023
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:49.026
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:49.039
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:49.060
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:51.044
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:51.045
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:51.057
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:51.079
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:53.060
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:53.062
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:53.076
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:53.099
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:55.079
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:55.081
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:55.092
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:55.100
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:57.094
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:57.096
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:57.107
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:57.120
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:59.109
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:42:59.113
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:59.123
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:59.126
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:42:59.133
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:42:59.161
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:01.125
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:01.127
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:01.139
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:01.160
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:03.141
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:03.144
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:03.157
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:03.178
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:05.159
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:05.162
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:05.173
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:05.180
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:07.175
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:07.179
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:07.227
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:07.239
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:09.230
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:09.233
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:09.249
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:09.259
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:11.251
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:11.254
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:11.265
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:11.278
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:13.269
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:13.272
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:13.288
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:13.301
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:15.291
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:15.294
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:15.305
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:15.318
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:17.307
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:17.310
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:17.321
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:17.339
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:19.324
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:19.325
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:19.340
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:19.376
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:21.342
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:21.345
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:21.357
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:21.378
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:23.360
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:23.363
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:23.374
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:23.400
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:25.376
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:25.379
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:25.391
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:25.398
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:27.393
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:27.395
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:27.406
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:27.421
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:29.408
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:29.411
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:29.421
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:29.424
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:29.430
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:29.440
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:31.424
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:31.427
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:31.437
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:31.458
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:33.439
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:33.442
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:33.460
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:33.462
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:33.472
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:33.482
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:35.466
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:35.469
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:35.481
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:35.498
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:37.483
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:37.486
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:37.534
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:37.562
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:39.536
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:39.540
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:39.558
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:39.580
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:41.560
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:41.562
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:41.574
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:41.599
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:43.576
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:43.579
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:43.593
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:43.603
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:45.595
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:45.597
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:45.616
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:45.639
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:47.621
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:47.625
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:47.640
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:47.662
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:49.642
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:49.645
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:49.656
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:49.680
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:51.658
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:51.661
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:51.671
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:51.678
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:53.673
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:53.675
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:53.685
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:53.700
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:55.688
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:55.691
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:55.703
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:55.719
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:57.705
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:57.708
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:57.718
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:57.738
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:59.721
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:43:59.724
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:43:59.734
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:43:59.759
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:01.736
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:01.739
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:01.750
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:01.759
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:03.752
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:03.755
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:03.766
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:03.779
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:05.769
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:05.771
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:05.782
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:05.798
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:07.785
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:07.787
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:07.839
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:07.860
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:09.841
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:09.843
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:09.858
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:09.882
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:11.860
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:11.863
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:11.874
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:11.900
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:13.876
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:13.879
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:13.893
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:13.921
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:15.896
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:15.899
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:15.909
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:15.920
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:17.911
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:17.913
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:17.924
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:17.942
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:19.939
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:19.939
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:19.939
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:29.957
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:29.969
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:30.039
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:31.959
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:31.962
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:31.975
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:32.004
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:33.977
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:33.979
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:33.992
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:34.000
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:35.995
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:35.997
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:36.006
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:36.020
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:38.008
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:38.010
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:38.059
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:38.096
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:40.061
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:40.063
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:40.074
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:40.098
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:42.076
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:42.078
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:42.090
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:42.099
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:44.092
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:44.095
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:44.100
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:44.119
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:46.103
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:46.105
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:46.113
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:46.120
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:48.116
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:48.118
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:48.132
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:48.141
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:50.135
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:50.138
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:50.148
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:50.160
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:52.150
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:52.153
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:52.173
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:52.182
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:54.175
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:54.177
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:54.187
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:54.199
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:56.189
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:56.191
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:56.203
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:56.206
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:56.212
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:56.221
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:58.205
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:44:58.208
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:44:58.218
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:44:58.239
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:00.222
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:00.224
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:00.234
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:00.261
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:02.237
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:02.239
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:02.250
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:02.264
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:04.252
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:04.255
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:04.265
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:04.267
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:04.274
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:04.301
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:06.289
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:06.291
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:06.806
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:06.820
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:08.808
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:08.810
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:08.864
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:08.878
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:10.867
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:10.869
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:10.880
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:10.900
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:12.883
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:12.885
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:12.904
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:12.906
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:12.913
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:12.941
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:14.909
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:14.914
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:14.932
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:14.942
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:16.936
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:16.938
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:16.948
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:16.961
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:18.950
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:18.952
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:18.964
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:18.979
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:20.966
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:20.968
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:20.981
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:20.983
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:20.989
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:20.999
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:22.984
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:22.986
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:23.000
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:23.019
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:25.002
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:25.004
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:25.014
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:25.041
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:27.020
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:27.022
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:27.033
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:27.045
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:29.035
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:29.037
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:29.048
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:29.058
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:31.050
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:31.052
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:31.064
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:31.079
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:33.067
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:33.069
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:33.080
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:33.100
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:35.083
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:35.086
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:35.097
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:35.122
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:37.099
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:37.100
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:37.110
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:37.123
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:39.113
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:39.115
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:39.159
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:39.178
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:41.162
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:41.164
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:41.176
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:41.199
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:43.177
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:43.180
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:43.191
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:43.201
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:45.193
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:45.195
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:45.206
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:45.219
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:47.208
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:47.211
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:47.222
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:47.240
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:49.225
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:49.226
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:49.240
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:49.258
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:51.243
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:51.245
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:51.256
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:51.279
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:53.258
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:53.260
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:53.289
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:53.292
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:53.304
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:53.321
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:55.292
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:55.294
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:55.307
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:55.320
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:57.309
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:57.311
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:57.322
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:57.324
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:57.332
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:57.341
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:59.324
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:45:59.326
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:45:59.333
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:45:59.341
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:01.335
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:01.338
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:01.349
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:01.358
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:03.351
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:03.353
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:03.364
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:03.380
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:05.366
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:05.368
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:05.385
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:05.387
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:05.394
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:05.422
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:07.387
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:07.390
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:07.401
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:07.418
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:09.404
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:09.406
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:09.458
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:09.485
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:11.460
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:11.462
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:11.474
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:11.498
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:13.477
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:13.479
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:13.489
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:13.499
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:15.491
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:15.493
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:15.505
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:15.520
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:17.507
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:17.510
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:17.521
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:17.539
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:19.525
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:19.527
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:19.538
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:19.558
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:21.540
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:21.542
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:21.553
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:21.578
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:23.556
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:23.558
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:23.569
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:23.578
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:25.572
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:25.585
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:25.599
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:25.623
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:27.601
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:27.603
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:27.614
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:27.620
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:29.616
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:29.618
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:29.628
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:29.638
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:31.630
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:31.632
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:31.644
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:31.659
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:33.646
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:33.648
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:33.661
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:33.663
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:33.669
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:33.678
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:35.663
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:35.666
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:35.680
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:35.683
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:35.697
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:35.760
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:37.683
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:37.686
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:37.695
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:37.720
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:39.700
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:39.702
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:39.750
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:39.759
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:41.754
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-16 18:46:41.754
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:41.754
+!MESSAGE Connected to robot at 10.43.84.81
+
+!ENTRY riolog 1 0 2018-02-16 18:46:49.794
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-16 18:46:51.821
+!MESSAGE failed to send keep alive, reconnecting

@@ -53,6 +53,8 @@ public:
 		elevatorBottomSwitch = new DigitalInput(0);
 		wasSwitchPressed = 0;
 
+		//reset Drive Encoders
+		robotDrive->ResetEncoders();
 	}
 
 	/*
@@ -69,6 +71,9 @@ public:
 	 * well.
 	 */
 	void AutonomousInit() override {
+		//reset Drive Encoders
+		robotDrive->ResetEncoders();
+
 		m_autoSelected = m_chooser.GetSelected();
 		// m_autoSelected = SmartDashboard::GetString("Auto Selector",
 		//		 kAutoNameDefault);
@@ -94,6 +99,10 @@ public:
 		mainDriverStick = new Joystick(0);
 		secondaryDriverStick = new Joystick(1);
 		manipStick = new Joystick(2);
+
+		//reset Drive Encoders
+		robotDrive->ResetEncoders();
+
 	}
 
 	void TeleopPeriodic() {
@@ -112,6 +121,8 @@ public:
 			wasSwitchPressed = false;
 		}
 
+		//Update Smart Dashboard
+		frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());
 
 	}
 
