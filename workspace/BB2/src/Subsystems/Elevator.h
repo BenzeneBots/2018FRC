@@ -15,14 +15,14 @@ namespace Elevator {
 
 class Elevator {
 public:
-	Elevator(int,int,int);
+	Elevator(int);
 	void SetEncoderPosition(int);
 	double GetElevatorPosition();
 	double GetElevatorRate();
-	//void SetToOutput(double);
+	void SetToOutput(double);
 	void EnableSoftLimits();
 	void SetElevatorSetPoint(double);
-	void MoveElevatorToSetPoint(bool,bool,bool,double);
+	void MoveElevatorToSetPoint(double);
 	void PIDInit();
 
 private:

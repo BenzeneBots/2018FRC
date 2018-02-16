@@ -31,6 +31,10 @@ public:
 	Elevator::Elevator *robotElevator;
 	PigeonIMU *_pidgey;
 
+	//init sensors
+	DigitalInput *elevatorBottomSwitch;
+	bool wasSwitchPressed;
+
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
@@ -41,9 +45,13 @@ public:
 
 		//initialize subsystems
 		robotDrive = new Drive::Drive(0,1,4,5); 			//drive uses Talons 0,1,2,3
-		robotElevator = new Elevator::Elevator(4,5,4); 		//elevator uses Talon 4 and DIOs 4 and 5
+		robotElevator = new Elevator::Elevator(4); 		//elevator uses Talon 4 and DIOs 0 and 1
+		//robotElevator->SetEncoderPosition(0);
 		_pidgey = new PigeonIMU(0);
 
+		//initialize sensors
+		elevatorBottomSwitch = new DigitalInput(0);
+		wasSwitchPressed = 0;
 
 	}
 
@@ -83,23 +91,27 @@ public:
 
 	void TeleopInit() {
 		//Initialize all the joysticks
-		mainDriverStick = new Joystick(1);
-		secondaryDriverStick = new Joystick(2);
-		manipStick = new Joystick(3);
-
-		robotElevator->SetEncoderPosition(0);
-		robotElevator->PIDInit();
+		mainDriverStick = new Joystick(0);
+		secondaryDriverStick = new Joystick(1);
+		manipStick = new Joystick(2);
 	}
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-
 		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(2));
 		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
-		robotElevator->EnableSoftLimits();
-		robotElevator->MoveElevatorToSetPoint(manipStick->GetRawButton(1),manipStick->GetRawButton(2),manipStick->GetRawButton(3),manipStick->GetRawAxis(1));;
 
-		//robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
+		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
+		robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
+		//toggles limitswitch value to see when it changes
+		if((elevatorBottomSwitch->Get() == true) && (wasSwitchPressed == false)){//if the limit switch is being pressed for the first time, zero the encoder
+			wasSwitchPressed = true;
+			robotElevator->SetEncoderPosition(0);
+		}
+		else if((elevatorBottomSwitch->Get() == false) && (wasSwitchPressed == true)){//otherwise just change the variable so it doesn't screw up later
+			wasSwitchPressed = false;
+		}
+
 
 	}
 

@@ -17,26 +17,42 @@
 #define SET_POINT_SWITCH 36
 #define SET_POINT_SCALE 72
 
+#define MAX_ELEVATOR_HEIGHT 16500 //16000
+#define MIN_ELEVATOR_HEIGHT -1750 //1650
+
 /*
 
  */
 
 namespace Elevator {
 
-Elevator::Elevator(int elevatorPort, int topSwitchPort, int bottomSwitchPort) {
+Elevator::Elevator(int elevatorPort) {
 	elevatorMotor = new TalonSRX(elevatorPort);
-	bottomSwitch = new DigitalInput(bottomSwitchPort);
-	topSwitch = new DigitalInput(topSwitchPort);
+	elevatorMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0); //sets the quad encoder as the primary sensor. What do PIDLoop and timeoutMS (the parameters) do?
+	elevatorMotor->SetSensorPhase(true); //reverses sensor phase
 	targetHeight = 0;
 	//Auto-generated constructor stub
 }
 
 
-/*void Elevator::SetToOutput(double ElevatorSpeed){
+void Elevator::SetToOutput(double elevatorSpeed){
+	if(this->GetElevatorPosition() >= MIN_ELEVATOR_HEIGHT && this->GetElevatorPosition() <= MAX_ELEVATOR_HEIGHT){
+		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+	}
+	else if(this->GetElevatorPosition() >= MAX_ELEVATOR_HEIGHT && elevatorSpeed >= 0){//if its above 7000 it should only go down
+		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+	}
+	else if(this->GetElevatorPosition() <= MIN_ELEVATOR_HEIGHT && elevatorSpeed <= 0){//it its below -1000 they should only go up
+		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+	}
+	else{
+		elevatorMotor->Set(ControlMode::PercentOutput, 0.0);
+	}
+	printf("elevator speed: %f \n", elevatorSpeed);
 
-		elevatorMotor->Set(ControlMode::PercentOutput,ElevatorSpeed);
 
-}*/
+}
+
 void Elevator::SetEncoderPosition(int pos){
 	elevatorMotor->GetSensorCollection().SetQuadraturePosition(pos, 0); //should the timeoutMS be 0
 }
@@ -45,7 +61,6 @@ double Elevator::GetElevatorPosition(){
 
 	double rawEncVal = elevatorMotor->GetSensorCollection().GetQuadraturePosition();
 	return rawEncVal;
-	printf("Enc Val: %f\n",rawEncVal);
 }
 
 double Elevator::GetElevatorRate(){
@@ -55,19 +70,20 @@ double Elevator::GetElevatorRate(){
 
 void Elevator::EnableSoftLimits(){
 	//Configure limits at 0 and 5 rotations forward
-	elevatorMotor->ConfigForwardSoftLimitThreshold(5.0*TICKS_PER_ROTATION, 10);
-	elevatorMotor->ConfigReverseSoftLimitThreshold(0,10);
+	elevatorMotor->ConfigForwardSoftLimitThreshold(0, 10/*5.0*TICKS_PER_ROTATION, 10*/);
+	elevatorMotor->ConfigReverseSoftLimitThreshold(-7000,10);
 
 	 //Enable Soft Limits
 	 elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
 	 elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
 
-	 elevatorMotor->OverrideLimitSwitchesEnable(true);
+	 //elevatorMotor->OverrideLimitSwitchesEnable(true);
 }
 
 void Elevator::SetElevatorSetPoint(double pos){
 	targetHeight = pos;
 }
+
 void Elevator::PIDInit(){
 /* lets grab the 360 degree position of the MagEncoder's absolute position */
 	int absolutePosition = elevatorMotor->GetSelectedSensorPosition(0) & 0xFFF; /* mask out the bottom12 bits, we don't care about the wrap arounds */
@@ -90,25 +106,12 @@ void Elevator::PIDInit(){
 	elevatorMotor->Config_kI(0, 0.0,10);
 	elevatorMotor->Config_kD(0, 0.0,10);
 }
-void Elevator::MoveElevatorToSetPoint(bool button1,bool button2,bool button3,double ElevatorSpeed){//TODO implement this
+
+void Elevator::MoveElevatorToSetPoint(double targetPositionRotation){//TODO implement this
 	/* on button1 press enter closed-loop mode on target position */
-			if (button1) {
-				/* Position mode - button just pressed */
-				double targetPositionRotations = 0.0 * TICKS_PER_ROTATION; /* 0 Rotations in either direction */
-				elevatorMotor->Set(ControlMode::Position, targetPositionRotations); /* 0 rotations in either direction */
-			}
-			if (button2) {
-				double targetPositionRotations = 5.0 * TICKS_PER_ROTATION; /* 5 Rotations in either direction */
-				elevatorMotor->Set(ControlMode::Position, targetPositionRotations); /* 5 rotations in either direction */
-			}
-			if (button3) {
-				double targetPositionRotations = 10 * TICKS_PER_ROTATION; /* 10 Rotations in either direction */
-				elevatorMotor->Set(ControlMode::Position, targetPositionRotations); /* 10 rotations in either direction */
-			}
-			else {
-				elevatorMotor->Set(ControlMode::PercentOutput,ElevatorSpeed);
-			}
+	elevatorMotor->Set(ControlMode::Position, targetPositionRotation);
 }
+
 
 
 } /* namespace Elevator */
