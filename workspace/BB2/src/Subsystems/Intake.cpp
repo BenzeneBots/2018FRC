@@ -11,7 +11,6 @@
 #include <Subsystems/Intake.h>
 #define INTAKE_SPEED 0.6
 
-namespace Intake {
 
 Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort) {
 	intake1 = new Victor(intake1Port);
@@ -86,4 +85,3 @@ void Intake::SetClawStatus(bool newStatus){
 	clawOpenStatus = newStatus;
 }
 
-}

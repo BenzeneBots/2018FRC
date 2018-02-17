@@ -12,8 +12,6 @@
 #include <ctre/Phoenix.h>
 #include <Talon.h>
 
-namespace Intake {
-
 class Intake {
 public:
 	Intake(int, int, int, int);
@@ -35,9 +33,8 @@ private:
 };
 
 class AutonIntake : public Intake {
-
+public:
+	AutonIntake(int, int, int, int);
 };
-
-} /* namespace Intake */
 
 #endif /* SRC_SUBSYSTEMS_INTAKE_H_ */

@@ -10,8 +10,6 @@
 
 #include <WPILib.h>
 
-namespace Climber {
-
 class Climber {
 public:
 	Climber(int);
@@ -20,11 +18,5 @@ public:
 private:
 	Victor *climberMotor;
 };
-
-class AutonClimber : public Climber {
-
-};
-
-} /* namespace Climber */
 
 #endif /* SRC_SUBSYSTEMS_CLIMBER_H_ */

@@ -16,24 +16,29 @@
 #include <WPILib.h>
 #include <Talon.h>
 
-
 //include subsystems
 #include <Subsystems/Intake.h>
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
 
+#include <Auton/AutoCommand.h>
+
+
 class Robot : public frc::TimedRobot {
 public:
 
-	//Initialize the subsystem
-	Intake::Intake *robotIntake;
-	Drive::Drive *robotDrive;
-	Elevator::Elevator *robotElevator;
+	//Initialize the subsystems
+	AutoCommand *autoCommand;
+	Intake *robotIntake;
+	Drive *robotDrive;
+    Elevator *robotElevator;
 	PigeonIMU *_pidgey;
 
 	//init sensors
 	DigitalInput *elevatorBottomSwitch;
 	bool wasSwitchPressed;
+
+	double temp;
 
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
@@ -44,10 +49,11 @@ public:
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//initialize subsystems
-		robotDrive = new Drive::Drive(0,1,4,5); 			//drive uses Talons 0,1,2,3
-		robotElevator = new Elevator::Elevator(4); 		//elevator uses Talon 4 and DIOs 0 and 1
+		robotDrive = new Drive(1,2,3,4); 			//drive uses Talons 1,2,3,4
+		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		//robotElevator->SetEncoderPosition(0);
-		_pidgey = new PigeonIMU(0);
+		_pidgey = new PigeonIMU(7);
+		autoCommand = new AutoCommand();
 
 		//initialize sensors
 		elevatorBottomSwitch = new DigitalInput(0);
@@ -71,26 +77,29 @@ public:
 	 * well.
 	 */
 	void AutonomousInit() override {
-		//reset Drive Encoders
-		robotDrive->ResetEncoders();
 
 		m_autoSelected = m_chooser.GetSelected();
-		// m_autoSelected = SmartDashboard::GetString("Auto Selector",
-		//		 kAutoNameDefault);
+	    m_autoSelected = SmartDashboard::GetString("Auto Selector",kAutoNameDefault);
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 
 		if (m_autoSelected == kAutoNameCustom) {
-			// Custom Auto goes here
+
+			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
 		} else {
-			// Default Auto goes here
+			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
+			autoCommand->aElevator->MoveElevatorToSetPoint(500);
 		}
 	}
 
 	void AutonomousPeriodic() {
+
 		if (m_autoSelected == kAutoNameCustom) {
-			// Custom Auto goes here
+
+			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
 		} else {
-			// Default Auto goes here
+
+			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
+			autoCommand->aElevator->MoveElevatorToSetPoint(500);
 		}
 	}
 
@@ -107,7 +116,8 @@ public:
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		robotDrive->ArcadeDrive(robotDrive->InputScale(-1.0*mainDriverStick->GetRawAxis(1),1.5), robotDrive->InputScale(mainDriverStick->GetRawAxis(2),1.5));
+		//robotDrive->ArcadeDrive(robotDrive->InputScale(-1.0*mainDriverStick->GetRawAxis(1),1.5), robotDrive->InputScale(mainDriverStick->GetRawAxis(2),1.5));
+		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1),mainDriverStick->GetRawAxis(2));
 		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
 
 		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons

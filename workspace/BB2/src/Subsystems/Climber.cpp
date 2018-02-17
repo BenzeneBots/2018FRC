@@ -10,7 +10,6 @@
 
 #define CLIMBER_SPEED 0.5
 
-namespace Climber {
 
 Climber::Climber(int motorChannel) {
 	// TODO Auto-generated constructor stub
@@ -24,5 +23,3 @@ void Climber::SpoolClimber(bool state){
 	}
 
 }
-
-} /* namespace Climber */

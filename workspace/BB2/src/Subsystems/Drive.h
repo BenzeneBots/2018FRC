@@ -11,8 +11,6 @@
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
 
-namespace Drive {
-
 class Drive {
 public:
 	Drive(int,int,int,int);
@@ -31,9 +29,9 @@ private:
 };
 
 class AutonDrive : public Drive {
-
+public:
+	AutonDrive(int, int, int, int);
 };
 
-} /* namespace Drive */
 
 #endif /* SRC_SUBSYSTEMS_DRIVE_H_ */

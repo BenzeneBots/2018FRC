@@ -9,8 +9,6 @@
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
 
-
-
 //Defined drive constants
 #define INCHES_PER_TICK 0.01410; //TODO measure this guy
 
@@ -18,9 +16,6 @@
 #define max( A, B )				A > B ? A : B
 #define min( A, B )				A < B ? A : B
 #define LimitVal( L, T, H)		max( min( T, H ), L)
-
-
-namespace Drive {
 
 Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort) {
 	// TODO Auto-generated constructor stub
@@ -93,7 +88,5 @@ double Drive::getLeftEncoderValue(){
 	double leftEncVal = frontLeft->GetSensorCollection().GetQuadraturePosition();
 	return leftEncVal;
 }
-
-}  /* namespace Drive */
 
 //*/

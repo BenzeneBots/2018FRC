@@ -11,8 +11,6 @@
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
 
-namespace Elevator {
-
 class Elevator {
 public:
 	Elevator(int);
@@ -33,9 +31,8 @@ private:
 };
 
 class AutonElevator : public Elevator {
-
+public:
+	AutonElevator(int);
 };
-
-} /* namespace Elevator */
 
 #endif /* SRC_SUBSYSTEMS_ELEVATOR_H_ */

@@ -20,12 +20,6 @@
 #define MAX_ELEVATOR_HEIGHT 16500 //16000
 #define MIN_ELEVATOR_HEIGHT -1750 //1650
 
-/*
-
- */
-
-namespace Elevator {
-
 Elevator::Elevator(int elevatorPort) {
 	elevatorMotor = new TalonSRX(elevatorPort);
 	elevatorMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0); //sets the quad encoder as the primary sensor. What do PIDLoop and timeoutMS (the parameters) do?
@@ -103,7 +97,3 @@ void Elevator::MoveElevatorToSetPoint(double targetPositionRotation){//TODO impl
 	/* on button1 press enter closed-loop mode on target position */
 	elevatorMotor->Set(ControlMode::Position, targetPositionRotation);
 }
-
-
-
-} /* namespace Elevator */

@@ -7,8 +7,8 @@
 
 #include <Auton/AutoCommand.h>
 
-AutoCommand::AutoCommand() {
-	// TODO Auto-generated constructor stub
+#include <Subsystems/Drive.h>
+#include <Subsystems/Intake.h>
+#include <Subsystems/Elevator.h>
 
-}
-
+AutoCommand::AutoCommand() {}
