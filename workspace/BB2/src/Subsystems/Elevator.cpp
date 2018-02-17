@@ -76,7 +76,7 @@ void Elevator::SetElevatorSetPoint(double pos){
 	targetHeight = pos;
 }
 
-void Elevator::PIDInit(double PVal, double IVal, double DVal){
+void Elevator::PIDInit(double FVal, double PVal, double IVal, double DVal){
 /* lets grab the 360 degree position of the MagEncoder's absolute position */
 	int absolutePosition = elevatorMotor->GetSelectedSensorPosition(0) & 0xFFF; /* mask out the bottom12 bits, we don't care about the wrap arounds */
 	/* use the low level API to set the quad encoder signal */
@@ -93,7 +93,7 @@ void Elevator::PIDInit(double PVal, double IVal, double DVal){
 	elevatorMotor->ConfigPeakOutputReverse(-1,10);
 
 	/* set closed loop gains in slot0 */
-	elevatorMotor->Config_kF(0,0.0,10);
+	elevatorMotor->Config_kF(0,FVal,10);
 	elevatorMotor->Config_kP(0, PVal,10);
 	elevatorMotor->Config_kI(0, IVal,10);
 	elevatorMotor->Config_kD(0, DVal,10);

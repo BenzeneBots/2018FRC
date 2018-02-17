@@ -23,7 +23,7 @@ public:
 	void EnableSoftLimits();
 	void SetElevatorSetPoint(double);
 	void MoveElevatorToSetPoint(double);
-	void PIDInit(double,double,double);
+	void PIDInit(double,double,double,double);
 
 private:
 	TalonSRX *elevatorMotor;
