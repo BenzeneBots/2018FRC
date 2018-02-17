@@ -21,14 +21,15 @@
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
 
-#include <Auton/AutoCommand.h>
-
-
 class Robot : public frc::TimedRobot {
 public:
 
 	//Initialize the subsystems
-	AutoCommand *autoCommand;
+
+	AutonDrive *aDrive;// not used
+	AutonElevator *aElevator; // not used
+	AutonIntake *aIntake; // not used
+
 	Intake *robotIntake;
 	Drive *robotDrive;
     Elevator *robotElevator;
@@ -53,7 +54,6 @@ public:
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		//robotElevator->SetEncoderPosition(0);
 		_pidgey = new PigeonIMU(7);
-		autoCommand = new AutoCommand();
 
 		//initialize sensors
 		elevatorBottomSwitch = new DigitalInput(0);
@@ -63,44 +63,16 @@ public:
 		robotDrive->ResetEncoders();
 	}
 
-	/*
-	 * This autonomous (along with the chooser code above) shows how to
-	 * select between different autonomous modes using the dashboard. The
-	 * sendable chooser code works with the Java SmartDashboard. If you
-	 * prefer the LabVIEW Dashboard, remove all of the chooser code and
-	 * uncomment the GetString line to get the auto name from the text box
-	 * below the Gyro.
-	 *
-	 * You can add additional auto modes by adding additional comparisons to
-	 * the if-else structure below with additional strings. If using the
-	 * SendableChooser make sure to add them to the chooser code above as
-	 * well.
-	 */
-	void AutonomousInit() override {
+	void AutonomousInit() {
 
-		m_autoSelected = m_chooser.GetSelected();
-	    m_autoSelected = SmartDashboard::GetString("Auto Selector",kAutoNameDefault);
-		std::cout << "Auto selected: " << m_autoSelected << std::endl;
-
-		if (m_autoSelected == kAutoNameCustom) {
-
-			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
-		} else {
-			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
-			autoCommand->aElevator->MoveElevatorToSetPoint(500);
-		}
 	}
 
 	void AutonomousPeriodic() {
 
-		if (m_autoSelected == kAutoNameCustom) {
+		robotDrive->ArcadeDrive(-.20,.20); // for testing
 
-			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
-		} else {
+	 	robotElevator->SetToOutput(.30); // for testing
 
-			autoCommand->aDrive->ArcadeDrive(-1.0*.20,.20);
-			autoCommand->aElevator->MoveElevatorToSetPoint(500);
-		}
 	}
 
 	void TeleopInit() {

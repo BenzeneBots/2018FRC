@@ -31,8 +31,7 @@ private:
 };
 
 class AutonElevator : public Elevator {
-public:
-	AutonElevator(int);
+
 };
 
 #endif /* SRC_SUBSYSTEMS_ELEVATOR_H_ */

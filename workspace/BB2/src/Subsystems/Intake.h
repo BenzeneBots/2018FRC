@@ -33,8 +33,7 @@ private:
 };
 
 class AutonIntake : public Intake {
-public:
-	AutonIntake(int, int, int, int);
+
 };
 
 #endif /* SRC_SUBSYSTEMS_INTAKE_H_ */

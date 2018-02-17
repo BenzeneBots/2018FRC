@@ -29,8 +29,6 @@ private:
 };
 
 class AutonDrive : public Drive {
-public:
-	AutonDrive(int, int, int, int);
 };
 
 
