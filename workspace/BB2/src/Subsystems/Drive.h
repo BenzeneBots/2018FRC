@@ -30,6 +30,10 @@ private:
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
 };
 
+class AutonDrive : public Drive {
+
+};
+
 } /* namespace Drive */
 
 #endif /* SRC_SUBSYSTEMS_DRIVE_H_ */
