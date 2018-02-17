@@ -44,8 +44,8 @@ public:
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//initialize subsystems
-		robotDrive = new Drive::Drive(0,1,4,5); 			//drive uses Talons 0,1,2,3
-		robotElevator = new Elevator::Elevator(4); 		//elevator uses Talon 4 and DIOs 0 and 1
+		robotDrive = new Drive::Drive(4,3,2,1); 			//drive uses Talons 0,1,2,3
+		robotElevator = new Elevator::Elevator(5); 		//elevator uses Talon 4 and DIOs 0 and 1
 		//robotElevator->SetEncoderPosition(0);
 		_pidgey = new PigeonIMU(0);
 
@@ -107,8 +107,10 @@ public:
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(2));
+		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), 0.33 * secondaryDriverStick->GetRawAxis(0));
 		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
+		printf("Left Enc: %f \n", robotDrive->getLeftEncoderValue());
+		printf("Right Enc: %f \n", robotDrive->getRightEncoderValue());
 
 		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
 		robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
