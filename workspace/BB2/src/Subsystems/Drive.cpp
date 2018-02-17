@@ -13,7 +13,6 @@
 
 //Defined drive constants
 #define INCHES_PER_TICK 0.01410; //TODO measure this guy
-#define POW 2.0;
 
 //Defined functions
 #define max( A, B )				A > B ? A : B
@@ -47,14 +46,7 @@ void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based
 	drivetrain->ArcadeDrive(speed, turn, false);
 
 }
-double Drive::InputScale(double value, double power){
-	if (value>=0){
-		return pow(value, power);
-	}
-	else{
-		return -1.0* pow(abs(value), power);
-	}
-}
+
 
 void Drive::ResetEncoders(){//Resets Encoders to 0
 	frontRight->GetSensorCollection().SetQuadraturePosition(0, 0); //should the timeoutMS be 0?
