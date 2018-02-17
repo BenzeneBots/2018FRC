@@ -47,7 +47,14 @@ void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based
 
 }
 
-
+double Drive::InputScale(double value,double power){
+	if (value>0){
+		return pow(value, power);
+	}
+	else{
+		return -1.0*pow(abs(value),power);
+	}
+}
 void Drive::ResetEncoders(){//Resets Encoders to 0
 	frontRight->GetSensorCollection().SetQuadraturePosition(0, 0); //should the timeoutMS be 0?
 	frontLeft->GetSensorCollection().SetQuadraturePosition(0, 0);

@@ -107,7 +107,7 @@ public:
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1), mainDriverStick->GetRawAxis(2));
+		robotDrive->ArcadeDrive(robotDrive->InputScale(-1.0*mainDriverStick->GetRawAxis(1),1.5), robotDrive->InputScale(mainDriverStick->GetRawAxis(2),1.5));
 		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
 
 		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
@@ -119,10 +119,14 @@ public:
 		}
 		else if((elevatorBottomSwitch->Get() == false) && (wasSwitchPressed == true)){//otherwise just change the variable so it doesn't screw up later
 			wasSwitchPressed = false;
+
 		}
 
 		//Update Smart Dashboard
 		frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());
+
+		//Tune PID
+		robotElevator->PIDInit(frc::SmartDashboard::GetNumber("P Value", 1.0),frc::SmartDashboard::GetNumber("I Value",0.0),frc::SmartDashboard::GetNumber("D Value",0.0));
 
 	}
 
