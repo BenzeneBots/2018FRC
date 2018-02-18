@@ -107,8 +107,6 @@ public:
 		//Update Smart Dashboard
 		frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());
 
-		//Tune PID
-		robotElevator->PIDInit(frc::SmartDashboard::GetNumber("F Value", 0.0),frc::SmartDashboard::GetNumber("P Value", 0.0),frc::SmartDashboard::GetNumber("I Value",0.0),frc::SmartDashboard::GetNumber("D Value",0.0));
 
 	}
 

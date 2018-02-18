@@ -18,14 +18,15 @@ public:
 	double GetElevatorPosition();
 	double GetElevatorRate();
 	void SetToOutput(double);
-	void EnableSoftLimits();
 	void SetElevatorSetPoint(double);
-	void MoveElevatorToSetPoint(double);
-	void PIDInit(double,double,double,double);
+	void SetElevatorTarget(double);
+	void MoveElevatorToSetPoint();
 
 private:
 	TalonSRX *elevatorMotor;
-	double targetHeight;
+	int elevatorTargetPos;
+	enum State {increasing, decreasing, stationary};
+	State elevatorState;
 
 
 };
