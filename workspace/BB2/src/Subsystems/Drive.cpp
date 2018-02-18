@@ -39,7 +39,10 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 
 void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
 	drivetrain->ArcadeDrive(speed, turn, false);
+}
 
+void Drive::TankDrive(double left, double right){
+	drivetrain->TankDrive(left, right, false);
 }
 
 double Drive::InputScale(double value,double power){
