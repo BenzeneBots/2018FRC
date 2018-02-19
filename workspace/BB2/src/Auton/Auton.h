@@ -21,11 +21,16 @@ public:
 	bool AutonTurnRight(double,Drive*);
 	bool AutonTurnLeft(double,Drive*);
 	bool AutonLowerElevator(Elevator*);
-	bool AutonLiftToSwitch(double,Elevator*);
-	bool AutonLiftToScale(double,Elevator*);
-	bool AutonOuttakeCube(Intake*);
+	bool AutonLiftToSwitch(Elevator*);
+	bool AutonLiftToScale(Elevator*);
+	bool AutonOuttake(Intake*);
+	bool AutonDeployIntake(Intake*);
+	bool Reset(Drive*);
+
 private:
 	PigeonIMU *_pidgey;
+	enum Steps{Straight1,Turn1,Straight2,Turn2,Straight3,Deploy,Score};
+
 };
 
 #endif /* SRC_AUTON_AUTON_H_ */

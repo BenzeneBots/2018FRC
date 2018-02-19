@@ -14,6 +14,7 @@
 #define AUTON_TURN_SPEED 0.1
 #define LEFT_DRIVE_CORRECTION 1.0
 #define INCHES_PER_TICK 0.00460194335
+#define RESET_TIMEOUT 10
 
 Auton::Auton(int port) {
 	// TODO Auto-generated constructor stub
@@ -32,7 +33,6 @@ bool Auton::AutonDriveStraight(double TargetDist, Drive *robotDrive){
 }
 
 bool Auton::AutonTurnRight(double TargetAngle,Drive *robotDrive){
-	_pidgey->SetYaw(0.0,10);
 	double ypr_array[3];
 	_pidgey->GetYawPitchRoll(ypr_array);
 	double CurrentAngle = abs(ypr_array[0]);
@@ -47,8 +47,13 @@ bool Auton::AutonTurnRight(double TargetAngle,Drive *robotDrive){
 	}
 }
 
-bool Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
+bool Auton::Reset(Drive *robotDrive){
 	_pidgey->SetYaw(0.0,10);
+	robotDrive->ResetEncoders();
+	return true;
+}
+
+bool Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
 	double ypr_array[3];
 	_pidgey->GetYawPitchRoll(ypr_array);
 	double CurrentAngle = abs(ypr_array[0]);
@@ -65,13 +70,16 @@ bool Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
 bool Auton::AutonLowerElevator(Elevator *robotElevator){
 	return true;
 }
-bool Auton::AutonLiftToSwitch(double TargetHeight,Elevator *robotElevator){
+bool Auton::AutonLiftToSwitch(Elevator *robotElevator){
 	return true;
 }
-bool Auton::AutonLiftToScale(double TargetHeight,Elevator *robotElevator){
+bool Auton::AutonLiftToScale(Elevator *robotElevator){
 	return true;
 }
-bool Auton::AutonOuttakeCube(Intake* robotIntake){
+bool Auton::AutonOuttake(Intake* robotIntake){
+	return true;
+}
+bool Auton::AutonDeployIntake(Intake* robotIntake){
 	return true;
 }
 
