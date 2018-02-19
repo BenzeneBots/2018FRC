@@ -70,7 +70,7 @@ public:
 
 		if (m_autoSelected == CenterSwitch1Cube) {
 		}
-		if (m_autoSelected == CenterSwitch1Cube) {
+		if (m_autoSelected == CenterScale1Cube) {
 
 		}
 		else {
@@ -79,18 +79,26 @@ public:
 
 	void AutonomousPeriodic() {
 		if (m_autoSelected == CenterSwitch1Cube) {
-					// Custom Auto goes here
+			enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
+			Steps autonStatus = driveStraight1;
+			switch(autonStatus){
+			case driveStraight1:
+				if(AutonDriveStraight(10.0, robotDrive)){
+
+				}
 			}
-		if (m_autoSelected == CenterSwitch1Cube) {
-			// Custom Auto goes here
+
+			}
+		if (m_autoSelected == CenterScale1Cube) {
+				// Custom Auto goes here
 		}
 		else {
 			enum Steps {driveStraight, finished};
-			Steps crossLine = driveStraight;
-			switch(crossLine){
+			Steps autonStatus = driveStraight;
+			switch(autonStatus){
 			case driveStraight:
 				if(AutonDriveStraight(10.0, robotDrive)){
-					crossLine = finished;
+					autonStatus = finished;
 				}
 				break;
 			case finished:
