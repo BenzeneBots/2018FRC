@@ -88,7 +88,6 @@ public:
 
 				}
 			}
-<<<<<<< HEAD
 
 			}
 		if (m_autoSelected == CenterScale1Cube) {
@@ -148,6 +147,33 @@ public:
 			robotElevator->SetElevatorTarget(0.0);
 		}
 		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1));//updates elevator positions based on targets and joysticks
+
+		//runs intake
+		if(manipStick->GetPOV(0)){
+			robotIntake->OuttakeCubes();
+		}
+		else if(manipStick->GetPOV(5)){
+			robotIntake->IntakeCubes();
+		}
+		else{
+			robotIntake->StopIntake();
+		}
+
+		//activates and deactivates claw
+		if(manipStick->GetRawButton(3)){
+			robotIntake->CloseClaw();
+		}
+		else if(manipStick->GetRawButton(4)){
+			robotIntake->OpenClaw();
+		}
+
+		//stows and deploys intake
+		if(manipStick->GetRawButton(5)){
+			robotIntake->StowIntake();
+		}
+		else if(manipStick->GetRawButton(6)){
+			robotIntake->DeployIntake();
+		}
 
 
 
