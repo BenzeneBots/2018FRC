@@ -17,7 +17,7 @@
 #define SET_POINT_SCALE 72
 
 #define ELEVATOR_SPEED 0.7
-#define MAX_ELEVATOR_HEIGHT 13000 //15000
+#define MAX_ELEVATOR_HEIGHT 15000 //15000
 #define MIN_ELEVATOR_HEIGHT -1750 //1650
 
 #define CONST_BACKDRIVE_PREVENTION 0.1
@@ -46,9 +46,8 @@ void Elevator::SetToOutput(double elevatorSpeed){
 	if(((elevatorPos > MAX_ELEVATOR_HEIGHT) && (elevatorSpeed < 0)) ||
 			((elevatorPos < MIN_ELEVATOR_HEIGHT) && elevatorSpeed > 0) ||
 			(((elevatorPos > MIN_ELEVATOR_HEIGHT)) && (elevatorPos < MAX_ELEVATOR_HEIGHT))){
-		if(elevatorSpeed > 0.1){//override the other stuff only if the speed is greater that 0.1 (if it's intentional)
-			elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
-		}
+		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+
 	}
 }
 
@@ -86,7 +85,7 @@ void Elevator::MoveElevator(double joystickVal){
 		elevatorMotor->Set(ControlMode::PercentOutput, -1.0 * ELEVATOR_SPEED);
 		break;
 	case joystick:
-		this->SetToOutput(joystickVal);
+		this->SetToOutput(joystickVal + CONST_BACKDRIVE_PREVENTION);
 	}
 
 

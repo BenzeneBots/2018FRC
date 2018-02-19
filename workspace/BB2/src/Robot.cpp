@@ -219,16 +219,17 @@ public:
 		else if(manipStick->GetRawButton(9)||manipStick->GetRawButton(10)){
 			robotElevator->SetElevatorTarget(2.0);
 		}
-		else if(manipStick->GetRawAxis(11) || manipStick->GetRawAxis(12)){
+		else if(manipStick->GetRawButton(11) || manipStick->GetRawButton(12)){
 			robotElevator->SetElevatorTarget(0.0);
 		}
 		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1));//updates elevator positions based on targets and joysticks
 
 		//runs intake
-		if(manipStick->GetPOV(0)){
+
+		if(manipStick->GetPOV(1)){
 			robotIntake->OuttakeCubes();
 		}
-		else if(manipStick->GetPOV(5)){
+		else if(manipStick->GetPOV((6))){
 			robotIntake->IntakeCubes();
 		}
 		else{
@@ -246,9 +247,11 @@ public:
 		//stows and deploys intake
 		if(manipStick->GetRawButton(5)){
 			robotIntake->StowIntake();
+			printf("Stowing Intake\n");
 		}
 		else if(manipStick->GetRawButton(6)){
 			robotIntake->DeployIntake();
+			printf("Deploying Intake\n");
 		}
 
 
@@ -256,9 +259,10 @@ public:
 		//Prints some relevant stuff
 		//printf("Right Drive: %f \n", robotDrive->GetRightEncoderValue());
 		//printf("Left Drive: %f \n", robotDrive->GetLeftEncoderValue());
-		//printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
-		printf("Raw Joystick: %f\n", -1.0 * mainDriverStick->GetRawAxis(1));
-		printf("Processed Joystick: %f\n", speedVal);
+		printf("Elevator Speed: %f \n", -1.0 * manipStick->GetRawAxis(1));
+		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
+		//printf("Raw Joystick: %f\n", -1.0 * mainDriverStick->GetRawAxis(1));
+		//printf("Processed Joystick: %f\n", speedVal);
 
 		//Update Smart Dashboard
 		frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());

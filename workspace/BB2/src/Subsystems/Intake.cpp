@@ -43,15 +43,17 @@ void Intake::StopIntake(){
 }
 
 void Intake::OpenClaw(){
-	if(intakeDeployedStatus){//only open claw if intake is deployed
-		clawActuator->Set(false);
+	//if(intakeDeployedStatus){//only open claw if intake is deployed
+		clawActuator->Set(true);
 		clawOpenStatus = true;
-	}
+		printf("Opening Claw \n");
+	//}
 }
 
 void Intake::CloseClaw(){
-	clawActuator->Set(true);//since extended cylinder is closed claw
+	clawActuator->Set(false);//since extended cylinder is closed claw
 	clawOpenStatus = false;
+	printf("Closing Claw \n");
 }
 
 void Intake::DeployIntake(){
