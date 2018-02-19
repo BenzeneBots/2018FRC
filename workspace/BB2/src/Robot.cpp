@@ -20,8 +20,7 @@
 #include <Subsystems/Intake.h>
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
-#include <Auton.cpp>
-
+#include <Auton/Auton.h>
 
 
 class Robot : public frc::TimedRobot {
@@ -37,6 +36,7 @@ public:
 	Drive *robotDrive;
     Elevator *robotElevator;
 	PigeonIMU *_pidgey;
+	Auton *robotAuton;
 
 	//init sensors
 	DigitalInput *elevatorBottomSwitch;
@@ -76,8 +76,10 @@ public:
 		if (m_autoSelected == CenterSwitch1Cube) {
 		}
 		if (m_autoSelected == CenterSwitch1Cube) {
+
 		}
 		else {
+			robotAuton->AutonDriveStraight(24,robotDrive);
 		}
 	}
 
@@ -89,7 +91,6 @@ public:
 			// Custom Auto goes here
 			}
 		else {
-			AutonDriveStraight(24,robotDrive);
 				}
 	}
 
@@ -111,7 +112,7 @@ public:
 		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
 
 		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
-		robotElevator->SetToOutput(manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
+		robotElevator->SetToOutput(-1.0*manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
 		//toggles limitswitch value to see when it changes
 		if((elevatorBottomSwitch->Get() == true) && (wasSwitchPressed == false)){//if the limit switch is being pressed for the first time, zero the encoder
 			wasSwitchPressed = true;
