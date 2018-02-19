@@ -34,7 +34,7 @@ Elevator::Elevator(int elevatorPort) {
 	elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
 	elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
 
-	elevatorState = stationary;
+	elevatorState = joystick;
 	elevatorTargetPos = 0;
 
 	//Auto-generated constructor stub
@@ -46,12 +46,14 @@ void Elevator::SetToOutput(double elevatorSpeed){
 	if(((elevatorPos > MAX_ELEVATOR_HEIGHT) && (elevatorSpeed < 0)) ||
 			((elevatorPos < MIN_ELEVATOR_HEIGHT) && elevatorSpeed > 0) ||
 			(((elevatorPos > MIN_ELEVATOR_HEIGHT)) && (elevatorPos < MAX_ELEVATOR_HEIGHT))){
-		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed + CONST_BACKDRIVE_PREVENTION);
+		if(elevatorSpeed > 0.1){//override the other stuff only if the speed is greater that 0.1 (if it's intentional)
+			elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+		}
 	}
 }
 
 void Elevator::SetEncoderPosition(int pos){
-	elevatorMotor->GetSensorCollection().SetQuadraturePosition(pos, 10); //should the timeoutMS be 0
+	elevatorMotor->GetSensorCollection().SetQuadraturePosition(pos, 0); //should the timeoutMS be 0
 }
 
 double Elevator::GetElevatorPosition(){
@@ -71,19 +73,20 @@ void Elevator::SetElevatorTarget(double targetPosition){//TODO implement this
 	else if(this->GetElevatorPosition() > targetPosition) elevatorState = decreasing;
 }
 
-void Elevator::MoveElevatorToSetPoint(){
+void Elevator::MoveElevator(double joystickVal){
 	switch (elevatorState){
 	case increasing:
-		if(this->GetElevatorPosition() > elevatorTargetPos) elevatorState = stationary;
+		if(this->GetElevatorPosition() > elevatorTargetPos) elevatorState = joystick;
+		if(abs(joystickVal) > 0.1) elevatorState = joystick;
 		elevatorMotor->Set(ControlMode::PercentOutput, ELEVATOR_SPEED);
 		break;
 	case decreasing:
-		if(this->GetElevatorPosition() < (elevatorTargetPos + 1200)) elevatorState = stationary;
+		if(this->GetElevatorPosition() < (elevatorTargetPos + 1200)) elevatorState = joystick;
+		if(abs(joystickVal) > 0.1) elevatorState = joystick;
 		elevatorMotor->Set(ControlMode::PercentOutput, -1.0 * ELEVATOR_SPEED);
 		break;
-	case stationary:
-		elevatorMotor->Set(ControlMode::PercentOutput, 0.1);
-		break;
+	case joystick:
+		this->SetToOutput(joystickVal);
 	}
 
 

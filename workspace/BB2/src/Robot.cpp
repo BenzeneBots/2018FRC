@@ -103,14 +103,10 @@ public:
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		//robotDrive->ArcadeDrive(robotDrive->InputScale(-1.0*mainDriverStick->GetRawAxis(1),1.5), robotDrive->InputScale(mainDriverStick->GetRawAxis(2),1.5));
-		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1),secondaryDriverStick->GetRawAxis(2));
-		printf("Right Drive: %f \n", robotDrive->GetRightEncoderValue());
-		printf("Left Drive: %f \n", robotDrive->GetLeftEncoderValue());
-		//printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
+		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1),mainDriverStick->GetRawAxis(2));//TODO add inputscaling
+
 
 		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
-		robotElevator->SetToOutput(-1.0*manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent
 		//toggles limitswitch value to see when it changes
 		if((elevatorBottomSwitch->Get() == true) && (wasSwitchPressed == false)){//if the limit switch is being pressed for the first time, zero the encoder
 			wasSwitchPressed = true;
@@ -118,8 +114,25 @@ public:
 		}
 		else if((elevatorBottomSwitch->Get() == false) && (wasSwitchPressed == true)){//otherwise just change the variable so it doesn't screw up later
 			wasSwitchPressed = false;
-
 		}
+		//Raises elevator to presets
+		if(manipStick->GetRawButton(7)||manipStick->GetRawButton(8)){//top button = switch
+			robotElevator->SetElevatorTarget(1.0);
+		}
+		else if(manipStick->GetRawButton(9)||manipStick->GetRawButton(10)){
+			robotElevator->SetElevatorTarget(2.0);
+		}
+		else if(manipStick->GetRawAxis(11) || manipStick->GetRawAxis(12)){
+			robotElevator->SetElevatorTarget(0.0);
+		}
+		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1))//updates elevator positions based on targets and joysticks
+
+
+
+		//Prints some relevant stuff
+		//printf("Right Drive: %f \n", robotDrive->GetRightEncoderValue());
+		//printf("Left Drive: %f \n", robotDrive->GetLeftEncoderValue());
+		//printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
 
 		//Update Smart Dashboard
 		frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());
