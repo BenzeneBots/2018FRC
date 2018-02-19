@@ -14,7 +14,7 @@
 
 class Intake {
 public:
-	Intake(int, int, int, int);
+	Intake(int, int, int, int, int);
 	void IntakeCubes();
 	void OuttakeCubes();
 	void StopIntake();
@@ -28,7 +28,8 @@ public:
 	void SetClawStatus(bool);
 private:
 	Victor *intake1, *intake2;
-	Solenoid *clawActuator, *angleActuator;
+	Solenoid *clawActuator;
+	DoubleSolenoid *angleActuator;
 	bool intakeDeployedStatus, clawOpenStatus;
 };
 

@@ -51,7 +51,7 @@ public:
 		//initialize subsystems
 		robotDrive = new Drive(1,2,3,4); 			//drive uses Talons 1,2,3,4
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
-		robotIntake = new Intake(1,2,3,4);		//Random Port Numbers (PLEASE DETERMINE)
+		robotIntake = new Intake(0,1,0,1,2);		//Intake uses PWM 0 and 1, and PCM ports 0, 1, and 2
 		robotAuton = new Auton(7);
 
 		//initialize sensors

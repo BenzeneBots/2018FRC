@@ -12,11 +12,11 @@
 #define INTAKE_SPEED 0.6
 
 
-Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort) {
+Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, int anglePort2) {
 	intake1 = new Victor(intake1Port);
 	intake2 = new Victor(intake2Port);
 	clawActuator = new Solenoid(clawPort);
-	angleActuator = new Solenoid(anglePort);
+	angleActuator = new DoubleSolenoid(anglePort1, anglePort2);
 
 	//defaults position to starting config
 	intakeDeployedStatus = false;
@@ -55,7 +55,7 @@ void Intake::CloseClaw(){
 }
 
 void Intake::DeployIntake(){
-	angleActuator->Set(true);
+	angleActuator->Set(frc::DoubleSolenoid::Value::kForward);
 	intakeDeployedStatus = true;
 }
 
@@ -64,7 +64,7 @@ void Intake::StowIntake(){//
 		this->CloseClaw();
 	}
 	//now that we are sure intake is closed, proceed with stowing
-	angleActuator->Set(false);
+	angleActuator->Set(frc::DoubleSolenoid::Value::kReverse);
 	intakeDeployedStatus = false;
 }
 
