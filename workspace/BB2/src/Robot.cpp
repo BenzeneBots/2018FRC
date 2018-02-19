@@ -79,15 +79,14 @@ public:
 	}
 
 	void AutonomousPeriodic() {
-		std::string gameData;
-		gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+			std::string gameData;
+			gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 
-		if (m_autoSelected == CenterSwitch1Cube) {
-			if(gameData.length() > 0)
-			                {
-					  if(gameData[0] == 'L')
-					  {
-						  //If switch is on left
+			if (m_autoSelected == CenterSwitch1Cube) {
+				if(gameData.length() > 0)
+				                {
+					if(gameData[0] == 'L')  {
+							  //If switch is on left
 						enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
 						Steps autonStatus = driveStraight1;
 
@@ -122,72 +121,70 @@ public:
 						default:
 							break;//do nothing
 						}
-					  } else {
+					} else {
 							  //If switch is on right
-							enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
-							Steps autonStatus = driveStraight1;
+						enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
+						Steps autonStatus = driveStraight1;
 
-							switch(autonStatus){
-							case driveStraight1:
-								if(AutonDriveStraight(12.0, robotDrive)){
-									autonStatus = turn1;
-								}
-								break;
-							case turn1:
-								if(AutonTurnRight(60.0, robotDrive)){
-									autonStatus = driveStraight2;
-								}
-								break;
-							case driveStraight2:
-								if(AutonDriveStraight(24, robotDrive)){
-									autonStatus = turn2;
-								}
-								break;
-							case turn2:
-								if(AutonTurnLeft(60.0, robotDrive)){
-									autonStatus = driveStraight3;
-								}
-								break;
-							case driveStraight3:
-								if(AutonDriveStraight(12.0, robotDrive)){
-									autonStatus = finished;
-								}
-								break;
-							case finished:
-								break;//do nothing
-							default:
-								break;//do nothing
+						switch(autonStatus){
+						case driveStraight1:
+							if(AutonDriveStraight(12.0, robotDrive)){
+								autonStatus = turn1;
 							}
-					  }
-			                }
+							break;
+						case turn1:
+							if(AutonTurnRight(60.0, robotDrive)){
+								autonStatus = driveStraight2;
+							}
+							break;
+						case driveStraight2:
+							if(AutonDriveStraight(24, robotDrive)){
+								autonStatus = turn2;
+							}
+							break;
+						case turn2:
+							if(AutonTurnLeft(60.0, robotDrive)){
+								autonStatus = driveStraight3;
+							}
+							break;
+						case driveStraight3:
+							if(AutonDriveStraight(12.0, robotDrive)){
+								autonStatus = finished;
+							}
+							break;
+						case finished:
+							break;//do nothing
+						default:
+							break;//do nothing
+								}
+						  }
+				    }
+
 
 				}
+			if (m_autoSelected == CenterScale1Cube) {
+					// Custom Auto goes here
 			}
+			else {
+				//Deafult Auto (DriveStraight)
+				enum Steps {driveStraight, finished};
+				Steps autonStatus = driveStraight;
 
-			}
-		if (m_autoSelected == CenterScale1Cube) {
-				// Custom Auto goes here
-		}
-		else {
-			//Deafult Auto (DriveStraight)
-			enum Steps {driveStraight, finished};
-			Steps autonStatus = driveStraight;
+				switch(autonStatus){
+				case driveStraight:
+					if(AutonDriveStraight(10.0, robotDrive)){
+						autonStatus = finished;
+					}
+					break;
 
-			switch(autonStatus){
-			case driveStraight:
-				if(AutonDriveStraight(10.0, robotDrive)){
-					autonStatus = finished;
+				case finished:
+					break;//do nothing
+
+				default:
+					break;//do nothing
 				}
-				break;
-
-			case finished:
-				break;//do nothing
-
-			default:
-				break;//do nothing
 			}
 		}
-	}
 
 	void TeleopInit() {
 		//Initialize all the joysticks
