@@ -42,6 +42,7 @@ public:
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
 	void RobotInit() {
+		//populates auto chooser on dashboard
 		m_chooser.AddDefault(CenterDriveStraight, CenterDriveStraight);
 		m_chooser.AddObject(CenterSwitch1Cube, CenterSwitch1Cube);
 		m_chooser.AddObject(CenterScale1Cube, CenterScale1Cube);
@@ -87,6 +88,7 @@ public:
 
 				}
 			}
+<<<<<<< HEAD
 
 			}
 		if (m_autoSelected == CenterScale1Cube) {
