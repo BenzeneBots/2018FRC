@@ -4,7 +4,6 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 #include <iostream>
 #include <string>
 
@@ -20,7 +19,7 @@
 #include <Subsystems/Intake.h>
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
-#include <Auton/Auton.h>
+#include <Auton/AutonTasks.h>
 
 
 class Robot : public frc::TimedRobot {

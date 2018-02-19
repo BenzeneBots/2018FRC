@@ -5,7 +5,7 @@
  *      Author: Sanket Nayak
  */
 
-#include <Auton/Auton.h>
+#include <Auton/AutonTasks.h>
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
 #include <Subsystems/Drive.h>
@@ -82,4 +82,5 @@ bool Auton::AutonOuttake(Intake* robotIntake){
 bool Auton::AutonDeployIntake(Intake* robotIntake){
 	return true;
 }
+
 

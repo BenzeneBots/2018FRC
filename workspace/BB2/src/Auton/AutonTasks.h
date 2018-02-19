@@ -5,8 +5,8 @@
  *      Author: Sanket Nayak
  */
 
-#ifndef SRC_AUTON_AUTON_H_
-#define SRC_AUTON_AUTON_H_
+#ifndef SRC_AUTON_AUTONTASKS_H_
+#define SRC_AUTON_AUTONTASKS_H_
 
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
@@ -17,6 +17,7 @@
 class Auton {
 public:
 	Auton(int);
+
 	bool AutonDriveStraight(double,Drive*);
 	bool AutonTurnRight(double,Drive*);
 	bool AutonTurnLeft(double,Drive*);
@@ -33,4 +34,4 @@ private:
 
 };
 
-#endif /* SRC_AUTON_AUTON_H_ */
+#endif /* SRC_AUTON_AUTONTASKS_H_ */
