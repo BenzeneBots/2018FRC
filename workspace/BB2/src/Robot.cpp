@@ -28,14 +28,9 @@ public:
 
 	//Initialize the subsystems
 
-	AutonDrive *aDrive;// not used
-	AutonElevator *aElevator; // not used
-	AutonIntake *aIntake; // not used
-
 	Intake *robotIntake;
 	Drive *robotDrive;
     Elevator *robotElevator;
-	PigeonIMU *_pidgey;
 	Auton *robotAuton;
 
 	//init sensors
@@ -56,15 +51,16 @@ public:
 		//initialize subsystems
 		robotDrive = new Drive(1,2,3,4); 			//drive uses Talons 1,2,3,4
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
-		//robotElevator->SetEncoderPosition(0);
-		_pidgey = new PigeonIMU(7);
+		robotIntake = new Intake(1,2,3,4);		//Random Port Numbers (PLEASE DETERMINE)
+		robotAuton = new Auton(7);
 
 		//initialize sensors
 		elevatorBottomSwitch = new DigitalInput(0);
 		wasSwitchPressed = 0;
 
-		//reset Drive Encoders
+		//reset Encoders
 		robotDrive->ResetEncoders();
+		//robotElevator->SetEncoderPosition(0);
 	}
 
 	void AutonomousInit() {
