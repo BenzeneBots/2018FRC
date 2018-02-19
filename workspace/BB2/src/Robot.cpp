@@ -19,7 +19,7 @@
 #include <Subsystems/Intake.h>
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
-#include <Auton/AutonTasks.h>
+#include <Auton/Auton.h>
 
 
 class Robot : public frc::TimedRobot {
@@ -30,7 +30,7 @@ public:
 	Intake *robotIntake;
 	Drive *robotDrive;
     Elevator *robotElevator;
-	Auton *robotAuton;
+
 
 	//init sensors
 	DigitalInput *elevatorBottomSwitch;
@@ -48,10 +48,10 @@ public:
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//initialize subsystems
-		robotDrive = new Drive(1,2,3,4); 			//drive uses Talons 1,2,3,4
+		robotDrive = new Drive(1,2,3,4,7); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 7
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		robotIntake = new Intake(0,1,0,1,2);		//Intake uses PWM 0 and 1, and PCM ports 0, 1, and 2
-		robotAuton = new Auton(7);
+
 
 		//initialize sensors
 		elevatorBottomSwitch = new DigitalInput(0);
@@ -74,7 +74,6 @@ public:
 
 		}
 		else {
-			robotAuton->AutonDriveStraight(24,robotDrive);
 		}
 	}
 
@@ -124,7 +123,7 @@ public:
 		else if(manipStick->GetRawAxis(11) || manipStick->GetRawAxis(12)){
 			robotElevator->SetElevatorTarget(0.0);
 		}
-		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1))//updates elevator positions based on targets and joysticks
+		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1));//updates elevator positions based on targets and joysticks
 
 
 

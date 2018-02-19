@@ -2108,3 +2108,232 @@ arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/a
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
 Info: Nothing to build for BB2
+12:24:06 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:18:44: error: 'Drive' has not been declared
+ void AutonDriveStraight(double TargetDist, Drive *robotDrive){
+                                            ^
+..\src\Auton\Auton.cpp: In function 'void AutonDriveStraight(double, int*)':
+..\src\Auton\Auton.cpp:19:36: error: request for member 'GetLeftEncoderValue' in '* robotDrive', which is of non-class type 'int'
+  double DriveEncVal = (robotDrive->GetLeftEncoderValue() + robotDrive->GetRightEncoderValue())/2.0;
+                                    ^
+..\src\Auton\Auton.cpp:19:72: error: request for member 'GetRightEncoderValue' in '* robotDrive', which is of non-class type 'int'
+  double DriveEncVal = (robotDrive->GetLeftEncoderValue() + robotDrive->GetRightEncoderValue())/2.0;
+                                                                        ^
+..\src\Auton\Auton.cpp:21:16: error: request for member 'TankDrive' in '* robotDrive', which is of non-class type 'int'
+    robotDrive->TankDrive(AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION,AUTON_DRIVE_SPEED);
+                ^
+..\src\Auton\Auton.cpp:24:16: error: request for member 'TankDrive' in '* robotDrive', which is of non-class type 'int'
+    robotDrive->TankDrive(0.0,0.0);
+                ^
+..\src\Auton\Auton.cpp: At global scope:
+..\src\Auton\Auton.cpp:28:40: error: 'Drive' has not been declared
+ void AutonTurnRight(double TargetAngle,Drive *robotDrive){
+                                        ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnRight(double, int*)':
+..\src\Auton\Auton.cpp:30:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp:35:16: error: request for member 'TankDrive' in '* robotDrive', which is of non-class type 'int'
+    robotDrive->TankDrive(AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,-1.0*AUTON_TURN_SPEED);
+                ^
+..\src\Auton\Auton.cpp:37:16: error: request for member 'TankDrive' in '* robotDrive', which is of non-class type 'int'
+    robotDrive->TankDrive(0.0,0.0);
+                ^
+..\src\Auton\Auton.cpp: At global scope:
+..\src\Auton\Auton.cpp:41:12: error: 'Drive' was not declared in this scope
+ bool Reset(Drive *robotDrive){
+            ^
+..\src\Auton\Auton.cpp:41:19: error: 'robotDrive' was not declared in this scope
+ bool Reset(Drive *robotDrive){
+                   ^
+..\src\Auton\Auton.cpp:41:30: error: expected ',' or ';' before '{' token
+ bool Reset(Drive *robotDrive){
+                              ^
+..\src\Auton\Auton.cpp:47:6: error: 'Auton' has not been declared
+ void Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
+      ^
+..\src\Auton\Auton.cpp:47:46: error: 'Drive' has not been declared
+ void Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
+                                              ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnLeft(double, int*)':
+..\src\Auton\Auton.cpp:49:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp:54:16: error: request for member 'TankDrive' in '* robotDrive', which is of non-class type 'int'
+    robotDrive->TankDrive(-1.0*AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,AUTON_TURN_SPEED);
+                ^
+..\src\Auton\Auton.cpp:56:16: error: request for member 'TankDrive' in '* robotDrive', which is of non-class type 'int'
+    robotDrive->TankDrive(0.0,0.0);
+                ^
+..\src\Auton\Auton.cpp: At global scope:
+..\src\Auton\Auton.cpp:59:25: error: variable or field 'AutonLowerElevator' declared void
+ void AutonLowerElevator(Elevator *robotElevator){
+                         ^
+..\src\Auton\Auton.cpp:59:25: error: 'Elevator' was not declared in this scope
+..\src\Auton\Auton.cpp:59:35: error: 'robotElevator' was not declared in this scope
+ void AutonLowerElevator(Elevator *robotElevator){
+                                   ^
+..\src\Auton\Auton.cpp:62:24: error: variable or field 'AutonLiftToSwitch' declared void
+ void AutonLiftToSwitch(Elevator *robotElevator){
+                        ^
+..\src\Auton\Auton.cpp:62:24: error: 'Elevator' was not declared in this scope
+..\src\Auton\Auton.cpp:62:34: error: 'robotElevator' was not declared in this scope
+ void AutonLiftToSwitch(Elevator *robotElevator){
+                                  ^
+..\src\Auton\Auton.cpp:65:23: error: variable or field 'AutonLiftToScale' declared void
+ void AutonLiftToScale(Elevator *robotElevator){
+                       ^
+..\src\Auton\Auton.cpp:65:23: error: 'Elevator' was not declared in this scope
+..\src\Auton\Auton.cpp:65:33: error: 'robotElevator' was not declared in this scope
+ void AutonLiftToScale(Elevator *robotElevator){
+                                 ^
+..\src\Auton\Auton.cpp:68:19: error: variable or field 'AutonOuttake' declared void
+ void AutonOuttake(Intake* robotIntake){
+                   ^
+..\src\Auton\Auton.cpp:68:19: error: 'Intake' was not declared in this scope
+..\src\Auton\Auton.cpp:68:27: error: 'robotIntake' was not declared in this scope
+ void AutonOuttake(Intake* robotIntake){
+                           ^
+..\src\Auton\Auton.cpp:71:24: error: variable or field 'AutonDeployIntake' declared void
+ void AutonDeployIntake(Intake* robotIntake){
+                        ^
+..\src\Auton\Auton.cpp:71:24: error: 'Intake' was not declared in this scope
+..\src\Auton\Auton.cpp:71:32: error: 'robotIntake' was not declared in this scope
+ void AutonDeployIntake(Intake* robotIntake){
+                                ^
+12:24:10 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:137:3: error: expected ';' before 'frc'
+   frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());
+   ^
+12:24:30 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'void AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:30:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp: In function 'bool Reset(Drive*)':
+..\src\Auton\Auton.cpp:42:2: error: '_pidgey' was not declared in this scope
+  _pidgey->SetYaw(0.0,10);
+  ^
+..\src\Auton\Auton.cpp: At global scope:
+..\src\Auton\Auton.cpp:47:6: error: 'Auton' has not been declared
+ void Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
+      ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:49:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+12:25:54 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'void AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:30:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp: In function 'bool Reset(Drive*)':
+..\src\Auton\Auton.cpp:42:2: error: '_pidgey' was not declared in this scope
+  _pidgey->SetYaw(0.0,10);
+  ^
+..\src\Auton\Auton.cpp: At global scope:
+..\src\Auton\Auton.cpp:47:6: error: 'Auton' has not been declared
+ void Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
+      ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:49:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+12:26:03 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonTasks.o" "..\\src\\Auton\\AutonTasks.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'void AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:30:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp: In function 'bool Reset(Drive*)':
+..\src\Auton\Auton.cpp:42:2: error: '_pidgey' was not declared in this scope
+  _pidgey->SetYaw(0.0,10);
+  ^
+..\src\Auton\Auton.cpp: At global scope:
+..\src\Auton\Auton.cpp:47:6: error: 'Auton' has not been declared
+ void Auton::AutonTurnLeft(double TargetAngle,Drive *robotDrive){
+      ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:49:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+12:26:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'void AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:30:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp: In function 'bool Reset(Drive*)':
+..\src\Auton\Auton.cpp:42:2: error: '_pidgey' was not declared in this scope
+  _pidgey->SetYaw(0.0,10);
+  ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:49:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+12:30:49 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:20:1: error: prototype for 'Drive::Drive(int, int, int, int)' does not match any in class 'Drive'
+ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort) {
+ ^
+In file included from ..\src\Subsystems\Drive.cpp:8:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Drive.h:14:7: error: candidates are: constexpr Drive::Drive(Drive&&)
+ class Drive {
+       ^
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Drive.h:14:7: error:                 constexpr Drive::Drive(const Drive&)
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Drive.h:16:2: error:                 Drive::Drive(int, int, int, int, int)
+  Drive(int,int,int,int,int);
+  ^
+12:31:05 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'void AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:30:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp: In function 'bool Reset(Drive*)':
+..\src\Auton\Auton.cpp:42:2: error: '_pidgey' was not declared in this scope
+  _pidgey->SetYaw(0.0,10);
+  ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:49:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+12:52:02 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'void AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:30:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+..\src\Auton\Auton.cpp: In function 'bool Reset(Drive*)':
+..\src\Auton\Auton.cpp:42:2: error: '_pidgey' was not declared in this scope
+  _pidgey->SetYaw(0.0,10);
+  ^
+..\src\Auton\Auton.cpp: In function 'void AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:49:2: error: '_pidgey' was not declared in this scope
+  _pidgey->GetYawPitchRoll(ypr_array);
+  ^
+12:54:29 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 

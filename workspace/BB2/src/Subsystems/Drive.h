@@ -13,7 +13,7 @@
 
 class Drive {
 public:
-	Drive(int,int,int,int);
+	Drive(int,int,int,int,int);
 	void ArcadeDrive(double, double);
 	void TankDrive(double, double);
 	double InputScale(double, double);
@@ -24,9 +24,14 @@ public:
 	double GetLeftRate();
 	double GetLeftEncoderDistance();
 	double GetRightEncoderDistance();
+	void ResetYaw();
+	double GetYaw();
+	void ResetFusedHeading();
+	double GetFusedHeading();
 private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
+	PigeonIMU *pidgey;
 };
 
 class AutonDrive : public Drive {

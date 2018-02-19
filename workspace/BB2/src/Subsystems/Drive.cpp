@@ -9,16 +9,19 @@
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
 
+
 //Defined drive constants
 #define INCHES_PER_TICK 0.01410; //TODO measure this guy
+#define RESET_TIMEOUT 10
 
 //Defined functions
 #define max( A, B )				A > B ? A : B
 #define min( A, B )				A < B ? A : B
 #define LimitVal( L, T, H)		max( min( T, H ), L)
 
-Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort) {
+Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort, int pigeonPort) {
 	// TODO Auto-generated constructor stub
+	pidgey = new PigeonIMU(pigeonPort);
 
     // Create all drive motors
 
@@ -91,5 +94,18 @@ double Drive::GetLeftEncoderValue(){
 	double leftEncVal = frontLeft->GetSensorCollection().GetQuadraturePosition();
 	return leftEncVal;
 }
-
+void Drive::ResetYaw(){
+	pidgey->SetYaw(0.0,RESET_TIMEOUT);
+}
+double Drive::GetYaw(){
+	double ypr_array[3];
+	pidgey->GetYawPitchRoll(ypr_array);
+	return ypr_array[0];
+}
+void Drive::ResetFusedHeading(){
+	pidgey->SetFusedHeading(0.0,RESET_TIMEOUT);
+}
+double Drive::GetFusedHeading(){
+	return pidgey->GetFusedHeading();
+}
 //*/
