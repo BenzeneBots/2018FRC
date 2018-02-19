@@ -17,6 +17,7 @@ public:
 	void SetEncoderPosition(int);
 	double GetElevatorPosition();
 	double GetElevatorRate();
+	double GetElevatorHeight();
 	void SetToOutput(double);
 	void SetElevatorTarget(double);
 	void MoveElevator(double);

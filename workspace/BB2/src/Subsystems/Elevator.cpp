@@ -60,6 +60,11 @@ double Elevator::GetElevatorPosition(){
 	return rawEncVal;
 }
 
+double Elevator::GetElevatorHeight(){
+	double elevatorHeight = this->GetElevatorPosition()*INCHES_PER_TICK;
+	return elevatorHeight;
+}
+
 double Elevator::GetElevatorRate(){
 	double VelocityVal = elevatorMotor->GetSensorCollection().GetQuadratureVelocity();
 	return VelocityVal;
