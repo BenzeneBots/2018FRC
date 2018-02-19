@@ -17,13 +17,16 @@
 #define SET_POINT_SCALE 72
 
 #define ELEVATOR_SPEED 0.7
-#define MAX_ELEVATOR_HEIGHT 15000 //15000
+#define MAX_ELEVATOR_HEIGHT 13000 //15000
 #define MIN_ELEVATOR_HEIGHT -1750 //1650
 
 Elevator::Elevator(int elevatorPort) {
 	elevatorMotor = new TalonSRX(elevatorPort);
 	elevatorMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0); //sets the quad encoder as the primary sensor. What do PIDLoop and timeoutMS (the parameters) do?
-	//Enable Soft Limits
+	elevatorMotor->SetInverted(true); //positive motor = upward motion
+	elevatorMotor->SetSensorPhase(true); //ensure sensor phase matches
+
+	//Enable Soft Limits on init
 	elevatorMotor->ConfigForwardSoftLimitThreshold(MAX_ELEVATOR_HEIGHT, 10);
 	elevatorMotor->ConfigReverseSoftLimitThreshold(MIN_ELEVATOR_HEIGHT,10);
 	elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
@@ -37,11 +40,16 @@ Elevator::Elevator(int elevatorPort) {
 
 
 void Elevator::SetToOutput(double elevatorSpeed){
-	elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+	double elevatorPos = GetElevatorPosition();
+	if(((elevatorPos > MAX_ELEVATOR_HEIGHT) && (elevatorSpeed < 0)) ||
+			((elevatorPos < MIN_ELEVATOR_HEIGHT) && elevatorSpeed > 0) ||
+			((elevatorPos > MIN_ELEVATOR_HEIGHT)) && elevatorPos < MAX_ELEVATOR_HEIGHT){
+		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+	}
 }
 
 void Elevator::SetEncoderPosition(int pos){
-	elevatorMotor->GetSensorCollection().SetQuadraturePosition(pos, 0); //should the timeoutMS be 0
+	elevatorMotor->GetSensorCollection().SetQuadraturePosition(pos, 10); //should the timeoutMS be 0
 }
 
 double Elevator::GetElevatorPosition(){
@@ -72,7 +80,7 @@ void Elevator::MoveElevatorToSetPoint(){
 		elevatorMotor->Set(ControlMode::PercentOutput, -1.0 * ELEVATOR_SPEED);
 		break;
 	case stationary:
-		elevatorMotor->Set(ControlMode::PercentOutput, 0);
+		elevatorMotor->Set(ControlMode::PercentOutput, 0.1);
 		break;
 	}
 
