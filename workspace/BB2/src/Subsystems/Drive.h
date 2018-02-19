@@ -24,6 +24,8 @@ public:
 	double GetLeftRate();
 	double GetLeftEncoderDistance();
 	double GetRightEncoderDistance();
+	double GetAverageEncoderValue();
+	double GetAverageEncoderDistance();
 	void ResetYaw();
 	double GetYaw();
 	void ResetFusedHeading();

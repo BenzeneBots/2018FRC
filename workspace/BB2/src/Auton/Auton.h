@@ -14,6 +14,15 @@
 #include <Subsystems/Elevator.h>
 #include <Subsystems/Intake.h>
 
+bool AutonDriveStraight(double, Drive*);
+void AutonTurnRight(double, Drive*);
+void AutonTurnLeft(double, Drive*);
+void AutonMoveToHeight(double, Elevator*);
+void AutonIntake(Intake*);
+void AutonOuttake(Intake*);
+void AutonDeployIntake(Intake*);
+void AutonStowIntake(Intake*);
+
 
 
 

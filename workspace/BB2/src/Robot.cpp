@@ -80,12 +80,25 @@ public:
 	void AutonomousPeriodic() {
 		if (m_autoSelected == CenterSwitch1Cube) {
 					// Custom Auto goes here
-				}
+			}
 		if (m_autoSelected == CenterSwitch1Cube) {
 			// Custom Auto goes here
-			}
+		}
 		else {
+			enum Steps {driveStraight, finished};
+			Steps crossLine = driveStraight;
+			switch(crossLine){
+			case driveStraight:
+				if(AutonDriveStraight(10.0, robotDrive)){
+					crossLine = finished;
 				}
+				break;
+			case finished:
+				break;//do nothing
+			default:
+				break;//do nothing
+			}
+		}
 	}
 
 	void TeleopInit() {
@@ -101,8 +114,9 @@ public:
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1),mainDriverStick->GetRawAxis(2));//TODO add inputscaling
-
+		double speedVal  = robotDrive->InputScale(-1.0 * mainDriverStick->GetRawAxis(1), 1.5);
+		double turnVal = robotDrive->InputScale(mainDriverStick->GetRawAxis(2), 1.5);
+		robotDrive->ArcadeDrive(speedVal, turnVal);
 
 		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
 		//toggles limitswitch value to see when it changes
@@ -131,6 +145,8 @@ public:
 		//printf("Right Drive: %f \n", robotDrive->GetRightEncoderValue());
 		//printf("Left Drive: %f \n", robotDrive->GetLeftEncoderValue());
 		//printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
+		printf("Raw Joystick: %f\n", -1.0 * mainDriverStick->GetRawAxis(1));
+		printf("Processed Joystick: %f\n", speedVal);
 
 		//Update Smart Dashboard
 		frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());

@@ -49,14 +49,11 @@ void Drive::TankDrive(double left, double right){
 }
 
 double Drive::InputScale(double value,double power){
-	printf("Raw Value %f/n", value);
 	if (value>0){
 		return pow(value, power);
-		printf("Processed Value %f/n", pow(value, power));
 	}
 	else{
 		return -1.0*pow(abs(value),power);
-		printf("Processed Value %f/n", -1.0*pow(abs(value),power));
 	}
 }
 void Drive::ResetEncoders(){//Resets Encoders to 0
@@ -97,6 +94,17 @@ double Drive::GetLeftEncoderValue(){
 	double leftEncVal = frontLeft->GetSensorCollection().GetQuadraturePosition();
 	return leftEncVal;
 }
+
+double Drive::GetAverageEncoderValue(){
+	double avgEncVal = (this->GetRightEncoderValue() + this->GetLeftEncoderValue())/2.0;
+	return avgEncVal;
+}
+
+double Drive::GetAverageEncoderDistance(){
+	double avgEncDist = (this->GetRightEncoderDistance() + this->GetLeftEncoderDistance())/2.0;
+	return avgEncDist;
+}
+
 void Drive::ResetYaw(){
 	pidgey->SetYaw(0.0,RESET_TIMEOUT);
 }

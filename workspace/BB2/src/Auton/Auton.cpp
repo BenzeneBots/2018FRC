@@ -15,49 +15,48 @@
 #define INCHES_PER_TICK 0.00460194335
 #define RESET_TIMEOUT 10
 
-void AutonDriveStraight(double TargetDist, Drive *robotDrive){
-	double DriveEncVal = (robotDrive->GetLeftEncoderValue() + robotDrive->GetRightEncoderValue())/2.0;
+bool AutonDriveStraight(double TargetDist, Drive *drive){
+	double DriveEncVal = (drive->GetLeftEncoderValue() + drive->GetRightEncoderValue())/2.0;
 	if (INCHES_PER_TICK*DriveEncVal < TargetDist){
-			robotDrive->TankDrive(AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION,AUTON_DRIVE_SPEED);
+			drive->TankDrive(AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION, AUTON_DRIVE_SPEED);
+			return false;
 	}
 	else{
-			robotDrive->TankDrive(0.0,0.0);
+			drive->TankDrive(0.0,0.0);
+			return true;
 	}
 }
 
-void AutonTurnRight(double TargetAngle,Drive *robotDrive){
+void AutonTurnRight(double TargetAngle,Drive *drive){
 
-	double CurrentAngle = abs(robotDrive->GetFusedHeading());
+	double CurrentAngle = abs(drive->GetFusedHeading());
 
 	if (CurrentAngle < TargetAngle){
-			robotDrive->TankDrive(AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,-1.0*AUTON_TURN_SPEED);
+			drive->TankDrive(AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,-1.0*AUTON_TURN_SPEED);
 	}else{
-			robotDrive->TankDrive(0.0,0.0);
+			drive->TankDrive(0.0,0.0);
 	}
 }
 
 
-void AutonTurnLeft(double TargetAngle,Drive *robotDrive){
-	double CurrentAngle = abs(robotDrive->GetFusedHeading());
+void AutonTurnLeft(double TargetAngle,Drive *drive){
+	double CurrentAngle = abs(drive->GetFusedHeading());
 
 	if (CurrentAngle < TargetAngle){
-			robotDrive->TankDrive(-1.0*AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,AUTON_TURN_SPEED);
+			drive->TankDrive(-1.0*AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,AUTON_TURN_SPEED);
 	}else{
-			robotDrive->TankDrive(0.0,0.0);
+			drive->TankDrive(0.0,0.0);
 	}
 }
-void AutonLowerElevator(Elevator *robotElevator){
+
+void AutonMoveElevatorToHeight(double, Elevator *elevator){
 
 }
-void AutonLiftToSwitch(Elevator *robotElevator){
 
-}
-void AutonLiftToScale(Elevator *robotElevator){
-
-}
 void AutonOuttake(Intake* robotIntake){
 
 }
+
 void AutonDeployIntake(Intake* robotIntake){
 }
 
