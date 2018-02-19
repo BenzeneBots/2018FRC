@@ -49,11 +49,14 @@ void Drive::TankDrive(double left, double right){
 }
 
 double Drive::InputScale(double value,double power){
+	printf("Raw Value %f/n", value);
 	if (value>0){
 		return pow(value, power);
+		printf("Processed Value %f/n", pow(value, power));
 	}
 	else{
 		return -1.0*pow(abs(value),power);
+		printf("Processed Value %f/n", -1.0*pow(abs(value),power));
 	}
 }
 void Drive::ResetEncoders(){//Resets Encoders to 0
