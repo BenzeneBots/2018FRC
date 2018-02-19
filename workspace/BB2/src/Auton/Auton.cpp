@@ -7,12 +7,16 @@
 #include <Auton/Auton.h>
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
-
+#include <Timer.h>
 
 #define AUTON_DRIVE_SPEED 0.5
 #define AUTON_TURN_SPEED 0.1
 #define LEFT_DRIVE_CORRECTION 1.0
 #define RESET_TIMEOUT 10
+
+//Init Auton Timers
+Timer *autonTimer;
+
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){
 
@@ -40,7 +44,8 @@ bool AutonTurnRight(double TargetAngle,Drive *drive){
 	if (CurrentAngle < TargetAngle){
 			drive->TankDrive(AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,-1.0*AUTON_TURN_SPEED);
 			return false;
-	}else{
+	}
+	else{
 			drive->TankDrive(0.0,0.0);
 
 			//Reset Values
@@ -60,7 +65,8 @@ bool AutonTurnLeft(double TargetAngle,Drive *drive){
 	if (CurrentAngle < TargetAngle){
 			drive->TankDrive(-1.0*AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,AUTON_TURN_SPEED);
 			return false;
-	}else{
+		}
+	else{
 			drive->TankDrive(0.0,0.0);
 
 			//Reset Values
@@ -76,12 +82,49 @@ bool AutonMoveElevatorToHeight(double, Elevator *elevator){
 	return true;
 }
 
-bool AutonOuttake(Intake* robotIntake){
-	return true;
+bool AutonIntake(double time,Intake *robotIntake){
+	autonTimer->Reset();
+	autonTimer->Start();
+	if(autonTimer->Get() <= time){
+		robotIntake->IntakeCubes();
+		return false;
+	}
+	else{
+		autonTimer->Stop();
+		return true;
+	}
+}
+
+bool AutonOuttake(double time,Intake* robotIntake){
+	autonTimer->Reset();
+	autonTimer->Start();
+	if(autonTimer->Get() <= time){
+		robotIntake->OuttakeCubes();
+		return false;
+	}
+	else{
+		autonTimer->Stop();
+		return true;
+	}
+}
+bool AutonStowIntake(Intake* robotIntake){
+	if(robotIntake->IsIntakeDeployed()){
+		robotIntake->StowIntake();
+		return false;
+	}
+	else{
+		return true;
+	}
 }
 
 bool AutonDeployIntake(Intake* robotIntake){
-	return true;
+	if(robotIntake->IsIntakeDeployed()){
+			return true;
+		}
+		else{
+			robotIntake->DeployIntake();
+			return false;
+		}
 }
 
 
