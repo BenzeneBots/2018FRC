@@ -1489,3 +1489,328 @@ Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+16:16:57 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:79:41: error: expected ')' before ';' token
+    #define INCHES_PER_TICK 0.00460194335;
+                                         ^
+..\src\Robot.cpp:82:8: note: in expansion of macro 'INCHES_PER_TICK'
+    if (INCHES_PER_TICK*DriveEncVal < TargetDist){
+        ^
+..\src\Robot.cpp:82:24: error: invalid type argument of unary '*' (have 'double')
+    if (INCHES_PER_TICK*DriveEncVal < TargetDist){
+                        ^
+16:17:59 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+16:26:17 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:86:4: error: expected '}' before 'else'
+    else {
+    ^
+16:34:44 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:77:25: error: switch quantity not an integer
+   switch (m_autoSelected) {
+                         ^
+..\src\Robot.cpp:78:8: error: use of 'this' in a constant expression
+   case CenterSwitch1Cube:
+        ^
+..\src\Robot.cpp:78:8: error: could not convert '((Robot*)this)->Robot::CenterSwitch1Cube' from 'const string {aka const std::__cxx11::basic_string<char>}' to '<type error>'
+..\src\Robot.cpp:80:8: error: use of 'this' in a constant expression
+   case CenterScale1Cube:
+        ^
+..\src\Robot.cpp:80:8: error: could not convert '((Robot*)this)->Robot::CenterScale1Cube' from 'const string {aka const std::__cxx11::basic_string<char>}' to '<type error>'
+..\src\Robot.cpp:82:8: error: use of 'this' in a constant expression
+   case DriveStraight:
+        ^
+..\src\Robot.cpp:82:8: error: could not convert '((Robot*)this)->Robot::DriveStraight' from 'const string {aka const std::__cxx11::basic_string<char>}' to '<type error>'
+16:52:34 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:77:25: error: switch quantity not an integer
+   switch (m_autoSelected) {
+                         ^
+..\src\Robot.cpp:78:8: error: use of 'this' in a constant expression
+   case CenterSwitch1Cube:
+        ^
+..\src\Robot.cpp:78:8: error: could not convert '((Robot*)this)->Robot::CenterSwitch1Cube' from 'const string {aka const std::__cxx11::basic_string<char>}' to '<type error>'
+..\src\Robot.cpp:80:8: error: use of 'this' in a constant expression
+   case CenterScale1Cube:
+        ^
+..\src\Robot.cpp:80:8: error: could not convert '((Robot*)this)->Robot::CenterScale1Cube' from 'const string {aka const std::__cxx11::basic_string<char>}' to '<type error>'
+..\src\Robot.cpp:82:8: error: use of 'this' in a constant expression
+   case DriveStraight:
+        ^
+..\src\Robot.cpp:82:8: error: could not convert '((Robot*)this)->Robot::DriveStraight' from 'const string {aka const std::__cxx11::basic_string<char>}' to '<type error>'
+16:52:36 **** Rebuild of configuration Debug for project BB5 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB5\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+16:53:27 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB5
+16:54:59 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+17:27:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+..\src\Auton.cpp: In function 'bool AutonDriveStraight(double)':
+..\src\Auton.cpp:21:34: error: a function-definition is not allowed here before '{' token
+ bool AutonTurnRight(double Angle){
+                                  ^
+..\src\Auton.cpp:23:33: error: a function-definition is not allowed here before '{' token
+ bool AutonTurnLeft(double Angle){
+                                 ^
+..\src\Auton.cpp:24:1: error: expected '}' at end of input
+ }
+ ^
+17:27:41 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+17:28:32 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24);
+         ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:11: multiple definition of `AutonDriveStraight(double)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:11: first defined here
+src\Robot.o: In function `.LANCHOR0':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Robot.cpp:144: multiple definition of `robotDrive'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:11: first defined here
+collect2.exe: error: ld returned 1 exit status
+17:31:45 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+In file included from ..\src\Robot.cpp:23:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp: In function 'bool AutonDriveStraight(double, Drive)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:10:34: error: base operand of '->' has non-pointer type 'Drive'
+  double DriveEncVal = (drivetrain->getLeftEncoderValue() + drivetrain->getRightEncoderValue())/2.0;
+                                  ^
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:10:70: error: base operand of '->' has non-pointer type 'Drive'
+  double DriveEncVal = (drivetrain->getLeftEncoderValue() + drivetrain->getRightEncoderValue())/2.0;
+                                                                      ^
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:13:13: error: base operand of '->' has non-pointer type 'Drive'
+   drivetrain->TankDrive(AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION,AUTON_DRIVE_SPEED);
+             ^
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:16:13: error: base operand of '->' has non-pointer type 'Drive'
+   drivetrain->TankDrive(0.0,0.0);
+             ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24);
+         ^
+17:32:05 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+..\src\Auton.cpp: In function 'bool AutonDriveStraight(double, Drive)':
+..\src\Auton.cpp:10:34: error: base operand of '->' has non-pointer type 'Drive'
+  double DriveEncVal = (drivetrain->getLeftEncoderValue() + drivetrain->getRightEncoderValue())/2.0;
+                                  ^
+..\src\Auton.cpp:10:70: error: base operand of '->' has non-pointer type 'Drive'
+  double DriveEncVal = (drivetrain->getLeftEncoderValue() + drivetrain->getRightEncoderValue())/2.0;
+                                                                      ^
+..\src\Auton.cpp:13:13: error: base operand of '->' has non-pointer type 'Drive'
+   drivetrain->TankDrive(AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION,AUTON_DRIVE_SPEED);
+             ^
+..\src\Auton.cpp:16:13: error: base operand of '->' has non-pointer type 'Drive'
+   drivetrain->TankDrive(0.0,0.0);
+             ^
+17:32:08 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24);
+         ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+collect2.exe: error: ld returned 1 exit status
+17:32:37 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+collect2.exe: error: ld returned 1 exit status
+17:34:36 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:41: error: expression list treated as compound expression in initializer [-fpermissive]
+    bool AutonDriveStraight(24,robotDrive);
+                                         ^
+..\src\Robot.cpp:93:41: warning: left operand of comma operator has no effect [-Wunused-value]
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24,robotDrive);
+         ^
+17:55:20 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:41: error: expression list treated as compound expression in initializer [-fpermissive]
+    bool AutonDriveStraight(24,robotDrive);
+                                         ^
+..\src\Robot.cpp:93:41: warning: left operand of comma operator has no effect [-Wunused-value]
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24,robotDrive);
+         ^
+18:07:48 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:41: error: expression list treated as compound expression in initializer [-fpermissive]
+    bool AutonDriveStraight(24,robotDrive);
+                                         ^
+..\src\Robot.cpp:93:41: warning: left operand of comma operator has no effect [-Wunused-value]
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24,robotDrive);
+         ^
+18:08:00 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:99: error: expression list treated as compound expression in initializer [-fpermissive]
+    bool AutonDriveStraight(24,robotDrive->getLeftEncoderValue(),robotDrive->getRightEncoderValue());
+                                                                                                   ^
+..\src\Robot.cpp:93:99: warning: left operand of comma operator has no effect [-Wunused-value]
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24,robotDrive->getLeftEncoderValue(),robotDrive->getRightEncoderValue());
+         ^
+18:10:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24);
+         ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, double, double)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:11: multiple definition of `AutonDriveStraight(double, double, double)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:11: first defined here
+src\Robot.o: In function `.LANCHOR0':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Robot.cpp:144: multiple definition of `robotDrive'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:11: first defined here
+collect2.exe: error: ld returned 1 exit status
+18:12:33 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24);
+         ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+collect2.exe: error: ld returned 1 exit status
+18:13:44 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:43: error: expression list treated as compound expression in initializer [-fpermissive]
+    bool AutonDriveStraight(24, *robotDrive);
+                                           ^
+..\src\Robot.cpp:93:43: warning: left operand of comma operator has no effect [-Wunused-value]
+..\src\Robot.cpp:93:43: error: cannot convert 'Drive' to 'bool' in initialization
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24, *robotDrive);
+         ^
+18:14:10 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:42: error: expression list treated as compound expression in initializer [-fpermissive]
+    bool AutonDriveStraight(24, robotDrive);
+                                          ^
+..\src\Robot.cpp:93:42: warning: left operand of comma operator has no effect [-Wunused-value]
+..\src\Robot.cpp:93:9: warning: unused variable 'AutonDriveStraight' [-Wunused-variable]
+    bool AutonDriveStraight(24, robotDrive);
+         ^
+18:35:43 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:82:3: error: expected unqualified-id before '}' token
+   }
+   ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:93:27: error: variable or field 'AutonDriveStraight' declared void
+    void AutonDriveStraight(24,robotDrive);
+                           ^
+18:36:01 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:92:27: error: variable or field 'AutonDriveStraight' declared void
+    void AutonDriveStraight(24,robotDrive);
+                           ^
+18:36:14 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+collect2.exe: error: ld returned 1 exit status
+18:36:33 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `BoolAutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `BoolAutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:19: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:19: first defined here
+collect2.exe: error: ld returned 1 exit status
+18:41:18 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton.o" "..\\src\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+collect2.exe: error: ld returned 1 exit status
+19:21:04 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+collect2.exe: error: ld returned 1 exit status
+19:22:07 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Robot.o: In function `AutonDriveStraight(double, Drive*)':
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton.cpp:9: multiple definition of `AutonDriveStraight(double, Drive*)'
+src\Auton.o:\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\Debug/..\src/Auton.cpp:9: first defined here
+collect2.exe: error: ld returned 1 exit status

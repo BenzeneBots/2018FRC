@@ -20,6 +20,9 @@
 #include <Subsystems/Intake.h>
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
+#include <Auton.cpp>
+
+
 
 class Robot : public frc::TimedRobot {
 public:
@@ -45,8 +48,9 @@ public:
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
 	void RobotInit() {
-		m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
-		m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
+		m_chooser.AddDefault(CenterDriveStraight, CenterDriveStraight);
+		m_chooser.AddObject(CenterSwitch1Cube, CenterSwitch1Cube);
+		m_chooser.AddObject(CenterScale1Cube, CenterScale1Cube);
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//initialize subsystems
@@ -64,15 +68,29 @@ public:
 	}
 
 	void AutonomousInit() {
+		m_autoSelected = m_chooser.GetSelected();
+		// m_autoSelected = SmartDashboard::GetString("Auto Selector",
+		//		 kAutoNameDefault);
+		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 
+		if (m_autoSelected == CenterSwitch1Cube) {
+		}
+		if (m_autoSelected == CenterSwitch1Cube) {
+		}
+		else {
+		}
 	}
 
 	void AutonomousPeriodic() {
-
-		robotDrive->ArcadeDrive(-.20,.20); // for testing
-
-	 	robotElevator->SetToOutput(.30); // for testing
-
+		if (m_autoSelected == CenterSwitch1Cube) {
+					// Custom Auto goes here
+				}
+		if (m_autoSelected == CenterSwitch1Cube) {
+			// Custom Auto goes here
+			}
+		else {
+			AutonDriveStraight(24,robotDrive);
+				}
 	}
 
 	void TeleopInit() {
@@ -115,8 +133,10 @@ public:
 private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
 	frc::SendableChooser<std::string> m_chooser;
-	const std::string kAutoNameDefault = "Default";
-	const std::string kAutoNameCustom = "My Auto";
+	const std::string CenterDriveStraight = "Center Line";
+	const std::string CenterSwitch1Cube = "Center Switch";
+	const std::string CenterScale1Cube = "Center Scale";
+
 	std::string m_autoSelected;
 };
 
