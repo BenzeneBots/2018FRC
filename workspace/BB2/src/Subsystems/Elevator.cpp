@@ -20,6 +20,8 @@
 #define MAX_ELEVATOR_HEIGHT 13000 //15000
 #define MIN_ELEVATOR_HEIGHT -1750 //1650
 
+#define CONST_BACKDRIVE_PREVENTION 0.1
+
 Elevator::Elevator(int elevatorPort) {
 	elevatorMotor = new TalonSRX(elevatorPort);
 	elevatorMotor->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0); //sets the quad encoder as the primary sensor. What do PIDLoop and timeoutMS (the parameters) do?
@@ -43,8 +45,8 @@ void Elevator::SetToOutput(double elevatorSpeed){
 	double elevatorPos = GetElevatorPosition();
 	if(((elevatorPos > MAX_ELEVATOR_HEIGHT) && (elevatorSpeed < 0)) ||
 			((elevatorPos < MIN_ELEVATOR_HEIGHT) && elevatorSpeed > 0) ||
-			((elevatorPos > MIN_ELEVATOR_HEIGHT)) && elevatorPos < MAX_ELEVATOR_HEIGHT){
-		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+			(((elevatorPos > MIN_ELEVATOR_HEIGHT)) && (elevatorPos < MAX_ELEVATOR_HEIGHT))){
+		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed + CONST_BACKDRIVE_PREVENTION);
 	}
 }
 

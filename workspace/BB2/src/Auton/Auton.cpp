@@ -19,7 +19,7 @@ Auton::Auton() {
 }
 
 void Auton::AutonDriveStraight(double TargetDist, Drive *robotDrive){
-	double DriveEncVal = (robotDrive->getLeftEncoderValue() + robotDrive->getRightEncoderValue())/2.0;
+	double DriveEncVal = (robotDrive->GetLeftEncoderValue() + robotDrive->GetRightEncoderValue())/2.0;
 	if (INCHES_PER_TICK*DriveEncVal < TargetDist){
 			robotDrive->TankDrive(AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION,AUTON_DRIVE_SPEED);
 	}else{

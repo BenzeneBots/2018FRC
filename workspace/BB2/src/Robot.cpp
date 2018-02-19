@@ -108,8 +108,10 @@ public:
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
 		//robotDrive->ArcadeDrive(robotDrive->InputScale(-1.0*mainDriverStick->GetRawAxis(1),1.5), robotDrive->InputScale(mainDriverStick->GetRawAxis(2),1.5));
-		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1),mainDriverStick->GetRawAxis(2));
-		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
+		robotDrive->ArcadeDrive(-1.0*mainDriverStick->GetRawAxis(1),secondaryDriverStick->GetRawAxis(2));
+		printf("Right Drive: %f \n", robotDrive->GetRightEncoderValue());
+		printf("Left Drive: %f \n", robotDrive->GetLeftEncoderValue());
+		//printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
 
 		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
 		robotElevator->SetToOutput(-1.0*manipStick->GetRawAxis(1));//0.76 is optimal rate, ~9.12V (voltage control mode in Talon will be more consistent

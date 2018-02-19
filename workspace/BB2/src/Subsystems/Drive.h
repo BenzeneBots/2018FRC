@@ -18,12 +18,12 @@ public:
 	void TankDrive(double, double);
 	double InputScale(double, double);
 	void ResetEncoders();
-	double getRightEncoderValue();
-	double getLeftEncoderValue();
-	double getRightRate();
-	double getLeftRate();
-	double getLeftEncoderDistance();
-	double getRightEncoderDistance();
+	double GetRightEncoderValue();
+	double GetLeftEncoderValue();
+	double GetRightRate();
+	double GetLeftRate();
+	double GetLeftEncoderDistance();
+	double GetRightEncoderDistance();
 private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
