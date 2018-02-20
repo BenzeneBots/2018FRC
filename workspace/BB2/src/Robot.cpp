@@ -52,6 +52,8 @@ public:
 	//Auton Stuff
 	enum Steps {driveStraight, finished};
 	Steps autonStatus = driveStraight;
+	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished1};
+	StepsCenterSwitch1Cube autonStatusCenterSwitch1Cube = driveStraight1;
 
 	void RobotInit() {
 		//populates auto chooser on dashboard
@@ -105,72 +107,68 @@ public:
 				                {
 					if(gameData[0] == 'L')  {
 					//If switch is on left
-						enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
-						Steps autonStatus = driveStraight1;
 
-						switch(autonStatus){
+						switch(autonStatusCenterSwitch1Cube){
 						case driveStraight1:
 							if(AutonDriveStraight(12.0, robotDrive)){
-								autonStatus = turn1;
+								autonStatusCenterSwitch1Cube = turn1;
 							}
 							break;
 						case turn1:
 							if(AutonTurnLeft(60.0, robotDrive)){
-								autonStatus = driveStraight2;
+								autonStatusCenterSwitch1Cube = driveStraight2;
 							}
 							break;
 						case driveStraight2:
 							if(AutonDriveStraight(24, robotDrive)){
-								autonStatus = turn2;
+								autonStatusCenterSwitch1Cube = turn2;
 							}
 							break;
 						case turn2:
 							if(AutonTurnRight(60.0, robotDrive)){
-								autonStatus = driveStraight3;
+								autonStatusCenterSwitch1Cube = driveStraight3;
 							}
 							break;
 						case driveStraight3:
 							if(AutonDriveStraight(12.0, robotDrive)){
-								autonStatus = finished;
+								autonStatusCenterSwitch1Cube = finished1;
 							}
 							break;
-						case finished:
+						case finished1:
 							break;//do nothing
 						default:
 							break;//do nothing
 						}
 					} else {
 					//If switch is on right
-						enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
-						Steps autonStatus = driveStraight1;
 
-						switch(autonStatus){
+						switch(autonStatusCenterSwitch1Cube){
 						case driveStraight1:
 							if(AutonDriveStraight(12.0, robotDrive)){
-								autonStatus = turn1;
+								autonStatusCenterSwitch1Cube = turn1;
 							}
 							break;
 						case turn1:
 							if(AutonTurnRight(60.0, robotDrive)){
-								autonStatus = driveStraight2;
+								autonStatusCenterSwitch1Cube = driveStraight2;
 							}
 							break;
 						case driveStraight2:
 							if(AutonDriveStraight(24, robotDrive)){
-								autonStatus = turn2;
+								autonStatusCenterSwitch1Cube = turn2;
 							}
 							break;
 						case turn2:
 							if(AutonTurnLeft(60.0, robotDrive)){
-								autonStatus = driveStraight3;
+								autonStatusCenterSwitch1Cube = driveStraight3;
 							}
 							break;
 						case driveStraight3:
 							if(AutonDriveStraight(12.0, robotDrive)){
-								autonStatus = finished;
+								autonStatusCenterSwitch1Cube = finished1;
 							}
 							break;
-						case finished:
+						case finished1:
 							break;//do nothing
 						default:
 							break;//do nothing

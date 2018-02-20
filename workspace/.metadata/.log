@@ -22272,6 +22272,23 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:20:14.665
 !MESSAGE Targets: deploy, Mode: run
+<<<<<<< HEAD
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.139
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.150
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.301
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.303
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.312
+!MESSAGE Connected to robot at 127.0.0.1
+=======
 !SESSION 2018-02-20 11:31:01.079 -----------------------------------------------
 eclipse.buildId=4.7.2.M20171130-0510
 java.version=1.8.0_151
@@ -22605,3 +22622,4 @@ org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 12:14:54.350
 !MESSAGE Targets: deploy, Mode: run
+>>>>>>> 84e66a6c5bcb6b733f93602c5c3d5003958cc414

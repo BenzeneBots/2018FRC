@@ -517,66 +517,436 @@ Info: Nothing to build for BB2
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
 Info: Nothing to build for BB2
-11:36:12 **** Incremental Build of configuration Debug for project BB2 ****
+11:31:54 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB2
-11:36:56 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:55:84: error: redeclaration of 'finished'
+  enum StepsCenterSwitch1 {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
+                                                                                    ^
+..\src\Robot.cpp:53:29: note: previous declaration 'Robot::Steps finished'
+  enum Steps {driveStraight, finished};
+                             ^
+..\src\Robot.cpp:56:35: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in initialization
+  Steps autonStatusCenterSwitch1 = driveStraight1;
+                                   ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:114:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn1;
+                     ^
+..\src\Robot.cpp:119:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight2;
+                     ^
+..\src\Robot.cpp:124:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn2;
+                     ^
+..\src\Robot.cpp:129:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight3;
+                     ^
+..\src\Robot.cpp:137:7: error: duplicate case value
+       case finished:
+       ^
+..\src\Robot.cpp:117:7: error: previously used here
+       case turn1:
+       ^
+..\src\Robot.cpp:122:7: warning: case value '2' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight2:
+       ^
+..\src\Robot.cpp:127:7: warning: case value '3' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case turn2:
+       ^
+..\src\Robot.cpp:132:7: warning: case value '4' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight3:
+       ^
+..\src\Robot.cpp:148:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn1;
+                     ^
+..\src\Robot.cpp:153:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight2;
+                     ^
+..\src\Robot.cpp:158:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn2;
+                     ^
+..\src\Robot.cpp:163:21: error: cannot convert 'Robot::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight3;
+                     ^
+..\src\Robot.cpp:171:7: error: duplicate case value
+       case finished:
+       ^
+..\src\Robot.cpp:151:7: error: previously used here
+       case turn1:
+       ^
+..\src\Robot.cpp:156:7: warning: case value '2' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight2:
+       ^
+..\src\Robot.cpp:161:7: warning: case value '3' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case turn2:
+       ^
+..\src\Robot.cpp:166:7: warning: case value '4' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight3:
+       ^
+11:32:25 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB2
-11:40:01 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:109:40: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in initialization
+       Steps autonStatusCenterSwitch1 = driveStraight1;
+                                        ^
+..\src\Robot.cpp:114:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn1;
+                     ^
+..\src\Robot.cpp:119:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight2;
+                     ^
+..\src\Robot.cpp:124:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn2;
+                     ^
+..\src\Robot.cpp:129:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight3;
+                     ^
+..\src\Robot.cpp:134:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = finished;
+                     ^
+..\src\Robot.cpp:122:7: warning: case value '2' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight2:
+       ^
+..\src\Robot.cpp:127:7: warning: case value '3' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case turn2:
+       ^
+..\src\Robot.cpp:132:7: warning: case value '4' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight3:
+       ^
+..\src\Robot.cpp:137:7: warning: case value '5' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case finished:
+       ^
+..\src\Robot.cpp:145:40: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in initialization
+       Steps autonStatusCenterSwitch1 = driveStraight1;
+                                        ^
+..\src\Robot.cpp:150:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn1;
+                     ^
+..\src\Robot.cpp:155:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight2;
+                     ^
+..\src\Robot.cpp:160:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = turn2;
+                     ^
+..\src\Robot.cpp:165:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = driveStraight3;
+                     ^
+..\src\Robot.cpp:170:21: error: cannot convert 'Robot::AutonomousPeriodic()::StepsCenterSwitch1' to 'Robot::Steps' in assignment
+         autonStatus = finished;
+                     ^
+..\src\Robot.cpp:158:7: warning: case value '2' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight2:
+       ^
+..\src\Robot.cpp:163:7: warning: case value '3' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case turn2:
+       ^
+..\src\Robot.cpp:168:7: warning: case value '4' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case driveStraight3:
+       ^
+..\src\Robot.cpp:173:7: warning: case value '5' not in enumerated type 'Robot::Steps' [-Wswitch]
+       case finished:
+       ^
+11:34:18 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-11:40:16 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:35:03 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-11:40:53 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:55:84: error: redeclaration of 'finished'
+  enum StepsCenterSwitch1 {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
+                                                                                    ^
+..\src\Robot.cpp:53:29: note: previous declaration 'Robot::Steps finished'
+  enum Steps {driveStraight, finished};
+                             ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:134:34: error: cannot convert 'Robot::Steps' to 'Robot::StepsCenterSwitch1' in assignment
+         autonStatusCenterSwitch1 = finished;
+                                  ^
+..\src\Robot.cpp:137:7: error: duplicate case value
+       case finished:
+       ^
+..\src\Robot.cpp:117:7: error: previously used here
+       case turn1:
+       ^
+..\src\Robot.cpp:168:34: error: cannot convert 'Robot::Steps' to 'Robot::StepsCenterSwitch1' in assignment
+         autonStatusCenterSwitch1 = finished;
+                                  ^
+..\src\Robot.cpp:171:7: error: duplicate case value
+       case finished:
+       ^
+..\src\Robot.cpp:151:7: error: previously used here
+       case turn1:
+       ^
+11:35:25 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-11:40:57 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:134:34: error: cannot convert 'Robot::Steps' to 'Robot::StepsCenterSwitch1' in assignment
+         autonStatusCenterSwitch1 = finished;
+                                  ^
+..\src\Robot.cpp:137:7: error: duplicate case value
+       case finished:
+       ^
+..\src\Robot.cpp:117:7: error: previously used here
+       case turn1:
+       ^
+11:35:41 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-11:42:27 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:00:39 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB2
-12:13:06 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:20:57 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-..\src\Subsystems\Elevator.cpp: In member function 'bool Elevator::MoveElevator(double)':
-..\src\Subsystems\Elevator.cpp:87:4: error: expected ';' before 'return'
-    return true;
-    ^
-..\src\Subsystems\Elevator.cpp:90:50: error: 'ELEVATOR_SPEED' was not declared in this scope
-   elevatorMotor->Set(ControlMode::PercentOutput, ELEVATOR_SPEED);
-                                                  ^
-..\src\Subsystems\Elevator.cpp:95:4: error: expected ';' before 'return'
-    return true;
-    ^
-12:13:45 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:19:1: error: 'autonTimer' does not name a type
+ autonTimer = new Timer();
+ ^
+12:21:35 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-..\src\Subsystems\Elevator.cpp: In member function 'bool Elevator::MoveElevator(double)':
-..\src\Subsystems\Elevator.cpp:90:50: error: 'ELEVATOR_SPEED' was not declared in this scope
-   elevatorMotor->Set(ControlMode::PercentOutput, ELEVATOR_SPEED);
-                                                  ^
-12:14:40 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:19:1: error: 'autonTimer' does not name a type
+ autonTimer = new Timer();
+ ^
+12:22:03 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
-Info: Nothing to build for BB2
-Info: Nothing to build for BB2
-12:16:13 **** Incremental Build of configuration Debug for project BB2 ****
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:19:1: error: 'autonTimer' does not name a type
+ autonTimer = new Timer();
+ ^
+12:22:24 **** Incremental Build of configuration Debug for project BB2 ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:87:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:88:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:89:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:94:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:100:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:101:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:102:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:107:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:97:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:110:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+12:23:19 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:87:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:88:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:89:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:94:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:100:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:101:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:102:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:107:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:97:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:110:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+12:26:24 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:18:1: error: 'autonTimer' does not name a type
+ autonTimer = new Timer();
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:88:2: error: 'autonTimer' was not declared in this scope
+  autonTimer->Reset();
+  ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:101:2: error: 'autonTimer' was not declared in this scope
+  autonTimer->Reset();
+  ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:98:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+12:26:31 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:18:1: error: 'autonTimer' does not name a type
+ autonTimer = new Timer();
+ ^
+12:26:49 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:18:1: error: 'autonTimer' does not name a type
+ autonTimer = new Timer();
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:88:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:89:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:90:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:95:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:101:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:102:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:103:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:108:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:98:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+12:27:30 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:18:7: error: redefinition of 'frc::Timer autonTimer'
+ Timer autonTimer = new Timer();
+       ^
+In file included from ..\src\Auton\Auton.cpp:7:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton/Auton.h:26:7: note: 'frc::Timer autonTimer' previously declared here
+ Timer autonTimer;
+       ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:88:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:89:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:90:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:95:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:101:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:102:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:103:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:108:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:98:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+12:27:50 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp:18:12: error: redefinition of 'frc::Timer autonTimer'
+ frc::Timer autonTimer = new Timer();
+            ^
+In file included from ..\src\Auton\Auton.cpp:7:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Auton/Auton.h:26:7: note: 'frc::Timer autonTimer' previously declared here
+ Timer autonTimer;
+       ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:88:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:89:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:90:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:95:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:101:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Reset();
+            ^
+..\src\Auton\Auton.cpp:102:12: error: base operand of '->' has non-pointer type 'frc::Timer'
+  autonTimer->Start();
+            ^
+..\src\Auton\Auton.cpp:103:15: error: base operand of '->' has non-pointer type 'frc::Timer'
+  if(autonTimer->Get() <= time){
+               ^
+..\src\Auton\Auton.cpp:108:13: error: base operand of '->' has non-pointer type 'frc::Timer'
+   autonTimer->Stop();
+             ^
+..\src\Auton\Auton.cpp: In function 'bool AutonIntake(double, Intake*)':
+..\src\Auton\Auton.cpp:98:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+..\src\Auton\Auton.cpp: In function 'bool AutonOuttake(double, Intake*)':
+..\src\Auton\Auton.cpp:111:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
