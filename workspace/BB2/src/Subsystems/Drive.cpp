@@ -11,7 +11,7 @@
 
 
 //Defined drive constants
-#define INCHES_PER_TICK 0.01410; //TODO measure this guy
+#define INCHES_PER_TICK 0.004602; //TODO measure this guy
 #define RESET_TIMEOUT 10
 
 //Defined functions
@@ -36,8 +36,6 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 
 	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0,0); //sets the quad encoder as the primary sensor
 	frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
-	frontLeft->SetSensorPhase(true);
-	frontRight->SetSensorPhase(true);
 
 	drivetrain = new DifferentialDrive(*frontLeft, *frontRight);
 }
@@ -66,13 +64,13 @@ void Drive::ResetEncoders(){//Resets Encoders to 0
 }
 
 double Drive::GetRightEncoderDistance(){//returns inches travelled by right side of drivetrain
-	double rawEncVal = frontRight->GetSensorCollection().GetQuadraturePosition();
+	double rawEncVal = this->GetRightEncoderValue();
 	double rightDistanceVal = rawEncVal * INCHES_PER_TICK;
 	return rightDistanceVal;
 }
 
 double Drive::GetLeftEncoderDistance(){//returns inches travelled by left side of drivetrain
-	double rawEncVal = frontLeft->GetSensorCollection().GetQuadraturePosition();
+	double rawEncVal = this->GetLeftEncoderValue();
 	double leftDistanceVal = rawEncVal * INCHES_PER_TICK;
 	return leftDistanceVal;
 }
@@ -90,7 +88,7 @@ double Drive::GetLeftRate(){//gets inches per second travelled by right side of 
 }
 
 double Drive::GetRightEncoderValue(){
-	double rightEncVal = frontRight->GetSensorCollection().GetQuadraturePosition();
+	double rightEncVal = -1.0*frontRight->GetSensorCollection().GetQuadraturePosition();
 	return rightEncVal;
 }
 
@@ -122,5 +120,17 @@ void Drive::ResetFusedHeading(){
 }
 double Drive::GetFusedHeading(){
 	return pidgey->GetFusedHeading();
+}
+void Drive::SetBrakeMode(){
+	frontLeft->SetNeutralMode(NeutralMode::Brake);
+	backLeft->SetNeutralMode(NeutralMode::Brake);
+	frontRight->SetNeutralMode(NeutralMode::Brake);
+	backRight->SetNeutralMode(NeutralMode::Brake);
+}
+void Drive::SetCoastMode(){
+	frontLeft->SetNeutralMode(NeutralMode::Coast);
+	backLeft->SetNeutralMode(NeutralMode::Coast);
+	frontRight->SetNeutralMode(NeutralMode::Coast);
+	backRight->SetNeutralMode(NeutralMode::Coast);
 }
 //*/

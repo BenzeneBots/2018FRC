@@ -19,15 +19,17 @@ Timer *autonTimer;
 
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){
-
+	printf("ShouldAutonRun %d \n", drive->GetAverageEncoderDistance() < TargetDist);
+	printf("DistanceTravelled %f \n", drive->GetAverageEncoderDistance());
 	if (drive->GetAverageEncoderDistance() < TargetDist){
-			drive->TankDrive(AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION, AUTON_DRIVE_SPEED);
+			drive->TankDrive(-1.0*AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION,-1.0*AUTON_DRIVE_SPEED);
 			return false;
 	}
 	else{
 			drive->TankDrive(0.0,0.0);
 
 			//Reset Values
+			printf("finished \n");
 			drive->ResetEncoders();
 			drive->ResetFusedHeading();
 			drive->ResetYaw();
@@ -42,11 +44,11 @@ bool AutonTurnRight(double TargetAngle,Drive *drive){
 	double CurrentAngle = abs(drive->GetFusedHeading());
 
 	if (CurrentAngle < TargetAngle){
-			drive->TankDrive(AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,-1.0*AUTON_TURN_SPEED);
+			drive->ArcadeDrive(0,AUTON_TURN_SPEED);
 			return false;
 	}
 	else{
-			drive->TankDrive(0.0,0.0);
+			drive->ArcadeDrive(0.0,0.0);
 
 			//Reset Values
 			drive->ResetEncoders();
@@ -63,11 +65,11 @@ bool AutonTurnLeft(double TargetAngle,Drive *drive){
 	double CurrentAngle = abs(drive->GetFusedHeading());
 
 	if (CurrentAngle < TargetAngle){
-			drive->TankDrive(-1.0*AUTON_TURN_SPEED*LEFT_DRIVE_CORRECTION,AUTON_TURN_SPEED);
+			drive->ArcadeDrive(0,AUTON_TURN_SPEED);
 			return false;
 		}
 	else{
-			drive->TankDrive(0.0,0.0);
+			drive->ArcadeDrive(0.0,0.0);
 
 			//Reset Values
 			drive->ResetEncoders();

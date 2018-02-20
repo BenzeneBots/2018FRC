@@ -49,6 +49,10 @@ public:
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
+	//Auton Stuff
+	enum Steps {driveStraight, finished};
+	Steps autonStatus = driveStraight;
+
 	void RobotInit() {
 		//populates auto chooser on dashboard
 		m_chooser.AddDefault(CenterDriveStraight, CenterDriveStraight);
@@ -76,6 +80,11 @@ public:
 		// m_autoSelected = SmartDashboard::GetString("Auto Selector",
 		//		 kAutoNameDefault);
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
+		robotDrive->SetBrakeMode();
+		autonStatus = driveStraight;
+
+
+		robotDrive->ResetEncoders();
 
 		if (m_autoSelected == CenterSwitch1Cube) {
 		}
@@ -83,6 +92,7 @@ public:
 
 		}
 		else {
+
 		}
 	}
 
@@ -175,25 +185,28 @@ public:
 			}
 			else {
 				//Deafult Auto (DriveStraight)
-				enum Steps {driveStraight, finished};
-				Steps autonStatus = driveStraight;
+
+
 
 				switch(autonStatus){
 				case driveStraight:
-					if(AutonDriveStraight(10.0, robotDrive)){
+					printf("DriveStraight\n");
+					if(AutonDriveStraight(40.0, robotDrive)){
 						autonStatus = finished;
+
 					}
 					break;
 
 				case finished:
+					robotDrive->TankDrive(0.0,0.0);
 					break;//do nothing
 
 				default:
 					break;//do nothing
 				}
 			}
-			printf("RightDriveEnc %f \n",robotDrive->GetRightEncoderValue());
-			printf("LeftDriveEnc %f \n",robotDrive->GetLeftEncoderValue());
+			//printf("RightDriveEnc %f \n",robotDrive->GetRightEncoderValue());
+			//printf("LeftDriveEnc %f \n",robotDrive->GetLeftEncoderValue());
 		}
 
 	void TeleopInit() {
@@ -205,6 +218,7 @@ public:
 		//reset Drive Encoders
 		robotDrive->ResetEncoders();
 
+		robotDrive->SetCoastMode();
 	}
 
 	void TeleopPeriodic() {
@@ -273,9 +287,9 @@ public:
 
 
 		//Prints some relevant stuff
-		//printf("Left Encoder: %f \n", robotDrive->GetLeftEncoderValue());
-		//printf("Right Encoder %f \n", robotDrive->GetRightEncoderValue());
 		printf("ElevatorPos: %f \n", robotElevator->GetElevatorPosition());
+		printf("RightDriveEnc %f \n",robotDrive->GetRightEncoderValue());
+		printf("LeftDriveEnc %f \n",robotDrive->GetLeftEncoderValue());
 	}
 
 	void TestPeriodic() {}

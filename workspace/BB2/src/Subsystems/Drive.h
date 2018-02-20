@@ -30,6 +30,8 @@ public:
 	double GetYaw();
 	void ResetFusedHeading();
 	double GetFusedHeading();
+	void SetBrakeMode();
+	void SetCoastMode();
 private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
