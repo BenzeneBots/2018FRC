@@ -15,12 +15,10 @@
 #define RESET_TIMEOUT 10
 
 //Init Auton Timers
-Timer *autonTimer;
+Timer *autonTimer = new Timer();
 
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){
-	printf("ShouldAutonRun %d \n", drive->GetAverageEncoderDistance() < TargetDist);
-	printf("DistanceTravelled %f \n", drive->GetAverageEncoderDistance());
 	if (drive->GetAverageEncoderDistance() < TargetDist){
 			drive->TankDrive(-1.0*AUTON_DRIVE_SPEED*LEFT_DRIVE_CORRECTION,-1.0*AUTON_DRIVE_SPEED);
 			return false;
@@ -41,7 +39,7 @@ bool AutonDriveStraight(double TargetDist, Drive *drive){
 
 bool AutonTurnRight(double TargetAngle,Drive *drive){
 
-	double CurrentAngle = abs(drive->GetFusedHeading());
+	double CurrentAngle = abs(drive->GetYaw());
 
 	if (CurrentAngle < TargetAngle){
 			drive->ArcadeDrive(0,AUTON_TURN_SPEED);
@@ -62,7 +60,7 @@ bool AutonTurnRight(double TargetAngle,Drive *drive){
 
 
 bool AutonTurnLeft(double TargetAngle,Drive *drive){
-	double CurrentAngle = abs(drive->GetFusedHeading());
+	double CurrentAngle = abs(drive->GetYaw());
 
 	if (CurrentAngle < TargetAngle){
 			drive->ArcadeDrive(0,AUTON_TURN_SPEED);
@@ -91,10 +89,8 @@ bool AutonIntake(double time,Intake *robotIntake){
 		robotIntake->IntakeCubes();
 		return false;
 	}
-	else{
-		autonTimer->Stop();
-		return true;
-	}
+	autonTimer->Stop();
+	return true;
 }
 
 bool AutonOuttake(double time,Intake* robotIntake){
@@ -104,11 +100,10 @@ bool AutonOuttake(double time,Intake* robotIntake){
 		robotIntake->OuttakeCubes();
 		return false;
 	}
-	else{
-		autonTimer->Stop();
-		return true;
-	}
+	autonTimer->Stop();
+	return true;
 }
+
 bool AutonStowIntake(Intake* robotIntake){
 	if(robotIntake->IsIntakeDeployed()){
 		robotIntake->StowIntake();
