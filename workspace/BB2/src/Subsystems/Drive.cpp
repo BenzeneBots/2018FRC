@@ -11,7 +11,7 @@
 
 
 //Defined drive constants
-#define INCHES_PER_TICK 0.004602; //TODO measure this guy
+#define INCHES_PER_TICK 0.004636; //measured 02-20-18
 #define RESET_TIMEOUT 10
 
 //Defined functions
@@ -113,13 +113,15 @@ void Drive::ResetYaw(){
 double Drive::GetYaw(){
 	double ypr_array[3];
 	pidgey->GetYawPitchRoll(ypr_array);
-	return ypr_array[0];
+	double yaw = ypr_array[0];
+	return NormalizeAngle(yaw);
 }
 void Drive::ResetFusedHeading(){
 	pidgey->SetFusedHeading(0.0,RESET_TIMEOUT);
 }
 double Drive::GetFusedHeading(){
-	return pidgey->GetFusedHeading();
+	double fh = pidgey->GetFusedHeading();
+	return NormalizeAngle(fh);
 }
 void Drive::SetBrakeMode(){
 	frontLeft->SetNeutralMode(NeutralMode::Brake);
@@ -132,5 +134,15 @@ void Drive::SetCoastMode(){
 	backLeft->SetNeutralMode(NeutralMode::Coast);
 	frontRight->SetNeutralMode(NeutralMode::Coast);
 	backRight->SetNeutralMode(NeutralMode::Coast);
+}
+
+double Drive::NormalizeAngle(double angle){
+	while (angle < 0){
+		angle += 360.0;
+	}
+	while(angle > 359){
+		angle -= 360.0;
+	}
+	return angle;
 }
 //*/

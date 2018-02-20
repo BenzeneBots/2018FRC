@@ -36,6 +36,7 @@ private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
 	PigeonIMU *pidgey;
+	double NormalizeAngle(double);
 };
 
 class AutonDrive : public Drive {
