@@ -15,7 +15,7 @@
 #define RESET_TIMEOUT 10
 
 //Init Auton Timers
-Timer *autonTimer;
+frc::Timer autonTimer = new Timer();
 
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){

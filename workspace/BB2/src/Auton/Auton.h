@@ -23,6 +23,7 @@ bool AutonOuttake(double,Intake*);
 bool AutonDeployIntake(Intake*);
 bool AutonStowIntake(Intake*);
 
+Timer autonTimer;
 
 
 

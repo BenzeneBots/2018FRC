@@ -22272,3 +22272,18 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:20:14.665
 !MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.139
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.150
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.301
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.303
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-20 11:23:34.312
+!MESSAGE Connected to robot at 127.0.0.1
