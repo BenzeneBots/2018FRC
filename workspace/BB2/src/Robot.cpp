@@ -161,12 +161,24 @@ public:
 							}
 							break;
 						case outtake0:
+							if(AutonOuttake(1.0,robotIntake)){
+								autonStatusCenterSwitch1Cube = stow0;
+							}
 							break;
 						case stow0:
+							if(AutonStowIntake(robotIntake)){
+								autonStatusCenterSwitch1Cube = setElevatorHeight1;
+							}
 							break;
 						case setElevatorHeight1:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								autonStatusCenterSwitch1Cube = moveElevator1;
+							}
 							break;
 						case moveElevator1:
+							if(AutonMoveToHeight(robotElevator)){
+								autonStatusCenterSwitch1Cube = finished1;
+							}
 							break;
 						case finished1:
 							break;//do nothing
@@ -199,6 +211,41 @@ public:
 							break;
 						case driveStraight3:
 							if(AutonDriveStraight(12.0, robotDrive)){
+								autonStatusCenterSwitch1Cube = finished1;
+							}
+							break;
+						case setElevatorHeight0:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								autonStatusCenterSwitch1Cube = moveElevator0;
+							}
+							break;
+						case moveElevator0:
+							if(AutonMoveToHeight(robotElevator)){
+								autonStatusCenterSwitch1Cube = deploy0;
+							}
+							break;
+						case deploy0:
+							if(AutonDeployIntake(robotIntake)){
+								autonStatusCenterSwitch1Cube = outtake0;
+							}
+							break;
+						case outtake0:
+							if(AutonOuttake(1.0,robotIntake)){
+								autonStatusCenterSwitch1Cube = stow0;
+							}
+							break;
+						case stow0:
+							if(AutonStowIntake(robotIntake)){
+								autonStatusCenterSwitch1Cube = setElevatorHeight1;
+							}
+							break;
+						case setElevatorHeight1:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								autonStatusCenterSwitch1Cube = moveElevator1;
+							}
+							break;
+						case moveElevator1:
+							if(AutonMoveToHeight(robotElevator)){
 								autonStatusCenterSwitch1Cube = finished1;
 							}
 							break;
