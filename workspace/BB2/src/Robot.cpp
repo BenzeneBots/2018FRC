@@ -79,8 +79,8 @@ public:
 
 	void AutonomousInit() {
 		m_autoSelected = m_chooser.GetSelected();
-		// m_autoSelected = SmartDashboard::GetString("Auto Selector",
-		//		 kAutoNameDefault);
+		m_autoSelected = SmartDashboard::GetString("Auto Selector",
+				 CenterDriveStraight);
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
 		autonStatus = driveStraight;
