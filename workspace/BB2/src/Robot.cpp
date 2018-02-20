@@ -90,7 +90,7 @@ public:
 
 
 		//temporarily overrides DS to pick our own auton
-		m_autoSelected = "CenterSwitch1Cube";
+		m_autoSelected = "CrossLine";
 
 		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
@@ -108,8 +108,8 @@ public:
 	void AutonomousPeriodic() {
 			std::string gameData;
 			gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-			printf("Encoder dist: %f\n", robotDrive->GetAverageEncoderDistance());
-			printf("Selected Auton %s\n",m_autoSelected.c_str());
+			//printf("Encoder dist: %f\n", robotDrive->GetAverageEncoderDistance());
+			//printf("Selected Auton %s\n",m_autoSelected.c_str());
 			if (m_autoSelected == CenterSwitch1Cube) {
 				if(gameData.length() > 0)
 				                {
@@ -118,20 +118,20 @@ public:
 
 						switch(autonStatusCenterSwitch1Cube){
 						case driveStraight1:
-							printf("DS1\n");
-							if(AutonDriveStraight(12.0, robotDrive)){
+							printf("Encoder distance: %f\n", robotDrive->GetAverageEncoderDistance());
+							if(AutonDriveStraight(32.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = turn1;
 							}
 							printf("Outside if\n");
 							break;
 						case turn1:
-							printf("T1\n");
+							printf("Yaw: %f\n", robotDrive->GetYaw());;
 							if(AutonTurnLeft(90.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = driveStraight2;
 							}
 							break;
 						case driveStraight2:
-							if(AutonDriveStraight(36, robotDrive)){
+							if(AutonDriveStraight(45.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = turn2;
 							}
 							break;
@@ -141,7 +141,7 @@ public:
 							}
 							break;
 						case driveStraight3:
-							if(AutonDriveStraight(12.0, robotDrive)){
+							if(AutonDriveStraight(70.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = finished1;
 							}
 							break;
@@ -293,7 +293,7 @@ public:
 
 		//reset Drive Encoders
 		robotDrive->ResetEncoders();
-
+		robotDrive->ResetYaw();
 		robotDrive->SetCoastMode();
 	}
 
