@@ -50,9 +50,9 @@ public:
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
 	//Auton Stuff
-	enum Steps {driveStraight, finished};
-	Steps autonStatusCrossLine = driveStraight;
-	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished1};
+	enum Steps {driveStraight0, finished};
+	Steps autonStatusCrossLine = driveStraight0;
+	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,setElevatorHeight0,moveElevator0,deploy0,outtake0,stow0,setElevatorHeight1,moveElevator1,finished1};
 	StepsCenterSwitch1Cube autonStatusCenterSwitch1Cube = driveStraight1;
 
 	void RobotInit() {
@@ -85,7 +85,7 @@ public:
 				 //CenterDriveStraight);
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
-		autonStatusCrossLine = driveStraight;
+		autonStatusCrossLine = driveStraight0;
 		autonStatusCenterSwitch1Cube = driveStraight1;
 
 
@@ -126,17 +126,17 @@ public:
 							break;
 						case turn1:
 							printf("T1\n");
-							if(AutonTurnLeft(60.0, robotDrive)){
+							if(AutonTurnLeft(90.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = driveStraight2;
 							}
 							break;
 						case driveStraight2:
-							if(AutonDriveStraight(24, robotDrive)){
+							if(AutonDriveStraight(36, robotDrive)){
 								autonStatusCenterSwitch1Cube = turn2;
 							}
 							break;
 						case turn2:
-							if(AutonTurnRight(60.0, robotDrive)){
+							if(AutonTurnRight(90.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = driveStraight3;
 							}
 							break;
@@ -144,6 +144,29 @@ public:
 							if(AutonDriveStraight(12.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = finished1;
 							}
+							break;
+						case setElevatorHeight0:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								autonStatusCenterSwitch1Cube = moveElevator0;
+							}
+							break;
+						case moveElevator0:
+							if(AutonMoveToHeight(robotElevator)){
+								autonStatusCenterSwitch1Cube = deploy0;
+							}
+							break;
+						case deploy0:
+							if(AutonDeployIntake(robotIntake)){
+								autonStatusCenterSwitch1Cube = outtake0;
+							}
+							break;
+						case outtake0:
+							break;
+						case stow0:
+							break;
+						case setElevatorHeight1:
+							break;
+						case moveElevator1:
 							break;
 						case finished1:
 							break;//do nothing
@@ -195,7 +218,7 @@ public:
 			else {
 				//Default Auto (DriveStraight)
 				switch(autonStatusCrossLine){
-				case driveStraight:
+				case driveStraight0:
 					if(AutonDriveStraight(130.0, robotDrive)){
 						autonStatusCrossLine = finished;
 

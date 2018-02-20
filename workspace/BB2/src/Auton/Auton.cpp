@@ -76,9 +76,21 @@ bool AutonTurnLeft(double TargetAngle,Drive *drive){
 			return true;
 	}
 }
-
-bool AutonMoveElevatorToHeight(double, Elevator *elevator){
-	return true;
+bool AutonSetHeight(double targetHeight,Elevator *elevator){
+	if(elevator->SetElevatorTarget(targetHeight)){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+bool AutonMoveToHeight(Elevator *elevator){
+	if(elevator->MoveElevator(0.0)){
+		return true;
+	}
+	else{
+	return false;
+	}
 }
 
 bool AutonIntake(double time,Intake *robotIntake){
