@@ -9,7 +9,8 @@
 #include <ctre/Phoenix.h>
 #include <Talon.h>
 #include <Subsystems/Intake.h>
-#define INTAKE_SPEED 1.0
+#define INTAKE_SPEED 0.9
+#define OUTTAKE_SPEED 0.5
 
 
 Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, int anglePort2) {
@@ -33,8 +34,8 @@ void Intake::IntakeCubes(){
 
 void Intake::OuttakeCubes(){
 	if(intakeDeployedStatus){//only outtake if intake is deployed
-		intake1->Set(-1.0 * INTAKE_SPEED);
-		intake2->Set(-1.0 * INTAKE_SPEED);
+		intake1->Set(-1.0 * OUTTAKE_SPEED);
+		intake2->Set(-1.0 * OUTTAKE_SPEED);
 	}
 
 }

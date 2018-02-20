@@ -10,7 +10,7 @@
 #include <Timer.h>
 
 #define AUTON_DRIVE_SPEED 0.25
-#define AUTON_TURN_SPEED 0.05
+#define AUTON_TURN_SPEED 0.15
 #define LEFT_DRIVE_CORRECTION 1.0
 #define RESET_TIMEOUT 10
 
@@ -38,10 +38,10 @@ bool AutonDriveStraight(double TargetDist, Drive *drive){
 
 bool AutonTurnRight(double TargetAngle,Drive *drive){
 
-	double CurrentAngle = abs(drive->GetYaw());
+	double CurrentAngle = drive->GetYaw();
 
 	if (CurrentAngle < TargetAngle){
-			drive->ArcadeDrive(0,AUTON_TURN_SPEED);
+			drive->TankDrive(AUTON_TURN_SPEED, -1.0 * AUTON_TURN_SPEED);
 			return false;
 	}
 	else{
@@ -59,10 +59,10 @@ bool AutonTurnRight(double TargetAngle,Drive *drive){
 
 
 bool AutonTurnLeft(double TargetAngle,Drive *drive){
-	double CurrentAngle = abs(drive->GetYaw());
+	double CurrentAngle = drive->GetYaw();
 
 	if (CurrentAngle < TargetAngle){
-			drive->ArcadeDrive(0,AUTON_TURN_SPEED);
+		drive->TankDrive(-1.0 * AUTON_TURN_SPEED, AUTON_TURN_SPEED);
 			return false;
 		}
 	else{
