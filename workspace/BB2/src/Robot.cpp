@@ -72,8 +72,10 @@ public:
 		elevatorBottomSwitch = new DigitalInput(0);
 		wasSwitchPressed = 0;
 
-		//reset Encoders
+		//reset sensors
 		robotDrive->ResetEncoders();
+		robotDrive->ResetYaw();
+		robotDrive->ResetFusedHeading();
 		//robotElevator->SetEncoderPosition(0);
 	}
 
@@ -91,6 +93,7 @@ public:
 		m_autoSelected = "CenterSwitch1Cube";
 
 		robotDrive->ResetEncoders();
+		robotDrive->ResetYaw();
 
 		if (m_autoSelected == "CenterSwitch1Cube") {
 		}
@@ -290,7 +293,8 @@ public:
 
 
 		//Prints some relevant stuff
-		printf("EncoderDist: %f \n", robotDrive->GetAverageEncoderValue());
+		//printf("EncoderDist: %f \n", robotDrive->GetAverageEncoderValue());
+		printf("Yaw: %f\n", robotDrive->GetYaw());
 	}
 
 	void TestPeriodic() {}
