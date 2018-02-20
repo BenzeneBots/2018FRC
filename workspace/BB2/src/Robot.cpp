@@ -63,7 +63,7 @@ public:
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//initialize subsystems
-		robotDrive = new Drive(2,1,4,3,7); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 7
+		robotDrive = new Drive(2,1,4,3,0); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 0
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		robotIntake = new Intake(0,1,0,1,2);		//Intake uses PWM 0 and 1, and PCM ports 0, 1, and 2
 
@@ -86,11 +86,14 @@ public:
 		autonStatus = driveStraight;
 
 
+		//temporarily overrides DS to pick our own auton
+		m_autoSelected = "CenterSwitch1Cube";
+
 		robotDrive->ResetEncoders();
 
-		if (m_autoSelected == CenterSwitch1Cube) {
+		if (m_autoSelected == "CenterSwitch1Cube") {
 		}
-		if (m_autoSelected == CenterScale1Cube) {
+		if (m_autoSelected == "CenterScale1Cube") {
 
 		}
 		else {
@@ -101,8 +104,9 @@ public:
 	void AutonomousPeriodic() {
 			std::string gameData;
 			gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+			printf("Encoder dist: %f\n", robotDrive->GetAverageEncoderDistance());
 
-			if (m_autoSelected == CenterSwitch1Cube) {
+			if (m_autoSelected == "CenterSwitch1Cube") {
 				if(gameData.length() > 0)
 				                {
 					if(gameData[0] == 'L')  {
@@ -110,11 +114,14 @@ public:
 
 						switch(autonStatusCenterSwitch1Cube){
 						case driveStraight1:
+							printf("DS1\n");
 							if(AutonDriveStraight(12.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = turn1;
 							}
+							printf("Outside if\n");
 							break;
 						case turn1:
+							printf("T1\n");
 							if(AutonTurnLeft(60.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = driveStraight2;
 							}
@@ -178,18 +185,15 @@ public:
 
 
 				}
-			if (m_autoSelected == CenterScale1Cube) {
+			else if (m_autoSelected == "CenterScale1Cube") {
 					// Custom Auto goes here
 			}
 			else {
 				//Default Auto (DriveStraight)
-
-
-
 				switch(autonStatus){
 				case driveStraight:
 					printf("DriveStraight\n");
-					if(AutonDriveStraight(40.0, robotDrive)){
+					if(AutonDriveStraight(130.0, robotDrive)){
 						autonStatus = finished;
 
 					}
@@ -201,6 +205,7 @@ public:
 
 				default:
 					break;//do nothing
+
 				}
 			}
 			//printf("RightDriveEnc %f \n",robotDrive->GetRightEncoderValue());
@@ -285,8 +290,7 @@ public:
 
 
 		//Prints some relevant stuff
-		printf("FusedHeading %f \n", robotDrive->GetFusedHeading());
-		printf("Yaw: %f \n", robotDrive->GetYaw());
+		printf("EncoderDist: %f \n", robotDrive->GetAverageEncoderValue());
 	}
 
 	void TestPeriodic() {}

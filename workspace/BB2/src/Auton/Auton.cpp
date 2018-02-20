@@ -27,7 +27,6 @@ bool AutonDriveStraight(double TargetDist, Drive *drive){
 			drive->TankDrive(0.0,0.0);
 
 			//Reset Values
-			printf("finished \n");
 			drive->ResetEncoders();
 			drive->ResetFusedHeading();
 			drive->ResetYaw();

@@ -22623,3 +22623,772 @@ org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open
 !ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 12:14:54.350
 !MESSAGE Targets: deploy, Mode: run
 >>>>>>> 84e66a6c5bcb6b733f93602c5c3d5003958cc414
+
+!ENTRY riolog 1 0 2018-02-20 14:32:26.394
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-20 14:32:26.395
+!MESSAGE exiting listener
+
+!ENTRY riolog 1 0 2018-02-20 14:32:27.303
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY org.eclipse.ui 4 0 2018-02-20 14:32:30.312
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:482)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:354)
+	at org.eclipse.swt.widgets.Label.setImage(Label.java:357)
+	at netconsole2.views.RiologView.lambda$3(RiologView.java:532)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:165)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:369)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:483)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:237)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.disconnectFromWorkspace(IDEWorkbenchAdvisor.java:533)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.access$2(IDEWorkbenchAdvisor.java:505)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$3.run(IDEWorkbenchAdvisor.java:346)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.postShutdown(IDEWorkbenchAdvisor.java:367)
+	at org.eclipse.ui.internal.Workbench.shutdown(Workbench.java:3019)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1174)
+	at org.eclipse.ui.internal.Workbench.lambda$4(Workbench.java:1424)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1424)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1397)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1606)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$18(WorkbenchWindow.java:1552)
+	at org.eclipse.ui.internal.WorkbenchWindow$11.run(WorkbenchWindow.java:1638)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1635)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1649)
+	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:530)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$3.shellClosed(WBWRenderer.java:615)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:99)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:316)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1729)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4845)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1657)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2199)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2555)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:506)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4941)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1657)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2199)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2555)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:506)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4941)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1657)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2199)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2560)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3815)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SESSION 2018-02-20 14:32:33.395 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2018-02-20 14:32:47.722
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<. ; version: 2.0.6.v20170906-1226
+!STACK 0
+com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.Gson.fromJson(Gson.java:902)
+	at com.google.gson.Gson.fromJson(Gson.java:852)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:100)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:109)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.loadConfiguration(IO.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:121)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1559)
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:530)
+	at com.google.gson.stream.JsonReader.skipValue(JsonReader.java:1224)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:218)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-20 14:32:47.770
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Murali'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 14:32:48.321
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 14:32:49.460
+!MESSAGE Error: Cannot run program "g++": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "g++": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 14:32:51.233
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 14:32:51.845
+!MESSAGE Error: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:52.464
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:52.465
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:52.824
+!MESSAGE Installing common if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:52.887
+!MESSAGE Installedcommon
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:53.103
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:53.163
+!MESSAGE Installedcpp
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:32:53.166
+!MESSAGE Updating projects
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-20 14:32:53.196
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Arcade Drive' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 14:32:53.197
+!MESSAGE Project 'Arcade Drive' is not open.
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-20 14:32:53.198
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB1' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 14:32:53.198
+!MESSAGE Project 'BB1' is not open.
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:32:53.295
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:32:53.299
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-20 14:32:53.301
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 14:32:53.301
+!MESSAGE Project 'BB5' is not open.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:53.381
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 14:32:53.382
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-02-20 14:32:53.410
+!MESSAGE Updating projects
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-20 14:32:53.415
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Arcade Drive' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 14:32:53.415
+!MESSAGE Project 'Arcade Drive' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-20 14:32:53.416
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB1' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 14:32:53.417
+!MESSAGE Project 'BB1' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-20 14:32:53.417
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 14:32:53.418
+!MESSAGE Project 'BB5' is not open.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-20 14:33:44.027
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-20 14:33:44.028
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-20 14:33:44.029
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:33:45.163
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:33:45.167
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:33:45.168
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:34:30.044
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:34:30.045
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:34:30.046
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:34:31.219
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:34:31.220
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-20 14:34:39.664
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:35:43.057
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:35:43.058
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:35:43.061
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:35:46.727
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:35:46.728
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:38:48.367
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:38:48.368
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:38:48.369
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:38:51.769
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:38:51.770
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:41:36.198
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:41:36.199
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:41:36.200
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:41:39.642
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:41:39.643
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:43:35.316
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:43:35.316
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:43:35.317
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:43:48.283
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:43:48.284
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:44:53.503
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:44:53.504
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:44:53.505
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:45:01.482
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:45:01.483
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:46:58.698
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:46:58.699
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:46:58.699
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:47:07.471
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:47:07.473
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:47:58.261
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:47:58.262
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:47:58.263
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:48:07.325
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:48:07.326
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:50:10.554
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:50:10.555
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:50:10.555
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:50:19.074
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:50:19.078
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:52:19.018
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:52:19.019
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:52:19.020
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:52:27.403
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:52:27.403
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:59:32.320
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:59:32.321
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 14:59:32.321
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:01:12.124
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:01:12.124
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:01:12.125
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:01:16.641
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:01:16.641
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:02:50.463
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:02:50.464
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:02:50.464
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:02:54.889
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:02:54.890
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:03:30.347
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:03:30.348
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:03:30.349
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:03:34.834
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:03:34.835
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:03.670
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:03.671
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:03.672
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:08.498
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:08.499
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:47.339
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:47.340
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:47.341
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:57.029
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:04:57.030
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:44:39.422
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:44:39.423
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:44:39.424
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:01.310
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:01.311
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:01.312
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:28.873
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:28.874
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:28.874
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:33.273
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:45:33.274
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:04.806
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:04.807
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:04.808
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:09.867
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:09.868
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:59.818
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:59.819
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:46:59.820
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:47:04.585
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:47:04.586
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:06.865
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:06.867
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:06.869
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:16.601
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:16.601
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:35.154
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:35.155
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:35.155
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:39.984
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:39.984
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:59.832
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:59.834
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:51:59.835
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:52:04.608
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:52:04.610
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:57:32.313
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:57:32.314
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:57:32.314
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:57:42.156
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 15:57:42.156
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:02:51.701
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:02:51.702
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:02:51.702
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:03:13.464
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:03:13.465
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:03:55.225
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:03:55.225
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:03:55.226
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:04:00.108
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:04:00.109
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:09.965
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:09.966
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:09.967
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:14.728
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:14.729
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:57.865
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:57.867
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:05:57.868
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:06:02.924
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 16:06:02.925
+!MESSAGE Targets: deploy, Mode: run
