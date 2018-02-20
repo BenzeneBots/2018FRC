@@ -51,7 +51,7 @@ public:
 
 	//Auton Stuff
 	enum Steps {driveStraight, finished};
-	Steps autonStatus = driveStraight;
+	Steps autonStatusCrossLine = driveStraight;
 	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished1};
 	StepsCenterSwitch1Cube autonStatusCenterSwitch1Cube = driveStraight1;
 
@@ -79,11 +79,12 @@ public:
 
 	void AutonomousInit() {
 		m_autoSelected = m_chooser.GetSelected();
-		m_autoSelected = SmartDashboard::GetString("Auto Selector",
-				 CenterDriveStraight);
+		//m_autoSelected = SmartDashboard::GetString("Auto Selector",
+				 //CenterDriveStraight);
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
-		autonStatus = driveStraight;
+		autonStatusCrossLine = driveStraight;
+		autonStatusCenterSwitch1Cube = driveStraight1;
 
 
 		//temporarily overrides DS to pick our own auton
@@ -105,8 +106,8 @@ public:
 			std::string gameData;
 			gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 			printf("Encoder dist: %f\n", robotDrive->GetAverageEncoderDistance());
-
-			if (m_autoSelected == "CenterSwitch1Cube") {
+			printf("Selected Auton %s\n",m_autoSelected.c_str());
+			if (m_autoSelected == CenterSwitch1Cube) {
 				if(gameData.length() > 0)
 				                {
 					if(gameData[0] == 'L')  {
@@ -185,16 +186,15 @@ public:
 
 
 				}
-			else if (m_autoSelected == "CenterScale1Cube") {
+			else if (m_autoSelected == CenterScale1Cube) {
 					// Custom Auto goes here
 			}
 			else {
 				//Default Auto (DriveStraight)
-				switch(autonStatus){
+				switch(autonStatusCrossLine){
 				case driveStraight:
-					printf("DriveStraight\n");
 					if(AutonDriveStraight(130.0, robotDrive)){
-						autonStatus = finished;
+						autonStatusCrossLine = finished;
 
 					}
 					break;
@@ -299,8 +299,8 @@ private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
 	frc::SendableChooser<std::string> m_chooser;
 	const std::string CenterDriveStraight = "Center Line";
-	const std::string CenterSwitch1Cube = "Center Switch";
-	const std::string CenterScale1Cube = "Center Scale";
+	const std::string CenterSwitch1Cube = "CenterSwitch1Cube";
+	const std::string CenterScale1Cube = "CenterScale1Cube";
 
 	std::string m_autoSelected;
 };
