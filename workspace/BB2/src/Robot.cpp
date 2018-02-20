@@ -182,7 +182,7 @@ public:
 					// Custom Auto goes here
 			}
 			else {
-				//Deafult Auto (DriveStraight)
+				//Default Auto (DriveStraight)
 
 
 
@@ -285,9 +285,8 @@ public:
 
 
 		//Prints some relevant stuff
-		printf("ElevatorPos: %f \n", robotElevator->GetElevatorPosition());
-		printf("RightDriveEnc %f \n",robotDrive->GetRightEncoderValue());
-		printf("LeftDriveEnc %f \n",robotDrive->GetLeftEncoderValue());
+		printf("FusedHeading %f \n", robotDrive->GetFusedHeading());
+		printf("Yaw: %f \n", robotDrive->GetYaw());
 	}
 
 	void TestPeriodic() {}

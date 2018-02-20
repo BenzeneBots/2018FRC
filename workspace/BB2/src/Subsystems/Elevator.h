@@ -19,8 +19,8 @@ public:
 	double GetElevatorRate();
 	double GetElevatorHeight();
 	void SetToOutput(double);
-	void SetElevatorTarget(double);
-	void MoveElevator(double);
+	bool SetElevatorTarget(double);
+	bool MoveElevator(double);
 
 private:
 	TalonSRX *elevatorMotor;

@@ -16,8 +16,9 @@
 #define SET_POINT_SWITCH 3467
 #define SET_POINT_SCALE 72
 
-#define ELEVATOR_SPEED 0.9
-#define MAX_ELEVATOR_HEIGHT 15000 //15000
+#define ELEVATOR_RISING_SPEED 0.95
+#define ELEVATOR_LOWERING_SPEED 0.5
+#define MAX_ELEVATOR_HEIGHT 14000 //15000
 #define MIN_ELEVATOR_HEIGHT -1750 //1650
 
 #define CONST_BACKDRIVE_PREVENTION 0.1
@@ -71,27 +72,39 @@ double Elevator::GetElevatorRate(){
 }
 
 
-void Elevator::SetElevatorTarget(double targetPosition){//TODO implement this
+bool Elevator::SetElevatorTarget(double targetPosition){//TODO implement this
 	elevatorTargetPos = targetPosition;
 	if(this->GetElevatorPosition() < targetPosition) elevatorState = increasing;
 	else if(this->GetElevatorPosition() > targetPosition) elevatorState = decreasing;
+	return true;
 }
 
-void Elevator::MoveElevator(double joystickVal){
+bool Elevator::MoveElevator(double joystickVal){
 	switch (elevatorState){
 	case increasing:
-		if(this->GetElevatorPosition() > elevatorTargetPos) elevatorState = joystick;
+		if(this->GetElevatorPosition() > elevatorTargetPos){
+			elevatorState = joystick;
+			return true;
+		}
 		if(abs(joystickVal) > 0.1) elevatorState = joystick;
-		elevatorMotor->Set(ControlMode::PercentOutput, ELEVATOR_SPEED);
+		elevatorMotor->Set(ControlMode::PercentOutput, ELEVATOR_RISING_SPEED);
 		break;
 	case decreasing:
-		if(this->GetElevatorPosition() < (elevatorTargetPos + 1200)) elevatorState = joystick;
+		if(this->GetElevatorPosition() < (elevatorTargetPos + 1200)){
+			elevatorState = joystick;
+			return true;
+		}
 		if(abs(joystickVal) > 0.1) elevatorState = joystick;
-		elevatorMotor->Set(ControlMode::PercentOutput, -1.0 * ELEVATOR_SPEED);
+		elevatorMotor->Set(ControlMode::PercentOutput, -1.0 * ELEVATOR_LOWERING_SPEED);
 		break;
 	case joystick:
 		this->SetToOutput(joystickVal + CONST_BACKDRIVE_PREVENTION);
+		break;
+	default:
+		break;
 	}
+
+	return false;
 
 
 

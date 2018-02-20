@@ -22272,6 +22272,7 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:20:14.665
 !MESSAGE Targets: deploy, Mode: run
+<<<<<<< HEAD
 
 !ENTRY riolog 1 0 2018-02-20 11:23:34.139
 !MESSAGE socket disconnected during read
@@ -22287,3 +22288,338 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY riolog 1 0 2018-02-20 11:23:34.312
 !MESSAGE Connected to robot at 127.0.0.1
+=======
+!SESSION 2018-02-20 11:31:01.079 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY riolog 1 0 2018-02-20 11:31:13.227
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2018-02-20 11:31:15.156
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<. ; version: 2.0.6.v20170906-1226
+!STACK 0
+com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.Gson.fromJson(Gson.java:902)
+	at com.google.gson.Gson.fromJson(Gson.java:852)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:100)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:109)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.loadConfiguration(IO.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:121)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1559)
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:530)
+	at com.google.gson.stream.JsonReader.skipValue(JsonReader.java:1224)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:218)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	... 8 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-20 11:31:15.176
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Murali'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 11:31:17.807
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 11:31:18.025
+!MESSAGE Error: Cannot run program "g++": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "g++": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 11:31:18.349
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-20 11:31:18.651
+!MESSAGE Error: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:18.656
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:18.657
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:18.660
+!MESSAGE Installing common if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:18.662
+!MESSAGE Installedcommon
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:21.409
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:21.784
+!MESSAGE Installedcpp
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:31:22.146
+!MESSAGE Updating projects
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-20 11:31:22.147
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Arcade Drive' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 11:31:22.148
+!MESSAGE Project 'Arcade Drive' is not open.
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-20 11:31:22.149
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB1' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 11:31:22.149
+!MESSAGE Project 'BB1' is not open.
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:31:22.226
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:31:22.228
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-20 11:31:22.229
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 11:31:22.230
+!MESSAGE Project 'BB5' is not open.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:22.718
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-20 11:31:22.719
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-02-20 11:31:22.730
+!MESSAGE Updating projects
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-20 11:31:22.733
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Arcade Drive' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 11:31:22.733
+!MESSAGE Project 'Arcade Drive' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-20 11:31:22.734
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB1' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 11:31:22.734
+!MESSAGE Project 'BB1' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-20 11:31:22.735
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-20 11:31:22.735
+!MESSAGE Project 'BB5' is not open.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-20 11:36:09.968
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-20 11:36:09.969
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-20 11:36:09.970
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:12.549
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:12.549
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:12.550
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:19.900
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:19.901
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:55.939
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:55.939
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:55.940
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:57.285
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:36:57.286
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:00.826
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:00.827
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:00.828
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:03.796
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:03.797
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:53.615
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:53.616
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:53.617
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:54.749
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:40:54.749
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:42:26.108
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:42:26.109
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:42:26.109
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:42:34.184
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 11:42:34.185
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 12:14:40.243
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 12:14:40.244
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 12:14:40.245
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 12:14:54.349
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 12:14:54.350
+!MESSAGE Targets: deploy, Mode: run
+>>>>>>> 84e66a6c5bcb6b733f93602c5c3d5003958cc414
