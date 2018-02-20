@@ -34,8 +34,10 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
 	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
 
-	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0); //sets the quad encoder as the primary sensor
+	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0,0); //sets the quad encoder as the primary sensor
 	frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+	frontLeft->SetSensorPhase(true);
+	frontRight->SetSensorPhase(true);
 
 	drivetrain = new DifferentialDrive(*frontLeft, *frontRight);
 }

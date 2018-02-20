@@ -57,7 +57,7 @@ public:
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//initialize subsystems
-		robotDrive = new Drive(1,2,3,4,7); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 7
+		robotDrive = new Drive(2,1,4,3,7); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 7
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		robotIntake = new Intake(0,1,0,1,2);		//Intake uses PWM 0 and 1, and PCM ports 0, 1, and 2
 
@@ -94,7 +94,7 @@ public:
 				if(gameData.length() > 0)
 				                {
 					if(gameData[0] == 'L')  {
-							  //If switch is on left
+					//If switch is on left
 						enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
 						Steps autonStatus = driveStraight1;
 
@@ -130,7 +130,7 @@ public:
 							break;//do nothing
 						}
 					} else {
-							  //If switch is on right
+					//If switch is on right
 						enum Steps {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,finished};
 						Steps autonStatus = driveStraight1;
 
@@ -192,6 +192,8 @@ public:
 					break;//do nothing
 				}
 			}
+			printf("RightDriveEnc %f \n",robotDrive->GetRightEncoderValue());
+			printf("LeftDriveEnc %f \n",robotDrive->GetLeftEncoderValue());
 		}
 
 	void TeleopInit() {

@@ -9,8 +9,8 @@
 #include <WPILib.h>
 #include <Timer.h>
 
-#define AUTON_DRIVE_SPEED 0.5
-#define AUTON_TURN_SPEED 0.1
+#define AUTON_DRIVE_SPEED 0.25
+#define AUTON_TURN_SPEED 0.05
 #define LEFT_DRIVE_CORRECTION 1.0
 #define RESET_TIMEOUT 10
 
