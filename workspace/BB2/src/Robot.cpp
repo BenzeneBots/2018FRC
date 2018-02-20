@@ -21,6 +21,10 @@
 #include <Subsystems/Elevator.h>
 #include <Auton/Auton.h>
 
+#define ELEVATOR_BOTTOM_HEIGHT -1200
+#define ELEVATOR_SWITCH_HEIGHT 3467
+#define ELEVATOR_SCALE_HEIGHT 13000
+
 
 class Robot : public frc::TimedRobot {
 public:
@@ -200,10 +204,14 @@ public:
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
 		double speedVal  = robotDrive->InputScale(-1.0 * mainDriverStick->GetRawAxis(1), 1.5);
-		double turnVal = robotDrive->InputScale(mainDriverStick->GetRawAxis(2), 1.5);
+
+		//printf("rawVal: %f\n", -1.0 * driver)
+		//printf("speedVal: %f\n", speedVal);
+
+		double turnVal = robotDrive->InputScale(mainDriverStick->GetRawAxis(0), 1.5);
 		robotDrive->ArcadeDrive(speedVal, turnVal);
 
-		//drives elevator and updates sensor values. Based on joystick, need to add preset buttons
+		//drives elevator and updates sensor values
 		//toggles limitswitch value to see when it changes
 		if((elevatorBottomSwitch->Get() == true) && (wasSwitchPressed == false)){//if the limit switch is being pressed for the first time, zero the encoder
 			wasSwitchPressed = true;
@@ -214,23 +222,26 @@ public:
 		}
 		//Raises elevator to presets
 		if(manipStick->GetRawButton(7)||manipStick->GetRawButton(8)){//top button = switch
-			robotElevator->SetElevatorTarget(1.0);
+			robotElevator->SetElevatorTarget(ELEVATOR_SCALE_HEIGHT);
 		}
 		else if(manipStick->GetRawButton(9)||manipStick->GetRawButton(10)){
-			robotElevator->SetElevatorTarget(2.0);
+			robotElevator->SetElevatorTarget(ELEVATOR_SWITCH_HEIGHT);
 		}
 		else if(manipStick->GetRawButton(11) || manipStick->GetRawButton(12)){
-			robotElevator->SetElevatorTarget(0.0);
+			robotElevator->SetElevatorTarget(ELEVATOR_BOTTOM_HEIGHT);
 		}
 		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1));//updates elevator positions based on targets and joysticks
 
 		//runs intake
 
-		if(manipStick->GetPOV(1)){
+		bool pointedUp = (manipStick->GetPOV(0) == 0);
+		if(pointedUp){
 			robotIntake->OuttakeCubes();
+			printf("button 2 \n");
 		}
-		else if(manipStick->GetPOV((6))){
+		else if(manipStick->GetPOV(0) == 180){
 			robotIntake->IntakeCubes();
+			printf("button 1 \n");
 		}
 		else{
 			robotIntake->StopIntake();
@@ -257,17 +268,9 @@ public:
 
 
 		//Prints some relevant stuff
-		//printf("Right Drive: %f \n", robotDrive->GetRightEncoderValue());
-		//printf("Left Drive: %f \n", robotDrive->GetLeftEncoderValue());
-		printf("Elevator Speed: %f \n", -1.0 * manipStick->GetRawAxis(1));
-		printf("Elevator Position: %f \n", robotElevator->GetElevatorPosition());
-		//printf("Raw Joystick: %f\n", -1.0 * mainDriverStick->GetRawAxis(1));
-		//printf("Processed Joystick: %f\n", speedVal);
-
-		//Update Smart Dashboard
-		frc::SmartDashboard::PutNumber("Elevator Encoder", robotElevator->GetElevatorPosition());
-
-
+		//printf("Left Encoder: %f \n", robotDrive->GetLeftEncoderValue());
+		//printf("Right Encoder %f \n", robotDrive->GetRightEncoderValue());
+		printf("ElevatorPos: %f \n", robotElevator->GetElevatorPosition());
 	}
 
 	void TestPeriodic() {}

@@ -49,11 +49,13 @@ void Drive::TankDrive(double left, double right){
 }
 
 double Drive::InputScale(double value,double power){
+
 	if (value>0){
 		return pow(value, power);
 	}
 	else{
-		return -1.0*pow(abs(value),power);
+		value = -1.0 * value;
+		return -1.0*pow(value, power);
 	}
 }
 void Drive::ResetEncoders(){//Resets Encoders to 0

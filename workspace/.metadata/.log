@@ -9124,3 +9124,2323 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY org.eclipse.cdt.core 1 0 2018-02-19 18:15:45.855
 !MESSAGE Indexed 'BB2' (6 sources, 496 headers) in 9.16 sec: 43,469 declarations; 67,330 references; 0 unresolved inclusions; 6 syntax errors; 1 unresolved names (0.0009%)
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-19 19:01:46.402
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-19 19:01:46.403
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-19 19:01:46.404
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:01:55.127
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:01:55.547
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:01:55.548
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:02:02.368
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:02:02.372
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:02:52.362
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:02:52.365
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:02:52.366
+!MESSAGE Building Project: BB2
+
+!ENTRY riolog 1 0 2018-02-19 19:02:55.654
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:02:58.436
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:02:58.439
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 19:03:15.818
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:03:16.436
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:03:16.437
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:03:26.202
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:05:09.256
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:05:09.257
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:05:09.257
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:05:19.071
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:05:19.072
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 19:05:38.847
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:05:39.270
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:05:39.271
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:05:49.464
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:06:01.203
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:06:02.796
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:06:02.798
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:06:12.973
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:06:24.254
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:06:26.238
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:06:26.239
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:06:36.162
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:06:49.064
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:06:49.599
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:07:00.981
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:09:16.766
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:09:16.767
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:09:16.768
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:09:24.884
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:09:24.885
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 19:09:44.343
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:09:45.671
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:09:45.672
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:09:56.040
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:10:08.272
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:10:09.509
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:10:09.510
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:10:20.536
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:11:10.316
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:11:10.317
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:11:10.317
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:11:37.852
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:11:37.853
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:11:37.853
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:15:48.644
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:15:48.646
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:15:48.647
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:15:53.123
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:15:53.124
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 19:16:14.121
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:16:15.845
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:16:15.846
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:16:27.887
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:16:41.379
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:16:41.552
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:16:41.553
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:16:54.302
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:17:17.639
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:17:19.624
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:17:19.625
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:17:36.590
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:23:14.424
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:23:14.424
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:23:14.425
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:23:29.586
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:23:29.588
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 19:23:51.965
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:23:53.855
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 19:23:53.856
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:24:05.832
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 19:25:06.939
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 19:25:06.940
+!MESSAGE exiting listener
+
+!ENTRY riolog 1 0 2018-02-19 19:25:07.350
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY org.eclipse.ui 4 0 2018-02-19 19:25:08.933
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:482)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:354)
+	at org.eclipse.swt.widgets.Label.setImage(Label.java:357)
+	at netconsole2.views.RiologView.lambda$3(RiologView.java:532)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:165)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:369)
+	at org.eclipse.jface.dialogs.ProgressMonitorDialog.run(ProgressMonitorDialog.java:483)
+	at org.eclipse.ui.internal.progress.ProgressMonitorJobsDialog.run(ProgressMonitorJobsDialog.java:237)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.disconnectFromWorkspace(IDEWorkbenchAdvisor.java:533)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.access$2(IDEWorkbenchAdvisor.java:505)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$3.run(IDEWorkbenchAdvisor.java:346)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor.postShutdown(IDEWorkbenchAdvisor.java:367)
+	at org.eclipse.ui.internal.Workbench.shutdown(Workbench.java:3019)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1174)
+	at org.eclipse.ui.internal.Workbench.lambda$4(Workbench.java:1424)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1424)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1397)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1606)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$18(WorkbenchWindow.java:1552)
+	at org.eclipse.ui.internal.WorkbenchWindow$11.run(WorkbenchWindow.java:1638)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1635)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1649)
+	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:530)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$3.shellClosed(WBWRenderer.java:615)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:99)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:316)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1729)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4845)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1657)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2199)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2555)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:506)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4941)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1657)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2199)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2555)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:506)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4941)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1657)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2199)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2560)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3815)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SESSION 2018-02-19 19:25:11.258 -----------------------------------------------
+eclipse.buildId=4.7.2.M20171130-0510
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-02-19 19:25:25.319
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Murali'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2018-02-19 19:25:25.759
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<. ; version: 2.0.6.v20170906-1226
+!STACK 0
+com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.Gson.fromJson(Gson.java:902)
+	at com.google.gson.Gson.fromJson(Gson.java:852)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:100)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.json.Json.deserialize(Json.java:109)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.loadConfiguration(IO.java:71)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:121)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: com.google.gson.stream.MalformedJsonException: Expected ':' at line 4 column 10 path $.<<<<<<<
+	at com.google.gson.stream.JsonReader.syntaxError(JsonReader.java:1559)
+	at com.google.gson.stream.JsonReader.doPeek(JsonReader.java:530)
+	at com.google.gson.stream.JsonReader.skipValue(JsonReader.java:1224)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:218)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	... 8 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-19 19:25:31.922
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-19 19:25:32.289
+!MESSAGE Error: Cannot run program "g++": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "g++": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-19 19:25:32.570
+!MESSAGE Error: Cannot run program "gcc": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "gcc": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-19 19:25:33.300
+!MESSAGE Error: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:265)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:760)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:690)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:563)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:33.551
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:33.553
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:33.947
+!MESSAGE Installing common if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:33.949
+!MESSAGE Installedcommon
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:33.955
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:34.047
+!MESSAGE Installedcpp
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:34.049
+!MESSAGE Updating projects
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-19 19:25:34.054
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Arcade Drive' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-19 19:25:34.055
+!MESSAGE Project 'Arcade Drive' is not open.
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-19 19:25:34.056
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB1' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-19 19:25:34.056
+!MESSAGE Project 'BB1' is not open.
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:34.059
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:34.061
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-02-19 19:25:34.062
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-19 19:25:34.062
+!MESSAGE Project 'BB5' is not open.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:34.070
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-02-19 19:25:34.071
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-02-19 19:25:34.073
+!MESSAGE Updating projects
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-19 19:25:34.074
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Arcade Drive' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-19 19:25:34.074
+!MESSAGE Project 'Arcade Drive' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-19 19:25:34.075
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB1' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-19 19:25:34.075
+!MESSAGE Project 'BB1' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-02-19 19:25:34.076
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'BB5' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-02-19 19:25:34.076
+!MESSAGE Project 'BB5' is not open.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-19 19:25:45.541
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-19 19:25:45.542
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-02-19 19:25:45.543
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:46.984
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:46.986
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:46.987
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:48.272
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:25:48.273
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 19:25:59.475
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:26:34.951
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:26:34.952
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:26:34.952
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:26:35.951
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:26:35.952
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:29:15.436
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:29:15.437
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:29:15.438
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:29:16.466
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:29:16.467
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:30:03.545
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:30:03.547
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:30:03.548
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:30:06.975
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:30:06.976
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:33:35.636
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:33:35.637
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:33:35.638
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:33:36.562
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:33:36.563
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:36:29.521
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:36:29.521
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:36:29.522
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:36:34.537
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:36:34.538
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:38:02.698
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:38:02.699
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:38:02.700
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:38:05.322
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:38:05.323
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:39:44.256
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:39:44.257
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:39:44.258
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:39:45.534
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:39:45.535
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:40:28.150
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:40:28.151
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:40:28.152
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:40:29.633
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:40:29.634
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:43:15.307
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:43:15.307
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:43:15.308
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:43:20.768
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:43:20.769
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:49:41.757
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:49:41.758
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:49:41.758
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:49:47.504
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:49:47.504
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:53:35.899
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:53:35.900
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:53:35.901
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:53:42.234
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:53:42.235
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:56:30.937
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:56:30.937
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:56:30.938
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:56:34.953
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:56:34.953
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:57:23.592
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:57:23.593
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:57:23.593
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:57:27.595
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 19:57:27.596
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:00:06.068
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:00:06.069
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:00:06.069
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:00:09.581
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:00:09.582
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:01:04.850
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:01:04.851
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:01:04.852
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:01:16.817
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:01:16.817
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:01:16.818
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:02:44.576
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:02:44.577
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:02:44.578
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:02:48.121
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:02:48.122
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:03:08.599
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:03:10.189
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:05:45.449
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:05:52.145
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:05:52.146
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:05:52.147
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:05:55.754
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:05:55.755
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:05.493
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:05.493
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:05.494
+!MESSAGE Building Project: BB2
+
+!ENTRY riolog 1 0 2018-02-19 20:06:05.989
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:07.523
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:07.527
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:06:07.856
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:06:07.857
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:06:13.919
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:06:19.945
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:06:20.372
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:06:20.373
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:06:23.074
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:26.288
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:26.289
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:26.289
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:30.077
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:30.078
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:06:40.389
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:06:41.351
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:06:41.352
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:06:43.485
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:53.316
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:53.317
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:53.317
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:54.876
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:06:54.877
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:07:05.342
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:07:05.763
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:07:05.765
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:07:08.617
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:07:11.642
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:07:12.911
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:07:12.912
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:07:15.297
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:07:24.949
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:07:25.576
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:07:30.844
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:07:30.844
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:07:30.845
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:07:34.105
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:07:34.106
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:07:34.773
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:07:41.021
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:07:41.131
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:07:47.704
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:07:49.707
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:07:49.970
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:07:52.198
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:07:52.454
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:07:54.455
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:08:33.890
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:09:24.508
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:09:24.508
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:09:24.509
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:10:24.971
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:10:24.972
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:10:24.973
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:10:32.099
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:10:32.101
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:10:42.682
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:10:44.204
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:10:44.205
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:10:46.609
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:10:49.372
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:10:50.903
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:10:50.904
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:10:53.741
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:11:05.734
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:11:05.735
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:11:05.736
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:11:09.719
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:11:09.719
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:11:20.431
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:11:22.090
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:11:22.091
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:11:25.258
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:13:47.552
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:13:47.553
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:13:47.554
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:18.169
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:18.170
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:18.171
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:19.932
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:19.933
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:14:30.686
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:14:31.657
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:14:31.658
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:14:34.409
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:14:37.511
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:14:38.747
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:14:38.748
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:14:41.568
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:49.310
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:49.310
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:49.311
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:53.272
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:14:53.273
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:15:03.965
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:15:05.934
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:15:05.935
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:15:09.981
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:15:12.250
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:15:12.251
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:15:12.251
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:15:14.008
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:15:14.009
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:15:24.674
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:15:26.342
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:15:26.343
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:15:29.025
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:15:58.268
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:15:59.368
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:15:59.369
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:16:02.282
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:16:05.807
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:16:06.674
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:16:06.675
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:16:09.533
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:17:52.903
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:17:52.904
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:17:52.904
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:17:57.518
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:17:57.523
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:18:09.383
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:18:09.908
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:18:09.909
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:18:12.963
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:18:16.702
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:18:17.316
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:18:17.317
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:18:20.849
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:18:44.550
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:18:45.385
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:18:45.387
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:18:49.037
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:18:52.628
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:18:53.447
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:18:53.449
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:18:56.906
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:00.727
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:01.398
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:01.399
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:19:04.612
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:08.366
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:09.012
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:09.013
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:19:12.466
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:16.015
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:16.864
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:16.865
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:19:20.584
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:26.099
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:27.502
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:27.503
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:19:31.847
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:35.621
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:36.235
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:36.236
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:19:39.636
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:43.315
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:44.012
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:44.012
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:19:47.245
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:50.948
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:51.643
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:51.644
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:19:54.852
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:59.326
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:19:59.753
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:19:59.755
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:20:04.175
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:20:09.871
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:20:10.996
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:20:11.002
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:20:23.645
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:20:32.428
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:20:33.006
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:20:33.007
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:20:39.222
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:20:48.670
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:20:49.172
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:20:49.173
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:20:58.405
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY org.eclipse.cdt.core 1 0 2018-02-19 20:21:10.067
+!MESSAGE Indexed 'BB2' (6 sources, 496 headers) in 59.1 sec: 43,469 declarations; 67,337 references; 0 unresolved inclusions; 7 syntax errors; 2 unresolved names (0.0018%)
+
+!ENTRY riolog 1 0 2018-02-19 20:21:11.651
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:21:11.719
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:21:11.720
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:21:19.112
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:21:25.619
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:21:27.614
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:21:27.615
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:21:32.921
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:21:39.308
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:21:39.667
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:21:39.668
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:21:44.134
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:21:49.283
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:21:50.675
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:21:50.676
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:21:55.310
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:01.149
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:02.123
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:02.124
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:09.156
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:14.098
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:15.692
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:15.693
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:22.276
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:29.034
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:29.073
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:29.074
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:33.432
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:39.257
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:40.043
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:40.044
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:45.580
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:45.587
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:47.582
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:47.583
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:47.590
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:47.607
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:49.592
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:49.593
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:49.603
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:49.608
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:51.604
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:51.605
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:51.613
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:51.626
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:53.615
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:53.616
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:53.626
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:53.646
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:55.628
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:55.629
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:55.639
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:55.648
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:57.641
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:22:57.642
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:22:58.149
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:22:58.167
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:00.151
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:00.152
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:00.215
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:00.232
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:02.222
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:02.223
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:02.230
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:02.247
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:04.233
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:04.234
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:04.242
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:04.246
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:06.244
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:06.245
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:06.252
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:06.269
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-19 20:23:07.996
+!MESSAGE Error: Cannot run program "rm": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "rm": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.CommandBuilder.build(CommandBuilder.java:109)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.StepBuilder.build(StepBuilder.java:96)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.cleanWithInternalBuilder(CommonBuilder.java:1209)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1098)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1046)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:737)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:487)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:406)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:285)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY riolog 1 0 2018-02-19 20:23:08.254
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:08.255
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:08.265
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:08.288
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:10.268
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:10.269
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:10.278
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:10.286
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:12.281
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:12.282
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:12.290
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:12.306
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:14.291
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:14.292
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:14.299
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:14.307
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:16.302
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:16.303
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:16.307
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:16.326
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:18.308
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:18.309
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:18.330
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:18.339
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:20.334
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:20.335
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:20.340
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:20.348
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:22.341
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:22.342
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:22.352
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:22.369
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:24.353
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:24.354
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:24.359
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:24.367
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:26.362
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:26.364
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:26.370
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:26.387
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:28.371
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:28.372
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:28.381
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:28.389
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:30.384
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:30.385
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:30.393
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:30.408
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:32.395
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:32.396
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:32.401
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:32.407
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:34.402
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:34.403
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:34.410
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:34.427
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:36.412
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:36.413
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:36.420
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:36.428
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:38.421
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:38.422
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:38.431
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:38.447
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:40.433
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:40.434
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:40.442
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:40.450
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:42.443
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:42.444
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:42.451
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:42.452
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:42.456
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:42.466
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:44.452
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:44.453
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:44.463
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:44.470
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:46.464
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:46.465
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:46.471
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:46.472
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:46.479
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:23:48.473
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:23:48.474
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:23:48.480
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:23:54.736
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:23:54.737
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:23:54.737
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:23:55.771
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:23:55.772
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:24:03.212
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:04.485
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:24:04.486
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:24:04.492
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:06.341
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:06.494
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:24:06.495
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:24:06.499
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:15.167
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:16.503
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:24:16.504
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:24:16.512
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:16.528
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:18.514
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:24:18.515
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:24:18.524
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:18.544
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:24:20.524
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:24:20.525
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:24:20.534
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:27:24.203
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:27:24.204
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:27:24.204
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:27:25.312
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:27:25.313
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:27:32.936
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:27:34.586
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:27:34.587
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:27:34.591
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:27:34.611
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:27:36.593
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:27:36.594
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:27:36.602
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:27:36.613
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:27:38.604
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:27:38.605
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:27:38.614
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:27:38.616
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:27:38.621
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:27:40.615
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 20:27:40.616
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:27:40.626
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 20:28:50.087
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:28:50.088
+!MESSAGE exiting listener
+
+!ENTRY org.eclipse.ui 4 0 2018-02-19 20:28:50.165
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.SWT.error(SWT.java:4419)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:482)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:354)
+	at org.eclipse.swt.widgets.Label.setImage(Label.java:357)
+	at netconsole2.views.RiologView.lambda$3(RiologView.java:532)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:37)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3820)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+
+!ENTRY riolog 1 0 2018-02-19 20:28:50.646
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:14.840
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:14.841
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:14.842
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:17.871
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:17.872
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:36:24.045
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY org.eclipse.cdt.core 4 0 2018-02-19 20:36:31.505
+!MESSAGE Error: Cannot run program "rm": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "rm": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:349)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:91)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:91)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:208)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.CommandBuilder.build(CommandBuilder.java:109)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.StepBuilder.build(StepBuilder.java:96)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.cleanWithInternalBuilder(CommonBuilder.java:1209)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1098)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1046)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:737)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:487)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:406)
+	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:285)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:36.022
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:36.023
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:36.023
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:47.242
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:36:47.243
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:39:56.151
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:39:56.152
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:39:56.152
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:39:59.418
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:39:59.419
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:44:12.752
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:44:12.753
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:44:12.754
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:44:15.987
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:44:15.988
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:48:25.816
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:48:25.816
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:48:25.818
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:48:29.175
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:48:29.175
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:49:11.117
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:49:11.118
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:49:11.121
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:49:14.293
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 20:49:14.294
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-02-19 20:51:09.497
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 20:51:10.280
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 21:05:44.259
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 21:05:46.494
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 21:05:48.261
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 21:05:48.262
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 21:05:48.269
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 21:05:49.839
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 21:05:50.271
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-02-19 21:05:50.272
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 21:05:50.276
+!MESSAGE Connected to robot at 172.22.11.2
+
+!ENTRY riolog 1 0 2018-02-19 21:06:00.097
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-02-19 21:06:00.281
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:09.240
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:09.240
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:09.241
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:30.417
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:30.418
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:30.419
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:31.473
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:09:31.473
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:10:03.479
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:10:03.480
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:10:03.480
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:10:04.637
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-19 21:10:04.638
+!MESSAGE Targets: deploy, Mode: run

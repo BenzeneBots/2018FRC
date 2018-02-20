@@ -13,7 +13,7 @@
 #define TICKS_PER_ROTATION 4096//measured
 #define INCHES_PER_TICK 0.0019175//calculated, but may need tuning
 #define SET_POINT_FlOOR 0
-#define SET_POINT_SWITCH 36
+#define SET_POINT_SWITCH 3467
 #define SET_POINT_SCALE 72
 
 #define ELEVATOR_SPEED 0.7

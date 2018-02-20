@@ -9,17 +9,19 @@
 #include <ctre/Phoenix.h>
 #include <Talon.h>
 #include <Subsystems/Intake.h>
-#define INTAKE_SPEED 0.6
+#define INTAKE_SPEED 1.0
 
 
 Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, int anglePort2) {
 	intake1 = new Victor(intake1Port);
 	intake2 = new Victor(intake2Port);
+	intake2->SetInverted(true);
 	clawActuator = new Solenoid(clawPort);
 	angleActuator = new DoubleSolenoid(anglePort1, anglePort2);
 
-	//defaults position to starting config
-	intakeDeployedStatus = false;
+	//Sets initial positions
+	if(angleActuator->Get() == frc::DoubleSolenoid::Value::kReverse) intakeDeployedStatus = true;
+	else intakeDeployedStatus = false;
 	clawOpenStatus = false;
 
 }
@@ -43,11 +45,11 @@ void Intake::StopIntake(){
 }
 
 void Intake::OpenClaw(){
-	//if(intakeDeployedStatus){//only open claw if intake is deployed
+	if(intakeDeployedStatus){//only open claw if intake is deployed
 		clawActuator->Set(true);
 		clawOpenStatus = true;
 		printf("Opening Claw \n");
-	//}
+	}
 }
 
 void Intake::CloseClaw(){
@@ -57,7 +59,7 @@ void Intake::CloseClaw(){
 }
 
 void Intake::DeployIntake(){
-	angleActuator->Set(frc::DoubleSolenoid::Value::kForward);
+	angleActuator->Set(frc::DoubleSolenoid::Value::kReverse);
 	intakeDeployedStatus = true;
 }
 
@@ -66,7 +68,7 @@ void Intake::StowIntake(){//
 		this->CloseClaw();
 	}
 	//now that we are sure intake is closed, proceed with stowing
-	angleActuator->Set(frc::DoubleSolenoid::Value::kReverse);
+	angleActuator->Set(frc::DoubleSolenoid::Value::kForward);
 	intakeDeployedStatus = false;
 }
 
@@ -76,14 +78,5 @@ bool Intake::IsIntakeDeployed(){
 
 bool Intake::IsClawOpen(){
 	return clawOpenStatus;
-}
-
-void Intake::SetIntakeStatus(bool newStatus){
-	intakeDeployedStatus = newStatus;
-
-}
-
-void Intake::SetClawStatus(bool newStatus){
-	clawOpenStatus = newStatus;
 }
 
