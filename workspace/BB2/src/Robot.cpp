@@ -25,6 +25,10 @@
 #define ELEVATOR_SWITCH_HEIGHT 3467
 #define ELEVATOR_SCALE_HEIGHT 13000
 
+#define TURN_FACTOR 0.5
+#define DRIVE_SPEED_FACTOR 0.9
+#define DRIVE_SCALE 1.7
+#define TURN_SCALE 1.1
 
 class Robot : public frc::TimedRobot {
 public:
@@ -203,12 +207,12 @@ public:
 
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
-		double speedVal  = robotDrive->InputScale(-1.0 * mainDriverStick->GetRawAxis(1), 1.5);
+		double speedVal  = robotDrive->InputScale(DRIVE_SPEED_FACTOR * mainDriverStick->GetRawAxis(1), DRIVE_SCALE);
 
 		//printf("rawVal: %f\n", -1.0 * driver)
 		//printf("speedVal: %f\n", speedVal);
 
-		double turnVal = robotDrive->InputScale(mainDriverStick->GetRawAxis(0), 1.5);
+		double turnVal = robotDrive->InputScale(TURN_FACTOR * mainDriverStick->GetRawAxis(4), TURN_SCALE);
 		robotDrive->ArcadeDrive(speedVal, turnVal);
 
 		//drives elevator and updates sensor values
@@ -234,12 +238,11 @@ public:
 
 		//runs intake
 
-		bool pointedUp = (manipStick->GetPOV(0) == 0);
-		if(pointedUp){
+
+		if(manipStick->GetRawButton(2)){
 			robotIntake->OuttakeCubes();
-			printf("button 2 \n");
 		}
-		else if(manipStick->GetPOV(0) == 180){
+		else if(manipStick->GetRawButton(1)){
 			robotIntake->IntakeCubes();
 			printf("button 1 \n");
 		}
@@ -248,19 +251,19 @@ public:
 		}
 
 		//activates and deactivates claw
-		if(manipStick->GetRawButton(3)){
+		if(manipStick->GetRawButton(6)){
 			robotIntake->CloseClaw();
 		}
-		else if(manipStick->GetRawButton(4)){
+		else if(manipStick->GetRawButton(5)){
 			robotIntake->OpenClaw();
 		}
 
 		//stows and deploys intake
-		if(manipStick->GetRawButton(5)){
+		if(manipStick->GetPOV(0) == 180){
 			robotIntake->StowIntake();
 			printf("Stowing Intake\n");
 		}
-		else if(manipStick->GetRawButton(6)){
+		else if(manipStick->GetPOV(0) == 0){
 			robotIntake->DeployIntake();
 			printf("Deploying Intake\n");
 		}
