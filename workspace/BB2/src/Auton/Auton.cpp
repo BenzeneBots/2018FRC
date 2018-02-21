@@ -139,28 +139,28 @@ bool AutonScoreSwitch(Elevator* robotElevator, Intake* robotIntake){//raises ele
 	stateMachine currentState = setElevator1;
 
 	Timer *initTimer = new Timer();
-
+	switch(currentState){
 	case setElevator1:
 		if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
-			stateMachine = raiseElevator;
+			currentState = raiseElevator;
 		}
 		break;
 	case raiseElevator:
 		if(AutonMoveToHeight(robotElevator)){
-		robotElevator->SetToOutput(0.1);
-		stateMachine = deployIntake;
-		//Initiates timer for deploying
-		initTimer->Reset();
-		initTimer->Start();
+			robotElevator->SetToOutput(0.1);
+			currentState = deployIntake;
+			//Initiates timer for deploying
+			initTimer->Reset();
+			initTimer->Start();
 		}
 		break;
 	case deployIntake:
-			if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+		if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
 			initTimer->Stop();
 			//Initiates timer for outtake
 			initTimer->Reset();
 			initTimer->Start();
-			stateMachine = outtake;
+			currentState = outtake;
 		}
 		break;
 	case outtake:
@@ -171,17 +171,17 @@ bool AutonScoreSwitch(Elevator* robotElevator, Intake* robotIntake){//raises ele
 			//Initiates timer for stowage
 			initTimer->Reset();
 			initTimer->Start();
-			stateMachine = stowIntake;
+			currentState = stowIntake;
 		}
 		break;
 	case stowIntake:
 		if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
-			stateMachine = setElevator2;
+			currentState = setElevator2;
 		}
 		break;
-		case setElevator2:
+	case setElevator2:
 		if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
-			stateMachine = lowerIntake;
+			currentState = lowerIntake;
 		}
 		break;
 	case lowerIntake:
@@ -189,6 +189,11 @@ bool AutonScoreSwitch(Elevator* robotElevator, Intake* robotIntake){//raises ele
 			return true;
 		}
 		break;
+	default:
+		return true;
+		break;
+	}
+	return false;
 }
 
 
