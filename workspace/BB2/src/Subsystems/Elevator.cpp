@@ -82,7 +82,6 @@ bool Elevator::SetElevatorTarget(double targetPosition){//TODO implement this
 bool Elevator::MoveElevator(double joystickVal){
 	switch (elevatorState){
 	case increasing:
-		printf("Case increasing");
 		if(this->GetElevatorPosition() > elevatorTargetPos){
 			elevatorState = joystick;
 			return true;

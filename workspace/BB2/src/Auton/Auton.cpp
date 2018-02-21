@@ -110,6 +110,7 @@ bool AutonOuttake(double time,Intake* robotIntake){
 	if(autonTimer->Get() <= time){
 		robotIntake->OuttakeCubes();
 		return false;
+		printf("Intake Timer: %f\n", autonTimer->Get());
 	}
 	autonTimer->Stop();
 	return true;

@@ -88,7 +88,7 @@ public:
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
 		autonStatusCrossLine = driveStraight0;
-		autonStatusCenterSwitch1Cube = setElevatorHeight0; //TODO replace with driveStraight1
+		autonStatusCenterSwitch1Cube = deploy0; //TODO replace with driveStraight1
 
 
 		//temporarily overrides DS to pick our own auton
@@ -123,7 +123,6 @@ public:
 							if(AutonDriveStraight(32.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = turn1;
 							}
-							printf("Outside if\n");
 							break;
 						case turn1:
 							if(AutonTurnLeft(90.0, robotDrive)){
@@ -153,17 +152,23 @@ public:
 						case moveElevator0:
 							if(AutonMoveToHeight(robotElevator)){
 								robotElevator->SetToOutput(0.1);
-								autonStatusCenterSwitch1Cube = finished1;
+								autonStatusCenterSwitch1Cube = deploy0;
 							}
 							break;
 						case deploy0:
 							printf("Deploying Intake\n");
 							if(AutonDeployIntake(robotIntake)){
 								autonStatusCenterSwitch1Cube = outtake0;
+								//Needed to initiate outtake and intake
+								initTimer->Reset();
+								initTimer->Start();
 							}
+
 							break;
 						case outtake0:
-							if(AutonOuttake(1.0,robotIntake)){
+							printf("Outtake Waiting Timer Value: %f\n");
+							if(AutonOuttake(0.5, robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
 								autonStatusCenterSwitch1Cube = stow0;
 							}
 							break;
