@@ -299,3 +299,132 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY org.eclipse.cdt.codan.core.cxx 4 1 2018-02-20 22:19:00.739
 !MESSAGE Unsupported statement type: CPPASTCaseStatement.
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:34:24.220
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:34:24.221
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:34:24.222
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:34:25.168
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:34:25.169
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:35:13.329
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:35:13.330
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:35:13.331
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:35:14.417
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:35:14.418
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:47:05.138
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:47:05.139
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:47:05.140
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:47:08.882
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:47:08.883
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:51:54.400
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:51:54.401
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:51:54.402
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:51:57.773
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:51:57.774
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:53:39.454
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:53:39.455
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:53:39.455
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:53:44.757
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:53:44.758
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:55:16.370
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:55:16.371
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:55:16.372
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:55:21.367
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:55:21.368
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:56:56.136
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:56:56.137
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:56:56.137
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:56:58.900
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:56:58.900
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:59:21.766
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:59:21.767
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 22:59:21.768
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 23:00:07.099
+!MESSAGE Adding library to cpp link: libCTRE_Phoenix.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 23:00:07.100
+!MESSAGE Adding library to cpp link: libCTRE_PhoenixCCI.a
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 23:00:07.100
+!MESSAGE Building Project: BB2
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 23:00:10.503
+!MESSAGE Running ant file: C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-02-20 23:00:10.503
+!MESSAGE Targets: deploy, Mode: run
