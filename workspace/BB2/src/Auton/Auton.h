@@ -24,7 +24,6 @@ bool AutonOuttake(Intake*);
 bool AutonStopIntake(Intake*);
 bool AutonDeployIntake(Intake*);
 bool AutonStowIntake(Intake*);
-bool AutonScoreSwitch(Elevator*, Intake*);
 
 
 

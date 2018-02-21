@@ -14,10 +14,6 @@
 #define LEFT_DRIVE_CORRECTION 1.0
 #define RESET_TIMEOUT 10
 
-#define ELEVATOR_BOTTOM_HEIGHT -1200
-#define ELEVATOR_SWITCH_HEIGHT 3467
-#define ELEVATOR_SCALE_HEIGHT 13000
-
 //Init Auton Timers
 Timer *autonTimer = new Timer();
 
@@ -131,64 +127,6 @@ bool AutonDeployIntake(Intake* robotIntake){
 			robotIntake->DeployIntake();
 			return false;
 		}
-}
-
-
-bool AutonScoreSwitch(Elevator* robotElevator, Intake* robotIntake){//raises elevator to switch height, scores cube, and lowers (in that order)
-	enum stateMachine {setElevator1, raiseElevator, deployIntake, outtake, stowIntake, setElevator2, lowerIntake};
-	stateMachine currentState = setElevator1;
-
-	Timer *initTimer = new Timer();
-
-	case setElevator1:
-		if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
-			stateMachine = raiseElevator;
-		}
-		break;
-	case raiseElevator:
-		if(AutonMoveToHeight(robotElevator)){
-		robotElevator->SetToOutput(0.1);
-		stateMachine = deployIntake;
-		//Initiates timer for deploying
-		initTimer->Reset();
-		initTimer->Start();
-		}
-		break;
-	case deployIntake:
-			if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
-			initTimer->Stop();
-			//Initiates timer for outtake
-			initTimer->Reset();
-			initTimer->Start();
-			stateMachine = outtake;
-		}
-		break;
-	case outtake:
-		printf("Outtake Timer: %f\n", initTimer->Get());
-			if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
-			AutonStopIntake(robotIntake);
-			initTimer->Stop();
-			//Initiates timer for stowage
-			initTimer->Reset();
-			initTimer->Start();
-			stateMachine = stowIntake;
-		}
-		break;
-	case stowIntake:
-		if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
-			stateMachine = setElevator2;
-		}
-		break;
-		case setElevator2:
-		if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
-			stateMachine = lowerIntake;
-		}
-		break;
-	case lowerIntake:
-		if(AutonMoveToHeight(robotElevator)){
-			return true;
-		}
-		break;
 }
 
 
