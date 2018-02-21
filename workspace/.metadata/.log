@@ -5244,3 +5244,14 @@ java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2018-02-21 14:36:00.025
 !MESSAGE Updating projects
+
+!ENTRY org.eclipse.ui.ide 4 4 2018-02-21 14:43:45.369
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2018-02-21 14:43:45.369
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2018-02-21 14:43:45.369
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 2 10035 2018-02-21 14:43:46.306
+!MESSAGE The workspace will exit with unsaved changes in this session.
