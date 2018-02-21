@@ -20,8 +20,6 @@
 
 //Init Auton Timers
 Timer *autonTimer = new Timer();
-enum state {setElevator1, raiseElevator, deployIntake, outtake, stowIntake, setElevator2, lowerIntake};
-
 
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){
@@ -83,8 +81,12 @@ bool AutonTurnLeft(double TargetAngle,Drive *drive){
 	}
 }
 bool AutonSetHeight(double targetHeight,Elevator *elevator){
-	elevator->SetElevatorTarget(targetHeight);
-	return true;
+	if(elevator->SetElevatorTarget(targetHeight)){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 bool AutonMoveToHeight(Elevator *elevator){
 	if(elevator->MoveElevator(0.0)){
@@ -132,12 +134,13 @@ bool AutonDeployIntake(Intake* robotIntake){
 }
 
 
-bool AutonScoreSwitch(Elevator* robotElevator, Intake* robotIntake, stateMachine currentState){//raises elevator to switch height, scores cube, and lowers (in that order)
+bool AutonScoreSwitch(Elevator* robotElevator, Intake* robotIntake){//raises elevator to switch height, scores cube, and lowers (in that order)
+	enum stateMachine {setElevator1, raiseElevator, deployIntake, outtake, stowIntake, setElevator2, lowerIntake};
+	stateMachine currentState = setElevator1;
 
 	Timer *initTimer = new Timer();
 	switch(currentState){
 	case setElevator1:
-		printf("setElevator\n");
 		if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
 			currentState = raiseElevator;
 		}

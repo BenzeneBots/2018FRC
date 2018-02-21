@@ -14,9 +14,6 @@
 #include <Subsystems/Elevator.h>
 #include <Subsystems/Intake.h>
 
-enum stateMachine {setElevator1, raiseElevator, deployIntake, outtake, stowIntake, setElevator2, lowerIntake};
-
-
 bool AutonDriveStraight(double, Drive*);
 bool AutonTurnRight(double, Drive*);
 bool AutonTurnLeft(double, Drive*);
@@ -27,7 +24,7 @@ bool AutonOuttake(Intake*);
 bool AutonStopIntake(Intake*);
 bool AutonDeployIntake(Intake*);
 bool AutonStowIntake(Intake*);
-bool AutonScoreSwitch(Elevator*, Intake*, stateMachine);
+bool AutonScoreSwitch(Elevator*, Intake*);
 
 
 

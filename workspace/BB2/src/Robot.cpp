@@ -26,7 +26,7 @@
 #define ELEVATOR_SCALE_HEIGHT 13000
 
 #define TURN_FACTOR 0.5
-#define DRIVE_SPEED_FACTOR 1.0
+#define DRIVE_SPEED_FACTOR 0.9
 #define DRIVE_SCALE 1.7
 #define TURN_SCALE 1.1
 
@@ -55,11 +55,6 @@ public:
 	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,scoreSwitch0,finished1};
 	StepsCenterSwitch1Cube autonStatusCenterSwitch1Cube = driveStraight1;
 
-	//megafunction shenanigans
-	enum stateMachine {setElevator1, raiseElevator, deployIntake, outtake, stowIntake, setElevator2, lowerIntake};
-	stateMachine megafunctionStatus;
-
-
 	void RobotInit() {
 		//populates auto chooser on dashboard
 		m_chooser.AddDefault(CenterDriveStraight, CenterDriveStraight);
@@ -82,7 +77,6 @@ public:
 		robotDrive->ResetYaw();
 		robotDrive->ResetFusedHeading();
 		//robotElevator->SetEncoderPosition(0);
-
 	}
 
 	void AutonomousInit() {
@@ -92,8 +86,7 @@ public:
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
 		autonStatusCrossLine = driveStraight0;
-		autonStatusCenterSwitch1Cube = scoreSwitch0; //TODO replace with driveStraight1
-		megafunctionStatus = setElevator1;
+		autonStatusCenterSwitch1Cube = driveStraight1; //TODO replace with driveStraight1
 
 
 		//temporarily overrides DS to pick our own auton
@@ -150,7 +143,7 @@ public:
 							}
 							break;
 						case scoreSwitch0:
-							if(AutonScoreSwitch(robotElevator,robotIntake, megafunctionStatus)){
+							if(AutonScoreSwitch(robotElevator,robotIntake)){
 								autonStatusCenterSwitch1Cube = finished1;
 							}
 							break;
