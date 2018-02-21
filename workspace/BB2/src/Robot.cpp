@@ -158,15 +158,17 @@ public:
 						case deploy0:
 							printf("Deploying Intake\n");
 							if(AutonDeployIntake(robotIntake)){
-								autonStatusCenterSwitch1Cube = outtake0;
 								//Needed to initiate outtake and intake
 								initTimer->Reset();
 								initTimer->Start();
+
+								autonStatusCenterSwitch1Cube = outtake0;
+
 							}
 
 							break;
 						case outtake0:
-							printf("Outtake Waiting Timer Value: %f\n");
+							printf("Outtake Waiting Timer Value: %f\n", initTimer->Get());
 							if(AutonOuttake(0.5, robotIntake) && (initTimer->Get() > 2.0)){
 								initTimer->Stop();
 								autonStatusCenterSwitch1Cube = stow0;
