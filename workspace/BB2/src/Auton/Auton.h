@@ -19,8 +19,9 @@ bool AutonTurnRight(double, Drive*);
 bool AutonTurnLeft(double, Drive*);
 bool AutonSetHeight(double,Elevator*);
 bool AutonMoveToHeight(Elevator*);
-bool AutonIntake(double, Intake*);
-bool AutonOuttake(double,Intake*);
+bool AutonIntake(Intake*);
+bool AutonOuttake(Intake*);
+bool AutonStopIntake(Intake*);
 bool AutonDeployIntake(Intake*);
 bool AutonStowIntake(Intake*);
 

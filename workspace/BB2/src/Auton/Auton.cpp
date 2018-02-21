@@ -9,8 +9,8 @@
 #include <WPILib.h>
 #include <Timer.h>
 
-#define AUTON_DRIVE_SPEED 0.25
-#define AUTON_TURN_SPEED 0.15
+#define AUTON_DRIVE_SPEED 0.35
+#define AUTON_TURN_SPEED 0.20
 #define LEFT_DRIVE_CORRECTION 1.0
 #define RESET_TIMEOUT 10
 
@@ -93,26 +93,19 @@ bool AutonMoveToHeight(Elevator *elevator){
 	}
 }
 
-bool AutonIntake(double time,Intake *robotIntake){
-	autonTimer->Reset();
-	autonTimer->Start();
-	if(autonTimer->Get() <= time){
-		robotIntake->IntakeCubes();
-		return false;
-	}
-	autonTimer->Stop();
+bool AutonIntake(Intake *robotIntake){
+	robotIntake->IntakeCubes();
 	return true;
 }
 
-bool AutonOuttake(double time,Intake* robotIntake){
-	autonTimer->Reset();
-	autonTimer->Start();
-	if(autonTimer->Get() <= time){
-		robotIntake->OuttakeCubes();
-		return false;
-		printf("Intake Timer: %f\n", autonTimer->Get());
-	}
-	autonTimer->Stop();
+bool AutonOuttake(Intake* robotIntake){
+	robotIntake->OuttakeCubes();
+	return true;
+	printf("Intake Timer: %f\n", autonTimer->Get());
+}
+
+bool AutonStopIntake(Intake* robotIntake){
+	robotIntake->StopIntake();
 	return true;
 }
 

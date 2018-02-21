@@ -88,7 +88,7 @@ public:
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
 		autonStatusCrossLine = driveStraight0;
-		autonStatusCenterSwitch1Cube = deploy0; //TODO replace with driveStraight1
+		autonStatusCenterSwitch1Cube = driveStraight1; //TODO replace with driveStraight1
 
 
 		//temporarily overrides DS to pick our own auton
@@ -153,102 +153,35 @@ public:
 							if(AutonMoveToHeight(robotElevator)){
 								robotElevator->SetToOutput(0.1);
 								autonStatusCenterSwitch1Cube = deploy0;
-							}
-							break;
-						case deploy0:
-							printf("Deploying Intake\n");
-							if(AutonDeployIntake(robotIntake)){
-								//Needed to initiate outtake and intake
-								initTimer->Reset();
-								initTimer->Start();
-
-								autonStatusCenterSwitch1Cube = outtake0;
-
-							}
-
-							break;
-						case outtake0:
-							printf("Outtake Waiting Timer Value: %f\n", initTimer->Get());
-							if(AutonOuttake(0.5, robotIntake) && (initTimer->Get() > 2.0)){
-								initTimer->Stop();
-								autonStatusCenterSwitch1Cube = stow0;
-							}
-							break;
-						case stow0:
-							if(AutonStowIntake(robotIntake)){
-								autonStatusCenterSwitch1Cube = setElevatorHeight1;
-							}
-							break;
-						case setElevatorHeight1:
-							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
-								autonStatusCenterSwitch1Cube = moveElevator1;
-							}
-							break;
-						case moveElevator1:
-							if(AutonMoveToHeight(robotElevator)){
-								autonStatusCenterSwitch1Cube = finished1;
-							}
-							break;
-						case finished1:
-							break;//do nothing
-						default:
-							break;//do nothing
-						}
-					} else {
-					//If switch is on right
-
-						switch(autonStatusCenterSwitch1Cube){
-						case driveStraight1:
-							if(AutonDriveStraight(12.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = turn1;
-							}
-							break;
-						case turn1:
-							if(AutonTurnRight(60.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = driveStraight2;
-							}
-							break;
-						case driveStraight2:
-							if(AutonDriveStraight(24, robotDrive)){
-								autonStatusCenterSwitch1Cube = turn2;
-							}
-							break;
-						case turn2:
-							if(AutonTurnLeft(60.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = driveStraight3;
-							}
-							break;
-						case driveStraight3:
-							if(AutonDriveStraight(12.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = finished1;
-							}
-							break;
-						case setElevatorHeight0:
-							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
-								autonStatusCenterSwitch1Cube = moveElevator0;
-							}
-							break;
-						case moveElevator0:
-							if(AutonMoveToHeight(robotElevator)){
-								autonStatusCenterSwitch1Cube = deploy0;
-							}
-							break;
-						case deploy0:
-							if(AutonDeployIntake(robotIntake)){
-								autonStatusCenterSwitch1Cube = outtake0;
-								//Needed to initiate outtake and intake
+								//Initiates timer for deploying
 								initTimer->Reset();
 								initTimer->Start();
 							}
 							break;
-						case outtake0:
-							if(AutonOuttake(0.5,robotIntake) && initTimer->Get()>2.0){
+						case deploy0:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
 								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								autonStatusCenterSwitch1Cube = outtake0;
+							}
+
+							break;
+						case outtake0:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
 								autonStatusCenterSwitch1Cube = stow0;
 							}
 							break;
 						case stow0:
-							if(AutonStowIntake(robotIntake)){
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
 								autonStatusCenterSwitch1Cube = setElevatorHeight1;
 							}
 							break;
@@ -266,10 +199,13 @@ public:
 							break;//do nothing
 						default:
 							break;//do nothing
-								}
+						}
+					} else {
+					//If switch is on right
+					//TODO port everything over
+
 						  }
 				    }
-
 
 				}
 			else if (m_autoSelected == CenterScale1Cube) {
