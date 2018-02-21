@@ -40,12 +40,12 @@ bool AutonTurnRight(double TargetAngle,Drive *drive){
 
 	double CurrentAngle = drive->GetYaw();
 
-	if (CurrentAngle < TargetAngle){
+	if (CurrentAngle > (-1.0 * TargetAngle)){
 			drive->TankDrive(AUTON_TURN_SPEED, -1.0 * AUTON_TURN_SPEED);
 			return false;
 	}
 	else{
-			drive->ArcadeDrive(0.0,0.0);
+			drive->TankDrive(0.0,0.0);
 
 			//Reset Values
 			drive->ResetEncoders();
@@ -66,7 +66,7 @@ bool AutonTurnLeft(double TargetAngle,Drive *drive){
 			return false;
 		}
 	else{
-			drive->ArcadeDrive(0.0,0.0);
+			drive->TankDrive(0.0,0.0);
 
 			//Reset Values
 			drive->ResetEncoders();

@@ -86,11 +86,11 @@ public:
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
 		autonStatusCrossLine = driveStraight0;
-		autonStatusCenterSwitch1Cube = driveStraight1;
+		autonStatusCenterSwitch1Cube = setElevatorHeight0; //TODO replace with driveStraight1
 
 
 		//temporarily overrides DS to pick our own auton
-		m_autoSelected = "CrossLine";
+		m_autoSelected = "CenterSwitch1Cube";
 
 		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
@@ -118,14 +118,12 @@ public:
 
 						switch(autonStatusCenterSwitch1Cube){
 						case driveStraight1:
-							printf("Encoder distance: %f\n", robotDrive->GetAverageEncoderDistance());
 							if(AutonDriveStraight(32.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = turn1;
 							}
 							printf("Outside if\n");
 							break;
 						case turn1:
-							printf("Yaw: %f\n", robotDrive->GetYaw());;
 							if(AutonTurnLeft(90.0, robotDrive)){
 								autonStatusCenterSwitch1Cube = driveStraight2;
 							}
@@ -142,7 +140,7 @@ public:
 							break;
 						case driveStraight3:
 							if(AutonDriveStraight(70.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = finished1;
+								autonStatusCenterSwitch1Cube = setElevatorHeight0;
 							}
 							break;
 						case setElevatorHeight0:
@@ -152,10 +150,12 @@ public:
 							break;
 						case moveElevator0:
 							if(AutonMoveToHeight(robotElevator)){
-								autonStatusCenterSwitch1Cube = deploy0;
+								robotElevator->SetToOutput(0.1);
+								autonStatusCenterSwitch1Cube = finished1;
 							}
 							break;
 						case deploy0:
+							printf("Deploying Intake\n");
 							if(AutonDeployIntake(robotIntake)){
 								autonStatusCenterSwitch1Cube = outtake0;
 							}

@@ -113,15 +113,13 @@ void Drive::ResetYaw(){
 double Drive::GetYaw(){
 	double ypr_array[3];
 	pidgey->GetYawPitchRoll(ypr_array);
-	double yaw = ypr_array[0];
-	return NormalizeAngle(yaw);
+	return ypr_array[0];
 }
 void Drive::ResetFusedHeading(){
 	pidgey->SetFusedHeading(0.0,RESET_TIMEOUT);
 }
 double Drive::GetFusedHeading(){
-	double fh = pidgey->GetFusedHeading();
-	return NormalizeAngle(fh);
+	return pidgey->GetFusedHeading();
 }
 void Drive::SetBrakeMode(){
 	frontLeft->SetNeutralMode(NeutralMode::Brake);
