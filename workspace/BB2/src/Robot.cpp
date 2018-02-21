@@ -46,15 +46,13 @@ public:
 
 	double temp;
 
-	Timer *initTimer = new Timer();
-
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
 	//Auton Stuff
 	enum Steps {driveStraight0, finished};
 	Steps autonStatusCrossLine = driveStraight0;
-	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,setElevatorHeight0,moveElevator0,deploy0,outtake0,stow0,setElevatorHeight1,moveElevator1,finished1};
+	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,scoreSwitch0,finished1};
 	StepsCenterSwitch1Cube autonStatusCenterSwitch1Cube = driveStraight1;
 
 	void RobotInit() {
@@ -141,10 +139,14 @@ public:
 							break;
 						case driveStraight3:
 							if(AutonDriveStraight(70.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = setElevatorHeight0;
+								autonStatusCenterSwitch1Cube = scoreSwitch0;
 							}
 							break;
-
+						case scoreSwitch0:
+							if(AutonScoreSwitch(robotElevator,robotIntake)){
+								autonStatusCenterSwitch1Cube = finished1;
+							}
+							break;
 						case finished1:
 							break;//do nothing
 						default:
@@ -170,7 +172,6 @@ public:
 
 					}
 					break;
-//TODO add megafunction
 				case finished:
 					robotDrive->TankDrive(0.0,0.0);
 					break;//do nothing
