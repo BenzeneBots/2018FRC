@@ -46,6 +46,8 @@ public:
 
 	double temp;
 
+	Timer *initTimer = new Timer();
+
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
@@ -227,10 +229,14 @@ public:
 						case deploy0:
 							if(AutonDeployIntake(robotIntake)){
 								autonStatusCenterSwitch1Cube = outtake0;
+								//Needed to initiate outtake and intake
+								initTimer->Reset();
+								initTimer->Start();
 							}
 							break;
 						case outtake0:
-							if(AutonOuttake(1.0,robotIntake)){
+							if(AutonOuttake(0.5,robotIntake) && initTimer->Get()>2.0){
+								initTimer->Stop();
 								autonStatusCenterSwitch1Cube = stow0;
 							}
 							break;
@@ -240,7 +246,7 @@ public:
 							}
 							break;
 						case setElevatorHeight1:
-							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
 								autonStatusCenterSwitch1Cube = moveElevator1;
 							}
 							break;
