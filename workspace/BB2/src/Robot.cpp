@@ -22,15 +22,15 @@
 #include <Auton/Auton.h>
 
 #define ELEVATOR_BOTTOM_HEIGHT -1200
-#define ELEVATOR_SWITCH_HEIGHT 3467
-#define ELEVATOR_SCALE_HEIGHT 13000
+#define ELEVATOR_SWITCH_HEIGHT 4500
+#define ELEVATOR_SCALE_HEIGHT 14000
 
 #define TURN_FACTOR 0.5
 #define DRIVE_SPEED_FACTOR 1.0
+#define RIGHT_DRIVE_CORRECTION 0.96
 #define DRIVE_SCALE 1.7
 #define TURN_SCALE 1.1
 
-//TODO Make Defines
 //Auton Drive Straight Distance
 #define CL_ZEROA 130.0
 
@@ -133,7 +133,7 @@ public:
 	void RobotInit() {
 		//populates auto chooser on dashboard
 		m_chooser.AddDefault(CenterDriveStraight, CenterDriveStraight);
-		m_chooser.AddObject(CenterSwitch1Cube, CenterSwitch1Cube);
+		m_chooser.AddObject(Center1Cube, Center1Cube);
 		m_chooser.AddObject(Left1Cube, Left1Cube);
 		m_chooser.AddObject(Right1Cube, Right1Cube);
 
@@ -164,15 +164,19 @@ public:
 		robotDrive->SetBrakeMode();
 		statusZeroA = c1_ZeroA;
 		statusOneC = c1_OneC;
+		statusOneS = c1_OneS;
+		statusZeroS = c1_ZeroS;
 
 
 		//temporarily overrides DS to pick our own auton
-		m_autoSelected = "CenterSwitch1Cube";
+		//m_autoSelected = "Center1Cube";
+		m_autoSelected = "Right1Cube";
+		//m_autoSelected = "Left1Cube"
 
 		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
 
-		if (m_autoSelected == "CenterSwitch1Cube") {
+		if (m_autoSelected == "Center1Cube") {
 		}
 		if (m_autoSelected == "Left1Cube") {
 				}
@@ -188,7 +192,7 @@ public:
 			gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 			//printf("Encoder dist: %f\n", robotDrive->GetAverageEncoderDistance());
 			//printf("Selected Auton %s\n",m_autoSelected.c_str());
-			if (m_autoSelected == CenterSwitch1Cube) {
+			if (m_autoSelected == Center1Cube) {
 				if(gameData.length() > 0)
 				                {
 					if(gameData[0] == 'L')  {
@@ -744,8 +748,6 @@ public:
 
 				}
 			}
-			//printf("RightDriveEnc %f \n",robotDrive->GetRightEncoderValue());
-			//printf("LeftDriveEnc %f \n",robotDrive->GetLeftEncoderValue());
 		}
 
 	void TeleopInit() {
@@ -836,7 +838,7 @@ private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
 	frc::SendableChooser<std::string> m_chooser;
 	const std::string CenterDriveStraight = "Center Line";
-	const std::string CenterSwitch1Cube = "CenterSwitch1Cube";
+	const std::string Center1Cube = "Center1Cube";
 	const std::string Left1Cube = "Left1Cube";
 	const std::string Right1Cube = "Right1Cube";
 

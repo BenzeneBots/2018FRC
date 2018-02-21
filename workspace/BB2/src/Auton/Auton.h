@@ -14,6 +14,8 @@
 #include <Subsystems/Elevator.h>
 #include <Subsystems/Intake.h>
 
+
+
 bool AutonDriveStraight(double, Drive*);
 bool AutonTurnRight(double, Drive*);
 bool AutonTurnLeft(double, Drive*);
@@ -24,6 +26,8 @@ bool AutonOuttake(Intake*);
 bool AutonStopIntake(Intake*);
 bool AutonDeployIntake(Intake*);
 bool AutonStowIntake(Intake*);
+bool AutonScoreSwitch(Elevator*, Intake*);
+bool AutonScoreSwitchInit();
 
 
 
