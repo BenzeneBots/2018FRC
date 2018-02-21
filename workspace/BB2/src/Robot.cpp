@@ -144,57 +144,7 @@ public:
 								autonStatusCenterSwitch1Cube = setElevatorHeight0;
 							}
 							break;
-						case setElevatorHeight0:
-							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
-								autonStatusCenterSwitch1Cube = moveElevator0;
-							}
-							break;
-						case moveElevator0:
-							if(AutonMoveToHeight(robotElevator)){
-								robotElevator->SetToOutput(0.1);
-								autonStatusCenterSwitch1Cube = deploy0;
-								//Initiates timer for deploying
-								initTimer->Reset();
-								initTimer->Start();
-							}
-							break;
-						case deploy0:
-							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
-								initTimer->Stop();
 
-								//Initiates timer for outtake
-								initTimer->Reset();
-								initTimer->Start();
-								autonStatusCenterSwitch1Cube = outtake0;
-							}
-
-							break;
-						case outtake0:
-							printf("Outtake Timer: %f\n", initTimer->Get());
-							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
-								AutonStopIntake(robotIntake);
-								initTimer->Stop();
-								//Initiates timer for stowage
-								initTimer->Reset();
-								initTimer->Start();
-								autonStatusCenterSwitch1Cube = stow0;
-							}
-							break;
-						case stow0:
-							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
-								autonStatusCenterSwitch1Cube = setElevatorHeight1;
-							}
-							break;
-						case setElevatorHeight1:
-							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
-								autonStatusCenterSwitch1Cube = moveElevator1;
-							}
-							break;
-						case moveElevator1:
-							if(AutonMoveToHeight(robotElevator)){
-								autonStatusCenterSwitch1Cube = finished1;
-							}
-							break;
 						case finished1:
 							break;//do nothing
 						default:
@@ -220,7 +170,7 @@ public:
 
 					}
 					break;
-
+//TODO add megafunction
 				case finished:
 					robotDrive->TankDrive(0.0,0.0);
 					break;//do nothing
