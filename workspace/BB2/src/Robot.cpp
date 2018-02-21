@@ -30,6 +30,40 @@
 #define DRIVE_SCALE 1.7
 #define TURN_SCALE 1.1
 
+//TODO Make Defines
+//Auton Drive Straight Distance
+#define CL_ZEROA 130.0
+
+//Auton Center Distances
+#define C1_ONEC 32.0
+#define C2_ONEC 45.0
+#define C3_ONEC 70.0
+
+//Auton Center Angles
+#define T1_ONEC 90.0
+#define T2_ONEC 90.0
+
+//Auton Sides Switch Distances
+#define C1_SWITCH_ONES 144.0
+#define C2_SWITCH_ONES 12.0
+
+//Auton Sides Switch Angle
+#define T1_SWITCH_ONES 90.0
+
+//Auton Sides Scale Distances
+#define C1_SCALE_ONES 240.0
+#define C2_SCALE_ONES 12.0
+
+//Auton Sides Scale Angle
+#define T1_SCALE_ONES 90.0
+
+//Auton Sides No Cube Distances
+#define C1_ZEROS 180.0
+#define C2_ZEROS 72.0
+
+//Auton Sides No Cube Angle
+#define T1_ZEROS 90.0
+
 class Robot : public frc::TimedRobot {
 public:
 
@@ -51,17 +85,58 @@ public:
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
 
-	//Auton Stuff
-	enum Steps {driveStraight0, finished};
-	Steps autonStatusCrossLine = driveStraight0;
-	enum StepsCenterSwitch1Cube {driveStraight1,turn1,driveStraight2,turn2,driveStraight3,setElevatorHeight0,moveElevator0,deploy0,outtake0,stow0,setElevatorHeight1,moveElevator1,finished1};
-	StepsCenterSwitch1Cube autonStatusCenterSwitch1Cube = driveStraight1;
+
+	/* Auton Naming Rules:
+	 * c = constant speed forward driving
+	 * t = turn
+	 * e = set elevator target
+	 * m = move elevator
+	 * o = outtake
+	 * d = deploy
+	 * i = intake
+	 * s = stow
+	 * fin = fin_ZeroA
+	 *
+	 * Zero = No-Cube
+	 * One = One-Cube
+	 * Two = Two-Cube
+	 *
+	 * A = Drive from any position
+	 * C = Center
+	 * S = Sides
+	 *
+	 * # - number of times mentioned in enum
+	 *
+	 *
+	 *
+	 * Example:
+	 * c1_OneC = first time driving forward on One-cube Center Auton
+	 */
+
+	//AutonDriveStraight
+	enum ZeroA {c1_ZeroA, fin_ZeroA};
+	ZeroA statusZeroA = c1_ZeroA;
+
+	//AutonCenter
+	enum OneC {c1_OneC,t1_OneC,c2_OneC,t2_OneC,c3_OneC,e1_OneC,m1_OneC,d1_OneC,o1_OneC,s1_OneC,e2_OneC,m2_OneC,fin_OneC};
+	OneC statusOneC = c1_OneC;
+
+	//AutonSidesSwitchOrScale
+	enum OneS {c1_OneS,t1_OneS,c2_OneS,e1_OneS,m1_OneS,d1_OneS,o1_OneS,s1_OneS,e2_OneS,m2_OneS,fin_OneS};
+	OneS statusOneS = c1_OneS;
+
+	//AutonSidesBothAreOnOppositeSide
+	enum ZeroS {c1_ZeroS,t1_ZeroS,c2_ZeroS,fin_ZeroS};
+	ZeroS statusZeroS = c1_ZeroS;
+
 
 	void RobotInit() {
 		//populates auto chooser on dashboard
 		m_chooser.AddDefault(CenterDriveStraight, CenterDriveStraight);
 		m_chooser.AddObject(CenterSwitch1Cube, CenterSwitch1Cube);
-		m_chooser.AddObject(CenterScale1Cube, CenterScale1Cube);
+		m_chooser.AddObject(Left1Cube, Left1Cube);
+		m_chooser.AddObject(Right1Cube, Right1Cube);
+
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 
 		//initialize subsystems
@@ -87,8 +162,8 @@ public:
 				 //CenterDriveStraight);
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
 		robotDrive->SetBrakeMode();
-		autonStatusCrossLine = driveStraight0;
-		autonStatusCenterSwitch1Cube = driveStraight1; //TODO replace with driveStraight1
+		statusZeroA = c1_ZeroA;
+		statusOneC = c1_OneC;
 
 
 		//temporarily overrides DS to pick our own auton
@@ -99,8 +174,9 @@ public:
 
 		if (m_autoSelected == "CenterSwitch1Cube") {
 		}
-		if (m_autoSelected == "CenterScale1Cube") {
-
+		if (m_autoSelected == "Left1Cube") {
+				}
+		if (m_autoSelected == "Right1Cube") {
 		}
 		else {
 
@@ -118,58 +194,58 @@ public:
 					if(gameData[0] == 'L')  {
 					//If switch is on left
 
-						switch(autonStatusCenterSwitch1Cube){
-						case driveStraight1:
-							if(AutonDriveStraight(32.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = turn1;
+						switch(statusOneC){
+						case c1_OneC:
+							if(AutonDriveStraight(C1_ONEC, robotDrive)){
+								statusOneC = t1_OneC;
 							}
 							break;
-						case turn1:
-							if(AutonTurnLeft(90.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = driveStraight2;
+						case t1_OneC:
+							if(AutonTurnLeft(T1_ONEC, robotDrive)){
+								statusOneC = c2_OneC;
 							}
 							break;
-						case driveStraight2:
-							if(AutonDriveStraight(45.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = turn2;
+						case c2_OneC:
+							if(AutonDriveStraight(C2_ONEC, robotDrive)){
+								statusOneC = t2_OneC;
 							}
 							break;
-						case turn2:
-							if(AutonTurnRight(90.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = driveStraight3;
+						case t2_OneC:
+							if(AutonTurnRight(T2_ONEC, robotDrive)){
+								statusOneC = c3_OneC;
 							}
 							break;
-						case driveStraight3:
-							if(AutonDriveStraight(70.0, robotDrive)){
-								autonStatusCenterSwitch1Cube = setElevatorHeight0;
+						case c3_OneC:
+							if(AutonDriveStraight(C3_ONEC, robotDrive)){
+								statusOneC = e1_OneC;
 							}
 							break;
-						case setElevatorHeight0:
+						case e1_OneC:
 							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
-								autonStatusCenterSwitch1Cube = moveElevator0;
+								statusOneC = m1_OneC;
 							}
 							break;
-						case moveElevator0:
+						case m1_OneC:
 							if(AutonMoveToHeight(robotElevator)){
 								robotElevator->SetToOutput(0.1);
-								autonStatusCenterSwitch1Cube = deploy0;
+								statusOneC = d1_OneC;
 								//Initiates timer for deploying
 								initTimer->Reset();
 								initTimer->Start();
 							}
 							break;
-						case deploy0:
+						case d1_OneC:
 							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
 								initTimer->Stop();
 
 								//Initiates timer for outtake
 								initTimer->Reset();
 								initTimer->Start();
-								autonStatusCenterSwitch1Cube = outtake0;
+								statusOneC = o1_OneC;
 							}
 
 							break;
-						case outtake0:
+						case o1_OneC:
 							printf("Outtake Timer: %f\n", initTimer->Get());
 							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
 								AutonStopIntake(robotIntake);
@@ -177,51 +253,489 @@ public:
 								//Initiates timer for stowage
 								initTimer->Reset();
 								initTimer->Start();
-								autonStatusCenterSwitch1Cube = stow0;
+								statusOneC = s1_OneC;
 							}
 							break;
-						case stow0:
+						case s1_OneC:
 							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
-								autonStatusCenterSwitch1Cube = setElevatorHeight1;
+								statusOneC = e2_OneC;
 							}
 							break;
-						case setElevatorHeight1:
+						case e2_OneC:
 							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
-								autonStatusCenterSwitch1Cube = moveElevator1;
+								statusOneC = m2_OneC;
 							}
 							break;
-						case moveElevator1:
+						case m2_OneC:
 							if(AutonMoveToHeight(robotElevator)){
-								autonStatusCenterSwitch1Cube = finished1;
+								statusOneC = fin_OneC;
 							}
 							break;
-						case finished1:
+						case fin_OneC:
 							break;//do nothing
 						default:
 							break;//do nothing
 						}
 					} else {
 					//If switch is on right
-					//TODO port everything over
+					switch(statusOneC){
+						case c1_OneC:
+							if(AutonDriveStraight(C1_ONEC, robotDrive)){
+								statusOneC = t1_OneC;
+							}
+							break;
+						case t1_OneC:
+							if(AutonTurnRight(T1_ONEC, robotDrive)){
+								statusOneC = c2_OneC;
+							}
+							break;
+						case c2_OneC:
+							if(AutonDriveStraight(C2_ONEC, robotDrive)){
+								statusOneC = t2_OneC;
+							}
+							break;
+						case t2_OneC:
+							if(AutonTurnLeft(T2_ONEC, robotDrive)){
+								statusOneC = c3_OneC;
+							}
+							break;
+						case c3_OneC:
+							if(AutonDriveStraight(C3_ONEC, robotDrive)){
+								statusOneC = e1_OneC;
+							}
+							break;
+						case e1_OneC:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								statusOneC = m1_OneC;
+							}
+							break;
+						case m1_OneC:
+							if(AutonMoveToHeight(robotElevator)){
+								robotElevator->SetToOutput(0.1);
+								statusOneC = d1_OneC;
+								//Initiates timer for deploying
+								initTimer->Reset();
+								initTimer->Start();
+							}
+							break;
+						case d1_OneC:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								statusOneC = o1_OneC;
+							}
+
+							break;
+						case o1_OneC:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
+								statusOneC = s1_OneC;
+							}
+							break;
+						case s1_OneC:
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+								statusOneC = e2_OneC;
+							}
+							break;
+						case e2_OneC:
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+								statusOneC = m2_OneC;
+							}
+							break;
+						case m2_OneC:
+							if(AutonMoveToHeight(robotElevator)){
+								statusOneC = fin_OneC;
+							}
+							break;
+						case fin_OneC:
+							break;//do nothing
+						default:
+							break;//do nothing
+						}
 
 						  }
 				    }
 
 				}
-			else if (m_autoSelected == CenterScale1Cube) {
-					// Custom Auto goes here
+			else if (m_autoSelected == Left1Cube) {
+				if(gameData.length() > 0){
+						if(gameData[0] == 'L'){
+							//Put left Switch auto code here
+							switch(statusOneS){
+							case c1_OneS:
+								if(AutonDriveStraight(C1_SWITCH_ONES, robotDrive)){
+									statusOneS = t1_OneS;
+								}
+								break;
+							case t1_OneS:
+								if(AutonTurnRight(T1_SWITCH_ONES, robotDrive)){
+									statusOneS = c2_OneS;
+								}
+								break;
+							case c2_OneS:
+								if(AutonDriveStraight(C2_SWITCH_ONES, robotDrive)){
+									statusOneS = e1_OneS;
+								}
+								break;
+							case e1_OneS:
+								if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+									statusOneS = m1_OneS;
+								}
+								break;
+							case m1_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									statusOneS = d1_OneS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+							case d1_OneS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = o1_OneS;
+								}
+
+								break;
+							case o1_OneS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = s1_OneS;
+								}
+								break;
+							case s1_OneS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									statusOneS = e2_OneS;
+								}
+								break;
+							case e2_OneS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									statusOneS = m2_OneS;
+								}
+								break;
+							case m2_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									statusOneS = fin_OneS;
+								}
+								break;
+							case fin_OneS:
+								break;//do nothing
+							default:
+								break;//do nothing
+							}
+						}
+						else {
+							if(gameData[1] == 'L') {
+							//Put left Scale auto code here
+							switch(statusOneS){
+							case c1_OneS:
+								if(AutonDriveStraight(C1_SCALE_ONES, robotDrive)){
+									statusOneS = t1_OneS;
+								}
+								break;
+							case t1_OneS:
+								if(AutonTurnRight(T1_SCALE_ONES, robotDrive)){
+									statusOneS = c2_OneS;
+								}
+								break;
+							case c2_OneS:
+								if(AutonDriveStraight(C2_SCALE_ONES, robotDrive)){
+									statusOneS = e1_OneS;
+								}
+								break;
+							case e1_OneS:
+								if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+									statusOneS = m1_OneS;
+								}
+								break;
+							case m1_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									statusOneS = d1_OneS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+							case d1_OneS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = o1_OneS;
+								}
+
+								break;
+							case o1_OneS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = s1_OneS;
+								}
+								break;
+							case s1_OneS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									statusOneS = e2_OneS;
+								}
+								break;
+							case e2_OneS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									statusOneS = m2_OneS;
+								}
+								break;
+							case m2_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									statusOneS = fin_OneS;
+								}
+								break;
+							case fin_OneS:
+								break;//do nothing
+							default:
+								break;//do nothing
+							}
+							}
+							else {
+							//Put right Scale Approach auto code here
+							switch(statusZeroS){
+							case c1_ZeroS:
+								if(AutonDriveStraight(C1_ZEROS, robotDrive)){
+									statusZeroS = t1_ZeroS;
+								}
+								break;
+							case t1_ZeroS:
+								if(AutonTurnRight(T1_ZEROS, robotDrive)){
+									statusZeroS = c2_ZeroS;
+								}
+								break;
+							case c2_ZeroS:
+								if(AutonDriveStraight(C2_ZEROS, robotDrive)){
+									statusZeroS = fin_ZeroS;
+								}
+								break;
+							case fin_ZeroS:
+								break;//do nothing
+							default:
+								break;//do nothing
+							}
+							}
+						}
+					}
+			}
+			else if (m_autoSelected == Right1Cube) {
+				if(gameData.length() > 0){
+						if(gameData[0] == 'R'){
+							//Put right switch auto code here
+							switch(statusOneS){
+							case c1_OneS:
+								if(AutonDriveStraight(C1_SWITCH_ONES, robotDrive)){
+									statusOneS = t1_OneS;
+								}
+								break;
+							case t1_OneS:
+								if(AutonTurnLeft(T1_SWITCH_ONES, robotDrive)){
+									statusOneS = c2_OneS;
+								}
+								break;
+							case c2_OneS:
+								if(AutonDriveStraight(C2_SWITCH_ONES, robotDrive)){
+									statusOneS = e1_OneS;
+								}
+								break;
+							case e1_OneS:
+								if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+									statusOneS = m1_OneS;
+								}
+								break;
+							case m1_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									statusOneS = d1_OneS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+							case d1_OneS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = o1_OneS;
+								}
+
+								break;
+							case o1_OneS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = s1_OneS;
+								}
+								break;
+							case s1_OneS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									statusOneS = e2_OneS;
+								}
+								break;
+							case e2_OneS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									statusOneS = m2_OneS;
+								}
+								break;
+							case m2_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									statusOneS = fin_OneS;
+								}
+								break;
+							case fin_OneS:
+								break;//do nothing
+							default:
+								break;//do nothing
+							}
+						}
+						else {
+							if(gameData[1] == 'R') {
+							//Put right Scale auto code here
+							switch(statusOneS){
+							case c1_OneS:
+								if(AutonDriveStraight(C1_SCALE_ONES, robotDrive)){
+									statusOneS = t1_OneS;
+								}
+								break;
+							case t1_OneS:
+								if(AutonTurnLeft(T1_SCALE_ONES, robotDrive)){
+									statusOneS = c2_OneS;
+								}
+								break;
+							case c2_OneS:
+								if(AutonDriveStraight(C2_SCALE_ONES, robotDrive)){
+									statusOneS = e1_OneS;
+								}
+								break;
+							case e1_OneS:
+								if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+									statusOneS = m1_OneS;
+								}
+								break;
+							case m1_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									statusOneS = d1_OneS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+							case d1_OneS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = o1_OneS;
+								}
+
+								break;
+							case o1_OneS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									statusOneS = s1_OneS;
+								}
+								break;
+							case s1_OneS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									statusOneS = e2_OneS;
+								}
+								break;
+							case e2_OneS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									statusOneS = m2_OneS;
+								}
+								break;
+							case m2_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									statusOneS = fin_OneS;
+								}
+								break;
+							case fin_OneS:
+								break;//do nothing
+							default:
+								break;//do nothing
+							}
+							}
+							else {
+								//Put left Scale approach auto code here
+							switch(statusZeroS){
+							case c1_ZeroS:
+								if(AutonDriveStraight(C1_ZEROS, robotDrive)){
+									statusZeroS = t1_ZeroS;
+																}
+								break;
+							case t1_ZeroS:
+								if(AutonTurnRight(T1_ZEROS, robotDrive)){
+									statusZeroS = c2_ZeroS;
+								}
+								break;
+							case c2_ZeroS:
+								if(AutonDriveStraight(C2_ZEROS, robotDrive)){
+									statusZeroS = fin_ZeroS;
+																}
+								break;
+							case fin_ZeroS:
+								break;//do nothing
+							default:
+								break;//do nothing
+							}
+							}
+						}
+					}
 			}
 			else {
 				//Default Auto (DriveStraight)
-				switch(autonStatusCrossLine){
-				case driveStraight0:
-					if(AutonDriveStraight(130.0, robotDrive)){
-						autonStatusCrossLine = finished;
+				switch(statusZeroA){
+				case c1_ZeroA:
+					if(AutonDriveStraight(CL_ZEROA, robotDrive)){
+						statusZeroA = fin_ZeroA;
 
 					}
 					break;
 
-				case finished:
+				case fin_ZeroA:
 					robotDrive->TankDrive(0.0,0.0);
 					break;//do nothing
 
@@ -323,7 +837,8 @@ private:
 	frc::SendableChooser<std::string> m_chooser;
 	const std::string CenterDriveStraight = "Center Line";
 	const std::string CenterSwitch1Cube = "CenterSwitch1Cube";
-	const std::string CenterScale1Cube = "CenterScale1Cube";
+	const std::string Left1Cube = "Left1Cube";
+	const std::string Right1Cube = "Right1Cube";
 
 	std::string m_autoSelected;
 };
