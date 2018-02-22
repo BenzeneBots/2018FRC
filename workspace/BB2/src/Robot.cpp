@@ -31,6 +31,8 @@
 #define DRIVE_SCALE 1.7
 #define TURN_SCALE 1.1
 
+//TODO Find all the following distances/angles
+
 //Auton Drive Straight Distance
 #define CL_ZEROA 130.0
 
@@ -63,6 +65,11 @@
 
 //Auton Sides No Cube Angle
 #define T1_ZEROS 90.0
+
+//Prioritize Switch/Scale
+//0 is Switch and 1 is Scale
+#define AUTON_1ST_PRIORITY 0
+#define AUTON_2ND_PRIORITY 1
 
 class Robot : public frc::TimedRobot {
 public:
@@ -442,7 +449,7 @@ public:
 
 				//Following Code Runs if the Robot is Recieving the Orientation of the Switches and Scale
 
-					if(gameData[0] == 'L'){
+					if(gameData[AUTON_1ST_PRIORITY] == 'L'){
 
 					//Following Code Runs if the Alliance Switch is on the Left
 
@@ -546,7 +553,7 @@ public:
 
 					//Following Code Runs if the Alliance Switch is on the Right
 
-						if(gameData[1] == 'L') {
+						if(gameData[AUTON_2ND_PRIORITY] == 'L') {
 
 						//Following Code Runs if the Alliance Scale is on the Left
 
@@ -693,7 +700,7 @@ public:
 
 				//Following Code Runs if the Robot is Recieving the Orientation of the Switches and Scale
 
-					if(gameData[0] == 'R'){
+					if(gameData[AUTON_1ST_PRIORITY] == 'R'){
 
 					//Following Code Runs if the Alliance Switch is on the Right
 
@@ -797,7 +804,7 @@ public:
 
 					//Following Code Runs if the Alliance Switch is on the Left
 
-						if(gameData[1] == 'R') {
+						if(gameData[AUTON_2ND_PRIORITY] == 'R') {
 
 						//Following Code Runs if the Alliance Scale is on the Right
 

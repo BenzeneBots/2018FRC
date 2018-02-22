@@ -144,9 +144,10 @@ double Drive::NormalizeAngle(double angle){
 	}
 	return angle;
 }
-double Drive::AutonRamping(double distDifference,double minDriveSpeed,double minDist){
-	if(distDifference<minDist){
-		double autonDriveSpeed = -1.0/(pow(2.0,(.2*(distDifference - minDist - ((5.0*log(-1.0*minDriveSpeed)/log(2.0)))))))+1.0;
+
+double Drive::AutonRamping(double distDifference,double minDriveSpeed,double minDist, double rampRate,double maxDriveSpeed){
+	if(distDifference>minDist){
+		double autonDriveSpeed = -1.0/(pow(2.0,(rampRate*(distDifference - minDist - (log(maxDriveSpeed - minDriveSpeed)/(log(2.0)*rampRate))))))+maxDriveSpeed;
 		return autonDriveSpeed;
 	}
 	else{
