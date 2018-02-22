@@ -14,14 +14,23 @@
 #define RIGHT_DRIVE_CORRECTION 0.96
 #define RESET_TIMEOUT 10
 
+//Auton Drive Ramping Constants
+#define MIN_AUTON_DRIVE_SPEED 0.15 //please don't change w/o asking Sanket (function is complicated)
+#define MIN_DIST_DIFFERENCE 18.0
+
 //Init Auton Timers
 Timer *autonTimer = new Timer();
 
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){
+	double distDifference = TargetDist - drive->GetAverageEncoderDistance();
 	if (drive->GetAverageEncoderDistance() < TargetDist){
-			drive->TankDrive(-1.0*AUTON_DRIVE_SPEED,-1.0*AUTON_DRIVE_SPEED*RIGHT_DRIVE_CORRECTION);
-			return false;
+		//drive->TankDrive(-1.0*AUTON_DRIVE_SPEED,-1.0*AUTON_DRIVE_SPEED*RIGHT_DRIVE_CORRECTION);
+
+		//drive speed ramping
+		double autonDriveSpeed = drive->AutonRamping(distDifference,MIN_DIST_DIFFERENCE,MIN_AUTON_DRIVE_SPEED);
+		drive->TankDrive(-1.0*autonDriveSpeed,-1.0*autonDriveSpeed*RIGHT_DRIVE_CORRECTION);
+		return false;
 	}
 	else{
 			drive->TankDrive(0.0,0.0);
@@ -32,7 +41,6 @@ bool AutonDriveStraight(double TargetDist, Drive *drive){
 			drive->ResetYaw();
 
 			return true;
-
 	}
 }
 

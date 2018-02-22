@@ -8,6 +8,7 @@
 #include <Subsystems/Drive.h>
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
+#include <Math.h>
 
 
 //Defined drive constants
@@ -142,5 +143,14 @@ double Drive::NormalizeAngle(double angle){
 		angle -= 360.0;
 	}
 	return angle;
+}
+double Drive::AutonRamping(double distDifference,double minDriveSpeed,double minDist){
+	if(distDifference<minDist){
+		double autonDriveSpeed = -1.0/(pow(2.0,(.2*(distDifference - minDist - ((5.0*log(-1.0*minDriveSpeed)/log(2.0)))))))+1.0;
+		return autonDriveSpeed;
+	}
+	else{
+		return minDriveSpeed;
+	}
 }
 //*/
