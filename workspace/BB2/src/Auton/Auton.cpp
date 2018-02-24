@@ -16,9 +16,13 @@
 
 //Auton DriveStraight Ramping Constants
 #define MIN_STRAIGHT_DRIVE_SPEED 0.15
-#define MIN_STRAIGHT_DIST_DIFFERENCE 18.0
-#define STRAIGHT_RAMP_RATE 0.2
-#define MAX_STRAIGHT_DRIVE_SPEED 1.0
+#define MIN_STRAIGHT_DIST_DIFFERENCE 12.0
+#define STEP1_STRAIGHT_DIST_DIFFERENCE 24.0
+#define STEP2_STRAIGHT_DIST_DIFFERENCE 36.0
+#define STRAIGHT_RAMP_RATE 0.55
+#define STEP1_STRAIGHT_DRIVE_SPEED 0.30
+#define STEP2_STRIAGHT_DRIVE_SPEED 0.45
+#define MAX_STRAIGHT_DRIVE_SPEED 0.60
 
 //Auton Turning Ramping Constants
 #define MIN_TURN_DRIVE_SPEED 0.10
@@ -30,13 +34,20 @@
 Timer *autonTimer = new Timer();
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){
-	double distDifference = TargetDist - drive->GetAverageEncoderDistance();
 	if (drive->GetAverageEncoderDistance() < TargetDist){
 		//drive->TankDrive(-1.0*AUTON_DRIVE_SPEED,-1.0*AUTON_DRIVE_SPEED*RIGHT_DRIVE_CORRECTION);
 
 		//drive speed ramping
-		double autonStraightSpeed = drive->AutonRamping(distDifference,MIN_STRAIGHT_DIST_DIFFERENCE,MIN_STRAIGHT_DRIVE_SPEED,STRAIGHT_RAMP_RATE,MAX_STRAIGHT_DRIVE_SPEED);
-		drive->TankDrive(-1.0*autonStraightSpeed,-1.0*autonStraightSpeed*RIGHT_DRIVE_CORRECTION);
+		//double autonStraightSpeed = drive->AutonRamping(distDifference,MIN_STRAIGHT_DIST_DIFFERENCE,MIN_STRAIGHT_DRIVE_SPEED,STRAIGHT_RAMP_RATE,MAX_STRAIGHT_DRIVE_SPEED);
+		double distDifference = (TargetDist - drive->GetAverageEncoderDistance());
+		printf("Dist Difference %f \n", distDifference);
+
+		//double autonDriveSpeed = drive->AutonRamping1(distDifference,MIN_STRAIGHT_DIST_DIFFERENCE,MIN_STRAIGHT_DRIVE_SPEED,STRAIGHT_RAMP_RATE,MAX_STRAIGHT_DRIVE_SPEED);
+		double autonDriveSpeed = drive->AutonRamping2(distDifference,MIN_STRAIGHT_DRIVE_SPEED, STEP1_STRAIGHT_DRIVE_SPEED,STEP2_STRIAGHT_DRIVE_SPEED,MAX_STRAIGHT_DRIVE_SPEED,MIN_STRAIGHT_DIST_DIFFERENCE,STEP1_STRAIGHT_DIST_DIFFERENCE,STEP2_STRAIGHT_DIST_DIFFERENCE);
+		printf("RampSpeed %f \n", autonDriveSpeed);
+		drive->TankDrive(-1.0*autonDriveSpeed,-1.0*autonDriveSpeed*RIGHT_DRIVE_CORRECTION);
+
+
 
 		return false;
 	}
@@ -56,11 +67,11 @@ bool AutonTurnRight(double TargetAngle,Drive *drive){
 	double CurrentAngle = drive->GetYaw();
 	double angDifference = CurrentAngle - (-1.0* TargetAngle);
 	if (CurrentAngle > (-1.0 * TargetAngle)){
-			//drive->TankDrive(AUTON_TURN_SPEED, -1.0 * AUTON_TURN_SPEED*RIGHT_DRIVE_CORRECTION);
+			drive->TankDrive(AUTON_TURN_SPEED, -1.0 * AUTON_TURN_SPEED*RIGHT_DRIVE_CORRECTION);
 
 			//turn speed ramping
-			double autonTurnSpeed = drive->AutonRamping(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
-			drive->TankDrive(autonTurnSpeed, -1.0 * autonTurnSpeed *RIGHT_DRIVE_CORRECTION);
+			//double autonTurnSpeed = drive->AutonRamping1(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
+			//drive->TankDrive(autonTurnSpeed, -1.0 * autonTurnSpeed *RIGHT_DRIVE_CORRECTION);
 			return false;
 	}
 	else{
@@ -81,11 +92,11 @@ bool AutonTurnLeft(double TargetAngle,Drive *drive){
 	double CurrentAngle = drive->GetYaw();
 	double angDifference = CurrentAngle - (-1.0* TargetAngle);
 	if (CurrentAngle < TargetAngle){
-			//drive->TankDrive(-1.0 * AUTON_TURN_SPEED, AUTON_TURN_SPEED*RIGHT_DRIVE_CORRECTION);
+			drive->TankDrive(-1.0 * AUTON_TURN_SPEED, AUTON_TURN_SPEED*RIGHT_DRIVE_CORRECTION);
 
 			//turn speed ramping
-			double autonTurnSpeed = drive->AutonRamping(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
-			drive->TankDrive(autonTurnSpeed, -1.0 * autonTurnSpeed *RIGHT_DRIVE_CORRECTION);
+			//double autonTurnSpeed = drive->AutonRamping1(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
+			//drive->TankDrive(autonTurnSpeed, -1.0 * autonTurnSpeed *RIGHT_DRIVE_CORRECTION);
 			return false;
 		}
 	else{

@@ -21,7 +21,6 @@
 #define LimitVal( L, T, H)		max( min( T, H ), L)
 
 Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort, int pigeonPort) {
-	// TODO Auto-generated constructor stub
 	pidgey = new PigeonIMU(pigeonPort);
 
     // Create all drive motors
@@ -32,8 +31,11 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontRight = new WPI_TalonSRX(frontRightPort);
 	backRight = new WPI_TalonSRX(backRightPort);
 
+	//Practice Bot Code TODO disable later
+
 	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
 	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
+
 
 	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0,0); //sets the quad encoder as the primary sensor
 	frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
@@ -145,7 +147,7 @@ double Drive::NormalizeAngle(double angle){
 	return angle;
 }
 
-double Drive::AutonRamping(double distDifference,double minDriveSpeed,double minDist, double rampRate,double maxDriveSpeed){
+double Drive::AutonRamping1(double distDifference,double minDriveSpeed,double minDist, double rampRate,double maxDriveSpeed){
 	if(distDifference>minDist){
 		double autonDriveSpeed = -1.0/(pow(2.0,(rampRate*(distDifference - minDist - (log(maxDriveSpeed - minDriveSpeed)/(log(2.0)*rampRate))))))+maxDriveSpeed;
 		return autonDriveSpeed;
@@ -154,4 +156,20 @@ double Drive::AutonRamping(double distDifference,double minDriveSpeed,double min
 		return minDriveSpeed;
 	}
 }
+
+double Drive::AutonRamping2(double distDifference,double minSpeed,double midSpeed1, double midSpeed2, double maxSpeed, double changeDist1, double changeDist2, double changeDist3){
+	if(distDifference<changeDist1){
+		return minSpeed;
+	}
+	else if(changeDist1<distDifference && distDifference<changeDist2){
+		return midSpeed1;
+	}
+	else if(changeDist2<distDifference && distDifference<changeDist3){
+		return midSpeed2;
+	}
+	else{
+		return maxSpeed;
+	}
+}
+
 //*/

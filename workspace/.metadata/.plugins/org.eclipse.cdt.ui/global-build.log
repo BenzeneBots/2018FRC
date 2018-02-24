@@ -1941,3 +1941,505 @@ arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/l
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+17:28:43 **** Rebuild of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+22:23:57 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:142:24: error: 'DriveStraight' was not declared in this scope
+   m_chooser.AddDefault(DriveStraight, DriveStraight);
+                        ^
+..\src\Robot.cpp:143:23: error: 'Center1Cube' was not declared in this scope
+   m_chooser.AddObject(Center1Cube, Center1Cube);
+                       ^
+..\src\Robot.cpp:144:23: error: 'Left1Cube' was not declared in this scope
+   m_chooser.AddObject(Left1Cube, Left1Cube);
+                       ^
+..\src\Robot.cpp:145:23: error: 'Right1Cube' was not declared in this scope
+   m_chooser.AddObject(Right1Cube, Right1Cube);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:210:26: error: 'Center1Cube' was not declared in this scope
+    if (m_autoSelected == Center1Cube) {
+                          ^
+..\src\Robot.cpp:449:31: error: 'Left1Cube' was not declared in this scope
+    else if (m_autoSelected == Left1Cube) {
+                               ^
+..\src\Robot.cpp:700:31: error: 'Right1Cube' was not declared in this scope
+    else if (m_autoSelected == Right1Cube) {
+                               ^
+22:26:13 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp:1074:8: error: invalid use of template-name 'std::unique_ptr' without an argument list
+  const std::unique_ptr DriveStraight= "DriveStraight";
+        ^
+..\src\Robot.cpp:1075:8: error: invalid use of template-name 'std::unique_ptr' without an argument list
+  const std::unique_ptr Center1Cube = "Center1Cube";
+        ^
+..\src\Robot.cpp:1076:8: error: invalid use of template-name 'std::unique_ptr' without an argument list
+  const std::unique_ptr Left1Cube = "Left1Cube";
+        ^
+..\src\Robot.cpp:1077:8: error: invalid use of template-name 'std::unique_ptr' without an argument list
+  const std::unique_ptr Right1Cube = "Right1Cube";
+        ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:142:24: error: 'DriveStraight' was not declared in this scope
+   m_chooser.AddDefault(DriveStraight, DriveStraight);
+                        ^
+..\src\Robot.cpp:143:23: error: 'Center1Cube' was not declared in this scope
+   m_chooser.AddObject(Center1Cube, Center1Cube);
+                       ^
+..\src\Robot.cpp:144:23: error: 'Left1Cube' was not declared in this scope
+   m_chooser.AddObject(Left1Cube, Left1Cube);
+                       ^
+..\src\Robot.cpp:145:23: error: 'Right1Cube' was not declared in this scope
+   m_chooser.AddObject(Right1Cube, Right1Cube);
+                       ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:210:26: error: 'Center1Cube' was not declared in this scope
+    if (m_autoSelected == Center1Cube) {
+                          ^
+..\src\Robot.cpp:449:31: error: 'Left1Cube' was not declared in this scope
+    else if (m_autoSelected == Left1Cube) {
+                               ^
+..\src\Robot.cpp:700:31: error: 'Right1Cube' was not declared in this scope
+    else if (m_autoSelected == Right1Cube) {
+                               ^
+22:27:43 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+22:27:56 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:147:61: error: unable to find string literal operator 'operator""Right1Cube' with 'const char [24]', 'unsigned int' arguments
+   frc::SmartDashboard::PutData("AutoRight1Cube = "Right1Cube" Modes", &m_chooser);
+                                                             ^
+22:28:15 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+10:59:14 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+10:59:21 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:04:23 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:04:32 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+11:05:09 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+11:05:13 **** Rebuild of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:08:53 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2Working
+11:08:58 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2Working
+11:09:44 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2Working
+11:10:01 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2Working
+11:19:50 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:19:57 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2Working
+Info: Nothing to build for BB2
+11:25:45 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:147:25: error: no 'void Drive::InvertDrive()' member function declared in class 'Drive'
+ void Drive::InvertDrive(){
+                         ^
+Info: Nothing to build for BB2
+11:25:50 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:26:07 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:26:14 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:26:21 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+11:27:42 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:27:48 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2Working
+11:28:28 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2Working
+Info: Nothing to build for BB2
+11:29:16 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+11:29:28 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:29:36 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2Working
+11:30:55 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+Info: Nothing to build for BB2Working
+Info: Nothing to build for BB2
+11:31:27 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:147:25: error: no 'void Drive::InvertDrive()' member function declared in class 'Drive'
+ void Drive::InvertDrive(){
+                         ^
+Info: Nothing to build for BB2
+11:31:38 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:33:44 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+11:33:50 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:48:05 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:48:16 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2Working
+11:59:04 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:59:29 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+11:59:45 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:02:07 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:04:06 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:04:21 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:04:29 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:08:22 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'bool AutonDriveStraight(double, Drive*)':
+..\src\Auton\Auton.cpp:34:9: warning: unused variable 'distDifference' [-Wunused-variable]
+  double distDifference = TargetDist - drive->GetAverageEncoderDistance();
+         ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:09:03 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'bool AutonDriveStraight(double, Drive*)':
+..\src\Auton\Auton.cpp:34:9: warning: unused variable 'distDifference' [-Wunused-variable]
+  double distDifference = TargetDist - drive->GetAverageEncoderDistance();
+         ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:09:10 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:09:15 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:10:43 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:11:02 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:17:07 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:17:15 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:30:16 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:198:10: warning: unused variable 'autonStraightSpeed' [-Wunused-variable]
+   double autonStraightSpeed = 0;
+          ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:30:28 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:31:06 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:31:58 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:32:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:32:48 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:33:07 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:42:55 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'bool AutonDriveStraight(double, Drive*)':
+..\src\Auton\Auton.cpp:40:35: error: 'class Drive' has no member named 'AutonRamping'
+   double autonDriveSpeed = drive->AutonRamping(distDifference,MIN_STRAIGHT_DIST_DIFFERENCE,MIN_STRAIGHT_DRIVE_SPEED,STRAIGHT_RAMP_RATE,MAX_STRAIGHT_DRIVE_SPEED);
+                                   ^
+..\src\Auton\Auton.cpp: In function 'bool AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:67:35: error: 'class Drive' has no member named 'AutonRamping'
+    double autonTurnSpeed = drive->AutonRamping(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
+                                   ^
+..\src\Auton\Auton.cpp: In function 'bool AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:92:35: error: 'class Drive' has no member named 'AutonRamping'
+    double autonTurnSpeed = drive->AutonRamping(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
+                                   ^
+12:43:14 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'bool AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:68:35: error: 'class Drive' has no member named 'AutonRamping'
+    double autonTurnSpeed = drive->AutonRamping(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
+                                   ^
+12:43:31 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:43:41 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:43:45 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:46:20 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:55:42 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:55:55 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:56:22 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:57:41 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:57:48 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+12:58:08 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+12:58:15 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+13:10:39 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:159:8: error: prototype for 'double Drive::AutonRamping2(double, double, double, double)' does not match any in class 'Drive'
+ double Drive::AutonRamping2(double distDifference,double minSpeed, double maxSpeed, double changeDist){
+        ^
+In file included from ..\src\Subsystems\Drive.cpp:8:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Drive.h:36:9: error: candidate is: double Drive::AutonRamping2(double, double, double, double, double, double, double, double)
+  double AutonRamping2( double,double,double,double,double,double,double,double);
+         ^
+13:11:04 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp:159:8: error: prototype for 'double Drive::AutonRamping2(double, double, double, double)' does not match any in class 'Drive'
+ double Drive::AutonRamping2(double distDifference,double minSpeed, double maxSpeed, double changeDist){
+        ^
+In file included from ..\src\Subsystems\Drive.cpp:8:0:
+\\VMWARE-HOST\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2\src/Subsystems/Drive.h:36:9: error: candidate is: double Drive::AutonRamping2(double, double, double, double, double, double, double, double)
+  double AutonRamping2(double,double,double,double,double,double,double,double);
+         ^
+13:12:54 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+..\src\Subsystems\Drive.cpp: In member function 'double Drive::AutonRamping2(double, double, double, double, double, double, double, double)':
+..\src\Subsystems\Drive.cpp:163:21: warning: comparisons like 'X<=Y<=Z' do not have their mathematical meaning [-Wparentheses]
+  else if(changeDist1<distDifference<changeDist2){
+                     ^
+..\src\Subsystems\Drive.cpp:166:21: warning: comparisons like 'X<=Y<=Z' do not have their mathematical meaning [-Wparentheses]
+  else if(changeDist2<distDifference<changeDist3){
+                     ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+13:13:58 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+13:14:16 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+13:17:34 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+..\src\Auton\Auton.cpp: In function 'bool AutonTurnRight(double, Drive*)':
+..\src\Auton\Auton.cpp:68:9: warning: unused variable 'angDifference' [-Wunused-variable]
+  double angDifference = CurrentAngle - (-1.0* TargetAngle);
+         ^
+..\src\Auton\Auton.cpp: In function 'bool AutonTurnLeft(double, Drive*)':
+..\src\Auton\Auton.cpp:93:9: warning: unused variable 'angDifference' [-Wunused-variable]
+  double angDifference = CurrentAngle - (-1.0* TargetAngle);
+         ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+13:17:45 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+13:17:50 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+13:32:55 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+14:05:23 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+14:05:34 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+14:06:14 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+14:07:55 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2Working
+14:08:16 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2Working\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+14:08:25 **** Incremental Build of configuration Debug for project BB2Working ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2Working

@@ -32,7 +32,9 @@ public:
 	double GetFusedHeading();
 	void SetBrakeMode();
 	void SetCoastMode();
-	double AutonRamping(double,double,double,double,double);
+	double AutonRamping1(double,double,double,double,double);
+	double AutonRamping2(double,double,double,double,double,double,double,double);
+
 private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;

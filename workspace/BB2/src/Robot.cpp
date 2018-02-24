@@ -139,12 +139,12 @@ public:
 
 	void RobotInit() {
 		//populates auto chooser on dashboard
-		m_chooser.AddDefault(DriveStraight, DriveStraight);
-		m_chooser.AddObject(Center1Cube, Center1Cube);
-		m_chooser.AddObject(Left1Cube, Left1Cube);
-		m_chooser.AddObject(Right1Cube, Right1Cube);
+		auton_chooser.AddDefault(DriveStraight, DriveStraight);
+		auton_chooser.AddObject(Center1Cube, Center1Cube);
+		auton_chooser.AddObject(Left1Cube, Left1Cube);
+		auton_chooser.AddObject(Right1Cube, Right1Cube);
 
-		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+		frc::SmartDashboard::PutData("Auto Modes", &auton_chooser);
 
 		//initialize subsystems
 		robotDrive = new Drive(2,1,4,3,0); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 0
@@ -164,7 +164,7 @@ public:
 	}
 
 	void AutonomousInit() {
-		m_autoSelected = m_chooser.GetSelected();
+		m_autoSelected = auton_chooser.GetSelected();
 		//m_autoSelected = SmartDashboard::GetString("Auto Selector",
 				 //CenterDriveStraight);
 		std::cout << "Auto selected: " << m_autoSelected << std::endl;
@@ -176,11 +176,10 @@ public:
 		statusOneS = c1_OneS;
 		statusZeroS = c1_ZeroS;
 
-
 		//temporarily overrides DS to pick our own auton
 			//m_autoSelected = "DriveStraight";
-			//m_autoSelected = "Center1Cube";
-			m_autoSelected = "Right1Cube";
+			m_autoSelected = "Center1Cube";
+			//m_autoSelected = "Right1Cube";
 			//m_autoSelected = "Left1Cube"
 
 		robotDrive->ResetEncoders();
@@ -1055,7 +1054,7 @@ public:
 
 private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
-	frc::SendableChooser<std::string> m_chooser;
+	frc::SendableChooser<std::string> auton_chooser;
 	const std::string DriveStraight= "DriveStraight";
 	const std::string Center1Cube = "Center1Cube";
 	const std::string Left1Cube = "Left1Cube";
