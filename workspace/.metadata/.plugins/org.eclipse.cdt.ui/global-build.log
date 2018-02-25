@@ -3352,3 +3352,230 @@ arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/l
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
 Info: Nothing to build for BB2
+12:33:57 **** Rebuild of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousPeriodic()':
+..\src\Robot.cpp:234:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = t1_OneC;
+                ^
+..\src\Robot.cpp:241:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = c2_OneC;
+                ^
+..\src\Robot.cpp:248:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = t2_OneC;
+                ^
+..\src\Robot.cpp:256:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = c3_OneC;
+                ^
+..\src\Robot.cpp:263:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = e1_OneC;
+                ^
+..\src\Robot.cpp:270:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = m1_OneC;
+                ^
+..\src\Robot.cpp:278:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = d1_OneC;
+                ^
+..\src\Robot.cpp:293:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = o1_OneC;
+                ^
+..\src\Robot.cpp:306:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = s1_OneC;
+                ^
+..\src\Robot.cpp:313:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = e2_OneC;
+                ^
+..\src\Robot.cpp:320:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = m2_OneC;
+                ^
+..\src\Robot.cpp:327:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = fin_OneC;
+                ^
+..\src\Robot.cpp:350:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = t1_OneC;
+                ^
+..\src\Robot.cpp:357:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = c2_OneC;
+                ^
+..\src\Robot.cpp:364:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = t2_OneC;
+                ^
+..\src\Robot.cpp:371:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = c3_OneC;
+                ^
+..\src\Robot.cpp:378:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = e1_OneC;
+                ^
+..\src\Robot.cpp:385:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = m1_OneC;
+                ^
+..\src\Robot.cpp:393:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = d1_OneC;
+                ^
+..\src\Robot.cpp:408:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = o1_OneC;
+                ^
+..\src\Robot.cpp:421:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = s1_OneC;
+                ^
+..\src\Robot.cpp:428:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = e2_OneC;
+                ^
+..\src\Robot.cpp:435:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = m2_OneC;
+                ^
+..\src\Robot.cpp:442:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneC = fin_OneC;
+                ^
+..\src\Robot.cpp:474:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+                ^
+..\src\Robot.cpp:481:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+                ^
+..\src\Robot.cpp:488:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e1_OneS;
+                ^
+..\src\Robot.cpp:495:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+                ^
+..\src\Robot.cpp:503:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+                ^
+..\src\Robot.cpp:518:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = o1_OneS;
+                ^
+..\src\Robot.cpp:531:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+                ^
+..\src\Robot.cpp:538:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+                ^
+..\src\Robot.cpp:545:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+                ^
+..\src\Robot.cpp:552:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+                ^
+..\src\Robot.cpp:578:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+                ^
+..\src\Robot.cpp:585:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+                ^
+..\src\Robot.cpp:592:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e1_OneS;
+                ^
+..\src\Robot.cpp:599:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+                ^
+..\src\Robot.cpp:607:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+                ^
+..\src\Robot.cpp:622:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = o1_OneS;
+                ^
+..\src\Robot.cpp:635:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+                ^
+..\src\Robot.cpp:642:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+                ^
+..\src\Robot.cpp:649:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+                ^
+..\src\Robot.cpp:656:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+                ^
+..\src\Robot.cpp:678:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusZeroS = t1_ZeroS;
+                ^
+..\src\Robot.cpp:685:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusZeroS = c2_ZeroS;
+                ^
+..\src\Robot.cpp:692:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+                ^
+..\src\Robot.cpp:725:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+                ^
+..\src\Robot.cpp:732:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+                ^
+..\src\Robot.cpp:739:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e1_OneS;
+                ^
+..\src\Robot.cpp:746:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+                ^
+..\src\Robot.cpp:754:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+                ^
+..\src\Robot.cpp:769:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = o1_OneS;
+                ^
+..\src\Robot.cpp:782:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+                ^
+..\src\Robot.cpp:789:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+                ^
+..\src\Robot.cpp:796:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+                ^
+..\src\Robot.cpp:803:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+                ^
+..\src\Robot.cpp:829:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+                ^
+..\src\Robot.cpp:836:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+                ^
+..\src\Robot.cpp:843:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e1_OneS;
+                ^
+..\src\Robot.cpp:850:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+                ^
+..\src\Robot.cpp:858:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+                ^
+..\src\Robot.cpp:873:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = o1_OneS;
+                ^
+..\src\Robot.cpp:886:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+                ^
+..\src\Robot.cpp:893:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+                ^
+..\src\Robot.cpp:900:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+                ^
+..\src\Robot.cpp:907:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+                ^
+..\src\Robot.cpp:929:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusZeroS = t1_ZeroS;
+                ^
+..\src\Robot.cpp:936:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusZeroS = c2_ZeroS;
+                ^
+..\src\Robot.cpp:943:16: warning: unused variable 'startYaw' [-Wunused-variable]
+         double startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+                ^
+..\src\Robot.cpp:968:14: warning: unused variable 'startYaw' [-Wunused-variable]
+       double startYaw = robotDrive->GetYaw(); statusZeroA = fin_ZeroA;
+              ^
+..\src\Robot.cpp:240:8: warning: 'startYaw' may be used uninitialized in this function [-Wmaybe-uninitialized]
+        if(AutonTurnLeft(T1_ONEC, robotDrive, startYaw)){
+        ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2

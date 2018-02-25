@@ -78,6 +78,8 @@ public:
 
 	Intake *robotIntake;
 	Drive *robotDrive;
+	double driveRevFactor = 1.0;
+	bool wasButtonPressed = false;
     Elevator *robotElevator;
 
 
@@ -994,12 +996,18 @@ public:
 	void TeleopPeriodic() {
 		//drives robot according to joystick inputs
 		double speedVal  = robotDrive->InputScale(DRIVE_SPEED_FACTOR * mainDriverStick->GetRawAxis(1), DRIVE_SCALE);
-
-		//printf("rawVal: %f\n", -1.0 * driver)
-		//printf("speedVal: %f\n", speedVal);
-
 		double turnVal = robotDrive->InputScale(TURN_FACTOR * mainDriverStick->GetRawAxis(4), TURN_SCALE);
-		robotDrive->ArcadeDrive(speedVal, turnVal);
+
+		//updates drive direction
+		if(mainDriverStick->GetRawButton(6) && !wasButtonPressed){ //if this button is pressed for the first time:
+			wasButtonPressed = true;
+			driveRevFactor *= -1.0; //reverse drive direction
+		}
+		else if(!mainDriverStick->GetRawButton(6)){
+			wasButtonPressed = false;
+		}
+
+		robotDrive->ArcadeDrive( driveRevFactor * speedVal, turnVal);
 
 		//drives elevator and updates sensor values
 		//toggles limitswitch value to see when it changes
