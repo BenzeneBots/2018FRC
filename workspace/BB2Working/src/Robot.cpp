@@ -173,7 +173,7 @@ public:
 
 		//temporarily overrides DS to pick our own auton
 			//m_autoSelected = "DriveStraight";
-			m_autoSelected = "Center1Cube";
+			//m_autoSelected = "Center1Cube";
 			//m_autoSelected = "Right1Cube";
 			//m_autoSelected = "Left1Cube"
 
@@ -186,7 +186,7 @@ public:
 		if (m_autoSelected == "Center1Cube") {
 		}
 		if (m_autoSelected == "Left1Cube") {
-				}
+		}
 		if (m_autoSelected == "Right1Cube") {
 		}
 		else {

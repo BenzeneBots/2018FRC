@@ -20,7 +20,7 @@ Timer *autonTimer = new Timer();
 
 bool AutonDriveStraight(double TargetDist, Drive *drive){
 	if (drive->GetAverageEncoderDistance() < TargetDist){
-			drive->TankDrive(-1.0*AUTON_DRIVE_SPEED,-1.0*AUTON_DRIVE_SPEED*RIGHT_DRIVE_CORRECTION);
+			drive->TankDrive(-1.0*AUTON_DRIVE_SPEED,-1.0*AUTON_DRIVE_SPEED);
 			return false;
 	}
 	else{
@@ -62,7 +62,7 @@ bool AutonTurnLeft(double TargetAngle,Drive *drive){
 	double CurrentAngle = drive->GetYaw();
 
 	if (CurrentAngle < TargetAngle){
-		drive->TankDrive(-1.0 * AUTON_TURN_SPEED, AUTON_TURN_SPEED*RIGHT_DRIVE_CORRECTION);
+		drive->TankDrive(-1.0 * AUTON_TURN_SPEED, AUTON_TURN_SPEED);
 			return false;
 		}
 	else{
