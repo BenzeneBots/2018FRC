@@ -14,7 +14,7 @@
 #define RIGHT_DRIVE_CORRECTION 1.0 //TODO tune this
 #define RESET_TIMEOUT 10
 
-#define STRAIGHT_P_CONSTANT 0.05 //TODO tune this
+#define STRAIGHT_P_CONSTANT 0.005 //TODO tune this
 
 //Auton DriveStraight Ramping Constants
 #define MIN_STRAIGHT_DRIVE_SPEED 0.15
@@ -28,7 +28,7 @@
 
 //Auton Left Turning Ramping Constants
 #define MIN_LEFT_TURN_DRIVE_SPEED 0.06
-#define MIN_LEFT_TURN_ANG_DIFFERENCE 16.0
+#define MIN_LEFT_TURN_ANG_DIFFERENCE 20.0
 #define STEP1_LEFT_TURN_ANG_DIFFERENCE 32.0
 #define STEP2_LEFT_TURN_ANG_DIFFERENCE 48.0
 //#define LEFT_TURN_RAMP_RATE 0.55
@@ -39,7 +39,7 @@
 //TODO tune Right turn
 //Auton Right Turning Ramping Constants
 #define MIN_RIGHT_TURN_DRIVE_SPEED 0.06
-#define MIN_RIGHT_TURN_ANG_DIFFERENCE 16.0
+#define MIN_RIGHT_TURN_ANG_DIFFERENCE 20.0
 #define STEP1_RIGHT_TURN_ANG_DIFFERENCE 32.0
 #define STEP2_RIGHT_TURN_ANG_DIFFERENCE 48.0
 //#define RIGHT_TURN_RAMP_RATE 0.55
@@ -65,11 +65,15 @@ bool AutonDriveStraight(double TargetDist, Drive *drive, double startYaw){
 		double leftVal = adjDriveSpeed;
 		double rightVal = adjDriveSpeed * RIGHT_DRIVE_CORRECTION;
 
-		double yawError = startYaw+drive->GetYaw(); //since it is zeroed before this step starts, the angle IS the error
+		double yawError = drive->GetYaw()-startYaw; //since it is zeroed before this step starts, the angle IS the error
 
 		//multiplies by ratio
 		leftVal -= ratio * (yawError * STRAIGHT_P_CONSTANT);
 		rightVal += ratio * (yawError * STRAIGHT_P_CONSTANT);
+
+		printf("YawError %f \n", yawError);
+		printf("Left Val %f \n", leftVal);
+		printf("Right Val %f \n", rightVal);
 
 		drive->TankDrive(-1.0*leftVal,-1.0*rightVal);
 
@@ -79,16 +83,21 @@ bool AutonDriveStraight(double TargetDist, Drive *drive, double startYaw){
 
 			drive->TankDrive(0.0,0.0);
 
+			//Reset Encoders
+			drive->ResetEncoders();
 			return true;
 	}
 }
 
-bool AutonTurnRight(double TargetAngle,Drive *drive,double startYaw){
-	double CurrentAngle = drive->GetYaw();
-	double angDifference = CurrentAngle - (-1.0* TargetAngle);
-	if (CurrentAngle > ((-1.0 * TargetAngle)+startYaw)){
+bool AutonTurnRight(double turnAngle,Drive *drive,double startYaw){
+	double currentAngle = drive->GetYaw();
+	double targetAngle = startYaw - turnAngle; //because right turn is negative
+	double angDifference = currentAngle-targetAngle;
+	if (currentAngle > targetAngle){
 			//drive->TankDrive(AUTON_TURN_SPEED, -1.0 * AUTON_TURN_SPEED);
-			printf("Current Angle %f \n", CurrentAngle);
+			printf("Current Angle %f \n", currentAngle);
+			printf("Target Angle %f \n", targetAngle);
+			printf("startYaw %f \n", startYaw);
 
 			double adjTurnSpeed= drive->AutonRamping2(angDifference,MIN_RIGHT_TURN_DRIVE_SPEED, STEP1_RIGHT_TURN_DRIVE_SPEED,STEP2_RIGHT_TURN_DRIVE_SPEED,MAX_RIGHT_TURN_DRIVE_SPEED,MIN_RIGHT_TURN_ANG_DIFFERENCE,STEP1_RIGHT_TURN_ANG_DIFFERENCE,STEP2_RIGHT_TURN_ANG_DIFFERENCE);
 
@@ -100,46 +109,39 @@ bool AutonTurnRight(double TargetAngle,Drive *drive,double startYaw){
 	else{
 			drive->TankDrive(0.0,0.0);
 
-			//Reset Values
+
+			//Reset Encoders
 			drive->ResetEncoders();
-			drive->ResetFusedHeading();
-			drive->ResetYaw();
-
-			printf("Passing to next step \n");
-
 			return true;
 
 	}
 
 }
+bool AutonTurnLeft(double turnAngle ,Drive *drive,double startYaw){
+	double currentAngle = drive->GetYaw();
+	double targetAngle = startYaw + turnAngle;
+	double angDifference = targetAngle - currentAngle;
+	if (currentAngle < (targetAngle)){
+			//drive->TankDrive(AUTON_TURN_SPEED, -1.0 * AUTON_TURN_SPEED);
+			printf("Current Angle %f \n", currentAngle);
+			printf("startYaw %f \n", startYaw);
 
-
-bool AutonTurnLeft(double TargetAngle,Drive *drive,double startYaw){
-	double CurrentAngle = drive->GetYaw();
-	double angDifference = CurrentAngle - (-1.0* TargetAngle);
-	if (CurrentAngle < (TargetAngle+startYaw)){
-
-			//drive->TankDrive(-1.0 * AUTON_TURN_SPEED, AUTON_TURN_SPEED);
 			double adjTurnSpeed= drive->AutonRamping2(angDifference,MIN_LEFT_TURN_DRIVE_SPEED, STEP1_LEFT_TURN_DRIVE_SPEED,STEP2_LEFT_TURN_DRIVE_SPEED,MAX_LEFT_TURN_DRIVE_SPEED,MIN_LEFT_TURN_ANG_DIFFERENCE,STEP1_LEFT_TURN_ANG_DIFFERENCE,STEP2_LEFT_TURN_ANG_DIFFERENCE);
-
-			//turn speed ramping
-			//double autonTurnSpeed = drive->AutonRamping1(angDifference,MIN_TURN_ANG_DIFFERENCE,MIN_TURN_DRIVE_SPEED,TURN_RAMP_RATE,MAX_TURN_DRIVE_SPEED);
-			drive->TankDrive(-1.0*adjTurnSpeed,adjTurnSpeed *RIGHT_DRIVE_CORRECTION);
+			drive->TankDrive(-1.0 *adjTurnSpeed,adjTurnSpeed *RIGHT_DRIVE_CORRECTION);
 			return false;
-		}
+	}
 	else{
 			drive->TankDrive(0.0,0.0);
 
-			//Reset Values
+			//Reset Encoders
 			drive->ResetEncoders();
-			drive->ResetFusedHeading();
-			drive->ResetYaw();
-
-
 
 			return true;
+
 	}
+
 }
+
 bool AutonSetHeight(double targetHeight,Elevator *elevator){
 	if(elevator->SetElevatorTarget(targetHeight)){
 		return true;
