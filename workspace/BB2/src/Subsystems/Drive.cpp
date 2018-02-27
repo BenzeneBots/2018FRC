@@ -31,8 +31,6 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontRight = new WPI_TalonSRX(frontRightPort);
 	backRight = new WPI_TalonSRX(backRightPort);
 
-	//Practice Bot Code TODO disable later
-
 	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
 	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
 

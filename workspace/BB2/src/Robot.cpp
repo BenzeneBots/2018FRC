@@ -64,12 +64,14 @@
 //Auton Sides Scale Angle
 #define T1_SCALE_ONES 90.0
 
-//Auton Sides No Cube Distances
+//Auton Sides Far Cube Distances
 #define C1_ZEROS 180.0
 #define C2_ZEROS 72.0
+#define C3_ZEROS 24.0
 
-//Auton Sides No Cube Angle
+//Auton Sides Far Cube Angle
 #define T1_ZEROS 90.0
+#define T2_ZEROS 90.0
 
 class Robot : public frc::TimedRobot {
 public:
@@ -137,7 +139,7 @@ public:
 	OneS statusOneS = c1_OneS;
 
 	//AutonSidesBothAreOnOppositeSide
-	enum ZeroS {c1_ZeroS,t1_ZeroS,c2_ZeroS,fin_ZeroS};
+	enum ZeroS {c1_ZeroS,t1_ZeroS,c2_ZeroS,t2_ZeroS,c3_ZeroS,e1_ZeroS,m1_ZeroS,d1_ZeroS,o1_ZeroS,s1_ZeroS,e2_ZeroS,m2_ZeroS,fin_ZeroS};
 	ZeroS statusZeroS = c1_ZeroS;
 
 
@@ -722,6 +724,83 @@ public:
 						//drive
 						case c2_ZeroS:
 							if(AutonDriveStraight(C2_ZEROS, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = t2_ZeroS;
+							}
+							break;
+
+						//turn
+						case t2_ZeroS:
+							if(AutonTurnLeft(T2_ZEROS, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = c3_ZeroS;
+							}
+							break;
+
+						//drive
+						case c3_ZeroS:
+							if(AutonDriveStraight(C3_ZEROS, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = e1_ZeroS;
+							}
+							break;
+							//set elevator target to Scale position
+						case e1_ZeroS:
+							if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = m1_ZeroS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m1_ZeroS:
+							if(AutonMoveToHeight(robotElevator)){
+								robotElevator->SetToOutput(0.1);
+								startYaw = robotDrive->GetYaw(); statusZeroS = d1_ZeroS;
+								//Initiates timer for deploying
+								initTimer->Reset();
+								initTimer->Start();
+							}
+							break;
+
+						//deploy intake
+						case d1_ZeroS:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusZeroS = o1_ZeroS;
+							}
+							break;
+
+						//outtake
+						case o1_ZeroS:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusZeroS = s1_ZeroS;
+							}
+							break;
+
+						//stow intake
+						case s1_ZeroS:
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = e2_ZeroS;
+							}
+							break;
+
+						//set elevator target to bottom position
+						case e2_ZeroS:
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = m2_ZeroS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m2_ZeroS:
+							if(AutonMoveToHeight(robotElevator)){
 								startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
 							}
 							break;
@@ -973,8 +1052,85 @@ public:
 						//drive
 						case c2_ZeroS:
 							if(AutonDriveStraight(C2_ZEROS, robotDrive, startYaw)){
-								startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+								startYaw = robotDrive->GetYaw(); statusZeroS = t2_ZeroS;
 								}
+							break;
+
+						//turn
+						case t2_ZeroS:
+							if(AutonTurnRight(T2_ZEROS, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = c3_ZeroS;
+							}
+							break;
+
+						//drive
+						case c3_ZeroS:
+							if(AutonDriveStraight(C3_ZEROS, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = e1_ZeroS;
+							}
+							break;
+							//set elevator target to Scale position
+						case e1_ZeroS:
+							if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = m1_ZeroS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m1_ZeroS:
+							if(AutonMoveToHeight(robotElevator)){
+								robotElevator->SetToOutput(0.1);
+								startYaw = robotDrive->GetYaw(); statusZeroS = d1_ZeroS;
+								//Initiates timer for deploying
+								initTimer->Reset();
+								initTimer->Start();
+							}
+							break;
+
+						//deploy intake
+						case d1_ZeroS:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusZeroS = o1_ZeroS;
+							}
+							break;
+
+						//outtake
+						case o1_ZeroS:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusZeroS = s1_ZeroS;
+							}
+							break;
+
+						//stow intake
+						case s1_ZeroS:
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = e2_ZeroS;
+							}
+							break;
+
+						//set elevator target to bottom position
+						case e2_ZeroS:
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = m2_ZeroS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m2_ZeroS:
+							if(AutonMoveToHeight(robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+							}
 							break;
 
 						//end auton
