@@ -16,7 +16,8 @@
 Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, int anglePort2) {
 	intake1 = new Victor(intake1Port);
 	intake2 = new Victor(intake2Port);
-	intake2->SetInverted(true);
+	intake1->SetInverted(true);
+	intake2->SetInverted(false);
 	clawActuator = new Solenoid(clawPort);
 	angleActuator = new DoubleSolenoid(anglePort1, anglePort2);
 
