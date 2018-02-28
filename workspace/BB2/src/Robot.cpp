@@ -24,6 +24,7 @@
 #include <Subsystems/Intake.h>
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
+#include <Subsystems/Climber.h>
 #include <Auton/Auton.h>
 
 #define ELEVATOR_BOTTOM_HEIGHT -1200
@@ -83,6 +84,7 @@ public:
 	double driveRevFactor = 1.0;
 	bool wasButtonPressed = false;
     Elevator *robotElevator;
+    Climber *robotClimber;
 
 	//init sensors
 	DigitalInput *elevatorBottomSwitch;
@@ -172,6 +174,7 @@ public:
 		robotDrive = new Drive(2,1,4,3,0); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 0
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		robotIntake = new Intake(0,1,0,1,2);		//Intake uses PWM 0 and 1, and PCM ports 0, 1, and 2
+		robotClimber = new Climber(2);
 
 
 		//initialize sensors
@@ -1254,6 +1257,12 @@ public:
 			robotIntake->DeployIntake();
 			printf("Deploying Intake\n");
 		}
+
+		//runs climber
+		if(manipStick->GetRawAxis(3) < 0.25){
+			robotClimber->SpoolClimber(true);
+		}
+		else robotClimber->SpoolClimber(false);
 
 
 
