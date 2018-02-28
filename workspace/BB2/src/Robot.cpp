@@ -28,7 +28,7 @@
 #include <Auton/Auton.h>
 
 #define ELEVATOR_BOTTOM_HEIGHT -1200
-#define ELEVATOR_SWITCH_HEIGHT 4500	//untested
+#define ELEVATOR_SWITCH_HEIGHT 4500	//TODO untested
 #define ELEVATOR_SCALE_HEIGHT 14000 //untested
 
 #define TURN_FACTOR 0.5
@@ -65,12 +65,12 @@
 //Auton Sides Scale Angle
 #define T1_SCALE_ONES 90.0
 
-//Auton Sides Far Cube Distances
+//Auton Sides Far Cube Scale Distances
 #define C1_ZEROS 180.0
 #define C2_ZEROS 72.0
 #define C3_ZEROS 24.0
 
-//Auton Sides Far Cube Angle
+//Auton Sides Far Cube Scale Angle
 #define T1_ZEROS 90.0
 #define T2_ZEROS 90.0
 
@@ -89,6 +89,16 @@ public:
 	//init sensors
 	DigitalInput *elevatorBottomSwitch;
 	bool wasSwitchPressed;
+	bool driveDirection;
+
+	//used to make Smart Dash Icons
+	bool leftCloseSwitchDash;
+	bool rightCloseSwitchDash;
+	bool leftScaleDash;
+	bool rightScaleDash;
+	bool leftFarSwitchDash;
+	bool rightFarSwitchDash;
+
 
 	double startYaw;
 	int firstPriority;
@@ -167,8 +177,7 @@ public:
 		}
 
 		//Camera Stuff
-		std::thread visionThread(VisionThread);
-		visionThread.detach();
+		 CameraServer::GetInstance()->StartAutomaticCapture();
 
 		//initialize subsystems
 		robotDrive = new Drive(2,1,4,3,0); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 0
@@ -250,6 +259,45 @@ public:
 
 			matchTime = DriverStation::GetInstance().GetMatchTime();
 			frc::SmartDashboard::PutNumber("Match Time", matchTime);
+
+			//Switch/Scale Array Dashboard Display
+			if(gameData.length() > 0){
+				if(gameData[0] == 'L')  {
+					leftCloseSwitchDash = true;
+					rightCloseSwitchDash = false;
+				}else{
+					leftCloseSwitchDash = false;
+					rightCloseSwitchDash = true;
+				}
+				if(gameData[1] == 'L')  {
+					leftScaleDash = true;
+					rightScaleDash = false;
+				}else{
+					leftScaleDash = false;
+					rightScaleDash = true;
+				}
+				if(gameData[2] == 'L')  {
+					leftFarSwitchDash = true;
+					rightFarSwitchDash = false;
+				}else{
+					leftFarSwitchDash = false;
+					rightFarSwitchDash = true;
+				}
+			}else{
+				leftCloseSwitchDash = false;
+				rightCloseSwitchDash = false;
+				leftScaleDash = false;
+				rightScaleDash = false;
+				leftFarSwitchDash = false;
+				rightFarSwitchDash = false;
+			}
+			frc::SmartDashboard::PutBoolean("Switch 1 Left", leftCloseSwitchDash);
+			frc::SmartDashboard::PutBoolean("Switch 1 Right", rightCloseSwitchDash);
+			frc::SmartDashboard::PutBoolean("Scale Left", leftScaleDash);
+			frc::SmartDashboard::PutBoolean("Scale Right", rightScaleDash);
+			frc::SmartDashboard::PutBoolean("Switch 2 Left", leftFarSwitchDash);
+			frc::SmartDashboard::PutBoolean("Switch 2 Right", rightFarSwitchDash);
+
 
 			//printf("Current Yaw %f \n", robotDrive->GetYaw());
 			if (m_autoSelected == Center1Cube) {
@@ -494,7 +542,7 @@ public:
 			}
 			else if (m_autoSelected == Left1Cube) {
 
-			//Following Code Runs if Left1Cube is the selected auton
+			//Following Code Runs if	 Left1Cube is the selected auton
 
 				if(gameData.length() > 0){
 
@@ -1190,6 +1238,54 @@ public:
 		matchTime = DriverStation::GetInstance().GetMatchTime();
 		frc::SmartDashboard::PutNumber("Match Time", matchTime);
 
+		//Dashboard Display for Drive Direction
+		if(driveRevFactor == 1.0){
+			driveDirection = true;
+		} else{
+			driveDirection = false;
+		}
+		frc::SmartDashboard::PutBoolean("Drive Direction",driveDirection);
+
+		//Switch/Scale Array Dashboard Display
+		std::string gameData;
+		gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+		if(gameData.length() > 0){
+			if(gameData[0] == 'L')  {
+				leftCloseSwitchDash = true;
+				rightCloseSwitchDash = false;
+			}else{
+				leftCloseSwitchDash = false;
+				rightCloseSwitchDash = true;
+			}
+			if(gameData[1] == 'L')  {
+				leftScaleDash = true;
+				rightScaleDash = false;
+			}else{
+				leftScaleDash = false;
+				rightScaleDash = true;
+			}
+			if(gameData[2] == 'L')  {
+				leftFarSwitchDash = true;
+				rightFarSwitchDash = false;
+			}else{
+				leftFarSwitchDash = false;
+				rightFarSwitchDash = true;
+			}
+		}else{
+			leftCloseSwitchDash = false;
+			rightCloseSwitchDash = false;
+			leftScaleDash = false;
+			rightScaleDash = false;
+			leftFarSwitchDash = false;
+			rightFarSwitchDash = false;
+		}
+		frc::SmartDashboard::PutBoolean("Switch 1 Left", leftCloseSwitchDash);
+		frc::SmartDashboard::PutBoolean("Switch 1 Right", rightCloseSwitchDash);
+		frc::SmartDashboard::PutBoolean("Scale Left", leftScaleDash);
+		frc::SmartDashboard::PutBoolean("Scale Right", rightScaleDash);
+		frc::SmartDashboard::PutBoolean("Switch 2 Left", leftFarSwitchDash);
+		frc::SmartDashboard::PutBoolean("Switch 2 Right", rightFarSwitchDash);
+
 		//drives robot according to joystick inputs
 		double speedVal  = robotDrive->InputScale(DRIVE_SPEED_FACTOR * mainDriverStick->GetRawAxis(1), DRIVE_SCALE);
 		double turnVal = robotDrive->InputScale(TURN_FACTOR * mainDriverStick->GetRawAxis(4), TURN_SCALE);
@@ -1289,42 +1385,6 @@ private:
 	std::string m_autoSelected;
 	std::string m_prioritySelected;
 
-	static void VisionThread() {
-			// Get the Axis camera from CameraServer
-			cs::AxisCamera camera =
-					CameraServer::GetInstance()->AddAxisCamera(
-							"axis-camera.local");
-			// Set the resolution
-			camera.SetResolution(640, 480);
-
-			// Get a CvSink. This will capture Mats from the Camera
-			cs::CvSink cvSink = CameraServer::GetInstance()->GetVideo();
-			// Setup a CvSource. This will send images back to the Dashboard
-			cs::CvSource outputStream =
-					CameraServer::GetInstance()->PutVideo(
-							"Rectangle", 640, 480);
-
-			// Mats are very memory expensive. Lets reuse this Mat.
-			cv::Mat mat;
-
-			while (true) {
-				// Tell the CvSink to grab a frame from the camera and
-				// put it
-				// in the source mat.  If there is an error notify the
-				// output.
-				if (cvSink.GrabFrame(mat) == 0) {
-					// Send the output the error.
-					outputStream.NotifyError(cvSink.GetError());
-					// skip the rest of the current iteration
-					continue;
-				}
-				// Put a rectangle on the image
-				rectangle(mat, cv::Point(100, 100), cv::Point(400, 400),
-						cv::Scalar(255, 255, 255), 5);
-				// Give the output stream a new image to display
-				outputStream.PutFrame(mat);
-			}
-		}
 };
 
 START_ROBOT_CLASS(Robot)
