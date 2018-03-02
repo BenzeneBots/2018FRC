@@ -10,7 +10,7 @@
 #include <Talon.h>
 #include <Subsystems/Intake.h>
 #define INTAKE_SPEED 0.9
-#define OUTTAKE_SPEED 0.5
+#define OUTTAKE_SPEED 0.9
 
 
 Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, int anglePort2) {

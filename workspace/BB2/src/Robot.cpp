@@ -28,8 +28,8 @@
 #include <Auton/Auton.h>
 
 #define ELEVATOR_BOTTOM_HEIGHT -1200
-#define ELEVATOR_SWITCH_HEIGHT 4500	//TODO untested
-#define ELEVATOR_SCALE_HEIGHT 14000 //untested
+#define ELEVATOR_SWITCH_HEIGHT 3500	//TODO untested
+#define ELEVATOR_SCALE_HEIGHT 13200 //untested
 
 #define TURN_FACTOR 0.5
 #define DRIVE_SPEED_FACTOR 1.0
@@ -43,36 +43,37 @@
 #define CL_ZEROA 130.0
 
 //Auton Center Distances
-#define C1_ONEC 32.0
-#define C2_ONEC 45.0
-#define C3_ONEC 70.0
+#define C1_ONEC 24.95
+#define C2_ONEC 81.98
+#define C3_ONEC 60.17
 
 //Auton Center Angles
-#define T1_ONEC 90.0
-#define T2_ONEC 90.0
+#define T1_ONEC 45.0
+#define T2_ONEC 45.0
 
 //Auton Sides Switch Distances
-#define C1_SWITCH_ONES 144.0
-#define C2_SWITCH_ONES 12.0
+#define C1_SWITCH_ONES 166.57
+#define C2_SWITCH_ONES 30.11
 
 //Auton Sides Switch Angle
 #define T1_SWITCH_ONES 90.0
 
 //Auton Sides Scale Distances
-#define C1_SCALE_ONES 240.0
-#define C2_SCALE_ONES 12.0
+#define C1_SCALE_ONES 322.13
+#define C2_SCALE_ONES 116.88
 
 //Auton Sides Scale Angle
 #define T1_SCALE_ONES 90.0
 
 //Auton Sides Far Cube Scale Distances
-#define C1_ZEROS 180.0
-#define C2_ZEROS 72.0
-#define C3_ZEROS 24.0
+#define C1_ZEROS 234.08
+#define C2_ZEROS 186.38
+#define C3_ZEROS 63.11
 
 //Auton Sides Far Cube Scale Angle
 #define T1_ZEROS 90.0
 #define T2_ZEROS 90.0
+#define T3_ZEROS 30.0
 
 class Robot : public frc::TimedRobot {
 public:
@@ -151,7 +152,7 @@ public:
 	OneS statusOneS = c1_OneS;
 
 	//AutonSidesBothAreOnOppositeSide
-	enum ZeroS {c1_ZeroS,t1_ZeroS,c2_ZeroS,t2_ZeroS,c3_ZeroS,e1_ZeroS,m1_ZeroS,d1_ZeroS,o1_ZeroS,s1_ZeroS,e2_ZeroS,m2_ZeroS,fin_ZeroS};
+	enum ZeroS {c1_ZeroS,t1_ZeroS,c2_ZeroS,t2_ZeroS,c3_ZeroS,t3_ZeroS,e1_ZeroS,m1_ZeroS,d1_ZeroS,o1_ZeroS,s1_ZeroS,e2_ZeroS,m2_ZeroS,fin_ZeroS};
 	ZeroS statusZeroS = c1_ZeroS;
 
 
@@ -183,7 +184,7 @@ public:
 		robotDrive = new Drive(2,1,4,3,0); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 0
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		robotIntake = new Intake(0,1,0,1,2);		//Intake uses PWM 0 and 1, and PCM ports 0, 1, and 2
-		robotClimber = new Climber(2);
+		robotClimber = new Climber(8);			//climber uses PWM 2
 
 
 		//initialize sensors
@@ -789,10 +790,18 @@ public:
 						//drive
 						case c3_ZeroS:
 							if(AutonDriveStraight(C3_ZEROS, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusZeroS = t3_ZeroS;
+							}
+							break;
+
+						//turn
+						case t3_ZeroS:
+							if(AutonTurnLeft(T3_ZEROS, robotDrive, startYaw)){
 								startYaw = robotDrive->GetYaw(); statusZeroS = e1_ZeroS;
 							}
 							break;
-							//set elevator target to Scale position
+
+						//set elevator target to Scale position
 						case e1_ZeroS:
 							if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
 								startYaw = robotDrive->GetYaw(); statusZeroS = m1_ZeroS;
@@ -1117,10 +1126,18 @@ public:
 						//drive
 						case c3_ZeroS:
 							if(AutonDriveStraight(C3_ZEROS, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusZeroS =t3_ZeroS;
+							}
+							break;
+
+						//turn
+						case t3_ZeroS:
+							if(AutonTurnRight(T3_ZEROS, robotDrive, startYaw)){
 								startYaw = robotDrive->GetYaw(); statusZeroS = e1_ZeroS;
 							}
 							break;
-							//set elevator target to Scale position
+
+						//set elevator target to Scale position
 						case e1_ZeroS:
 							if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
 								startYaw = robotDrive->GetYaw(); statusZeroS = m1_ZeroS;
@@ -1232,6 +1249,8 @@ public:
 		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
 		robotDrive->SetCoastMode();
+
+
 	}
 
 	void TeleopPeriodic() {
@@ -1311,17 +1330,20 @@ public:
 			wasSwitchPressed = false;
 		}
 		//Raises elevator to presets
-		if(manipStick->GetRawButton(7)||manipStick->GetRawButton(8)){//top button = switch
+		if(manipStick->GetRawButton(7)){//top button = switch
 			robotElevator->SetElevatorTarget(ELEVATOR_SCALE_HEIGHT);
 		}
-		else if(manipStick->GetRawButton(9)||manipStick->GetRawButton(10)){
+		else if(manipStick->GetRawButton(9)){
 			robotElevator->SetElevatorTarget(ELEVATOR_SWITCH_HEIGHT);
 		}
-		else if(manipStick->GetRawButton(11) || manipStick->GetRawButton(12)){
+		else if(manipStick->GetRawButton(11)){
 			robotElevator->SetElevatorTarget(ELEVATOR_BOTTOM_HEIGHT);
 		}
 		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1));//updates elevator positions based on targets and joysticks
 
+		if(manipStick->GetRawButton(8) || manipStick->GetRawButton(10) || manipStick->GetRawButton(12)){
+			robotElevator->SetJoystickControl();
+		}
 		//runs intake
 
 
@@ -1355,10 +1377,12 @@ public:
 		}
 
 		//runs climber
-		if(manipStick->GetRawAxis(3) < 0.25){
+		if(manipStick->GetRawButton(12)){
 			robotClimber->SpoolClimber(true);
 		}
-		else robotClimber->SpoolClimber(false);
+		else{
+		robotClimber->SpoolClimber(false);
+		}
 
 
 

@@ -16,7 +16,7 @@
 #define SET_POINT_SWITCH 3467
 #define SET_POINT_SCALE 72
 
-#define ELEVATOR_RISING_SPEED 0.95
+#define ELEVATOR_RISING_SPEED 0.8
 #define ELEVATOR_LOWERING_SPEED 0.5
 #define MAX_ELEVATOR_HEIGHT 14000 //15000
 #define MIN_ELEVATOR_HEIGHT -1750 //1650
@@ -110,6 +110,8 @@ bool Elevator::MoveElevator(double joystickVal){
 
 	return false;
 
+}
 
-
+void Elevator::SetJoystickControl(){
+	elevatorState = joystick;
 }
