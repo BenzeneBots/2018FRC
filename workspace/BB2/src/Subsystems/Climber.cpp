@@ -7,8 +7,9 @@
 
 #include <Subsystems/Climber.h>
 #include <WPILib.h>
+#include <ctre/Phoenix.h>
 
-#define CLIMBER_SPEED 0.7
+#define CLIMBER_SPEED 0.45
 
 
 Climber::Climber(int motorChannel) {
@@ -22,5 +23,7 @@ void Climber::SpoolClimber(bool state){
 	if(state) Climber::climberMotor->Set(CLIMBER_SPEED);
 	else Climber::climberMotor->Set(0);
 	//}
-
+}
+void Climber::RunClimber(){
+	Climber::climberMotor->Set(0.5);
 }

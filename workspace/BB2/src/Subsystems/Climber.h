@@ -14,6 +14,7 @@ class Climber {
 public:
 	Climber(int);
 	void SpoolClimber(bool);
+	void RunClimber();
 
 private:
 	Victor *climberMotor;

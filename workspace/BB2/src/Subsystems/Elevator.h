@@ -21,6 +21,7 @@ public:
 	void SetToOutput(double);
 	bool SetElevatorTarget(double);
 	bool MoveElevator(double);
+	void SetJoystickControl();
 
 private:
 	TalonSRX *elevatorMotor;
