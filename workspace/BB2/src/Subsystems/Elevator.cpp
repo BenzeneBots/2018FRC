@@ -35,6 +35,8 @@ Elevator::Elevator(int elevatorPort) {
 	elevatorMotor->ConfigForwardSoftLimitEnable(true,10);
 	elevatorMotor->ConfigReverseSoftLimitEnable(true,10);
 
+	elevatorMotor->ConfigOpenloopRamp(48.0, 0.0);
+
 	elevatorState = joystick;
 	elevatorTargetPos = 0;
 

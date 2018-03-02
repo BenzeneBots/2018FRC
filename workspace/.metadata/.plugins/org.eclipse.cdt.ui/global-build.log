@@ -6445,3 +6445,82 @@ arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/inc
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+19:25:51 **** Rebuild of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+19:26:19 **** Rebuild of configuration Debug for project Axis Camera Sample ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\Axis Camera Sample\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+19:26:29 **** Rebuild of configuration Debug for project BB1 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB1\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/user/cpp/lib" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Robot.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+c:/frc/bin/../../frc/usr/lib/crt1.o: In function `_start':
+/usr/src/debug/glibc/2.23-r0/git/csu/../sysdeps/arm/start.S:119: undefined reference to `main'
+collect2.exe: error: ld returned 1 exit status
+Info: Nothing to build for BB2
+08:22:31 **** Rebuild of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In constructor 'Elevator::Elevator(int)':
+..\src\Subsystems\Elevator.cpp:38:17: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetVoltageRampRate'
+  elevatorMotor->SetVoltageRampRate(48);
+                 ^
+08:25:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In constructor 'Elevator::Elevator(int)':
+..\src\Subsystems\Elevator.cpp:38:17: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'SetOpenLoopRamp'
+  elevatorMotor->SetOpenLoopRamp(48);
+                 ^
+08:25:41 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In constructor 'Elevator::Elevator(int)':
+..\src\Subsystems\Elevator.cpp:38:17: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'ConfigOpenLoopRamp'
+  elevatorMotor->ConfigOpenLoopRamp(48);
+                 ^
+08:25:47 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In constructor 'Elevator::Elevator(int)':
+..\src\Subsystems\Elevator.cpp:38:17: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'configOpenLoopRamp'
+  elevatorMotor->configOpenLoopRamp(48);
+                 ^
+08:26:03 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In constructor 'Elevator::Elevator(int)':
+..\src\Subsystems\Elevator.cpp:38:17: error: 'class ctre::phoenix::motorcontrol::can::TalonSRX' has no member named 'configOpenloopRamp'
+  elevatorMotor->configOpenloopRamp(48);
+                 ^
+08:26:11 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+..\src\Subsystems\Elevator.cpp: In constructor 'Elevator::Elevator(int)':
+..\src\Subsystems\Elevator.cpp:38:38: error: no matching function for call to 'ctre::phoenix::motorcontrol::can::TalonSRX::ConfigOpenloopRamp(int)'
+  elevatorMotor->ConfigOpenloopRamp(48);
+                                      ^
+In file included from C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/TalonSRX.h:3:0,
+                 from C:\Users\Murali/wpilib/user/cpp/include/ctre/Phoenix.h:9,
+                 from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Subsystems/Elevator.h:12,
+                 from ..\src\Subsystems\Elevator.cpp:8:
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:74:35: note: candidate: virtual ctre::phoenix::ErrorCode ctre::phoenix::motorcontrol::can::BaseMotorController::ConfigOpenloopRamp(double, int)
+  virtual ctre::phoenix::ErrorCode ConfigOpenloopRamp(double secondsFromNeutralToFull,
+                                   ^
+C:\Users\Murali/wpilib/user/cpp/include/ctre/phoenix/MotorControl/CAN/BaseMotorController.h:74:35: note:   candidate expects 2 arguments, 1 provided
+08:26:19 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
