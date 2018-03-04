@@ -16,8 +16,8 @@
 #define SET_POINT_SWITCH 3467
 #define SET_POINT_SCALE 72
 
-#define ELEVATOR_RISING_SPEED 1.0
-#define ELEVATOR_LOWERING_SPEED 0.5
+#define ELEVATOR_RISING_SPEED .67
+#define ELEVATOR_LOWERING_SPEED 0.3
 #define MAX_ELEVATOR_HEIGHT 14000 //15000
 #define MIN_ELEVATOR_HEIGHT -1750 //1650
 
@@ -49,8 +49,14 @@ void Elevator::SetToOutput(double elevatorSpeed){
 	if(((elevatorPos > MAX_ELEVATOR_HEIGHT) && (elevatorSpeed < 0)) ||
 			((elevatorPos < MIN_ELEVATOR_HEIGHT) && elevatorSpeed > 0) ||
 			(((elevatorPos > MIN_ELEVATOR_HEIGHT)) && (elevatorPos < MAX_ELEVATOR_HEIGHT))){
-		elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
 
+		if(elevatorSpeed >= 0){
+			elevatorMotor->Set(ControlMode::PercentOutput,elevatorSpeed);
+
+		}
+		else{
+			elevatorMotor->Set(ControlMode::PercentOutput,0.6 * elevatorSpeed);
+		}
 	}
 }
 

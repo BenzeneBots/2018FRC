@@ -9,7 +9,7 @@
 #include <ctre/Phoenix.h>
 #include <Talon.h>
 #include <Subsystems/Intake.h>
-#define INTAKE_SPEED 0.9
+#define INTAKE_SPEED 1.0
 #define OUTTAKE_SPEED 0.9
 
 

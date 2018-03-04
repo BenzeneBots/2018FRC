@@ -1,15 +1,19 @@
 /*
  * Drive.cpp
  *
- *  Created on: Feb 26, 2018
- *      Author: Sanket Nayak
+ *  Created on: Jan 28, 2018
+ *      Author: Murali
  */
 
+#include <Drive.h>
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
-#include <Drive.h>
+#include <Math.h>
+
 
 Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort) {
+
+    // Create all drive motors
 
 	//talon code
 	frontLeft = new WPI_TalonSRX(frontLeftPort);
@@ -22,6 +26,14 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 
 	drivetrain = new DifferentialDrive(*frontLeft, *frontRight);
 }
+
+void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
+	drivetrain->ArcadeDrive(speed, turn, false);
+}
+
 void Drive::TankDrive(double left, double right){
 	drivetrain->TankDrive(left, right, false);
 }
+
+
+//*/
