@@ -12,6 +12,10 @@ AutoCommand::AutoCommand() {
 	timeout = -1;
 }
 
+AutoCommand::~AutoCommand(){
+	delete timer;
+}
+
 void AutoCommand::Initialize(){
 	timer->Start();
 }

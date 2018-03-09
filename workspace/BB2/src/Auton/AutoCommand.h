@@ -12,12 +12,13 @@
 
 class AutoCommand {
 public:
-	AutoCommand();
+	AutoCommand();				//constructor
+	virtual ~AutoCommand();		//destructor
 
-	virtual void Initialize() = 0;	//called first time command runs; used to set one-time things like targets
-	virtual bool Run() = 0;			//the main function of the command; returns true when its finished
-	void SetTimeout(double);				//used to set a timeout for this Command
-	bool IsTimeoutExpired();		//if a timeout is set, checks if it is expired yet
+	virtual void Initialize();	//called first time command runs; should be used to set one-time things like targets
+	virtual bool Run() = 0;		//the main function of the command; returns true when its finished
+	void SetTimeout(double);	//used to set a timeout for this Command
+	bool IsTimeoutExpired();	//if a timeout is set, checks if it is expired yet
 
 protected:
 	double timeout;
