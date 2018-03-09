@@ -15,21 +15,22 @@
 #include <Subsystems/Intake.h>
 
 
-
-bool AutonDriveStraight(double, Drive*,double);
-bool AutonTurnRight(double, Drive*,double);
-bool AutonTurnLeft(double, Drive*,double);
-bool AutonSetHeight(double,Elevator*);
-bool AutonMoveToHeight(Elevator*);
-bool AutonIntake(Intake*);
-bool AutonOuttake(Intake*);
-bool AutonStopIntake(Intake*);
-bool AutonDeployIntake(Intake*);
-bool AutonStowIntake(Intake*);
-bool AutonScoreSwitch(Elevator*, Intake*);
-bool AutonScoreSwitchInit();
-
-
-
+class Auton {
+public:
+	Auton(Drive*,Elevator*,Intake*);
+	bool AutonDriveStraight(double, Drive*,double);
+	bool AutonTurnRight(double, Drive*,double);
+	bool AutonTurnLeft(double, Drive*,double);
+	bool AutonSetHeight(double,Elevator*);
+	bool AutonMoveToHeight(Elevator*);
+	bool AutonIntake(Intake*);
+	bool AutonOuttake(Intake*);
+	bool AutonStopIntake(Intake*);
+	bool AutonDeployIntake(Intake*);
+	bool AutonStowIntake(Intake*);
+	bool AutonScoreSwitch(Elevator*, Intake*);
+	bool AutonScoreSwitchInit();
+private:
+};
 
 #endif /* SRC_AUTON_AUTON_H_ */
