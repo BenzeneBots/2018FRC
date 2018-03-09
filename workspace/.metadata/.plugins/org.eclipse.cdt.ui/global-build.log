@@ -7177,3 +7177,250 @@ arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/l
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\Auton.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
 Info: Nothing to build for BB2
+19:54:03 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutoCommand.o" "..\\src\\Auton\\AutoCommand.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+In file included from ..\src\Auton\SequentialCommand.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/SequentialCommand.h:17:7: error: conflicting return type specified for 'virtual void SequentialCommand::Run()'
+  void Run();
+       ^
+In file included from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/SequentialCommand.h:11:0,
+                 from ..\src\Auton\SequentialCommand.cpp:8:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutoCommand.h:18:15: error:   overriding 'virtual bool AutoCommand::Run()'
+  virtual bool Run() = 0;   //the main function of the command; returns true when its finished
+               ^
+..\src\Auton\SequentialCommand.cpp: In constructor 'SequentialCommand::SequentialCommand(int, ...)':
+..\src\Auton\SequentialCommand.cpp:15:26: error: 'va_start' was not declared in this scope
+  va_start(varsList, dummy);
+                          ^
+19:55:02 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Climber.o" "..\\src\\Subsystems\\Climber.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+In file included from ..\src\Auton\SequentialCommand.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/SequentialCommand.h:17:7: error: conflicting return type specified for 'virtual void SequentialCommand::Run()'
+  void Run();
+       ^
+In file included from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/SequentialCommand.h:11:0,
+                 from ..\src\Auton\SequentialCommand.cpp:8:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutoCommand.h:18:15: error:   overriding 'virtual bool AutoCommand::Run()'
+  virtual bool Run();   //the main function of the command; returns true when its finished
+               ^
+..\src\Auton\SequentialCommand.cpp: In constructor 'SequentialCommand::SequentialCommand(int, ...)':
+..\src\Auton\SequentialCommand.cpp:15:26: error: 'va_start' was not declared in this scope
+  va_start(varsList, dummy);
+                          ^
+19:58:36 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutoCommand.o" "..\\src\\Auton\\AutoCommand.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+In file included from ..\src\Auton\SequentialCommand.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/SequentialCommand.h:17:7: error: conflicting return type specified for 'virtual void SequentialCommand::Run()'
+  void Run();
+       ^
+In file included from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/SequentialCommand.h:11:0,
+                 from ..\src\Auton\SequentialCommand.cpp:8:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutoCommand.h:18:15: error:   overriding 'virtual bool AutoCommand::Run()'
+  virtual bool Run() = 0;   //the main function of the command; returns true when its finished
+               ^
+..\src\Auton\SequentialCommand.cpp: In constructor 'SequentialCommand::SequentialCommand(int, ...)':
+..\src\Auton\SequentialCommand.cpp:15:26: error: 'va_start' was not declared in this scope
+  va_start(varsList, dummy);
+                          ^
+20:02:17 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+..\src\Auton\SequentialCommand.cpp: In constructor 'SequentialCommand::SequentialCommand(int, ...)':
+..\src\Auton\SequentialCommand.cpp:15:26: error: 'va_start' was not declared in this scope
+  va_start(varsList, dummy);
+                          ^
+20:04:33 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\SequentialCommand.o: In function `SequentialCommand::SequentialCommand(int, ...)':
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src\Auton/SequentialCommand.cpp:17: undefined reference to `vtable for SequentialCommand'
+collect2.exe: error: ld returned 1 exit status
+20:05:00 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\SequentialCommand.o: In function `SequentialCommand::SequentialCommand(int, ...)':
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src\Auton/SequentialCommand.cpp:18: undefined reference to `vtable for SequentialCommand'
+collect2.exe: error: ld returned 1 exit status
+20:08:16 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\SequentialCommand.o: In function `SequentialCommand::SequentialCommand(int, ...)':
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src\Auton/SequentialCommand.cpp:18: undefined reference to `vtable for SequentialCommand'
+collect2.exe: error: ld returned 1 exit status
+20:16:09 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\SequentialCommand.o: In function `SequentialCommand::SequentialCommand(int, ...)':
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src\Auton/SequentialCommand.cpp:18: undefined reference to `vtable for SequentialCommand'
+collect2.exe: error: ld returned 1 exit status
+20:16:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\SequentialCommand.o: In function `SequentialCommand::SequentialCommand(int, ...)':
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src\Auton/SequentialCommand.cpp:18: undefined reference to `vtable for SequentialCommand'
+collect2.exe: error: ld returned 1 exit status
+20:16:47 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+..\src\Auton\SequentialCommand.cpp:8:36: fatal error: auto/SequentialCommand.h: No such file or directory
+compilation terminated.
+20:17:11 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+..\src\Auton\SequentialCommand.cpp:8:36: fatal error: Auto/SequentialCommand.h: No such file or directory
+compilation terminated.
+20:17:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+..\src\Auton\SequentialCommand.cpp: In constructor 'SequentialCommand::SequentialCommand(int, ...)':
+..\src\Auton\SequentialCommand.cpp:19:5: error: 'commands_' was not declared in this scope
+     commands_.push_back(command);
+     ^
+..\src\Auton\SequentialCommand.cpp:23:3: error: 'commandIndex_' was not declared in this scope
+   commandIndex_ = 0;
+   ^
+..\src\Auton\SequentialCommand.cpp: In destructor 'virtual SequentialCommand::~SequentialCommand()':
+..\src\Auton\SequentialCommand.cpp:27:55: error: 'commands_' was not declared in this scope
+   for (std::vector<AutoCommand*>::const_iterator it = commands_.begin(); it < commands_.end(); ++it) {
+                                                       ^
+..\src\Auton\SequentialCommand.cpp:28:13: warning: deleting object of abstract class type 'AutoCommand' which has non-virtual destructor will cause undefined behaviour [-Wdelete-non-virtual-dtor]
+     delete *it;
+             ^
+..\src\Auton\SequentialCommand.cpp: In member function 'virtual void SequentialCommand::Initialize()':
+..\src\Auton\SequentialCommand.cpp:35:7: error: 'commands_' was not declared in this scope
+   if (commands_.size()>0) {
+       ^
+..\src\Auton\SequentialCommand.cpp: In member function 'virtual bool SequentialCommand::Run()':
+..\src\Auton\SequentialCommand.cpp:42:7: error: 'commandIndex_' was not declared in this scope
+   if (commandIndex_ == (int)commands_.size()) {
+       ^
+..\src\Auton\SequentialCommand.cpp:42:29: error: 'commands_' was not declared in this scope
+   if (commandIndex_ == (int)commands_.size()) {
+                             ^
+..\src\Auton\SequentialCommand.cpp: In member function 'void SequentialCommand::AddCommand(AutoCommand*)':
+..\src\Auton\SequentialCommand.cpp:59:3: error: 'commands_' was not declared in this scope
+   commands_.push_back(command);
+   ^
+20:18:12 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+..\src\Auton\SequentialCommand.cpp: In destructor 'virtual SequentialCommand::~SequentialCommand()':
+..\src\Auton\SequentialCommand.cpp:28:13: warning: deleting object of abstract class type 'AutoCommand' which has non-virtual destructor will cause undefined behaviour [-Wdelete-non-virtual-dtor]
+     delete *it;
+             ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+21:43:13 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutoCommand.o" "..\\src\\Auton\\AutoCommand.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\SequentialCommand.o: In function `SequentialCommand::~SequentialCommand()':
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src\Auton/SequentialCommand.cpp:26: undefined reference to `AutoCommand::~AutoCommand()'
+src\Auton\SequentialCommand.o: In function `SequentialCommand::SequentialCommand(int, ...)':
+c:\frc\arm-frc-linux-gnueabi\include\c++\5.5.0\ext/new_allocator.h:110: undefined reference to `AutoCommand::~AutoCommand()'
+collect2.exe: error: ld returned 1 exit status
+21:43:26 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutoCommand.o" "..\\src\\Auton\\AutoCommand.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\SequentialCommand.o: In function `SequentialCommand::~SequentialCommand()':
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src\Auton/SequentialCommand.cpp:26: undefined reference to `AutoCommand::~AutoCommand()'
+src\Auton\SequentialCommand.o: In function `SequentialCommand::SequentialCommand(int, ...)':
+c:\frc\arm-frc-linux-gnueabi\include\c++\5.5.0\ext/new_allocator.h:110: undefined reference to `AutoCommand::~AutoCommand()'
+collect2.exe: error: ld returned 1 exit status
+21:44:10 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutoCommand.o" "..\\src\\Auton\\AutoCommand.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+22:14:52 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutoCommand.o" "..\\src\\Auton\\AutoCommand.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
+22:20:31 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\Auton.o" "..\\src\\Auton\\Auton.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonDriveToDistance.o" "..\\src\\Auton\\AutonDriveToDistance.cpp" 
+..\src\Auton\AutonDriveToDistance.cpp:10:76: error: expected ',' or '...' before 'double'
+ AutonDriveToDistance::AutonDriveToDistance(Drive* drive, double targetDist double startYaw) {
+                                                                            ^
+..\src\Auton\AutonDriveToDistance.cpp:10:1: error: prototype for 'AutonDriveToDistance::AutonDriveToDistance(Drive*, double)' does not match any in class 'AutonDriveToDistance'
+ AutonDriveToDistance::AutonDriveToDistance(Drive* drive, double targetDist double startYaw) {
+ ^
+In file included from ..\src\Auton\AutonDriveToDistance.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonDriveToDistance.h:14:7: error: candidates are: constexpr AutonDriveToDistance::AutonDriveToDistance(const AutonDriveToDistance&)
+ class AutonDriveToDistance: public AutoCommand {
+       ^
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonDriveToDistance.h:16:2: error:                 AutonDriveToDistance::AutonDriveToDistance(Drive*, double, double)
+  AutonDriveToDistance(Drive*, double, double);
+  ^
+22:21:16 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Elevator.o" "..\\src\\Subsystems\\Elevator.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonDriveToDistance.o" "..\\src\\Auton\\AutonDriveToDistance.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Intake.o" "..\\src\\Subsystems\\Intake.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\AutonDriveToDistance.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+22:28:32 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonMoveElevatorToHeight.o" "..\\src\\Auton\\AutonMoveElevatorToHeight.cpp" 
+In file included from ..\src\Auton\AutonMoveElevatorToHeight.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonMoveElevatorToHeight.h:20:12: error: expected ';' at end of member declaration
+  Elevator *robotElevator
+            ^
+..\src\Auton\AutonMoveElevatorToHeight.cpp:19:44: error: no 'void AutonMoveElevatorToHeight::Initialize()' member function declared in class 'AutonMoveElevatorToHeight'
+ void AutonMoveElevatorToHeight::Initialize(){
+                                            ^
+22:29:25 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonMoveElevatorToHeight.o" "..\\src\\Auton\\AutonMoveElevatorToHeight.cpp" 
+In file included from ..\src\Auton\AutonMoveElevatorToHeight.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonMoveElevatorToHeight.h:23:12: error: expected ';' at end of member declaration
+  Elevator *robotElevator
+            ^
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonMoveElevatorToHeight.h:20:7: error: conflicting return type specified for 'virtual void AutonMoveElevatorToHeight::Run()'
+  void Run();
+       ^
+In file included from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonMoveElevatorToHeight.h:11:0,
+                 from ..\src\Auton\AutonMoveElevatorToHeight.cpp:8:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutoCommand.h:19:15: error:   overriding 'virtual bool AutoCommand::Run()'
+  virtual bool Run() = 0;  //the main function of the command; returns true when its finished
+               ^
+22:30:08 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonMoveElevatorToHeight.o" "..\\src\\Auton\\AutonMoveElevatorToHeight.cpp" 
+In file included from ..\src\Auton\AutonMoveElevatorToHeight.cpp:8:0:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonMoveElevatorToHeight.h:20:7: error: conflicting return type specified for 'virtual void AutonMoveElevatorToHeight::Run()'
+  void Run();
+       ^
+In file included from C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutonMoveElevatorToHeight.h:11:0,
+                 from ..\src\Auton\AutonMoveElevatorToHeight.cpp:8:
+C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\src/Auton/AutoCommand.h:19:15: error:   overriding 'virtual bool AutoCommand::Run()'
+  virtual bool Run() = 0;  //the main function of the command; returns true when its finished
+               ^
+22:30:50 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonMoveElevatorToHeight.o" "..\\src\\Auton\\AutonMoveElevatorToHeight.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\AutonMoveElevatorToHeight.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+src\Auton\AutonMoveElevatorToHeight.o:(.rodata+0x14): undefined reference to `AutonMoveElevatorToHeight::Run()'
+collect2.exe: error: ld returned 1 exit status
+22:31:50 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonMoveElevatorToHeight.o" "..\\src\\Auton\\AutonMoveElevatorToHeight.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\Auton.o" "src\\Auton\\AutonMoveElevatorToHeight.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
