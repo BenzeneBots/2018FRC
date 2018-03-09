@@ -6,3 +6,4 @@ workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
 *.resources
 workspace/.metadata/.plugins/org.eclipse.cdt.core/.log
 workspace/.metadata/.log
+workspace/.metadata/.plugins/org.eclipse.cdt.core/.log
