@@ -42,8 +42,4 @@ private:
 	double NormalizeAngle(double);
 };
 
-class AutonDrive : public Drive {
-};
-
-
 #endif /* SRC_SUBSYSTEMS_DRIVE_H_ */

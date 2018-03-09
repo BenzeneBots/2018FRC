@@ -88,13 +88,16 @@ bool Elevator::SetElevatorTarget(double targetPosition){//TODO implement this
 }
 
 bool Elevator::MoveElevator(double joystickVal){
+
+	if(abs(joystickVal) > 0.1) elevatorState = joystick;
+
+
 	switch (elevatorState){
 	case increasing:
 		if(this->GetElevatorPosition() > elevatorTargetPos){
 			elevatorState = joystick;
 			return true;
 		}
-		if(abs(joystickVal) > 0.1) elevatorState = joystick;
 		elevatorMotor->Set(ControlMode::PercentOutput, ELEVATOR_RISING_SPEED);
 		break;
 	case decreasing:
@@ -103,7 +106,6 @@ bool Elevator::MoveElevator(double joystickVal){
 			elevatorState = joystick;
 			return true;
 		}
-		if(abs(joystickVal) > 0.1) elevatorState = joystick;
 		elevatorMotor->Set(ControlMode::PercentOutput, -1.0 * ELEVATOR_LOWERING_SPEED);
 		break;
 	case joystick:

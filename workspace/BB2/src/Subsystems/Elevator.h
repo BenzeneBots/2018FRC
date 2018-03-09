@@ -32,8 +32,4 @@ private:
 
 };
 
-class AutonElevator : public Elevator {
-
-};
-
 #endif /* SRC_SUBSYSTEMS_ELEVATOR_H_ */

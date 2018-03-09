@@ -33,8 +33,4 @@ private:
 	bool intakeDeployedStatus, clawOpenStatus;
 };
 
-class AutonIntake : public Intake {
-
-};
-
 #endif /* SRC_SUBSYSTEMS_INTAKE_H_ */
