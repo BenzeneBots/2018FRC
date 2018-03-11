@@ -36,6 +36,7 @@ AutonDriveStraight::~AutonDriveStraight() {
 }
 
 void AutonDriveStraight::Initialize(){
+	drive->ResetEncoders();
 	startYaw = drive->GetYaw();
 }
 

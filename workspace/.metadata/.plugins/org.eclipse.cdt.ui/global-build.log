@@ -7545,3 +7545,8 @@ C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src/Robot.cpp:12
 C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src/Robot.cpp:1210: undefined reference to `AutonMoveToHeight(Elevator*)'
 C:\Users\Murali\Documents\GitHub\2018FRC\workspace\BB2\Debug/..\src/Robot.cpp:1237: undefined reference to `AutonDriveStraight(double, Drive*, double)'
 collect2.exe: error: ld returned 1 exit status
+18:14:08 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\AutonDeployIntake.o" "src\\Auton\\AutonDriveStraight.o" "src\\Auton\\AutonIntake.o" "src\\Auton\\AutonMoveElevatorToHeight.o" "src\\Auton\\AutonOuttake.o" "src\\Auton\\AutonStowIntake.o" "src\\Auton\\AutonTurnLeft.o" "src\\Auton\\AutonTurnRight.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
+Info: Nothing to build for BB2
