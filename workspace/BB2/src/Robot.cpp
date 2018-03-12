@@ -263,19 +263,7 @@ public:
 			}
 
 			else if(m_autoSelected == Left1Cube){//if cube auton from left is selected
-				if(m_prioritySelected == "Switch"){//if priority is switch
-					if(gameData[0] == 'L'){//if switch is on left go for that
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
-								new AutonTurnRight(robotDrive, T1_SWITCH_ONES),
-								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
-								elevatorSwitchCommand);
-					}
-					else{//otherwise go for right switch
-						//TODO add right switch opposite auton
-					}
-				}
-				else{//if priority is scale
+				if(m_prioritySelected == "Scale"){//if priority is scale
 					if(gameData[1] == 'L'){//if scale is on left go for that
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
@@ -290,23 +278,24 @@ public:
 								new AutonDriveStraight(robotDrive, C2_ZEROS),
 								new AutonTurnLeft(robotDrive, T2_ZEROS));
 					}
+
+				}
+				else{//if priority is switch
+					if(gameData[0] == 'L'){//if switch is on left go for that
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
+								new AutonTurnRight(robotDrive, T1_SWITCH_ONES),
+								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
+								elevatorSwitchCommand);
+					}
+					else{//otherwise go for right switch
+						//TODO add right switch opposite auton
+					}
 				}
 			}
 
 			else if(m_autoSelected == Right1Cube){//if cube auton from right is selected
-				if(m_prioritySelected == "Switch"){//if priority is switch
-					if(gameData[0] == 'R'){//if switch is on right side, go for that
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
-								new AutonTurnLeft(robotDrive, T1_SWITCH_ONES),
-								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
-								elevatorSwitchCommand);
-					}
-					else{//otherwise go for left switch
-						//TODO add left switch opposite auton
-					}
-				}
-				else{//if priority is scale
+				if(m_prioritySelected == "Scale"){//if priority is scale
 					if(gameData[1] == 'R'){//go for same side scale
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
@@ -320,6 +309,19 @@ public:
 								new AutonTurnLeft(robotDrive, T1_ZEROS),
 								new AutonDriveStraight(robotDrive, C2_ZEROS),
 								new AutonTurnRight(robotDrive, T2_ZEROS));
+					}
+
+				}
+				else{//if priority is switch
+					if(gameData[0] == 'R'){//if switch is on right side, go for that
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
+								new AutonTurnLeft(robotDrive, T1_SWITCH_ONES),
+								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
+								elevatorSwitchCommand);
+					}
+					else{//otherwise go for left switch
+						//TODO add left switch opposite auton
 					}
 				}
 			}
