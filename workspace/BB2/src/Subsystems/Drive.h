@@ -20,11 +20,12 @@ public:
 	void ResetEncoders();
 	double GetRightEncoderValue();
 	double GetLeftEncoderValue();
-	double GetRightRate();
-	double GetLeftRate();
+	double GetRightVelocity();
+	double GetLeftVelocity();
 	double GetLeftEncoderDistance();
 	double GetRightEncoderDistance();
 	double GetAverageEncoderValue();
+	double GetAverageVelocity();
 	double GetAverageEncoderDistance();
 	void ResetYaw();
 	double GetYaw();

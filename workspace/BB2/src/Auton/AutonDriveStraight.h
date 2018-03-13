@@ -22,6 +22,7 @@ public:
 private:
 	Drive *drive;
 	double distance, startYaw;
+	Timer *frictionTimer;
 };
 
 #endif /* SRC_AUTON_AUTONDRIVESTRAIGHT_H_ */
