@@ -261,7 +261,7 @@ public:
 							elevatorSwitchCommand);
 				}
 			}
-
+<<<<<<< HEAD
 			frc::SmartDashboard::PutBoolean("Switch 1 Left", leftCloseSwitchDash);
 			frc::SmartDashboard::PutBoolean("Switch 1 Right", rightCloseSwitchDash);
 			frc::SmartDashboard::PutBoolean("Scale Left", leftScaleDash);
@@ -269,12 +269,223 @@ public:
 			frc::SmartDashboard::PutBoolean("Switch 2 Left", leftFarSwitchDash);
 			frc::SmartDashboard::PutBoolean("Switch 2 Right", rightFarSwitchDash);
 
+			/*
+			//printf("Current Yaw %f \n", robotDrive->GetYaw());
+			if (m_autoSelected == Center1Cube) {
+
+			//Following Code Runs if Center1Cube is the selected auton
+
+				if(gameData.length() > 0){
+
+				//Following Code Runs if the Robot is Recieving the Orientation of the Switches and Scale
+
+					if(gameData[0] == 'L')  {
+
+					//Following Code Runs if the Alliance Switch is on the Left
+
+						switch(statusOneC){
+
+						//drive
+						case c1_OneC:
+							if(AutonDriveStraight(C1_ONEC, robotDrive,0.0)){
+								startYaw = robotDrive->GetYaw(); statusOneC = t1_OneC;
+							}
+							break;
+
+						//turn
+						case t1_OneC:
+							if(AutonTurnLeft(T1_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = c2_OneC;
+							}
+							break;
+
+						//drive
+						case c2_OneC:
+							if(AutonDriveStraight(C2_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = t2_OneC;
+							}
+							break;
+
+						//turn
+						case t2_OneC:
+							printf("turn2 \n");
+							if(AutonTurnRight(T2_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = c3_OneC;
+							}
+							break;
+
+						//drive
+						case c3_OneC:
+							if(AutonDriveStraight(C3_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = e1_OneC;
+							}
+							break;
+
+						//set elevator target to switch
+						case e1_OneC:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneC = m1_OneC;
+							}
+							break;
+
+						//move elevator to elevator targer
+						case m1_OneC:
+							if(AutonMoveToHeight(robotElevator)){
+								robotElevator->SetToOutput(0.1);
+								startYaw = robotDrive->GetYaw(); statusOneC = d1_OneC;
+								//Initiates timer for deploying
+								initTimer->Reset();
+								initTimer->Start();
+							}
+							break;
+
+						//deploy intake
+						case d1_OneC:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneC = o1_OneC;
+							}
+							break;
+
+						//outtake
+						case o1_OneC:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneC = s1_OneC;
+							}
+							break;
+
+						//stow intake
+						case s1_OneC:
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+								startYaw = robotDrive->GetYaw(); statusOneC = e2_OneC;
+							}
+							break;
+
+						//set elevator target to bottom position
+						case e2_OneC:
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneC = m2_OneC;
+							}
+							break;
+
+						//move elevator to target height
+						case m2_OneC:
+							if(AutonMoveToHeight(robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneC = fin_OneC;
+							}
+							break;
+
+
+						//end auton
+						case fin_OneC:
+						//do nothing
+							break;
+						default:
+						//do nothing
+							break;
+						}
+=======
+
+			else if(m_autoSelected == Left1Cube){//if cube auton from left is selected
+				if(m_prioritySelected == "Scale"){//if priority is scale
+					if(gameData[1] == 'L'){//if scale is on left go for that
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
+								new AutonTurnRight(robotDrive, T1_SCALE_ONES),
+								new AutonDriveStraight(robotDrive, C2_SCALE_ONES),
+								elevatorScaleCommand);
+>>>>>>> 37976ad610a1a60fe360580bbb0946362e6ea93d
+					}
+					else{//otherwise go for right scale but don't drop cube
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_ZEROS),
+								new AutonTurnRight(robotDrive, T1_ZEROS),
+								new AutonDriveStraight(robotDrive, C2_ZEROS),
+								new AutonTurnLeft(robotDrive, T2_ZEROS));
+					}
+
+				}
+				else{//if priority is switch
+					if(gameData[0] == 'L'){//if switch is on left go for that
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
+								new AutonTurnRight(robotDrive, T1_SWITCH_ONES),
+								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
+								elevatorSwitchCommand);
+					}
+					else{//otherwise go for right switch
+						//TODO add right switch opposite auton
+					}
+				}
+			}
+
+			else if(m_autoSelected == Right1Cube){//if cube auton from right is selected
+				if(m_prioritySelected == "Scale"){//if priority is scale
+					if(gameData[1] == 'R'){//go for same side scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
+								new AutonTurnLeft(robotDrive, T1_SCALE_ONES),
+								new AutonDriveStraight(robotDrive, C2_SCALE_ONES),
+								elevatorScaleCommand);
+					}
+					else{//otherwise go for opposite scale but don't drop the cube
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_ZEROS),
+								new AutonTurnLeft(robotDrive, T1_ZEROS),
+								new AutonDriveStraight(robotDrive, C2_ZEROS),
+								new AutonTurnRight(robotDrive, T2_ZEROS));
+					}
+
+				}
+				else{//if priority is switch
+					if(gameData[0] == 'R'){//if switch is on right side, go for that
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
+								new AutonTurnLeft(robotDrive, T1_SWITCH_ONES),
+								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
+								elevatorSwitchCommand);
+					}
+					else{//otherwise go for left switch
+						//TODO add left switch opposite auton
+					}
+				}
+			}
+
+			else{//defaults to driveStraight/crossLine auton
+				mainAutoCommand = AUTO_SEQUENTIAL(
+						new AutonDriveStraight(robotDrive, CL_ZEROA));
+			}
 		}
-	}
-	void AutonomousPeriodic() {
-		if(mainAutoCommand){mainAutoCommand->Run();}
+		else {//if the game data doesn't exist for some reason default to crossing the line
+			mainAutoCommand = AUTO_SEQUENTIAL(
+					new AutonDriveStraight(robotDrive, CL_ZEROA));
+		}
+
+		if(mainAutoCommand) mainAutoCommand->Initialize();
+
+
+
 	}
 
+<<<<<<< HEAD
+				}
+			} */
+		}
+=======
+	void AutonomousPeriodic() {
+		if(mainAutoCommand) mainAutoCommand->Run();
+	}
+>>>>>>> 37976ad610a1a60fe360580bbb0946362e6ea93d
 
 	void TeleopInit() {
 		//Initialize all the joysticks

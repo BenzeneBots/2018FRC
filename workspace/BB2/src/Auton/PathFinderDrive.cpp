@@ -23,7 +23,7 @@ PathFinderDrive::PathFinderDrive(Drive* robotDrive) {
 	TrajectoryCandidate candidate;
 	pathfinder_prepare(points, POINT_LENGTH, FIT_HERMITE_CUBIC, PATHFINDER_SAMPLES_HIGH, 0.001, 15.0, 10.0, 60.0, &candidate);
 
-	/*int length = candidate.length;
+	int length = candidate.length;
 	Segment *trajectory = malloc(length * sizeof(Segment));
 
 	pathfinder_generate(&candidate, trajectory);
@@ -57,6 +57,5 @@ PathFinderDrive::PathFinderDrive(Drive* robotDrive) {
 	robotDrive->TankDrive((l + turn), (r - turn));
 
 	free(trajectory);
-	*/
 }
 
