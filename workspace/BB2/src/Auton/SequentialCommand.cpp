@@ -37,16 +37,18 @@ void SequentialCommand::Initialize() {
 }
 
 bool SequentialCommand::Run() {
-  if (commandIndex == (int)commandsList.size()) {// If all the commands are done, the SequentialCommand is done
-    return true;
-  } else if (commandsList[commandIndex]->Run()) {//If the current command has finished, move on to the next one and adjust the index
-    commandIndex++;
-    if (commandIndex == (int)commandsList.size()) {// if there are no more commands, the SequentialCommand is done
-      return true;
-    } else {//otherwise initializes the next command
-      commandsList[commandIndex]->Initialize();
-    }
-  }
+	if (commandIndex == (int)commandsList.size()) {// If all the commands are done, the SequentialCommand is done
+		return true;
+	}
+	else if (commandsList[commandIndex]->Run()) {//If the current command has finished, move on to the next one and adjust the index
+		commandIndex++;
+		if (commandIndex == (int)commandsList.size()) {// if there are no more commands, the SequentialCommand is done
+			return true;
+		}
+		else {//otherwise initializes the next command
+			commandsList[commandIndex]->Initialize();
+		}
+	  }
 
   // If nothing above returned, it means that the current command isn't finished yet
   return false;
