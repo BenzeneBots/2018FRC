@@ -40,7 +40,7 @@ void PathFinder() {
 	//                      PATHFINDER_SAMPLES_LOW  (10 000)
 	//                      PATHFINDER_SAMPLES_FAST (1 000)
 	// Time Step:           0.001 Seconds
-	// Max Velocity:        15 m/s
+	// Max Velocity:        15 m
 	// Max Acceleration:    10 m/s/s
 	// Max Jerk:            60 m/s/s/s
 	pathfinder_prepare(points, POINT_LENGTH, FIT_HERMITE_CUBIC, PATHFINDER_SAMPLES_HIGH, 0.001, 15.0, 10.0, 60.0, &candidate);
