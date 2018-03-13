@@ -20,7 +20,7 @@ public:
 	bool Run();
 
 private:
-	Elevator *elevator;
+	Elevator *robotElevator;
 	double targetHeight;
 };
 

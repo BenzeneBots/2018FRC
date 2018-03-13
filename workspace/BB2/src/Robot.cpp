@@ -25,19 +25,7 @@
 #include <Subsystems/Drive.h>
 #include <Subsystems/Elevator.h>
 #include <Subsystems/Climber.h>
-
-//include all autons
-#include <Auton/AutoCommand.h>
-#include <Auton/AutonDeployIntake.h>
-#include <Auton/SequentialCommand.h>
-#include <Auton/AutonDriveStraight.h>
-#include <Auton/AutonIntake.h>
-#include <Auton/AutonMoveElevatorToHeight.h>
-#include <Auton/AutonOuttake.h>
-#include <Auton/AutonStowIntake.h>
-#include <Auton/AutonTurnLeft.h>
-#include <Auton/AutonTurnRight.h>
-
+#include <Auton/Auton.h>
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
 #define ELEVATOR_SWITCH_HEIGHT 5500	//TODO untested
@@ -50,33 +38,6 @@
 #define TURN_SCALE 1.1
 
 //TODO Find all the following distances/angles
-
-/* Auton Naming Rules:
-	 * c = constant speed forward driving
-	 * t = turn
-	 * e = set elevator target
-	 * m = move elevator
-	 * o = outtake
-	 * d = deploy
-	 * i = intake
-	 * s = stow
-	 * fin = finish
-	 *
-	 * Zero = No-Cube
-	 * One = One-Cube
-	 * Two = Two-Cube
-	 *
-	 * A = Drive from any position
-	 * C = Center
-	 * S = Sides
-	 *
-	 * # - number of times mentioned in enum
-	 *
-	 *
-	 *
-	 * Example:
-	 * c1_OneC = first time driving forward on One-cube Center Auton
-	 */
 
 //Auton Drive Straight Distance
 #define CL_ZEROA 170.0
@@ -147,12 +108,54 @@ public:
 	int secondPriority;
 	double matchTime;
 
-	SequentialCommand* mainAutoCommand = NULL;
-	SequentialCommand* elevatorSwitchCommand;
-	SequentialCommand* elevatorScaleCommand;
+	Timer *initTimer = new Timer();
 
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
+
+
+	/* Auton Naming Rules:
+	 * c = constant speed forward driving
+	 * t = turn
+	 * e = set elevator target
+	 * m = move elevator
+	 * o = outtake
+	 * d = deploy
+	 * i = intake
+	 * s = stow
+	 * fin = fin_ZeroA
+	 *
+	 * Zero = No-Cube
+	 * One = One-Cube
+	 * Two = Two-Cube
+	 *
+	 * A = Drive from any position
+	 * C = Center
+	 * S = Sides
+	 *
+	 * # - number of times mentioned in enum
+	 *
+	 *
+	 *
+	 * Example:
+	 * c1_OneC = first time driving forward on One-cube Center Auton
+	 */
+
+	//AutonDriveStraight
+	enum ZeroA {c1_ZeroA, fin_ZeroA};
+	ZeroA statusZeroA = c1_ZeroA;
+
+	//AutonCenter
+	enum OneC {c1_OneC,t1_OneC,c2_OneC,t2_OneC,c3_OneC,e1_OneC,m1_OneC,d1_OneC,o1_OneC,s1_OneC,e2_OneC,m2_OneC,fin_OneC};
+	OneC statusOneC = c1_OneC;
+
+	//AutonSidesSwitchOrScale
+	enum OneS {c1_OneS,t1_OneS,c2_OneS,e1_OneS,m1_OneS,d1_OneS,o1_OneS,s1_OneS,e2_OneS,m2_OneS,fin_OneS};
+	OneS statusOneS = c1_OneS;
+
+	//AutonSidesBothAreOnOppositeSide
+	enum ZeroS {c1_ZeroS,t1_ZeroS,c2_ZeroS,t2_ZeroS,c3_ZeroS,t3_ZeroS,e1_ZeroS,m1_ZeroS,d1_ZeroS,o1_ZeroS,s1_ZeroS,e2_ZeroS,m2_ZeroS,fin_ZeroS};
+	ZeroS statusZeroS = c1_ZeroS;
 
 
 	void RobotInit() {
@@ -211,7 +214,17 @@ public:
 			secondPriority = 0;
 		}
 
+
 		robotDrive->SetBrakeMode();
+
+
+		startYaw = robotDrive->GetYaw();
+
+		//Sets first case for auton enums
+		statusZeroA = c1_ZeroA;
+		statusOneC = c1_OneC;
+		statusOneS = c1_OneS;
+		statusZeroS = c1_ZeroS;
 
 		//temporarily overrides DS to pick our own auton
 			//m_autoSelected = "DriveStraight";
@@ -221,47 +234,66 @@ public:
 
 		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
-		startYaw = robotDrive->GetYaw();
-
-		elevatorSwitchCommand = AUTO_SEQUENTIAL(
-				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_SWITCH_HEIGHT),
-				new AutonDeployIntake(robotIntake),
-				new AutonOuttake(robotIntake, 1.5),
-				new AutonStowIntake(robotIntake),
-				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_BOTTOM_HEIGHT));
-
-		elevatorScaleCommand = AUTO_SEQUENTIAL(
-						new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_SCALE_HEIGHT),
-						new AutonDeployIntake(robotIntake),
-						new AutonOuttake(robotIntake, 1.5),
-						new AutonStowIntake(robotIntake),
-						new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_BOTTOM_HEIGHT));
 
 
-		std::string gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-		if(gameData.length()>0){//if the auton data exists
-			if(m_autoSelected == Center1Cube){//if center auton is selected
-
-				if(gameData[0] == 'L'){//creates left switch from center auton
-					mainAutoCommand = AUTO_SEQUENTIAL(
-							new AutonDriveStraight(robotDrive, C1_ONEC),
-							new AutonTurnLeft(robotDrive, T1_ONEC),
-							new AutonDriveStraight(robotDrive, C2_ONEC),
-							new AutonTurnRight(robotDrive, T2_ONEC),
-							new AutonDriveStraight(robotDrive, C3_ONEC),
-							elevatorSwitchCommand);
+		if (m_autoSelected == "Center1Cube") {
+			robotDrive->ResetEncoders();
+			robotDrive->ResetYaw();
+		}
+		if (m_autoSelected == "Left1Cube") {
+			robotDrive->ResetEncoders();
+			robotDrive->ResetYaw();
 				}
-				else{//otherwise creates right switch from center auton
-					mainAutoCommand = AUTO_SEQUENTIAL(
-							new AutonDriveStraight(robotDrive, C1_ONEC),
-							new AutonTurnRight(robotDrive, T1_ONEC),
-							new AutonDriveStraight(robotDrive, C2_ONEC),
-							new AutonTurnLeft(robotDrive, T2_ONEC),
-							new AutonDriveStraight(robotDrive, C3_ONEC),
-							elevatorSwitchCommand);
+		if (m_autoSelected == "Right1Cube") {
+			robotDrive->ResetEncoders();
+			robotDrive->ResetYaw();
+		}
+		else {
+			robotDrive->ResetEncoders();
+			robotDrive->ResetYaw();
+		}
+	}
+
+	void AutonomousPeriodic() {
+			std::string gameData;
+			gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+			//printf("Encoder dist: %f\n", robotDrive->GetAverageEncoderDistance());
+			//printf("Selected Auton %s\n",m_autoSelected.c_str());
+
+			matchTime = DriverStation::GetInstance().GetMatchTime();
+			frc::SmartDashboard::PutNumber("Match Time", matchTime);
+
+			//Switch/Scale Array Dashboard Display
+			if(gameData.length() > 0){
+				if(gameData[0] == 'L')  {
+					leftCloseSwitchDash = true;
+					rightCloseSwitchDash = false;
+				}else{
+					leftCloseSwitchDash = false;
+					rightCloseSwitchDash = true;
 				}
+				if(gameData[1] == 'L')  {
+					leftScaleDash = true;
+					rightScaleDash = false;
+				}else{
+					leftScaleDash = false;
+					rightScaleDash = true;
+				}
+				if(gameData[2] == 'L')  {
+					leftFarSwitchDash = true;
+					rightFarSwitchDash = false;
+				}else{
+					leftFarSwitchDash = false;
+					rightFarSwitchDash = true;
+				}
+			}else{
+				leftCloseSwitchDash = false;
+				rightCloseSwitchDash = false;
+				leftScaleDash = false;
+				rightScaleDash = false;
+				leftFarSwitchDash = false;
+				rightFarSwitchDash = false;
 			}
-<<<<<<< HEAD
 			frc::SmartDashboard::PutBoolean("Switch 1 Left", leftCloseSwitchDash);
 			frc::SmartDashboard::PutBoolean("Switch 1 Right", rightCloseSwitchDash);
 			frc::SmartDashboard::PutBoolean("Scale Left", leftScaleDash);
@@ -394,98 +426,830 @@ public:
 						//do nothing
 							break;
 						}
-=======
+					}
+					else {
 
-			else if(m_autoSelected == Left1Cube){//if cube auton from left is selected
-				if(m_prioritySelected == "Scale"){//if priority is scale
-					if(gameData[1] == 'L'){//if scale is on left go for that
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
-								new AutonTurnRight(robotDrive, T1_SCALE_ONES),
-								new AutonDriveStraight(robotDrive, C2_SCALE_ONES),
-								elevatorScaleCommand);
->>>>>>> 37976ad610a1a60fe360580bbb0946362e6ea93d
-					}
-					else{//otherwise go for right scale but don't drop cube
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_ZEROS),
-								new AutonTurnRight(robotDrive, T1_ZEROS),
-								new AutonDriveStraight(robotDrive, C2_ZEROS),
-								new AutonTurnLeft(robotDrive, T2_ZEROS));
-					}
+					//Following Code Runs if the Alliance Switch is on the Right
 
-				}
-				else{//if priority is switch
-					if(gameData[0] == 'L'){//if switch is on left go for that
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
-								new AutonTurnRight(robotDrive, T1_SWITCH_ONES),
-								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
-								elevatorSwitchCommand);
-					}
-					else{//otherwise go for right switch
-						//TODO add right switch opposite auton
+						switch(statusOneC){
+
+						//drive
+						case c1_OneC:
+							if(AutonDriveStraight(C1_ONEC, robotDrive, 0.0)){
+								startYaw = robotDrive->GetYaw(); statusOneC = t1_OneC;
+							}
+							break;
+
+						//turn
+						case t1_OneC:
+							if(AutonTurnRight(T1_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = c2_OneC;
+							}
+							break;
+
+						//drive
+						case c2_OneC:
+							if(AutonDriveStraight(C2_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = t2_OneC;
+							}
+							break;
+
+						//turn
+						case t2_OneC:
+							if(AutonTurnLeft(T2_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = c3_OneC;
+							}
+							break;
+
+						//drive
+						case c3_OneC:
+							if(AutonDriveStraight(C3_ONEC, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneC = e1_OneC;
+							}
+							break;
+
+						//set elevator target to switch position
+						case e1_OneC:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneC = m1_OneC;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m1_OneC:
+							if(AutonMoveToHeight(robotElevator)){
+								robotElevator->SetToOutput(0.1);
+								startYaw = robotDrive->GetYaw(); statusOneC = d1_OneC;
+								//Initiates timer for deploying
+								initTimer->Reset();
+								initTimer->Start();
+							}
+							break;
+
+						//deploy intake
+						case d1_OneC:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneC = o1_OneC;
+							}
+							break;
+
+						//outtake
+						case o1_OneC:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneC = s1_OneC;
+							}
+							break;
+
+						//stow intake
+						case s1_OneC:
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+								startYaw = robotDrive->GetYaw(); statusOneC = e2_OneC;
+							}
+							break;
+
+						//set elevator target to bottom position
+						case e2_OneC:
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneC = m2_OneC;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m2_OneC:
+							if(AutonMoveToHeight(robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneC = fin_OneC;
+							}
+							break;
+
+						//end auton
+						case fin_OneC:
+							//do nothing
+							break;
+						default:
+							//do nothing
+							break;
+						}
 					}
 				}
 			}
+			else if (m_autoSelected == Left1Cube) {
 
-			else if(m_autoSelected == Right1Cube){//if cube auton from right is selected
-				if(m_prioritySelected == "Scale"){//if priority is scale
-					if(gameData[1] == 'R'){//go for same side scale
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
-								new AutonTurnLeft(robotDrive, T1_SCALE_ONES),
-								new AutonDriveStraight(robotDrive, C2_SCALE_ONES),
-								elevatorScaleCommand);
-					}
-					else{//otherwise go for opposite scale but don't drop the cube
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_ZEROS),
-								new AutonTurnLeft(robotDrive, T1_ZEROS),
-								new AutonDriveStraight(robotDrive, C2_ZEROS),
-								new AutonTurnRight(robotDrive, T2_ZEROS));
-					}
+			//Following Code Runs if	 Left1Cube is the selected auton
 
-				}
-				else{//if priority is switch
-					if(gameData[0] == 'R'){//if switch is on right side, go for that
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
-								new AutonTurnLeft(robotDrive, T1_SWITCH_ONES),
-								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
-								elevatorSwitchCommand);
+				if(gameData.length() > 0){
+
+				//Following Code Runs if the Robot is Recieving the Orientation of the Switches and Scale
+
+					if(gameData[firstPriority] == 'L'){
+
+					//Following Code Runs if the Alliance Switch is on the Left
+
+						switch(statusOneS){
+
+						//drive
+						case c1_OneS:
+							if(AutonDriveStraight(C1_SWITCH_ONES, robotDrive, 0.0)){
+								startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+							}
+							break;
+
+						//turn
+						case t1_OneS:
+							if(AutonTurnRight(T1_SWITCH_ONES, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+							}
+							break;
+
+						//drive
+						case c2_OneS:
+							if(AutonDriveStraight(C2_SWITCH_ONES, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneS = e1_OneS;
+							}
+							break;
+
+						//set elevator target to switch position
+						case e1_OneS:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m1_OneS:
+							if(AutonMoveToHeight(robotElevator)){
+								robotElevator->SetToOutput(0.1);
+								startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+								//Initiates timer for deploying
+								initTimer->Reset();
+								initTimer->Start();
+							}
+							break;
+
+						//deploy intake
+						case d1_OneS:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneS = o1_OneS;
+							}
+							break;
+
+						//outtake
+						case o1_OneS:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+							}
+							break;
+
+						//stow intake
+						case s1_OneS:
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+								startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+							}
+							break;
+
+						//set elevator target to bottom position
+						case e2_OneS:
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m2_OneS:
+							if(AutonMoveToHeight(robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+							}
+							break;
+
+						//end auton
+						case fin_OneS:
+							//do nothing
+							break;
+						default:
+							//do nothing
+							break;
+						}
 					}
-					else{//otherwise go for left switch
-						//TODO add left switch opposite auton
+					else {
+
+						if(enableScaleClose){
+
+							//Following Code Runs if the Alliance Switch is on the Right
+
+							if(gameData[secondPriority] == 'L') {
+
+							//Following Code Runs if the Alliance Scale is on the Left
+
+							switch(statusOneS){
+
+							//drive
+							case c1_OneS:
+								if(AutonDriveStraight(C1_SCALE_ONES, robotDrive, 0.0)){
+									startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+								}
+								break;
+
+							//turn
+							case t1_OneS:
+								if(AutonTurnRight(T1_SCALE_ONES, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+								}
+								break;
+
+							//drive
+							case c2_OneS:
+								if(AutonDriveStraight(C2_SCALE_ONES, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+								}
+								break;
+
+							//set elevator target to Scale position
+							case e1_OneS:
+								if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m1_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+
+							//deploy intake
+							case d1_OneS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusOneS = o1_OneS;
+								}
+								break;
+
+							//outtake
+							case o1_OneS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+								}
+								break;
+
+							//stow intake
+							case s1_OneS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+								}
+								break;
+
+							//set elevator target to bottom position
+							case e2_OneS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m2_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+								}
+								break;
+
+							//end auton
+							case fin_OneS:
+								//do nothing
+								break;
+							default:
+								//do nothing
+								break;
+							}
+						}
+					}
+					else {
+						if(enableScaleFar){
+							//Following Code Runs if the Alliance Scale is on the Right
+
+							switch(statusZeroS){
+
+							//drive
+							case c1_ZeroS:
+								if(AutonDriveStraight(C1_ZEROS, robotDrive, 0.0)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = t1_ZeroS;
+								}
+								break;
+
+							//turn
+							case t1_ZeroS:
+								if(AutonTurnRight(T1_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = c2_ZeroS;
+								}
+								break;
+
+							//drive
+							case c2_ZeroS:
+								if(AutonDriveStraight(C2_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = t2_ZeroS;
+								}
+								break;
+
+							//turn
+							case t2_ZeroS:
+								if(AutonTurnLeft(T2_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = c3_ZeroS;
+								}
+								break;
+
+							//drive
+							case c3_ZeroS:
+								if(AutonDriveStraight(C3_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = t3_ZeroS;
+								}
+								break;
+
+							//turn
+							case t3_ZeroS:
+								if(AutonTurnLeft(T3_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+								}
+								break;
+
+							//set elevator target to Scale position
+							case e1_ZeroS:
+								if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = m1_ZeroS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m1_ZeroS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									startYaw = robotDrive->GetYaw(); statusZeroS = d1_ZeroS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+
+							//deploy intake
+							case d1_ZeroS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusZeroS = o1_ZeroS;
+								}
+								break;
+
+							//outtake
+							case o1_ZeroS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusZeroS = s1_ZeroS;
+								}
+								break;
+
+							//stow intake
+							case s1_ZeroS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = e2_ZeroS;
+								}
+								break;
+
+							//set elevator target to bottom position
+							case e2_ZeroS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = m2_ZeroS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m2_ZeroS:
+								if(AutonMoveToHeight(robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+								}
+								break;
+
+							//end auton
+							case fin_ZeroS:
+								//do nothing
+								break;
+							default:
+								//do nothing
+								break;
+							}
+							}
+						}
 					}
 				}
 			}
+			else if (m_autoSelected == Right1Cube) {
 
-			else{//defaults to driveStraight/crossLine auton
-				mainAutoCommand = AUTO_SEQUENTIAL(
-						new AutonDriveStraight(robotDrive, CL_ZEROA));
+			//Following Code Runs if Right1Cube is the selected auton
+
+				if(gameData.length() > 0){
+
+				//Following Code Runs if the Robot is Recieving the Orientation of the Switches and Scale
+
+					if(gameData[firstPriority] == 'R'){
+
+					//Following Code Runs if the Alliance Switch is on the Right
+
+						switch(statusOneS){
+
+						//drive
+						case c1_OneS:
+							if(AutonDriveStraight(C1_SWITCH_ONES, robotDrive, 0.0)){
+								startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+							}
+							break;
+
+						//turn
+						case t1_OneS:
+							if(AutonTurnLeft(T1_SWITCH_ONES, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+							}
+							break;
+
+						//drive
+						case c2_OneS:
+							if(AutonDriveStraight(C2_SWITCH_ONES, robotDrive, startYaw)){
+								startYaw = robotDrive->GetYaw(); statusOneS = e1_OneS;
+							}
+							break;
+
+						//set elevator target to switch position
+						case e1_OneS:
+							if(AutonSetHeight(ELEVATOR_SWITCH_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m1_OneS:
+							if(AutonMoveToHeight(robotElevator)){
+								robotElevator->SetToOutput(0.1);
+								startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+								//Initiates timer for deploying
+								initTimer->Reset();
+								initTimer->Start();
+							}
+							break;
+
+						//deploy intake
+						case d1_OneS:
+							if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+								initTimer->Stop();
+
+								//Initiates timer for outtake
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneS = o1_OneS;
+							}
+							break;
+
+						//outtake
+						case o1_OneS:
+							printf("Outtake Timer: %f\n", initTimer->Get());
+							if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+								AutonStopIntake(robotIntake);
+								initTimer->Stop();
+								//Initiates timer for stowage
+								initTimer->Reset();
+								initTimer->Start();
+								startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+							}
+							break;
+
+						//stow intake
+						case s1_OneS:
+							if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+								startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+							}
+							break;
+
+						//set elevator target to bottom position
+						case e2_OneS:
+							if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+							}
+							break;
+
+						//move elevator to elevator target
+						case m2_OneS:
+							if(AutonMoveToHeight(robotElevator)){
+								startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+							}
+							break;
+
+						//end auton
+						case fin_OneS:
+							//do nothing
+							break;
+						default:
+							//do nothing
+							break;
+						}
+					}
+					else {
+
+					//Following Code Runs if the Alliance Switch is on the Left
+
+						if(gameData[secondPriority] == 'R') {
+
+						//Following Code Runs if the Alliance Scale is on the Right
+
+						if(enableScaleClose){
+
+							switch(statusOneS){
+
+							//drive
+							case c1_OneS:
+								if(AutonDriveStraight(C1_SCALE_ONES, robotDrive, 0.0)){
+									startYaw = robotDrive->GetYaw(); statusOneS = t1_OneS;
+								}
+								break;
+
+							//turn
+							case t1_OneS:
+								if(AutonTurnLeft(T1_SCALE_ONES, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusOneS = e1_OneS;
+								}
+								break;
+
+							//drive
+							case c2_OneS:
+								if(AutonDriveStraight(C2_SCALE_ONES, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+								}
+								break;
+
+							//set elevator target to Scale position
+							case e1_OneS:
+								if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusOneS = m1_OneS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m1_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									startYaw = robotDrive->GetYaw(); statusOneS = d1_OneS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+
+							//deploy intake
+							case d1_OneS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusOneS = c2_OneS;
+								}
+								break;
+
+							//outtake
+							case o1_OneS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusOneS = s1_OneS;
+								}
+								break;
+
+							//stow intake
+							case s1_OneS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									startYaw = robotDrive->GetYaw(); statusOneS = e2_OneS;
+								}
+								break;
+
+							//set elevator target to bottom position
+							case e2_OneS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusOneS = m2_OneS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m2_OneS:
+								if(AutonMoveToHeight(robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusOneS = fin_OneS;
+								}
+								break;
+
+							//end auton
+							case fin_OneS:
+								//do nothing
+								break;
+							default:
+								//do nothing
+								break;
+							}
+						}
+						}
+						else {
+
+						//Following Code Runs if the Alliance Scale is on the Left
+
+						if(enableScaleFar){
+
+							switch(statusZeroS){
+
+							//drive
+							case c1_ZeroS:
+								if(AutonDriveStraight(C1_ZEROS, robotDrive, 0.0)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = t1_ZeroS;
+								}
+								break;
+
+							//turn
+							case t1_ZeroS:
+								if(AutonTurnLeft(T1_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = c2_ZeroS;
+								}
+								break;
+
+							//drive
+							case c2_ZeroS:
+								if(AutonDriveStraight(C2_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = t2_ZeroS;
+									}
+								break;
+
+							//turn
+							case t2_ZeroS:
+								if(AutonTurnRight(T2_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = c3_ZeroS;
+								}
+								break;
+
+							//drive
+							case c3_ZeroS:
+								if(AutonDriveStraight(C3_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS =t3_ZeroS;
+								}
+								break;
+
+							//turn
+							case t3_ZeroS:
+								if(AutonTurnRight(T3_ZEROS, robotDrive, startYaw)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+								}
+								break;
+
+							//set elevator target to Scale position
+							case e1_ZeroS:
+								if(AutonSetHeight(ELEVATOR_SCALE_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = m1_ZeroS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m1_ZeroS:
+								if(AutonMoveToHeight(robotElevator)){
+									robotElevator->SetToOutput(0.1);
+									startYaw = robotDrive->GetYaw(); statusZeroS = d1_ZeroS;
+									//Initiates timer for deploying
+									initTimer->Reset();
+									initTimer->Start();
+								}
+								break;
+
+							//deploy intake
+							case d1_ZeroS:
+								if(AutonDeployIntake(robotIntake) && (initTimer->Get() > 2.0)){
+									initTimer->Stop();
+
+									//Initiates timer for outtake
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusZeroS = o1_ZeroS;
+								}
+								break;
+
+							//outtake
+							case o1_ZeroS:
+								printf("Outtake Timer: %f\n", initTimer->Get());
+								if(AutonOuttake(robotIntake) && (initTimer->Get() > 0.5)){
+									AutonStopIntake(robotIntake);
+									initTimer->Stop();
+									//Initiates timer for stowage
+									initTimer->Reset();
+									initTimer->Start();
+									startYaw = robotDrive->GetYaw(); statusZeroS = s1_ZeroS;
+								}
+								break;
+
+							//stow intake
+							case s1_ZeroS:
+								if(AutonStowIntake(robotIntake) && (initTimer->Get() > 1.5)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = e2_ZeroS;
+								}
+								break;
+
+							//set elevator target to bottom position
+							case e2_ZeroS:
+								if(AutonSetHeight(ELEVATOR_BOTTOM_HEIGHT,robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = m2_ZeroS;
+								}
+								break;
+
+							//move elevator to elevator target
+							case m2_ZeroS:
+								if(AutonMoveToHeight(robotElevator)){
+									startYaw = robotDrive->GetYaw(); statusZeroS = fin_ZeroS;
+								}
+								break;
+
+							//end auton
+							case fin_ZeroS:
+								//do nothing
+								break;
+							default:
+								//do nothing
+								break;
+							}
+						}
+						}
+					}
+				}
 			}
-		}
-		else {//if the game data doesn't exist for some reason default to crossing the line
-			mainAutoCommand = AUTO_SEQUENTIAL(
-					new AutonDriveStraight(robotDrive, CL_ZEROA));
-		}
+			else {
 
-		if(mainAutoCommand) mainAutoCommand->Initialize();
+			//Following Code Runs if DriveStraight is the selected auton (default)
 
+				switch(statusZeroA){
 
+				//drive
+				case c1_ZeroA:
+					//if(AutonDriveStraight(CL_ZEROA, robotDrive, 0.0)){
+					if(AutonDriveStraight(90, robotDrive, 0.0)){
+						startYaw = robotDrive->GetYaw(); statusZeroA = fin_ZeroA;
+					}
+					break;
 
-	}
+				//end auton
+				case fin_ZeroA:
+					robotDrive->TankDrive(0.0,0.0);
+					break;//do nothing
 
-<<<<<<< HEAD
+				default:
+					break;//do nothing
+
 				}
 			} */
 		}
-=======
-	void AutonomousPeriodic() {
-		if(mainAutoCommand) mainAutoCommand->Run();
-	}
->>>>>>> 37976ad610a1a60fe360580bbb0946362e6ea93d
 
 	void TeleopInit() {
 		//Initialize all the joysticks
@@ -497,6 +1261,23 @@ public:
 		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
 		robotDrive->SetBrakeMode();
+
+
+	}
+
+	void TeleopPeriodic() {
+
+
+		matchTime = DriverStation::GetInstance().GetMatchTime();
+		frc::SmartDashboard::PutNumber("Match Time", matchTime);
+
+		//Dashboard Display for Drive Direction
+		if(driveRevFactor == 1.0){
+			driveDirection = true;
+		} else{
+			driveDirection = false;
+		}
+		frc::SmartDashboard::PutBoolean("Drive Direction",driveDirection);
 
 		//Switch/Scale Array Dashboard Display
 		std::string gameData;
@@ -537,23 +1318,6 @@ public:
 		frc::SmartDashboard::PutBoolean("Scale Right", rightScaleDash);
 		frc::SmartDashboard::PutBoolean("Switch 2 Left", leftFarSwitchDash);
 		frc::SmartDashboard::PutBoolean("Switch 2 Right", rightFarSwitchDash);
-
-	}
-
-	void TeleopPeriodic() {
-
-
-		matchTime = DriverStation::GetInstance().GetMatchTime();
-		frc::SmartDashboard::PutNumber("Match Time", matchTime);
-
-		//Dashboard Display for Drive Direction
-		if(driveRevFactor == 1.0){
-			driveDirection = true;
-		} else{
-			driveDirection = false;
-		}
-		frc::SmartDashboard::PutBoolean("Drive Direction",driveDirection);
-
 
 		//drives robot according to joystick inputs
 		double speedVal  = robotDrive->InputScale(DRIVE_SPEED_FACTOR * mainDriverStick->GetRawAxis(1), DRIVE_SCALE);

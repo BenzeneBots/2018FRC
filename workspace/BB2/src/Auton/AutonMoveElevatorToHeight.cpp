@@ -7,8 +7,8 @@
 
 #include <Auton/AutonMoveElevatorToHeight.h>
 
-AutonMoveElevatorToHeight::AutonMoveElevatorToHeight(Elevator *robotElevator, double heightTarget) {
-	elevator = robotElevator;
+AutonMoveElevatorToHeight::AutonMoveElevatorToHeight(Elevator *elevator, double heightTarget) {
+	robotElevator = elevator;
 	targetHeight = heightTarget;
 }
 
@@ -17,10 +17,10 @@ AutonMoveElevatorToHeight::~AutonMoveElevatorToHeight() {
 }
 
 void AutonMoveElevatorToHeight::Initialize(){
-	elevator->SetElevatorTarget(targetHeight);
+	robotElevator->SetElevatorTarget(targetHeight);
 }
 
 bool AutonMoveElevatorToHeight::Run(){
-	return elevator->MoveElevator(0.0);
+	return robotElevator->MoveElevator(0.0);
 }
 
