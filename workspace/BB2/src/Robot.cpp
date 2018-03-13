@@ -301,7 +301,7 @@ public:
 			frc::SmartDashboard::PutBoolean("Switch 2 Left", leftFarSwitchDash);
 			frc::SmartDashboard::PutBoolean("Switch 2 Right", rightFarSwitchDash);
 
-
+			/*
 			//printf("Current Yaw %f \n", robotDrive->GetYaw());
 			if (m_autoSelected == Center1Cube) {
 
@@ -1248,7 +1248,7 @@ public:
 					break;//do nothing
 
 				}
-			}
+			} */
 		}
 
 	void TeleopInit() {
