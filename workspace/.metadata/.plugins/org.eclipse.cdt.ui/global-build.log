@@ -7550,3 +7550,159 @@ Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Murali/wpilib/cpp/current/include" "-IC:\\Users\\Murali\\Documents\\GitHub\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Murali/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Murali/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Murali/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram "src\\Auton\\AutoCommand.o" "src\\Auton\\AutonDeployIntake.o" "src\\Auton\\AutonDriveStraight.o" "src\\Auton\\AutonIntake.o" "src\\Auton\\AutonMoveElevatorToHeight.o" "src\\Auton\\AutonOuttake.o" "src\\Auton\\AutonStowIntake.o" "src\\Auton\\AutonTurnLeft.o" "src\\Auton\\AutonTurnRight.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lCTRE_Phoenix -lCTRE_PhoenixCCI -lwpi 
 Info: Nothing to build for BB2
+15:50:56 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonMoveElevatorToHeight.o" "..\\src\\Auton\\AutonMoveElevatorToHeight.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonOuttake.o" "..\\src\\Auton\\AutonOuttake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonIntake.o" "..\\src\\Auton\\AutonIntake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\PathFinderDrive.o" "..\\src\\Auton\\PathFinderDrive.cpp" 
+..\src\Auton\PathFinderDrive.cpp: In constructor 'PathFinderDrive::PathFinderDrive(Drive*)':
+..\src\Auton\PathFinderDrive.cpp:27:30: error: invalid conversion from 'void*' to 'Segment*' [-fpermissive]
+  Segment *trajectory = malloc(length * sizeof(Segment));
+                              ^
+..\src\Auton\PathFinderDrive.cpp:37:45: error: 'modifier' was not declared in this scope
+  EncoderFollower left = new EncoderFollower(modifier.getLeftTrajectory());
+                                             ^
+..\src\Auton\PathFinderDrive.cpp:40:7: error: 'struct EncoderFollower' has no member named 'configureEncoder'
+  left.configureEncoder(robotDrive->GetLeftEncoderDistance(), 4096, 6);
+       ^
+..\src\Auton\PathFinderDrive.cpp:41:8: error: 'struct EncoderFollower' has no member named 'configureEncoder'
+  right.configureEncoder(robotDrive->GetRightEncoderDistance(), 4096, 6);
+        ^
+..\src\Auton\PathFinderDrive.cpp:43:7: error: 'struct EncoderFollower' has no member named 'configurePIDVA'
+  left.configurePIDVA(1.0, 0.0, 0.0, 1 / max_velocity, 0);
+       ^
+..\src\Auton\PathFinderDrive.cpp:43:41: error: 'max_velocity' was not declared in this scope
+  left.configurePIDVA(1.0, 0.0, 0.0, 1 / max_velocity, 0);
+                                         ^
+..\src\Auton\PathFinderDrive.cpp:44:8: error: 'struct EncoderFollower' has no member named 'configurePIDVA'
+  right.configurePIDVA(1.0, 0.0, 0.0, 1 / max_velocity, 0);
+        ^
+..\src\Auton\PathFinderDrive.cpp:46:23: error: 'struct EncoderFollower' has no member named 'calculate'
+  double output = left.calculate(encoder_position);
+                       ^
+..\src\Auton\PathFinderDrive.cpp:46:33: error: 'encoder_position' was not declared in this scope
+  double output = left.calculate(encoder_position);
+                                 ^
+..\src\Auton\PathFinderDrive.cpp:48:18: error: 'struct EncoderFollower' has no member named 'calculate'
+  double l = left.calculate(encoder_position_left);
+                  ^
+..\src\Auton\PathFinderDrive.cpp:48:28: error: 'encoder_position_left' was not declared in this scope
+  double l = left.calculate(encoder_position_left);
+                            ^
+..\src\Auton\PathFinderDrive.cpp:49:19: error: 'struct EncoderFollower' has no member named 'calculate'
+  double r = right.calculate(encoder_position_right);
+                   ^
+..\src\Auton\PathFinderDrive.cpp:49:29: error: 'encoder_position_right' was not declared in this scope
+  double r = right.calculate(encoder_position_right);
+                             ^
+..\src\Auton\PathFinderDrive.cpp:52:27: error: 'Pathfinder' was not declared in this scope
+  double desired_heading = Pathfinder.r2d(left.getHeading());  // Should also be in degrees
+                           ^
+..\src\Auton\PathFinderDrive.cpp:52:47: error: 'struct EncoderFollower' has no member named 'getHeading'
+  double desired_heading = Pathfinder.r2d(left.getHeading());  // Should also be in degrees
+                                               ^
+..\src\Auton\PathFinderDrive.cpp:31:11: warning: unused variable 'leftTrajectory' [-Wunused-variable]
+  Segment *leftTrajectory = (Segment*)malloc(sizeof(Segment) * length);
+           ^
+..\src\Auton\PathFinderDrive.cpp:32:11: warning: unused variable 'rightTrajectory' [-Wunused-variable]
+  Segment *rightTrajectory = (Segment*)malloc(sizeof(Segment) * length);
+           ^
+..\src\Auton\PathFinderDrive.cpp:34:9: warning: unused variable 'wheelbase_width' [-Wunused-variable]
+  double wheelbase_width = 0.6;
+         ^
+..\src\Auton\PathFinderDrive.cpp:46:9: warning: unused variable 'output' [-Wunused-variable]
+  double output = left.calculate(encoder_position);
+         ^
+15:51:36 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonTurnRight.o" "..\\src\\Auton\\AutonTurnRight.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Subsystems\\Drive.o" "..\\src\\Subsystems\\Drive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\SequentialCommand.o" "..\\src\\Auton\\SequentialCommand.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonStowIntake.o" "..\\src\\Auton\\AutonStowIntake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonDeployIntake.o" "..\\src\\Auton\\AutonDeployIntake.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/IterativeRobotBase.h:10:0,
+                 from C:\Users\Sanket Nayak/wpilib/cpp/current/include/TimedRobot.h:12,
+                 from ..\src\Robot.cpp:13:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotBase.h:32:3: error: expected '}' at end of input
+   }
+   ^
+..\src\Robot.cpp:453:1: note: in expansion of macro 'START_ROBOT_CLASS'
+ START_ROBOT_CLASS(Robot)
+ ^
+..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
+..\src\Robot.cpp:160:3: error: 'auton_chooser' was not declared in this scope
+   auton_chooser.AddDefault(DriveStraight, DriveStraight);
+   ^
+..\src\Robot.cpp:160:28: error: 'DriveStraight' was not declared in this scope
+   auton_chooser.AddDefault(DriveStraight, DriveStraight);
+                            ^
+..\src\Robot.cpp:161:27: error: 'Center1Cube' was not declared in this scope
+   auton_chooser.AddObject(Center1Cube, Center1Cube);
+                           ^
+..\src\Robot.cpp:162:27: error: 'Left1Cube' was not declared in this scope
+   auton_chooser.AddObject(Left1Cube, Left1Cube);
+                           ^
+..\src\Robot.cpp:163:27: error: 'Right1Cube' was not declared in this scope
+   auton_chooser.AddObject(Right1Cube, Right1Cube);
+                           ^
+..\src\Robot.cpp:165:3: error: 'priority_chooser' was not declared in this scope
+   priority_chooser.AddDefault(Switch , Switch);
+   ^
+..\src\Robot.cpp:165:31: error: 'Switch' was not declared in this scope
+   priority_chooser.AddDefault(Switch , Switch);
+                               ^
+..\src\Robot.cpp:166:31: error: 'Scale' was not declared in this scope
+   priority_chooser.AddObject( Scale , Scale);
+                               ^
+..\src\Robot.cpp: In member function 'virtual void Robot::AutonomousInit()':
+..\src\Robot.cpp:201:3: error: 'm_autoSelected' was not declared in this scope
+   m_autoSelected = auton_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:201:20: error: 'auton_chooser' was not declared in this scope
+   m_autoSelected = auton_chooser.GetSelected();
+                    ^
+..\src\Robot.cpp:202:3: error: 'm_prioritySelected' was not declared in this scope
+   m_prioritySelected = priority_chooser.GetSelected();
+   ^
+..\src\Robot.cpp:202:24: error: 'priority_chooser' was not declared in this scope
+   m_prioritySelected = priority_chooser.GetSelected();
+                        ^
+..\src\Robot.cpp:243:25: error: 'Center1Cube' was not declared in this scope
+    if(m_autoSelected == Center1Cube){//if center auton is selected
+                         ^
+..\src\Robot.cpp:273:28: error: a function-definition is not allowed here before '{' token
+  void AutonomousPeriodic() {
+                            ^
+..\src\Robot.cpp:277:20: error: a function-definition is not allowed here before '{' token
+  void TeleopInit() {
+                    ^
+..\src\Robot.cpp:451:1: error: expected '}' at end of input
+ };
+ ^
+In file included from C:\Users\Sanket Nayak/wpilib/cpp/current/include/IterativeRobotBase.h:10:0,
+                 from C:\Users\Sanket Nayak/wpilib/cpp/current/include/TimedRobot.h:12,
+                 from ..\src\Robot.cpp:13:
+..\src\Robot.cpp: At global scope:
+C:\Users\Sanket Nayak/wpilib/cpp/current/include/RobotBase.h:32:3: error: expected unqualified-id at end of input
+   }
+   ^
+..\src\Robot.cpp:453:1: note: in expansion of macro 'START_ROBOT_CLASS'
+ START_ROBOT_CLASS(Robot)
+ ^
+15:53:45 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\PathFinderDrive.o" "..\\src\\Auton\\PathFinderDrive.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonTurnLeft.o" "..\\src\\Auton\\AutonTurnLeft.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Auton\\AutonDriveStraight.o" "..\\src\\Auton\\AutonDriveStraight.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" ".metadata\\.plugins\\org.eclipse.cdt.managedbuilder.core\\spec.o" "src\\Auton\\AutoCommand.o" "src\\Auton\\AutonDeployIntake.o" "src\\Auton\\AutonDriveStraight.o" "src\\Auton\\AutonIntake.o" "src\\Auton\\AutonMoveElevatorToHeight.o" "src\\Auton\\AutonOuttake.o" "src\\Auton\\AutonStowIntake.o" "src\\Auton\\AutonTurnLeft.o" "src\\Auton\\AutonTurnRight.o" "src\\Auton\\PathFinderDrive.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lpathfinder -lCTRE_Phoenix -lCTRE_PhoenixCCI -lpathfinder -lwpi 
+15:55:16 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Sanket Nayak/wpilib/cpp/current/include" "-I\\\\VMWARE-HOST\\Shared Folders\\Documents\\GitHub\\2018FRC\\2018FRC\\workspace\\BB2\\src" "-IC:\\Users\\Sanket Nayak/wpilib/user/cpp/include" -O0 -Og -g3 -Wall -c -fmessage-length=0 -pthread -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" ".metadata\\.plugins\\org.eclipse.cdt.managedbuilder.core\\spec.o" "src\\Auton\\AutoCommand.o" "src\\Auton\\AutonDeployIntake.o" "src\\Auton\\AutonDriveStraight.o" "src\\Auton\\AutonIntake.o" "src\\Auton\\AutonMoveElevatorToHeight.o" "src\\Auton\\AutonOuttake.o" "src\\Auton\\AutonStowIntake.o" "src\\Auton\\AutonTurnLeft.o" "src\\Auton\\AutonTurnRight.o" "src\\Auton\\PathFinderDrive.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lpathfinder -lCTRE_Phoenix -lCTRE_PhoenixCCI -lpathfinder -lwpi 
+16:04:05 **** Incremental Build of configuration Debug for project BB2 ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Sanket Nayak/wpilib/common/current/lib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/cpp/current/reflib/linux/athena/shared" "-LC:\\Users\\Sanket Nayak/wpilib/user/cpp/lib" -pthread -rdynamic -Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM,-rpath,/usr/local/frc/lib -o FRCUserProgram ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" ".metadata\\.plugins\\org.eclipse.cdt.managedbuilder.core\\spec.o" "src\\Auton\\AutoCommand.o" "src\\Auton\\AutonDeployIntake.o" "src\\Auton\\AutonDriveStraight.o" "src\\Auton\\AutonIntake.o" "src\\Auton\\AutonMoveElevatorToHeight.o" "src\\Auton\\AutonOuttake.o" "src\\Auton\\AutonStowIntake.o" "src\\Auton\\AutonTurnLeft.o" "src\\Auton\\AutonTurnRight.o" "src\\Auton\\PathFinderDrive.o" "src\\Auton\\SequentialCommand.o" "src\\Robot.o" "src\\Subsystems\\Climber.o" "src\\Subsystems\\Drive.o" "src\\Subsystems\\Elevator.o" "src\\Subsystems\\Intake.o" -lCTRE_Phoenix -lCTRE_PhoenixCCI -lpathfinder -lCTRE_Phoenix -lCTRE_PhoenixCCI -lpathfinder -lwpi 
+Info: Nothing to build for BB2
