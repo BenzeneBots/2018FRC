@@ -25,10 +25,13 @@
 #define STEP2_STRAIGHT_DRIVE_SPEED 0.40
 #define MAX_STRAIGHT_DRIVE_SPEED 0.50
 
+#define MAX_STALL_TIME 0.25
+
 AutonDriveStraight::AutonDriveStraight(Drive *robotDrive, double dist) {
 	drive = robotDrive;
 	distance = dist;
 	startYaw = 0;
+	frictionTimer = new Timer();
 }
 
 AutonDriveStraight::~AutonDriveStraight() {
@@ -38,15 +41,34 @@ AutonDriveStraight::~AutonDriveStraight() {
 void AutonDriveStraight::Initialize(){
 	drive->ResetEncoders();
 	startYaw = drive->GetYaw();
+	frictionTimer->Start();
+	frictionTimer->Stop();
+	frictionTimer->Reset();
 }
 
 bool AutonDriveStraight::Run(){
 	if (drive->GetAverageEncoderDistance() >= distance){
 		drive->TankDrive(0.0,0.0);
 		drive->ResetEncoders();
+		frictionTimer->Stop();
+		frictionTimer->Reset();
 		return true;
 	}
 	else{
+
+		/*double averageDriveVel = drive->GetRightVelocity();
+		printf("AVERAGE VEL: %f\n", averageDriveVel);
+		if((averageDriveVel <= 0.005) && !(frictionTimer->Get() > 0.0)){
+			frictionTimer->Start();
+		}
+		else if(!(averageDriveVel >= 0.0005) && (frictionTimer->Get() > 0.0)){
+			frictionTimer->Stop();
+			frictionTimer->Reset();
+		}*/
+
+
+
+
 
 		//finds difference b/w target and actual distance
 		double distDifference = (distance - drive->GetAverageEncoderDistance());
