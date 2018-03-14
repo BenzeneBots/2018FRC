@@ -34,7 +34,7 @@ class Robot: public IterativeRobot {
 public:
 	/** The Talon we want to motion profile. */
 	TalonSRX _talon;
-	VictorSPX _vic;
+	TalonSRX _talon2;
 
 	/** some example logic on how one can manage an MP */
 	MotionProfileExample _example;
@@ -47,23 +47,30 @@ public:
 	bool _btnsLast[10] = { false, false, false, false, false, false, false, false, false, false };
 
 	Robot() :
-			_talon(Constants::kTalonID), _vic(Constants::kVictorFollower), _example(
-					_talon), _joy(0) {
+			_talon(Constants::kTalonID), _talon2(Constants::kTalonFollowID2), _example(
+					_talon), _joy(1) {
 	}
 
 	/** run once after booting/enter-disable */
 	void DisabledInit() {
-		_vic.Follow(_talon);
+		_talon2.Follow(_talon);
 		_talon.ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0,
 				kTimeoutMs);
 		_talon.SetSensorPhase(true);
 		_talon.ConfigNeutralDeadband(Constants::kNeutralDeadbandPercent * 0.01,
 				Constants::kTimeoutMs);
 
+		/*
 		_talon.Config_kF(0, 0.076, kTimeoutMs);
 		_talon.Config_kP(0, 2.000, kTimeoutMs);
 		_talon.Config_kI(0, 0.0, kTimeoutMs);
 		_talon.Config_kD(0, 20.0, kTimeoutMs);
+		*/
+		_talon.Config_kF(0, 0.3119, kTimeoutMs);
+		_talon.Config_kP(0, 0.3, kTimeoutMs);
+		_talon.Config_kI(0, 0.003, kTimeoutMs);
+		_talon.Config_kD(0, 3.0, kTimeoutMs);
+		_talon.Config_IntegralZone( 0, 100, kTimeoutMs );	// Auto zero integral if error is above this threshold.
 
 		_talon.ConfigMotionProfileTrajectoryPeriod(10, Constants::kTimeoutMs); //Our profile uses 10 ms timing
 		/* status 10 provides the trajectory target for motion profile AND motion magic */
@@ -84,7 +91,7 @@ public:
 		_example.control();
 		_example.PeriodicTask();
 
-		if (btns[5] == false) { /* Check button 5 (top left shoulder on the logitech gamead). */
+		if (btns[3] == true ) {
 			/*
 			 * If it's not being pressed, just do a simple drive.  This
 			 * could be a RobotDrive class or custom drivetrain logic.
@@ -94,8 +101,9 @@ public:
 			_talon.Set(ControlMode::PercentOutput, 1.0 * leftYjoystick);
 
 			_example.reset();
-		} else {
-			/* Button5 is held down so switch to motion profile control mode => This is done in MotionProfileControl.
+		}
+		else if( btns[1] == true ) {
+			/* Trigger is held down so switch to motion profile control mode => This is done in MotionProfileControl.
 			 * When we transition from no-press to press,
 			 * pass a "true" once to MotionProfileControl.
 			 */
@@ -107,12 +115,17 @@ public:
 			/* if btn is pressed and was not pressed last time,
 			 * In other words we just detected the on-press event.
 			 * This will signal the robot to start a MP */
-			if ((btns[6] == true) && (_btnsLast[6] == false)) {
-				/* user just tapped button 6 */
+			if ((btns[2] == true) && (_btnsLast[2] == false)) {
+				/* user just tapped button 2 */
 
 				//------------ We could start an MP if MP isn't already running ------------//
 				_example.start();
 			}
+
+
+			SmartDashboard::PutNumber( "chartOne", _talon.GetClosedLoopError(0) );
+			SmartDashboard::PutNumber( "chartTwo", _talon.GetSelectedSensorPosition(0) / 10.0 );
+			SmartDashboard::PutNumber( "chartThree", _talon.GetSelectedSensorVelocity(0) );
 		}
 
 		/* save buttons states for on-press detection */

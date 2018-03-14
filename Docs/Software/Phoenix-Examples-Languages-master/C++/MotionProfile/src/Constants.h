@@ -3,10 +3,10 @@
 enum Constants {
 
 	/** which Talon on CANBus*/
-	kTalonID = 0,
+	kTalonID = 2,
 
-	/* example Victor SPX follower */
-	kVictorFollower = 0,
+	/* example Talon SPX follower */
+	kTalonFollowID2 = 1,
 
 	/**
 	 * How many sensor units per rotation.
