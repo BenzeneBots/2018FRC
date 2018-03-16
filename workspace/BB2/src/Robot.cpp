@@ -123,6 +123,7 @@ public:
 	Drive *robotDrive;
 	double driveRevFactor = 1.0;
 	bool wasButtonPressed = false;
+	bool wasIntaking = false;
 	bool enableScaleClose = true;
 	bool enableScaleFar = true;
     Elevator *robotElevator;
@@ -458,10 +459,14 @@ public:
 
 		if(manipStick->GetRawButton(2)){
 			robotIntake->OuttakeCubes();
+			wasIntaking = false;
 		}
 		else if(manipStick->GetRawButton(1)){
 			robotIntake->IntakeCubes();
-			printf("button 1 \n");
+			wasIntaking = true;
+		}
+		else if(wasIntaking){
+			robotIntake->HoldIntake();
 		}
 		else{
 			robotIntake->StopIntake();
@@ -496,8 +501,6 @@ public:
 
 
 		//Prints some relevant stuff
-		//printf("EncoderDist: %f \n", robotDrive->GetAverageEncoderValue());
-		printf("Yaw: %f\n", robotDrive->GetYaw());
 	}
 
 	void TestPeriodic() {

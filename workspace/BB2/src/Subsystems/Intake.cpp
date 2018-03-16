@@ -11,6 +11,7 @@
 #include <Subsystems/Intake.h>
 #define INTAKE_SPEED 1.0
 #define OUTTAKE_SPEED 0.9
+#define MIDDLE_TIMEOUT 1.0
 
 
 Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, int anglePort2) {
@@ -20,6 +21,7 @@ Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, i
 	intake2->SetInverted(false);
 	clawActuator = new Solenoid(clawPort);
 	angleActuator = new DoubleSolenoid(anglePort1, anglePort2);
+	deployTimer = new Timer();
 
 	//Sets initial positions
 	if(angleActuator->Get() == frc::DoubleSolenoid::Value::kReverse) intakeDeployedStatus = true;
@@ -46,6 +48,11 @@ void Intake::StopIntake(){
 	intake2->Set(0.0);
 }
 
+void Intake::HoldIntake(){
+	intake1->Set(0.13);
+	intake2->Set(0.13);
+}
+
 void Intake::OpenClaw(){
 	if(intakeDeployedStatus){//only open claw if intake is deployed
 		clawActuator->Set(true);
@@ -64,6 +71,7 @@ void Intake::DeployIntake(){
 	angleActuator->Set(frc::DoubleSolenoid::Value::kReverse);
 	intakeDeployedStatus = true;
 }
+
 
 void Intake::StowIntake(){//
 	if(clawOpenStatus){//if claw is open, close it before stowing

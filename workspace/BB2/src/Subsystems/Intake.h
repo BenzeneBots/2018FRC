@@ -18,9 +18,11 @@ public:
 	void IntakeCubes();
 	void OuttakeCubes();
 	void StopIntake();
+	void HoldIntake();
 	void OpenClaw();
 	void CloseClaw();
 	void DeployIntake();
+	void SemiDeployIntake();
 	void StowIntake();
 	bool IsIntakeDeployed();
 	bool IsClawOpen();
@@ -31,6 +33,7 @@ private:
 	Solenoid *clawActuator;
 	DoubleSolenoid *angleActuator;
 	bool intakeDeployedStatus, clawOpenStatus;
+	Timer *deployTimer;
 };
 
 #endif /* SRC_SUBSYSTEMS_INTAKE_H_ */

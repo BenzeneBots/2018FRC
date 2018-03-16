@@ -109,7 +109,6 @@ bool Elevator::MoveElevator(double joystickVal){
 		elevatorMotor->Set(ControlMode::PercentOutput, -1.0 * ELEVATOR_LOWERING_SPEED);
 		break;
 	case joystick:
-		printf("Case joystick\n");
 		this->SetToOutput(joystickVal + CONST_BACKDRIVE_PREVENTION);
 		break;
 	default:
