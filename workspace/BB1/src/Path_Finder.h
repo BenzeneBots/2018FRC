@@ -1,3 +1,8 @@
+/*
+ *	BB1 - Benzene Bots FRC 2018 Robot Source Code
+ *
+ *
+ */
 #pragma once
 
 #include <pathfinder.h>
