@@ -37,6 +37,8 @@
 #include <Auton/AutonStowIntake.h>
 #include <Auton/AutonTurnLeft.h>
 #include <Auton/AutonTurnRight.h>
+#include <Auton/AutonSCurve.h>
+#include <Auton/Path_Finder.h>
 
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
@@ -327,8 +329,9 @@ public:
 			}
 
 			else{//defaults to driveStraight/crossLine auton
+				printf("Auton Selected \n");
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new AutonDriveStraight(robotDrive, CL_ZEROA));
+						new AutonSCurve(robotDrive,0,0,90,12*4,12*8,90));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line

@@ -20,6 +20,15 @@
 #define min( A, B )				A < B ? A : B
 #define LimitVal( L, T, H)		max( min( T, H ), L)
 
+#define kTimeoutMs 10
+#define kPIDLoopIdx 0
+
+#define F 0.3119	// Feed-Forward = 1023 Max Velocity / 3280nu(Max Native Units / 100ms measured).
+#define P 0.3		// Proportional
+#define I 0.0 		// Integral
+#define	D 5.0
+
+
 Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort, int pigeonPort) {
 	pidgey = new PigeonIMU(pigeonPort);
 
@@ -39,6 +48,29 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
 
 	drivetrain = new DifferentialDrive(*frontLeft, *frontRight);
+
+	// Left Side
+	frontLeft->ConfigNominalOutputForward(0, kTimeoutMs);
+	frontLeft->ConfigNominalOutputReverse(0, kTimeoutMs);
+	frontLeft->ConfigPeakOutputForward(1, kTimeoutMs);
+	frontLeft->ConfigPeakOutputReverse(-1, kTimeoutMs);
+	frontLeft->Config_kF(kPIDLoopIdx,F,kTimeoutMs);
+	frontLeft->Config_kP(kPIDLoopIdx,P,kTimeoutMs);	// (10% * 1023) / (350nu worst err measured).
+	frontLeft->Config_kI(kPIDLoopIdx,I,kTimeoutMs);	// Default: kP / 100
+	frontLeft->Config_kD(kPIDLoopIdx,D,kTimeoutMs);	// Default: kP * 10
+	frontLeft->Config_IntegralZone( 0, 200, kTimeoutMs );
+
+	// Right Side
+	frontRight->ConfigNominalOutputForward(0, kTimeoutMs);
+	frontRight->ConfigNominalOutputReverse(0, kTimeoutMs);
+	frontRight->ConfigPeakOutputForward(1, kTimeoutMs);
+	frontRight->ConfigPeakOutputReverse(-1, kTimeoutMs);
+	frontRight->Config_kF(kPIDLoopIdx,F,kTimeoutMs);
+	frontRight->Config_kP(kPIDLoopIdx,P,kTimeoutMs);	// (10% * 1023) / (350nu worst err measured).
+	frontRight->Config_kI(kPIDLoopIdx,I,kTimeoutMs);	// Default: kP / 100
+	frontRight->Config_kD(kPIDLoopIdx,D,kTimeoutMs);	// Default: kP * 10
+	frontRight->Config_IntegralZone( 0, 200, kTimeoutMs );
+
 }
 
 void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
@@ -174,5 +206,49 @@ double Drive::AutonRamping2(double distDifference,double minSpeed,double midSpee
 		return maxSpeed;
 	}
 }
+void Drive::AutonPrep(){
+	frontLeft->ClearMotionProfileTrajectories();
+	frontRight->ClearMotionProfileTrajectories();
 
+	// Profile uses 20 ms timing.
+	TrajectoryDuration dt = TrajectoryDuration_20ms;
+	frontLeft->ConfigMotionProfileTrajectoryPeriod( dt, kTimeoutMs);
+	frontRight->ConfigMotionProfileTrajectoryPeriod( dt, kTimeoutMs);
+
+	// Run CAN at twice the speed of the profile so data xfer keeps up.
+	frontLeft->ChangeMotionControlFramePeriod( TrajectoryDuration_20ms / 2 );
+	frontRight->ChangeMotionControlFramePeriod( TrajectoryDuration_20ms / 2 );
+
+	frontLeft->ClearMotionProfileTrajectories();
+	frontRight->ClearMotionProfileTrajectories();
+
+	// Make sure to reset the position to zero BEFORE starting the profile!
+	frontLeft->SetSelectedSensorPosition( 0, 0, 0 );
+	frontRight->SetSelectedSensorPosition( 0, 0, 0 );
+
+	frontLeft->ClearMotionProfileHasUnderrun( 0 );		// Clear any previous error.
+	frontRight->ClearMotionProfileHasUnderrun( 0 );
+
+	frontLeft->SetIntegralAccumulator( 0.0, 0, 0 );
+	frontRight->SetIntegralAccumulator( 0.0, 0, 0 );
+
+	this->ResetYaw();
+}
+void Drive::LeftTraj(TrajectoryPoint point){
+	frontLeft->PushMotionProfileTrajectory(point);
+}
+void Drive::RightTraj(TrajectoryPoint point2){
+	frontRight->PushMotionProfileTrajectory(point2);
+}
+void Drive::AutonMotionProfile(int mode){
+	frontLeft->Set( ControlMode::MotionProfile, mode);
+	frontRight->Set( ControlMode::MotionProfile, mode);
+}
+void Drive::AutonStop(){
+	frontLeft->Set( ControlMode::PercentOutput, 0.0 );
+	frontRight->Set( ControlMode::PercentOutput, 0.0 );
+}
+void Drive::AutonProfileStatus(MotionProfileStatus status){
+	frontLeft->GetMotionProfileStatus(status);
+}
 //*/

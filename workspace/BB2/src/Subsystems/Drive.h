@@ -35,6 +35,12 @@ public:
 	void SetCoastMode();
 	double AutonRamping1(double,double,double,double,double);
 	double AutonRamping2(double,double,double,double,double,double,double,double);
+	void AutonPrep();
+	void LeftTraj(TrajectoryPoint);
+	void RightTraj(TrajectoryPoint);
+	void AutonMotionProfile(int);
+	void AutonStop();
+	void AutonProfileStatus(MotionProfileStatus);
 
 private:
 	DifferentialDrive *drivetrain;

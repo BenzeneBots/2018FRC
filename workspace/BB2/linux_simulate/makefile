@@ -9,7 +9,10 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/Subsystems/subdir.mk
+-include src/Auton/subdir.mk
 -include src/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.managedbuilder.core/subdir.mk
+-include .metadata/.plugins/org.eclipse.cdt.make.core/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -45,7 +48,7 @@ all: FRCUserProgram
 FRCUserProgram: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/usr/lib/x86_64-linux-gnu -LC:\Users\Murali/wpilib/simulation/lib -Xlinker -rpath C:\Users\Murali/wpilib/simulation/lib -o "FRCUserProgram" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/lib/x86_64-linux-gnu -LC:\Users\Sanket Nayak/wpilib/simulation/lib -Xlinker -rpath C:\Users\Sanket Nayak/wpilib/simulation/lib -o "FRCUserProgram" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
