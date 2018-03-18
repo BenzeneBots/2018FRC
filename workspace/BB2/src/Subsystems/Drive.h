@@ -35,6 +35,11 @@ public:
 	void SetCoastMode();
 	double AutonRamping1(double,double,double,double,double);
 	double AutonRamping2(double,double,double,double,double,double,double,double);
+	void MotionMagicStraight(double);
+	void NeutralizeDrive();
+	void MyArcadeDrive(double,double,bool);
+	void setDriveMtrSp(float,float);
+	float fLimitVal(float,float,float);
 
 private:
 	DifferentialDrive *drivetrain;

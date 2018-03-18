@@ -37,6 +37,7 @@
 #include <Auton/AutonStowIntake.h>
 #include <Auton/AutonTurnLeft.h>
 #include <Auton/AutonTurnRight.h>
+#include <Auton/MotionMagicStraight.h>
 
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
@@ -329,7 +330,7 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new AutonDriveStraight(robotDrive, CL_ZEROA));
+						new MotionMagicStraight(robotDrive, 60));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
@@ -416,8 +417,8 @@ public:
 
 
 		//drives robot according to joystick inputs
-		double speedVal  = robotDrive->InputScale(DRIVE_SPEED_FACTOR * mainDriverStick->GetRawAxis(1), DRIVE_SCALE);
-		double turnVal = robotDrive->InputScale(TURN_FACTOR * mainDriverStick->GetRawAxis(4), TURN_SCALE);
+		//double speedVal  = robotDrive->InputScale(DRIVE_SPEED_FACTOR * mainDriverStick->GetRawAxis(1), DRIVE_SCALE);
+		//double turnVal = robotDrive->InputScale(TURN_FACTOR * mainDriverStick->GetRawAxis(4), TURN_SCALE);
 
 		//updates drive direction
 		if(mainDriverStick->GetRawButton(6) && !wasButtonPressed){ //if this button is pressed for the first time:
@@ -428,7 +429,8 @@ public:
 			wasButtonPressed = false;
 		}
 
-		robotDrive->ArcadeDrive( driveRevFactor * speedVal, turnVal);
+		double throttle =driveRevFactor * mainDriverStick->GetRawAxis(1);
+		robotDrive->MyArcadeDrive(throttle,mainDriverStick->GetTwist(),mainDriverStick->GetRawButton(2));
 
 		//drives elevator and updates sensor values
 		//toggles limitswitch value to see when it changes
