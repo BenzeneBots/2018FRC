@@ -122,7 +122,7 @@ public:
 
 	Intake *robotIntake;
 	Drive *robotDrive;
-	double driveRevFactor = 1.0;
+	double driveRevFactor = -1.0;
 	bool wasButtonPressed = false;
 	bool wasIntaking = false;
 	bool enableScaleClose = true;
@@ -417,8 +417,6 @@ public:
 
 
 		//drives robot according to joystick inputs
-		//double speedVal  = robotDrive->InputScale(DRIVE_SPEED_FACTOR * mainDriverStick->GetRawAxis(1), DRIVE_SCALE);
-		//double turnVal = robotDrive->InputScale(TURN_FACTOR * mainDriverStick->GetRawAxis(4), TURN_SCALE);
 
 		//updates drive direction
 		if(mainDriverStick->GetRawButton(6) && !wasButtonPressed){ //if this button is pressed for the first time:
@@ -430,7 +428,7 @@ public:
 		}
 
 		double throttle =driveRevFactor * mainDriverStick->GetRawAxis(1);
-		robotDrive->MyArcadeDrive(throttle,mainDriverStick->GetTwist(),mainDriverStick->GetRawButton(2));
+		robotDrive->BenzeneDrive(throttle, mainDriverStick->GetRawAxis(2), mainDriverStick->GetRawButton(2));
 
 		//drives elevator and updates sensor values
 		//toggles limitswitch value to see when it changes
@@ -459,11 +457,11 @@ public:
 		//runs intake
 
 
-		if(manipStick->GetRawButton(2)){
+		if(manipStick->GetRawButton(2) || mainDriverStick->GetRawButton(1)){
 			robotIntake->OuttakeCubes();
 			wasIntaking = false;
 		}
-		else if(manipStick->GetRawButton(1)){
+		else if(manipStick->GetRawButton(1) || mainDriverStick->GetRawButton(7)){
 			robotIntake->IntakeCubes();
 			wasIntaking = true;
 		}

@@ -13,9 +13,15 @@
 
 class Drive {
 public:
+	//constructor
 	Drive(int,int,int,int,int);
+
+	//drive modes
 	void ArcadeDrive(double, double);
 	void TankDrive(double, double);
+	void BenzeneDrive(double, double, bool);
+
+	//getters, setters, and resetters
 	double InputScale(double, double);
 	void ResetEncoders();
 	double GetRightEncoderValue();
@@ -39,12 +45,13 @@ public:
 	void NeutralizeDrive();
 	void MyArcadeDrive(double,double,bool);
 	void setDriveMtrSp(float,float);
-	float fLimitVal(float,float,float);
+	double dLimitVal(float,float,float);
 
 private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
 	PigeonIMU *pidgey;
+	bool wasStraightButtonPressed;
 	double NormalizeAngle(double);
 };
 

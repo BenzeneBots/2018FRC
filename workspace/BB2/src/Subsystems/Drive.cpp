@@ -63,11 +63,11 @@ const double 	f = 1023/2785,		// Feed-Forward = 1023 Max Velocity / 3280nu(Max N
 				d = 4.0;		// Derivative
 
 Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRightPort, int pigeonPort) {
+	//inits useful stuff
 	pidgey = new PigeonIMU(pigeonPort);
+	wasStraightButtonPressed = false;
 
-    // Create all drive motors
-
-	//talon code
+    // Create & init all drive motors
 	frontLeft = new WPI_TalonSRX(frontLeftPort);
 	backLeft = new WPI_TalonSRX(backLeftPort);
 	frontRight = new WPI_TalonSRX(frontRightPort);
@@ -76,9 +76,11 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
 	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
 
-
 	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0,0); //sets the quad encoder as the primary sensor
 	frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+
+	frontLeft->ConfigOpenloopRamp(0.1, 0.0);
+	frontRight->ConfigOpenloopRamp(0.1, 0.0);
 
 	drivetrain = new DifferentialDrive(*frontLeft, *frontRight);
 
@@ -118,6 +120,37 @@ void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based
 
 void Drive::TankDrive(double left, double right){
 	drivetrain->TankDrive(left, right, false);
+}
+
+void Drive::BenzeneDrive(double throttle, double twist, bool driveStraightButton){
+	float steer = 0.0;
+
+	double heading = this->GetYaw();
+
+	// If joystick thumb button for strait driving is pressed...
+	if(driveStraightButton) {
+		// On button being pressed, reset the gyro heading one time and use that as basis for driving straight.
+		if(!wasStraightButtonPressed) {
+			this->ResetYaw();
+			wasStraightButtonPressed = true; //resets trigger
+			heading = 0.0;
+		}
+		// Dump normal steering and twist inputs. Use gyro to drive strait instead.
+		steer = dLimitVal( -0.5, heading * 0.05, 0.5 );
+		twist = 0.0;
+	}
+	// Else, allow turning with joystick and twisting combined.
+	else {
+		// Else, apply deadband on steering and twist.
+		if( fabs(twist) < 0.15 ) twist = 0.0;	// Deadband twist above 25%.
+		steer += (twist * 0.50);		// Scale twist down by 50% then add to steer.
+		wasStraightButtonPressed = false;				// Reset button press detect flag.
+	}
+
+	double leftSpeed = throttle + steer;		// Calculate left and right motor speeds.
+	double rightSpeed = throttle - steer;
+
+	drivetrain->TankDrive(leftSpeed, -1.0 * rightSpeed, false);
 }
 
 double Drive::InputScale(double value,double power){
@@ -250,52 +283,17 @@ void Drive::MotionMagicStraight(double dist){
 	frontLeft->Set(ControlMode::MotionMagic,distance);
 	frontRight->Set(ControlMode::MotionMagic,distance);
 }
+
 void Drive::NeutralizeDrive(){
-	frontLeft->NeutralOutput();
 	frontRight->NeutralOutput();
-}
-void Drive::setDriveMtrSp( float mtrLeftSpeed, float mtrRightSpeed) {
-	frontLeft->Set(ControlMode::PercentOutput, mtrLeftSpeed);
-	frontRight->Set(ControlMode::PercentOutput, mtrRightSpeed);
+	frontLeft->NeutralOutput();
 }
 
-float Drive::fLimitVal(float low, float test,float high){
+double Drive::dLimitVal(float low, float test,float high){
 	if( test > high ) return high;
 	if( test < low ) return low;
 	return test;
 }
-void Drive::MyArcadeDrive(double throttle, double twist, bool driveStraightButton){
-	float steer = 0.0;
-	float lf=0.0, rt=0.0;
-	static bool fBtnState = false;
 
-	double heading = this->GetFusedHeading();
 
-	// If joystick thumb button for strait driving is pressed...
-	if(driveStraightButton) {
-		// On button being pressed, reset the gyro heading one time.
-		if( fBtnState == false ) {
-			this->ResetFusedHeading();
-			fBtnState = true;
-			heading = 0.0;
-			//cntThread = 0;		// Reset millisecond counter.
-		}
-		// Dump normal steering and twist inputs. Use gyro to drive strait instead.
-		steer = fLimitVal( -0.5, heading * 0.05, 0.5 );
-		twist = 0.0;
-	}
-	// Else, allow turning with joystick and twisting combined.
-	else {
-		// Else, apply deadband on steering and twist.
-		if( fabs(steer) < 0.10 ) steer = 0.0;	// Must be at least 10% or above.
-		steer *= 0.5;
-		if( fabs(twist) < 0.15 ) twist = 0.0;	// Deadband twist above 25%.
-		steer += (twist * 0.50);		// Scale twist down by 50% then add to steer.
-		fBtnState = false;				// Reset button press detect flag.
-	}
-
-	lf = throttle + steer;		// Calculate left and right motor speeds.
-	rt = throttle - steer;
-	setDriveMtrSp( lf, rt);
-}
 //*/

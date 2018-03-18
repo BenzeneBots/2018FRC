@@ -10,7 +10,7 @@
 #include <Talon.h>
 #include <Subsystems/Intake.h>
 #define INTAKE_SPEED 1.0
-#define OUTTAKE_SPEED 0.9
+#define OUTTAKE_SPEED 1.0
 #define MIDDLE_TIMEOUT 1.0
 
 
@@ -36,11 +36,8 @@ void Intake::IntakeCubes(){
 }
 
 void Intake::OuttakeCubes(){
-	if(intakeDeployedStatus){//only outtake if intake is deployed
 		intake1->Set(-1.0 * OUTTAKE_SPEED);
 		intake2->Set(-1.0 * OUTTAKE_SPEED);
-	}
-
 }
 
 void Intake::StopIntake(){
