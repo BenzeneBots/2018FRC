@@ -1,7 +1,4 @@
 /*
- *	BB1 - Benzene Bots FRC 2018 Robot Source Code
- *
- *
  * Arcade_Drive.h
  *
  *  Created on: Mar 14, 2018
@@ -11,6 +8,8 @@
 #ifndef ARCADE_DRIVE_H_
 #define ARCADE_DRIVE_H_
 
+#define MAX_SPEED	1.0	// Limit Drive Speed to X%.
+
 // Return the float value, limited to the range low to high.
 // ========================================================================
 float fLimitVal( float low, float test, float hi ) {
@@ -19,12 +18,13 @@ float fLimitVal( float low, float test, float hi ) {
 	return test;
 }
 
-// Quickly set all four motors on the drivetrain.  Note, followers follow
-// automatically.
+// Quickly set all four motors on the drivetrain.
 // ========================================================================
 void setDriveMtrSp( float mtrLeftSp, float mtrRightSp ) {
-	// Speed is limited by "ConfigPeakOutputForward( MAX_SPEED, kTO )".
+	mtrLeftSp = fLimitVal( -MAX_SPEED, mtrLeftSp, MAX_SPEED );
 	mtrLMaster->Set( ControlMode::PercentOutput, mtrLeftSp );
+
+	mtrRightSp = fLimitVal( -MAX_SPEED, mtrRightSp, MAX_SPEED );
 	mtrRMaster ->Set( ControlMode::PercentOutput, mtrRightSp );
 }
 
@@ -36,7 +36,7 @@ void ArcadeDrive() {
 
 	double heading = gyro->GetFusedHeading();
 
-	//steer = joy->GetX( frc::GenericHID::JoystickHand::kRightHand );
+	steer = joy->GetX( frc::GenericHID::JoystickHand::kRightHand );
 	throttle = -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
 	twist = joy->GetTwist();
 
@@ -44,7 +44,7 @@ void ArcadeDrive() {
 	if( btnStrait->Get() ) {
 		// On button being pressed, reset the gyro heading one time.
 		if( fBtnState == false ) {
-			gyro->SetFusedHeading( 0.0, 0 );
+			gyro->SetFusedHeading( 0.0, 10 );
 			fBtnState = true;
 			heading = 0.0;
 			//cntThread = 0;		// Reset millisecond counter.
@@ -58,7 +58,7 @@ void ArcadeDrive() {
 		// Else, apply deadband on steering and twist.
 		if( fabs(steer) < 0.10 ) steer = 0.0;	// Must be at least 10% or above.
 		steer *= 0.5;
-		if( fabs(twist) < 0.15 ) twist = 0.0;	// Deadband twist above 25%.
+		if( fabs(twist) < 0.25 ) twist = 0.0;	// Deadband twist above 25%.
 		steer += (twist * 0.50);		// Scale twist down by 50% then add to steer.
 		fBtnState = false;				// Reset button press detect flag.
 	}

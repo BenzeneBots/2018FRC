@@ -1,8 +1,10 @@
-/*
- *	BB1 - Benzene Bots FRC 2018 Robot Source Code
- *
- *
- */
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
 #pragma once
 
 #include <string>
@@ -10,43 +12,23 @@
 #include <SmartDashboard/SendableChooser.h>
 #include <TimedRobot.h>
 
-// Used in ConfigPeakOutputForward() to limit drivetrain motors speed
-// in all configurations.
-#define MAX_SPEED	1.0			// Limit Drive Speed to X%.
+#define MAX_V		2785		// Max Native Units Velocity As Measured
 
-#define FF_MAX		2785		// Max Native Units As Measured
-
-const uint8_t kTimeoutMs = 10;		// 10ms for timeouts.
-const uint8_t kTO = 10;
+const uint8_t kTO = 0;				// No timeout, return right away without error code.
+const uint8_t kTimeoutMs = 10;		// Max 10ms for timeouts.
 const uint8_t kPIDLoopIdx = 0;
 
-const static int REMOTE_0 = 0;
-const static int REMOTE_1 = 1;
-const static int PID_PRIMARY = 0;
-const static int PID_TURN = 1;
-const static int SLOT_0 = 0;
-const static int SLOT_1 = 1;
-const static int SLOT_2 = 2;
-const static int SLOT_3 = 3;
-
-struct Gains {
-	double kP, kI, kD, kF;
-	double kIzone;
-	double kPeakOutput;
+struct gains {
+	double ff = 1023.0 / MAX_V;	// Feed-Forward = 1023 Max Velocity / Max Velocity Native Units (as measured).
+	double p = 0.3;			// Proportional ~= (10% * 1023) / (350nu worst err measured).
+	double i = 0.002;		// Integral ~= 1/100th of p.
+	double d = 30.0;		// Derivative ~= 10x p.
+	double iZone = 300;		// Clear integral if error is above this threshold.
+	double peakOut = 1.0;	// Maximum motor output allowed.
 };
 
-//                                         kP   kI   kD   kF              Iz    PeakOut
-constexpr static Gains kGains_Distanc = { 0.1, 0.0,  0.0, 0.0,            100,  0.50 };
-constexpr static Gains kGains_Turning = { 2.0, 0.0,  4.0, 0.0,            200,  1.00 };
-constexpr static Gains kGains_Velocit = { 0.1, 0.0, 20.0, 1023.0/FF_MAX,  300,  0.50 }; // measured 3200 max velocity
-constexpr static Gains kGains_MotProf = { 1.0, 0.0,  0.0, 1023.0/FF_MAX,  400,  1.00 }; // measured 3200 max velocity
-constexpr static Gains kGains_MM =      { 0.4, 0.001, 4.0, 1023.0/FF_MAX,  400,  1.00 }; // measured 3200 max velocity
+typedef gains gains;
 
-const static int kSlot_Distanc = SLOT_0;
-const static int kSlot_Turning = SLOT_1;
-const static int kSlot_Velocit = SLOT_2;
-const static int kSlot_MotProf = SLOT_3;
-
-
+gains mpGains;
 
 
