@@ -27,7 +27,7 @@ bool MotionMagicStraight::Run(){
 
 	if((fabs(drive->GetAverageVelocity())<=1)&&(initTimer->Get()>=2.0)){
 		initTimer->Stop();
-		printf("DONE! \n");
+		printf("Done Driving! \n");
 		return true;
 	}else{
 		return false;

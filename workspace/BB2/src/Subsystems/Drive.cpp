@@ -12,8 +12,9 @@
 
 
 //Defined drive constants
-#define INCHES_PER_TICK 0.004636; //measured 02-20-18
+#define INCHES_PER_TICK 0.004636 //measured 02-20-18
 #define TICKS_PER_INCH 217.299549
+#define TICKS_PER_DEGREE 1600/360
 #define RESET_TIMEOUT 10
 
 #define MAX_SPEED	1.0			// Limit Drive Speed to X%.
@@ -293,6 +294,11 @@ double Drive::dLimitVal(float low, float test,float high){
 	if( test > high ) return high;
 	if( test < low ) return low;
 	return test;
+}
+void Drive::MotionMagicTurn(double targetAngle){
+	double turnDist = targetAngle * TICKS_PER_DEGREE;
+	frontLeft->Set(ControlMode::MotionMagic,turnDist);
+	frontRight->Set(ControlMode::MotionMagic,-1.0*turnDist);
 }
 
 

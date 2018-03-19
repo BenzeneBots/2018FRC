@@ -46,6 +46,7 @@ public:
 	void MyArcadeDrive(double,double,bool);
 	void setDriveMtrSp(float,float);
 	double dLimitVal(float,float,float);
+	void MotionMagicTurn(double);
 
 private:
 	DifferentialDrive *drivetrain;
