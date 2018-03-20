@@ -124,6 +124,9 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 
 	sPath = "/home/lvuser/Traj/";
 	trajLen = 0;
+
+	leftTrajectory = new Segment();
+	rightTrajectory = new Segment();
 }
 
 void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
