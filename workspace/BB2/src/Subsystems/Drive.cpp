@@ -322,7 +322,7 @@ bool Drive::RunProfile( void ) {
 	// to run another profile.
 	if( flgRunMP == false ) {
 		enXfer = false;
-		return false;			// We're done.
+		return true;			// We're done.
 	}
 
 	// On first time RunProfile is called, enXfer flag will be false.  But
@@ -330,7 +330,7 @@ bool Drive::RunProfile( void ) {
 	if( (flgRunMP == true) && (enXfer == false) ) {
 		cnt = 0;		// Reset counter.
 		enXfer = true;	// Start transferring points to the Talons.
-		return true;	// Not done yet.
+		return false;	// Not done yet.
 	}
 
 	// Wait approx 100ms for the profile points to start buffering into the Talons.
@@ -356,7 +356,7 @@ bool Drive::RunProfile( void ) {
 			if( mpStatus.hasUnderrun )
 				printf( "Error: Motion Profile UnderRun!\n\n" );
 
-			return false;	// Motion Profile is done.
+			return true;	// Motion Profile is done.
 		}
 	}
 
@@ -485,31 +485,73 @@ TrajectoryDuration Drive::GetTrajectoryDuration(int durationMs) {
 	printf("Trajectory Duration not supported - use configMotionProfileTrajectoryPeriod instead\n");
 	return TrajectoryDuration_100ms;
 }
-void Drive::Load_Waypoints(double xBefore,double yBefore,double headingBefore, double xAfter, double yAfter, double headingAfter, int id) {
+void Drive::Load_Waypoints() {
+
 	// Units are feet and degrees where 90deg points strait ahead.
 	// Y+ is forward from where your robot starts.
 	// Y- is backward from where your robot starts.
 	// X+ is to the right of your robot where it starts.
 	// X- is to the left of your robot where it starts.
 
-	wp[id].wpLen = 2;
-	wp[id].wps[0] = {xBefore,yBefore,d2r(headingBefore)};
-	wp[id].wps[1] = {xAfter,yAfter,d2r(headingAfter)};
+	// Side_Switch = Index 0
+	// Define Side to Switch.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Side_Switch ].wpLen = 3;
+	wp[ Side_Switch ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
+	wp[ Side_Switch ].wps[1] = { 2.0, 	5.0,	d2r(  60 ) };
+	wp[ Side_Switch ].wps[2] = { -1.0, 	14.0,	d2r(  180 ) };
+	wp[ Side_Switch ].vel = 5.0;			// max ft/sec
+	wp[ Side_Switch ].accel = 10.0;		// max ft/sec^2
+	wp[ Side_Switch ].jerk = 75.0;		// max ft/sec^3
+	strcpy( wp[ Side_Switch ].sTrajLeft, "Side_SwitchLf.bin" );
+	strcpy( wp[ Side_Switch ].sTrajRight, "Side_SwitchRt.bin" );
+	strcpy( wp[ Side_Switch ].sTraj_CSV, "Side_Switch.csv" );
 
-	wp[id].vel = 5.0;			// max ft/sec
-	wp[id].accel = 15.0;		// max ft/sec^2
-	wp[id].jerk = 100.0;		// max ft/sec^3
-	std::string name = "Path"+ std::to_string (id);
-	std::string left = name + "Lf.bin";
-	std::string right = name + "Lf.bin";
-	std::string csv = name + "Lf.bin";
-	const char *cleft = left.c_str();
-	const char *cright = left.c_str();
-	const char *ccsv = left.c_str();
 
-	strcpy( wp[id].sTrajLeft, cleft);
-	strcpy( wp[id].sTrajRight, cright);
-	strcpy( wp[id].sTraj_CSV, ccsv);
+	// Side_Scale = Index 1
+	// Define Side to Scale on near side.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Side_Scale ].wpLen = 0;		// Zero points means not yet defined.
+
+	// Side_SwitchFar = Index 2
+	// Define Side to Switch on Far Opposite Side.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Side_SwitchFar ].wpLen = 5;	//   X       Y         Angle
+	wp[ Side_SwitchFar ].wps[0] = { 	0.0,  	0.0, 	d2r(  90 ) };
+	wp[ Side_SwitchFar ].wps[1] = { 	8.0, 	12.0, 	d2r(  90 ) };
+	wp[ Side_SwitchFar ].wps[2] = { 	8.0,	12.5,	d2r(  90 ) };
+	wp[ Side_SwitchFar ].wps[3] = { 	3.5,	17.0,	d2r( 170 ) };
+	wp[ Side_SwitchFar ].wps[4] = { 	-6.0,	19.0,	d2r( 180 ) };
+	wp[ Side_SwitchFar ].vel = 5.0;			// max ft/sec
+	wp[ Side_SwitchFar ].accel = 15.0;		// max ft/sec^2
+	wp[ Side_SwitchFar ].jerk = 100.0;		// max ft/sec^3
+	strcpy( wp[ Side_SwitchFar ].sTrajLeft, "Side_FarScaleLf.bin" );
+	strcpy( wp[ Side_SwitchFar ].sTrajRight, "Side_FarScaleRt.bin" );
+	strcpy( wp[ Side_SwitchFar ].sTraj_CSV, "Side_FarScale.csv" );
+
+	// Side_ScaleFar = Index 3
+	// Define Side to Scale on far side.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Side_ScaleFar ].wpLen = 0;		// Zero points means not yet defined.
+
+	// Mid_SwitchLeft = Index 4
+	// Define Mid starting to switch on left side.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Mid_SwitchLeft ].wpLen = 0;		// Zero points means not yet defined.
+
+	// Mid_SwitchRight = Index 5
+	// Define Mid to Right Switch.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Mid_SwitchRight ].wpLen = 3;
+	wp[ Mid_SwitchRight ].wps[0] = { 0, 	0, 		d2r(  90 ) };
+	wp[ Mid_SwitchRight ].wps[1] = { 3, 	3, 		d2r(  60 ) };
+	wp[ Mid_SwitchRight ].wps[2] = { 5.5,	7.5,	d2r(  87 ) };
+	wp[ Mid_SwitchRight ].vel = 5.0;			// max ft/sec
+	wp[ Mid_SwitchRight ].accel = 10.0;		// max ft/sec^2
+	wp[ Mid_SwitchRight ].jerk = 75.0;		// max ft/sec^3
+	strcpy( wp[ Mid_SwitchRight ].sTrajLeft, "Mid_RightSwitchLf.bin" );
+	strcpy( wp[ Mid_SwitchRight ].sTrajRight, "Mid_RightSwitchRt.bin" );
+	strcpy( wp[ Mid_SwitchRight ].sTraj_CSV, "Mid_RightSwitch.csv" );
 }
 
 void Drive::FindPath( int idx ) {

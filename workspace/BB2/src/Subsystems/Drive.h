@@ -7,6 +7,8 @@
 
 #ifndef SRC_SUBSYSTEMS_DRIVE_H_
 #define SRC_SUBSYSTEMS_DRIVE_H_
+#define NUM_PATHS	6	// There are six possible paths in Auto mode.
+#define MAX_WPS		10	// Max number of waypoints in a path.
 
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
@@ -52,8 +54,8 @@ public:
 	void LoadProfile(int,bool);
 	bool RunProfile(void);
 	TrajectoryDuration GetTrajectoryDuration(int);
-	void Load_Waypoints(double,double,double,double,double,double,int);
 	void FindPath(int);
+	void Load_Waypoints();
 
 private:
 	MotionProfileStatus mpStatus;
@@ -69,19 +71,24 @@ private:
 	uint32_t cntProfile;
 	bool flgRunMP;
 
+	enum paths {
+		Side_Switch, Side_Scale, Side_SwitchFar,
+		Side_ScaleFar, Mid_SwitchLeft, 	Mid_SwitchRight };
+	typedef paths paths;
+
+	// Struct holds a waypoint group.
+	struct wp {
+		Waypoint wps[ MAX_WPS ];		// Allocate Space for up to X Waypoints.
+		int wpLen;						// Save how many waypoints to are use of the ten available.
+		int trajLen;					// Number of points in the generated trajectory.
+		double vel, accel, jerk;		// Max velocity, acceleration, and jerk for this profile.
+		char sTrajLeft[32];				// Allocate space to for the Left trajectories filename.
+		char sTrajRight[32];			//   "						 Right
+		char sTraj_CSV[32];				// Filename for CSV data.
+	} wp[NUM_PATHS];
 
 	int trajLen;
 	const char *sPath;
-	// Struct holds a waypoint group.
-		struct wp {
-			Waypoint wps[10];				// Allocate Space for up to 10 Waypoints.
-			int wpLen;						// Save how many waypoints to are use of the ten available.
-			int trajLen;					// Number of points in the generated trajectory.
-			double vel, accel, jerk;		// Max velocity, acceleration, and jerk for this profile.
-			char sTrajLeft[32];				// Allocate space to for the Left trajectories filename.
-			char sTrajRight[32];			//   "						 Right
-			char sTraj_CSV[32];				// Filename for CSV data.
-		} wp[6];
 
 		// Global vars used to hold trajectory paths for left and right side.
 		Segment *leftTrajectory;	// PathFinder() uses malloc to dynamically adjust.
@@ -89,6 +96,7 @@ private:
 
 		Segment leftTraj[ 2048 ];
 		Segment rightTraj[ 2048 ];
+
 };
 
 #endif /* SRC_SUBSYSTEMS_DRIVE_H_ */

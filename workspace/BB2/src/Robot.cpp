@@ -197,6 +197,9 @@ public:
 		robotDrive->ResetYaw();
 		robotDrive->ResetFusedHeading();
 		//robotElevator->SetEncoderPosition(0);
+
+		//Load Waypoints into Memory
+		robotDrive->Load_Waypoints();
 	}
 
 	void AutonomousInit() {
@@ -504,7 +507,19 @@ public:
 	}
 
 	void TestPeriodic() {
-		robotDrive->TankDrive(0.1,.1);
+		if(mainDriverStick->GetRawButton(11)) {
+			printf( "Recalculating Motion Trajectories...\n" );
+
+			robotDrive->Load_Waypoints();	// Load all the data into the waypoint structures.
+
+			// Step thru and calculate each path.  The result is stored as a
+			// binary/CSV file on the RoboRIO file-system.
+			for ( int idx=0 ; idx < NUM_PATHS ; idx++ ) {
+				printf( "Calculating PathFinder Path: %d\n", idx );
+				robotDrive->FindPath( idx );
+			}
+			printf( "Info: PathFinder Done\n" );
+		}
 	}
 
 private:
