@@ -7,22 +7,8 @@
 
 #include <Auton/AutonPathfinder.h>
 
-AutonPathfinder::AutonPathfinder(Drive *robotDrive, int profileNum, bool reversed) {
-	drive = robotDrive;
-	profileId = profileNum;
-	isReversed = reversed;
-}
+AutonPathfinder::AutonPathfinder(Drive *robotDrive, int profileNum) {
+	// TODO Auto-generated constructor stub
 
-AutonPathfinder::~AutonPathfinder(){
-
-}
-
-
-void AutonPathfinder::Initialize(){
-	drive->LoadProfile(profileId, isReversed);
-}
-
-bool AutonPathfinder::Run(){
-	return drive->RunProfile();
 }
 

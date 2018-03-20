@@ -38,7 +38,6 @@
 #include <Auton/AutonTurnLeft.h>
 #include <Auton/AutonTurnRight.h>
 #include <Auton/MotionMagicStraight.h>
-#include <Auton/AutonPathfinder.h>
 
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
@@ -159,11 +158,6 @@ public:
 
 
 	void RobotInit() {
-		//Initialize all the joysticks
-		mainDriverStick = new Joystick(0);
-		secondaryDriverStick = new Joystick(1);
-		manipStick = new Joystick(2);
-
 		//populates auto chooser on dashboard
 		auton_chooser.AddDefault(DriveStraight, DriveStraight);
 		auton_chooser.AddObject(Center1Cube, Center1Cube);
@@ -203,9 +197,6 @@ public:
 		robotDrive->ResetYaw();
 		robotDrive->ResetFusedHeading();
 		//robotElevator->SetEncoderPosition(0);
-
-		//Load Waypoints into Memory
-		robotDrive->Load_Waypoints();
 	}
 
 	void AutonomousInit() {
@@ -339,8 +330,7 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						//new AutonDriveStraight(robotDrive, 60));
-						new AutonPathfinder(robotDrive,0,false));
+						new MotionMagicStraight(robotDrive, 60));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
@@ -359,6 +349,10 @@ public:
 	}
 
 	void TeleopInit() {
+		//Initialize all the joysticks
+		mainDriverStick = new Joystick(0);
+		secondaryDriverStick = new Joystick(1);
+		manipStick = new Joystick(2);
 
 		//reset Drive Encoders
 		robotDrive->ResetEncoders();
@@ -408,7 +402,7 @@ public:
 	}
 
 	void TeleopPeriodic() {
-		printf("Teleop \n");
+
 
 		matchTime = DriverStation::GetInstance().GetMatchTime();
 		frc::SmartDashboard::PutNumber("Match Time", matchTime);
@@ -508,25 +502,9 @@ public:
 
 		//Prints some relevant stuff
 	}
-	void TestInit() {
-			printf( "TestInit...\n" );
-		}
 
 	void TestPeriodic() {
-		printf("TestPeriodic \n");
-		if(mainDriverStick->GetRawButton(11)) {
-			printf( "Recalculating Motion Trajectories...\n" );
-
-			robotDrive->Load_Waypoints();	// Load all the data into the waypoint structures.
-
-			// Step thru and calculate each path.  The result is stored as a
-			// binary/CSV file on the RoboRIO file-system.
-			for ( int idx=0 ; idx < NUM_PATHS ; idx++ ) {
-				printf( "Calculating PathFinder Path: %d\n", idx );
-				robotDrive->FindPath( idx );
-			}
-			printf( "Info: PathFinder Done\n" );
-		}
+		robotDrive->TankDrive(0.1,.1);
 	}
 
 private:

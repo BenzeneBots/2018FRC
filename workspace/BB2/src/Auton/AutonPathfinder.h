@@ -13,16 +13,7 @@
 
 class AutonPathfinder: public AutoCommand {
 public:
-	AutonPathfinder(Drive*, int, bool);
-	virtual ~AutonPathfinder();
-
-	void Initialize();
-	bool Run();
-
-private:
-	Drive *drive;
-	int profileId;
-	bool isReversed;
+	AutonPathfinder(Drive*, int);
 };
 
 #endif /* SRC_AUTON_AUTONPATHFINDER_H_ */
