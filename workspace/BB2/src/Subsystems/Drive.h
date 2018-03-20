@@ -10,6 +10,7 @@
 
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
+#include <pathfinder.h>
 
 class Drive {
 public:
@@ -47,13 +48,47 @@ public:
 	void setDriveMtrSp(float,float);
 	double dLimitVal(float,float,float);
 	void MotionMagicTurn(double);
+	void mpThread(void);
+	void LoadProfile(int,bool);
+	bool RunProfile(void);
+	TrajectoryDuration GetTrajectoryDuration(int);
+	void Load_Waypoints(double,double,double,double,double,double,int);
+	void FindPath(int);
 
 private:
+	MotionProfileStatus mpStatus;
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
 	PigeonIMU *pidgey;
 	bool wasStraightButtonPressed;
 	double NormalizeAngle(double);
+
+	double pos, vel,heading;	// For active traj. Pt.
+
+	bool enXfer;
+	uint32_t cntProfile;
+	bool flgRunMP;
+
+
+	int trajLen;
+	const char *sPath;
+	// Struct holds a waypoint group.
+		struct wp {
+			Waypoint wps[10];				// Allocate Space for up to 10 Waypoints.
+			int wpLen;						// Save how many waypoints to are use of the ten available.
+			int trajLen;					// Number of points in the generated trajectory.
+			double vel, accel, jerk;		// Max velocity, acceleration, and jerk for this profile.
+			char sTrajLeft[32];				// Allocate space to for the Left trajectories filename.
+			char sTrajRight[32];			//   "						 Right
+			char sTraj_CSV[32];				// Filename for CSV data.
+		} wp[6];
+
+		// Global vars used to hold trajectory paths for left and right side.
+		Segment *leftTrajectory;	// PathFinder() uses malloc to dynamically adjust.
+		Segment *rightTrajectory;
+
+		Segment leftTraj[ 2048 ];
+		Segment rightTraj[ 2048 ];
 };
 
 #endif /* SRC_SUBSYSTEMS_DRIVE_H_ */

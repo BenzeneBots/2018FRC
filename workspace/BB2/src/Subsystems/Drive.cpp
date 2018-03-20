@@ -9,6 +9,7 @@
 #include <ctre/Phoenix.h>
 #include <WPILib.h>
 #include <Math.h>
+#include <pathfinder.h>
 
 
 //Defined drive constants
@@ -113,6 +114,16 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	// Status 10 provides the trajectory target for motion profile AND motion magic.
 	frontLeft->SetStatusFramePeriod(StatusFrameEnhanced::Status_10_MotionMagic, 10, kTimeoutMs);
 	frontRight->SetStatusFramePeriod(StatusFrameEnhanced::Status_10_MotionMagic, 10, kTimeoutMs);
+
+	pos = 0;
+	vel = 0;
+	heading = 0;
+	enXfer = false;
+	flgRunMP = false;
+	cntProfile = 0;
+
+	sPath = "/home/lvuser/Traj/";
+	trajLen = 0;
 }
 
 void Drive::ArcadeDrive(double speed, double turn){//Drives the drivetrain based on
@@ -299,6 +310,305 @@ void Drive::MotionMagicTurn(double targetAngle){
 	double turnDist = targetAngle * TICKS_PER_DEGREE;
 	frontLeft->Set(ControlMode::MotionMagic,turnDist);
 	frontRight->Set(ControlMode::MotionMagic,-1.0*turnDist);
+}
+bool Drive::RunProfile( void ) {
+	static uint16_t cnt=0;
+
+	// This is automatically set true in LoadProfile().  When the MP is done,
+	// this flag goes false so we don't double execute a MP.  First, use LoadProfile()
+	// to run another profile.
+	if( flgRunMP == false ) {
+		enXfer = false;
+		return false;			// We're done.
+	}
+
+	// On first time RunProfile is called, enXfer flag will be false.  But
+	// flgRunMP will be true from LoadProfile().
+	if( (flgRunMP == true) && (enXfer == false) ) {
+		cnt = 0;		// Reset counter.
+		enXfer = true;	// Start transferring points to the Talons.
+		return true;	// Not done yet.
+	}
+
+	// Wait approx 100ms for the profile points to start buffering into the Talons.
+	// Then, turn on the motors in profile mode!
+	if( cnt > 5 ) {
+		// Turn on the motion profile in the Talons!
+		frontLeft->Set( ControlMode::MotionProfile, 1 );
+		frontRight->Set( ControlMode::MotionProfile, 1 );
+
+		MotionProfileStatus mpStatus;
+		frontLeft->GetMotionProfileStatus( mpStatus );		// Get the MP status from the Talon.
+
+		// On last MP point in the Talon, the move must be done.
+		if( mpStatus.isLast ) {
+			enXfer = false;		// Stop the real-time thread activity.
+			flgRunMP = false;	// End motion profile running.
+
+			// Switch Talons to holding position mode.
+			frontLeft->Set( ControlMode::MotionProfile, 2 );
+			frontRight->Set( ControlMode::MotionProfile, 2 );
+
+			// This should not happen - but if it does let people know!
+			if( mpStatus.hasUnderrun )
+				printf( "Error: Motion Profile UnderRun!\n\n" );
+
+			return false;	// Motion Profile is done.
+		}
+	}
+
+	cnt += 1;		// Static var used for timing events.
+	return true;	// Not done yet.
+}
+
+
+// Given an index to a waypoint group, load the trajectory from the file-system.
+// If flgMirror is true, switch sides of the drivetrain to mirror the profile.
+// ============================================================================
+void Drive::LoadProfile( int idx, bool flgMirror) {
+	char s[120];
+
+	enXfer = false;		// My master enable flag for MP buffer xfer.
+	flgRunMP = true;	// My master run flag.
+
+	strcpy( s, sPath );
+	strcat( s, wp[idx].sTrajLeft );
+	printf( "Reading: %s\n", s );
+	FILE *fpLf = fopen( s, "r" );
+	wp[idx].trajLen = pathfinder_deserialize( fpLf, leftTraj );
+	fclose( fpLf );
+	trajLen = wp[idx].trajLen;
+
+	strcpy( s, sPath );
+	strcat( s, wp[idx].sTrajRight  );
+	FILE *fpRt = fopen( s, "r" );
+	pathfinder_deserialize( fpRt, rightTraj );
+	fclose( fpRt );
+
+	frontLeft->ClearMotionProfileTrajectories();
+	frontRight->ClearMotionProfileTrajectories();
+
+	frontLeft->ClearMotionProfileHasUnderrun( 0 );
+	frontRight->ClearMotionProfileHasUnderrun( 0 );
+
+	// Fill the top buffer with Talon points.  Note, there is room for
+	// about 2048 points for each Talon.  So, don't go too crazy!
+	for (int i = 0; i < trajLen; ++i) {
+		Segment s = leftTraj[i];
+		double positionRot = s.position;
+		double velocityRPM = s.velocity;
+
+		TrajectoryPoint point;
+
+		/* for each point, fill our structure and pass it to API */
+		point.position = positionRot * 2607.6;  // Convert ft to nu.
+		point.velocity = velocityRPM * 260.76; 	// Convert ft/s to nu/100ms
+		point.headingDeg = 0; /* future feature - not used in this example*/
+		point.profileSlotSelect0 = 0; /* which set of gains would you like to use [0,3]? */
+		point.profileSlotSelect1 = 0; /* future feature  - not used in this example - cascaded PID [0,1], leave zero */
+		point.timeDur = GetTrajectoryDuration((int) s.dt );
+
+		// Set true on first point.
+		point.zeroPos = (i == 0) ? true : false;
+		// Set true on last point.
+		point.isLastPoint = ((i+1) == trajLen) ? true : false;
+
+		// If flag is true, switch which sides of the drivetrain.
+		if( flgMirror )
+			frontRight->PushMotionProfileTrajectory( point );
+		else
+			frontLeft->PushMotionProfileTrajectory( point );
+
+		s = rightTraj[i];
+		positionRot = s.position;
+		velocityRPM = s.velocity;
+		point.position = positionRot * 2607.6;  // Convert ft to nu.
+		point.velocity = velocityRPM * 260.76; 	// Convert ft/s to nu/100ms
+
+		// If flag is true, switch which sides of the drivetrain.
+		if( flgMirror )
+			frontLeft->PushMotionProfileTrajectory( point );
+		else
+			frontRight->PushMotionProfileTrajectory( point );
+	}
+
+	printf( "Loaded %d trajectory points.\n", trajLen );
+}
+
+// This task runs at a 5ms rate and keeps the Talon motion profile buffers full
+// over the CAN bus.
+// ============================================================================
+void Drive::mpThread( void ) {
+
+	MotionProfileStatus mpStatus;	// MP Status from a Talon.
+
+	while( 1 ) {
+
+		// If auto mode is true and we're enabled, shovel top buffer points out
+		// to the Talons.
+		if( frc::RobotState::IsAutonomous() && frc::RobotState::IsEnabled() ) {
+
+			if( enXfer ) {
+				// Move points from top-buffer to bottom-buffer.
+				frontLeft->ProcessMotionProfileBuffer();
+				frontRight->ProcessMotionProfileBuffer();
+
+				frontLeft->GetMotionProfileStatus( mpStatus );		// Get the MP status from the Talon.
+
+				// On last MP point in the Talon, the move is done.
+				if( mpStatus.isLast == false ) {
+					// Keep counting while not on the last point.
+					cntProfile += 1;
+				}
+			}
+		}
+
+		// Sleep the thread for X milliseconds.  Note, there is about 90uS of overhead.
+		std::this_thread::sleep_for( std::chrono::microseconds( 5000 - 90 ) );
+	}
+}
+TrajectoryDuration Drive::GetTrajectoryDuration(int durationMs) {
+	/* lookup and return valid value */
+	switch (durationMs) {
+		case 0:		return TrajectoryDuration_0ms;
+		case 5:		return TrajectoryDuration_5ms;
+		case 10: 	return TrajectoryDuration_10ms;
+		case 20: 	return TrajectoryDuration_20ms;
+		case 30: 	return TrajectoryDuration_30ms;
+		case 40: 	return TrajectoryDuration_40ms;
+		case 50: 	return TrajectoryDuration_50ms;
+		case 100: 	return TrajectoryDuration_100ms;
+	}
+	printf("Trajectory Duration not supported - use configMotionProfileTrajectoryPeriod instead\n");
+	return TrajectoryDuration_100ms;
+}
+void Drive::Load_Waypoints(double xBefore,double yBefore,double headingBefore, double xAfter, double yAfter, double headingAfter, int id) {
+	// Units are feet and degrees where 90deg points strait ahead.
+	// Y+ is forward from where your robot starts.
+	// Y- is backward from where your robot starts.
+	// X+ is to the right of your robot where it starts.
+	// X- is to the left of your robot where it starts.
+
+	wp[id].wpLen = 2;
+	wp[id].wps[0] = {xBefore,yBefore,d2r(headingBefore)};
+	wp[id].wps[1] = {xAfter,yAfter,d2r(headingAfter)};
+
+	wp[id].vel = 5.0;			// max ft/sec
+	wp[id].accel = 15.0;		// max ft/sec^2
+	wp[id].jerk = 100.0;		// max ft/sec^3
+	std::string name = "Path"+ std::to_string (id);
+	std::string left = name + "Lf.bin";
+	std::string right = name + "Lf.bin";
+	std::string csv = name + "Lf.bin";
+	const char *cleft = left.c_str();
+	const char *cright = left.c_str();
+	const char *ccsv = left.c_str();
+
+	strcpy( wp[id].sTrajLeft, cleft);
+	strcpy( wp[id].sTrajRight, cright);
+	strcpy( wp[id].sTraj_CSV, ccsv);
+}
+
+void Drive::FindPath( int idx ) {
+	// Given a small set of waypoints, calculate a bunch of trajectory points that
+	// make a smooth curved path for each side of the drivetrain.  The left and
+	// right trajectories are saved as binary files.
+	// ============================================================================
+
+	TrajectoryCandidate candidate;
+
+	// Prepare the Trajectory for Generation.
+	//
+	// Arguments:
+	// Fit Function:        FIT_HERMITE_CUBIC or FIT_HERMITE_QUINTIC
+	// Sample Count:        PATHFINDER_SAMPLES_HIGH (100 000)
+	//                      PATHFINDER_SAMPLES_LOW  (10 000)
+	//                      PATHFINDER_SAMPLES_FAST (1 000)
+	// Time Step:           0.001 Seconds
+	// Max Velocity:        15 m/s
+	// Max Acceleration:    10 m/s/s
+	// Max Jerk:            60 m/s/s/s
+//	pathfinder_prepare(  points, POINT_LENGTH, FIT_HERMITE_CUBIC,
+	pathfinder_prepare(  wp[idx].wps, wp[idx].wpLen, FIT_HERMITE_CUBIC,
+			PATHFINDER_SAMPLES_LOW,
+			0.010,			// Sample Rate
+			wp[idx].vel,	// Max Velocity ft/s
+			wp[idx].accel,	// Max Accel	ft/s^2
+			wp[idx].jerk,	// Max Jerk		ft/s^3
+			&candidate );
+
+	trajLen = candidate.length;
+	wp[idx].trajLen = trajLen;
+
+	// Array of Segments (the trajectory points) to store the trajectory in.
+	Segment *trajectory = (Segment*)malloc( trajLen * sizeof(Segment) );
+
+	// Generate the trajectory
+	int result = pathfinder_generate(&candidate, trajectory);
+	if (result < 0) {
+	    // An error occured
+	    printf( "Uh-Oh! Trajectory could not be generated!\n" );
+	}
+	else {
+		printf( "Trajectory Length: %d\n", trajLen );
+	}
+
+	// Allocate memory for each side of the drivetrain.
+	leftTrajectory = (Segment*)malloc( trajLen * sizeof(Segment) );
+	rightTrajectory = (Segment*)malloc( trajLen * sizeof(Segment) );
+
+	// The distance between the left and right sides of the wheelbase is 2.0ft.
+	double wheelbase_width = 2.0;
+
+	// Generate the Left and Right trajectories of the wheelbase using the
+	// originally generated trajectory.
+	pathfinder_modify_tank( trajectory, trajLen, leftTrajectory, rightTrajectory, wheelbase_width );
+
+	/*
+	double tm=0;
+	for (int i = 0; i < 10; i++) {
+	    Segment s = leftTrajectory[i];
+	    printf( "Time: %f\n", tm += s.dt );
+	    printf( "Time Step: %f\n", s.dt );
+	    printf( "Coords: (%f, %f)\n", s.x, s.y );
+	    printf( "Position (Distance): %f\n", s.position );
+	    printf( "Velocity: %f\n", s.velocity );
+	    printf( "Acceleration: %f\n", s.acceleration );
+	    printf( "Jerk (Acceleration per Second): %f\n", s.jerk );
+	    printf( "Heading (radians): %f\n\n", s.heading );
+	}
+	*/
+
+	char s[120];	// Filename string storage area.
+
+	// Write trajectory to a file on RoboRIO in CSV format.
+	// To retrieve use: "scp admin@10.43.84.2:/home/lvuser/Traj/Filename.csv ."
+	strcpy( s, sPath );
+	strcat( s, wp[idx].sTraj_CSV );
+	FILE *fpCSV = fopen( s, "w" );
+	pathfinder_serialize_csv( fpCSV, trajectory, trajLen );
+	fclose(fpCSV);
+
+	// Save the left side given a filename as a binary trajectory.
+	strcpy( s, sPath );
+	strcat( s, wp[idx].sTrajLeft );
+	FILE *fpLf = fopen( s, "w" );
+	pathfinder_serialize( fpLf, leftTrajectory, trajLen );
+	fclose(fpLf);
+
+	// Same right side too.
+	strcpy( s, sPath );
+	strcat( s, wp[idx].sTrajRight );
+	FILE *fpRt = fopen( s, "w" );
+	pathfinder_serialize( fpRt, rightTrajectory, trajLen );
+	fclose(fpRt);
+
+	// Free the memory used by "trajectory" which was the center path of trajectory
+	// points.  The trajectory points in leftTrajectory and rightTrajectory are now ready
+	// and should be used to drive the robot during auto.
+	free( trajectory );
+	free( rightTrajectory );
+	free( leftTrajectory );
 }
 
 
