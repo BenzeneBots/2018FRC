@@ -12,45 +12,83 @@
 #include "ctre/Phoenix.h"
 #include <pathfinder.h>
 
+TrajectoryDuration GetTrajectoryDuration( int durationMs );
 
 MotionProfileStatus mpStatus;
 double _pos = 0, _vel = 0, _heading = 0;	// For active traj. Pt.
 
 bool enXfer = false;
 uint32_t cntProfile = 0;
+bool flgRunMP = false;
 
-/**
- * Find enum value if supported.
- * @param durationMs
- * @return enum equivalent of durationMs
- */
-TrajectoryDuration GetTrajectoryDuration(int durationMs) {
-	/* lookup and return valid value */
-	switch (durationMs) {
-		case 0:		return TrajectoryDuration_0ms;
-		case 5:		return TrajectoryDuration_5ms;
-		case 10: 	return TrajectoryDuration_10ms;
-		case 20: 	return TrajectoryDuration_20ms;
-		case 30: 	return TrajectoryDuration_30ms;
-		case 40: 	return TrajectoryDuration_40ms;
-		case 50: 	return TrajectoryDuration_50ms;
-		case 100: 	return TrajectoryDuration_100ms;
+// Call this function often when running a motion profile.  This function will
+// return false when the profile has ended.
+// ============================================================================
+bool RunProfile( void ) {
+	static uint16_t cnt=0;
+
+	// This is automatically set true in LoadProfile().  When the MP is done,
+	// this flag goes false so we don't double execute a MP.  First, use LoadProfile()
+	// to run another profile.
+	if( flgRunMP == false ) {
+		enXfer = false;
+		return false;			// We're done.
 	}
-	printf("Trajectory Duration not supported - use configMotionProfileTrajectoryPeriod instead\n");
-	return TrajectoryDuration_100ms;
+
+	// On first time RunProfile is called, enXfer flag will be false.  But
+	// flgRunMP will be true from LoadProfile().
+	if( (flgRunMP == true) && (enXfer == false) ) {
+		cnt = 0;		// Reset counter.
+		enXfer = true;	// Start transferring points to the Talons.
+		return true;	// Not done yet.
+	}
+
+	// Wait approx 100ms for the profile points to start buffering into the Talons.
+	// Then, turn on the motors in profile mode!
+	if( cnt > 5 ) {
+		// Turn on the motion profile in the Talons!
+		mtrLMaster->Set( ControlMode::MotionProfile, 1 );
+		mtrRMaster->Set( ControlMode::MotionProfile, 1 );
+
+		MotionProfileStatus mpStatus;
+		mtrLMaster->GetMotionProfileStatus( mpStatus );		// Get the MP status from the Talon.
+
+		// On last MP point in the Talon, the move must be done.
+		if( mpStatus.isLast ) {
+			enXfer = false;		// Stop the real-time thread activity.
+			flgRunMP = false;	// End motion profile running.
+
+			// Switch Talons to holding position mode.
+			mtrLMaster->Set( ControlMode::MotionProfile, 2 );
+			mtrRMaster->Set( ControlMode::MotionProfile, 2 );
+
+			// This should not happen - but if it does let people know!
+			if( mpStatus.hasUnderrun )
+				printf( "Error: Motion Profile UnderRun!\n\n" );
+
+			return false;	// Motion Profile is done.
+		}
+	}
+
+	cnt += 1;		// Static var used for timing events.
+	return true;	// Not done yet.
 }
 
 
-
 // Given an index to a waypoint group, load the trajectory from the file-system.
+// If flgMirror is true, switch sides of the drivetrain to mirror the profile.
 // ============================================================================
-void LoadProfile( int idx ) {
+void LoadProfile( int idx, bool flgMirror ) {
 	char s[120];
+
+	enXfer = false;		// My master enable flag for MP buffer xfer.
+	flgRunMP = true;	// My master run flag.
 
 	strcpy( s, sPath );
 	strcat( s, wp[idx].sTrajLeft );
+	printf( "Reading: %s\n", s );
 	FILE *fpLf = fopen( s, "r" );
-	pathfinder_deserialize( fpLf, leftTraj );
+	wp[idx].trajLen = pathfinder_deserialize( fpLf, leftTraj );
 	fclose( fpLf );
 	trajLen = wp[idx].trajLen;
 
@@ -88,7 +126,11 @@ void LoadProfile( int idx ) {
 		// Set true on last point.
 		point.isLastPoint = ((i+1) == trajLen) ? true : false;
 
-		mtrLMaster->PushMotionProfileTrajectory( point );
+		// If flag is true, switch which sides of the drivetrain.
+		if( flgMirror )
+			mtrRMaster->PushMotionProfileTrajectory( point );
+		else
+			mtrLMaster->PushMotionProfileTrajectory( point );
 
 		s = rightTraj[i];
 		positionRot = s.position;
@@ -96,33 +138,27 @@ void LoadProfile( int idx ) {
 		point.position = positionRot * 2607.6;  // Convert ft to nu.
 		point.velocity = velocityRPM * 260.76; 	// Convert ft/s to nu/100ms
 
-		mtrRMaster->PushMotionProfileTrajectory( point );
+		// If flag is true, switch which sides of the drivetrain.
+		if( flgMirror )
+			mtrLMaster->PushMotionProfileTrajectory( point );
+		else
+			mtrRMaster->PushMotionProfileTrajectory( point );
 	}
+
+	printf( "Loaded %d trajectory points.\n", trajLen );
 }
-
-
-
-
-
 
 // This task runs at a 5ms rate and keeps the Talon motion profile buffers full
 // over the CAN bus.
 // ============================================================================
 void mpThread( void ) {
-	//double tmNow=0;//, tmOld=0;
-	//double tmAuto=0;
-	//Timer *tm = new Timer();	// Used for computing delta time.
-	//static uint16_t cnt=1;		// Don't really need static here since this never returns.
-	//bool flgStart = false;		// Flag goes true on auto mode starting.
 
-	//static bool flg=false;
-	//static double sp=0.0, dr=0.0;
-	//double acl=0.01;
+	MotionProfileStatus mpStatus;	// MP Status from a Talon.
 
 	while( 1 ) {
 
-		//tmNow = tm->GetFPGATimestamp();		// First thing, get the actual timestamp!
-
+		// If auto mode is true and we're enabled, shovel top buffer points out
+		// to the Talons.
 		if( frc::RobotState::IsAutonomous() && frc::RobotState::IsEnabled() ) {
 
 			if( enXfer ) {
@@ -130,27 +166,45 @@ void mpThread( void ) {
 				mtrLMaster->ProcessMotionProfileBuffer();
 				mtrRMaster->ProcessMotionProfileBuffer();
 
-				cntProfile += 1;
-			}
+				mtrLMaster->GetMotionProfileStatus( mpStatus );		// Get the MP status from the Talon.
 
-			/*
-			// Every 200th loop (or once a second), print out some stats.
-			if( ++cnt >= 200 ) {
-				printf( "AutoTm: %0.2f\n", tmNow - tmAuto );
-				cnt = 1;
+				// On last MP point in the Talon, the move is done.
+				if( mpStatus.isLast == false ) {
+					// Keep counting while not on the last point.
+					cntProfile += 1;
+				}
 			}
-			*/
 		}
-		/*
-		else {
-			tmAuto = tmNow;		// Capture time until autonomous starts.
-			cnt = 0;
-		}
-		*/
 
 		// Sleep the thread for X milliseconds.  Note, there is about 90uS of overhead.
 		std::this_thread::sleep_for( std::chrono::microseconds( 5000 - 90 ) );
 	}
 }
+
+
+
+
+/**
+ * Find enum value if supported.
+ * @param durationMs
+ * @return enum equivalent of durationMs
+ */
+TrajectoryDuration GetTrajectoryDuration(int durationMs) {
+	/* lookup and return valid value */
+	switch (durationMs) {
+		case 0:		return TrajectoryDuration_0ms;
+		case 5:		return TrajectoryDuration_5ms;
+		case 10: 	return TrajectoryDuration_10ms;
+		case 20: 	return TrajectoryDuration_20ms;
+		case 30: 	return TrajectoryDuration_30ms;
+		case 40: 	return TrajectoryDuration_40ms;
+		case 50: 	return TrajectoryDuration_50ms;
+		case 100: 	return TrajectoryDuration_100ms;
+	}
+	printf("Trajectory Duration not supported - use configMotionProfileTrajectoryPeriod instead\n");
+	return TrajectoryDuration_100ms;
+}
+
+
 
 #endif /* MOTION_PROFILE_H_ */

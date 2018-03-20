@@ -8,6 +8,10 @@
 #include <Robot.h>
 #include <CameraServer.h>
 
+// Defining "DEBUG" enables extra debug stuff. Like smart dashboard data.
+// Comment out this line during competition.
+#define DEBUG
+
 PigeonIMU *imu;
 TalonSRX *mtrLMaster, *mtrLSlave;
 TalonSRX *mtrRMaster, *mtrRSlave;
@@ -23,6 +27,7 @@ JoystickButton *btnIntake;
 JoystickButton *btnOuttake;
 JoystickButton *btnClawClose;
 JoystickButton *btnClawOpen;
+JoystickButton *btnCalcPaths;	// Used in Test to recalculate all the Motion Paths.
 
 Compressor *airCompressor;
 Solenoid *clawClamp;
@@ -35,7 +40,6 @@ Segment rightTraj[ 2048 ];
 
 #include <Motion_Profile.h>
 #include <Arcade_Drive.h>
-
 
 class Robot : public TimedRobot {
 private:
@@ -56,6 +60,7 @@ public:
     	btnOuttake = new JoystickButton( joy, 7 );
     	btnClawOpen = new JoystickButton( joy, 3 );
     	btnClawClose = new JoystickButton( joy, 4 );
+    	btnCalcPaths = new JoystickButton( joy, 11 );	// In Test to recalc paths.
 
 		gyro = new PigeonIMU( 0 );
 
@@ -68,8 +73,6 @@ public:
 
 		mtrIntake->Set( 0.0 );
 
-		//mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
-		//mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
 		mtrLMaster->NeutralOutput();
 		mtrRMaster->NeutralOutput();
 
@@ -133,24 +136,12 @@ public:
 
 		gyro->SetFusedHeading( 0.0, 0 );
 
-		Load_Waypoints();	// Load all the data into the waypoint structures.
-
-		PathFinder( Side_SwitchFar );	// Calculate trajectories / store in binary file.
-		PathFinder( Mid_SwitchRight );	// Calculate trajectories / store in binary file.
-
-		// Side to Far Scale
-		//trajSideFarScaleLen = PathFinder( wpSideFarScale, wpSideFarScaleLEN,
-		//		wpSideFarScaleNameLf, wpSideFarScaleNameRt );
-
-		// Mid to Right Switch
-		//trajMidRightSwitchLen = PathFinder( wpMidRightSwitch, wpMidRightSwitchLEN,
-		//		wpMidRightSwitchNameLf, wpMidRightSwitchNameRt );
-
-
 		// The mpThread handles shoveling trajectory points from the Top
 		// API buffer out to the Talon(s).
 		std::thread t1(mpThread);		// This starts the 100Hz thread right away.
     	t1.detach();					// Detach from this thread.
+
+		Load_Waypoints();	// Call once to populate the waypoint data structures.
 
     	CameraServer::GetInstance()->StartAutomaticCapture();
 	}
@@ -185,57 +176,49 @@ public:
 		mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
 		gyro->SetFusedHeading( 0.0, 0 );
 
-		LoadProfile( Mid_SwitchRight );
+		// Load the named profile from the file-system into the RoboRIO API buffer.
+		LoadProfile( Mid_SwitchRight, false );
 
 		mtrLMaster->SetIntegralAccumulator( 0.0, 0, 0 );
 		mtrRMaster->SetIntegralAccumulator( 0.0, 0, 0 );
 
-		cntProfile = 0;
-		enXfer = true;
+		cntProfile = 0;		// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );
 	}
 
 	// ========================================================================
 	void AutonomousPeriodic() {
-		static uint16_t cnt=0;
+		static uint16_t cnt=0, seq = 0;
+		bool flgMoving;
 
-		if( enXfer ) {
-			if( cnt > 5 ) {
-				mtrLMaster->Set( ControlMode::MotionProfile, 1 );
-				mtrRMaster->Set( ControlMode::MotionProfile, 1 );
+		if( seq == 0 ) {
+			flgMoving = RunProfile();	// Run the loaded profile.
+			if( flgMoving == false ) {
+				seq += 1;
+				printf( "Seg 0 Done\n" );
 			}
 		}
-		else {
-			cnt = 0;
+		if( seq == 1 ) {
+			LoadProfile( Mid_SwitchRight, true );
+			seq += 1;
+			printf( "Seg 1 Done\n" );
 		}
-
-		MotionProfileStatus mpStatus;
-		mtrLMaster->GetMotionProfileStatus( mpStatus );
-
-		if( enXfer && mpStatus.isLast ) {
-			enXfer = false;
-			cnt = 0;
-			mtrLMaster->Set( ControlMode::MotionProfile, 2 );
-			mtrRMaster->Set( ControlMode::MotionProfile, 2 );
-			printf( "Motion Profile Finished: %0.3f seconds.\n", cntProfile * 0.005 );
-			printf( "Motion Profile: %d pts.\n", trajLen );
-
-			if( mpStatus.hasUnderrun ) {
-				printf( "\n****** Motion Profile UnderRun !!!!!!!\n\n" );
+		if( seq == 2 ) {
+			flgMoving = RunProfile();
+			if( flgMoving == false ) {
+				seq += 1;
+				printf( "Seg 2 Done\n" );
 			}
 		}
 
-		if( mpStatus.isLast && cnt > 20 ) {
-			mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
-			mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
-		}
+		cnt += 1;	// Static var used for timing events.
 
-		cnt += 1;
-
+		#ifdef DEBUG	// Turn debug network traffic off at competition.
 		SmartDashboard::PutNumber( "imuHeading", gyro->GetFusedHeading() );
 		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetClosedLoopError(0) );
 		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity(0) );
 		SmartDashboard::PutNumber( "chartThree", mtrLMaster->GetSelectedSensorPosition(0) );
+		#endif
 	}
 
 	// ========================================================================
@@ -317,6 +300,22 @@ public:
 		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetClosedLoopError(0) );
 		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity(0) / 100.0 );
 		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorPosition(0) / 100.0 );
+
+		// On button 11 press, recalculate all the motion profile trajectories.
+		// Note, this may take a bit of time.
+		if( btnCalcPaths->Get() ) {
+			printf( "Recalculating Motion Trajectories...\n" );
+
+			Load_Waypoints();	// Load all the data into the waypoint structures.
+
+			// Step thru and calculate each path.  The result is stored as a 
+			// binary/CSV file on the RoboRIO file-system.
+			for ( int idx=0 ; idx < NUM_PATHS ; idx++ ) {
+				printf( "Calculating PathFinder Path: %d\n", idx );
+				PathFinder( idx );
+			}
+			printf( "Info: PathFinder Done\n" );
+		}
 	}
 
 };

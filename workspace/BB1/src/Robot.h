@@ -29,6 +29,6 @@ struct gains {
 
 typedef gains gains;
 
-gains mpGains;
+gains mpGains;	// PID Gains for Motion Profiling.
 
 
