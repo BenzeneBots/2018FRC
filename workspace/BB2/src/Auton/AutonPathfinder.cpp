@@ -13,6 +13,11 @@ AutonPathfinder::AutonPathfinder(Drive *robotDrive, int profileNum, bool reverse
 	isReversed = reversed;
 }
 
+AutonPathfinder::~AutonPathfinder(){
+
+}
+
+
 void AutonPathfinder::Initialize(){
 	drive->LoadProfile(profileId, isReversed);
 }

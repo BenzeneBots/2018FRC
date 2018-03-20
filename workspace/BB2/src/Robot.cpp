@@ -38,6 +38,7 @@
 #include <Auton/AutonTurnLeft.h>
 #include <Auton/AutonTurnRight.h>
 #include <Auton/MotionMagicStraight.h>
+#include <Auton/AutonPathfinder.h>
 
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
@@ -158,6 +159,11 @@ public:
 
 
 	void RobotInit() {
+		//Initialize all the joysticks
+		mainDriverStick = new Joystick(0);
+		secondaryDriverStick = new Joystick(1);
+		manipStick = new Joystick(2);
+
 		//populates auto chooser on dashboard
 		auton_chooser.AddDefault(DriveStraight, DriveStraight);
 		auton_chooser.AddObject(Center1Cube, Center1Cube);
@@ -333,7 +339,8 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicStraight(robotDrive, 60));
+						//new AutonDriveStraight(robotDrive, 60));
+						new AutonPathfinder(robotDrive,0,false));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
@@ -352,10 +359,6 @@ public:
 	}
 
 	void TeleopInit() {
-		//Initialize all the joysticks
-		mainDriverStick = new Joystick(0);
-		secondaryDriverStick = new Joystick(1);
-		manipStick = new Joystick(2);
 
 		//reset Drive Encoders
 		robotDrive->ResetEncoders();
@@ -405,7 +408,7 @@ public:
 	}
 
 	void TeleopPeriodic() {
-
+		printf("Teleop \n");
 
 		matchTime = DriverStation::GetInstance().GetMatchTime();
 		frc::SmartDashboard::PutNumber("Match Time", matchTime);
@@ -505,8 +508,12 @@ public:
 
 		//Prints some relevant stuff
 	}
+	void TestInit() {
+			printf( "TestInit...\n" );
+		}
 
 	void TestPeriodic() {
+		printf("TestPeriodic \n");
 		if(mainDriverStick->GetRawButton(11)) {
 			printf( "Recalculating Motion Trajectories...\n" );
 

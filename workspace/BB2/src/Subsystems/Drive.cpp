@@ -560,6 +560,9 @@ void Drive::FindPath( int idx ) {
 	// right trajectories are saved as binary files.
 	// ============================================================================
 
+	if( wp[idx].wpLen == 0 )
+		return;
+
 	TrajectoryCandidate candidate;
 
 	// Prepare the Trajectory for Generation.
