@@ -12,6 +12,9 @@
 // Comment out this line during competition.
 #define DEBUG
 
+// Set true to enable the compressor.
+#define COMPRESSOR	true
+
 PigeonIMU *imu;
 TalonSRX *mtrLMaster, *mtrLSlave;
 TalonSRX *mtrRMaster, *mtrRSlave;
@@ -38,8 +41,12 @@ DoubleSolenoid *clawPick;
 Segment leftTraj[ 2048 ];
 Segment rightTraj[ 2048 ];
 
+std::string gameData;
+
 #include <Motion_Profile.h>
 #include <Arcade_Drive.h>
+#include <sequencer.h>
+
 
 class Robot : public TimedRobot {
 private:
@@ -138,7 +145,7 @@ public:
 
 		// The mpThread handles shoveling trajectory points from the Top
 		// API buffer out to the Talon(s).
-		std::thread t1(mpThread);		// This starts the 100Hz thread right away.
+		std::thread t1( mpThread );		// This starts the 100Hz thread right away.
     	t1.detach();					// Detach from this thread.
 
 		Load_Waypoints();	// Call once to populate the waypoint data structures.
@@ -156,7 +163,6 @@ public:
 		mtrLMaster->NeutralOutput();
 		mtrRMaster->NeutralOutput();
 		enXfer = false;
-
 		printf( "Disabled...\n" );
 	}
 
@@ -176,48 +182,43 @@ public:
 		mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
 		gyro->SetFusedHeading( 0.0, 0 );
 
-		// Load the named profile from the file-system into the RoboRIO API buffer.
-		LoadProfile( Mid_SwitchRight, false );
+		gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+		printf( "Auto Game Data: '%c%c%c'\n", gameData[0], gameData[1], gameData[2] );
 
 		mtrLMaster->SetIntegralAccumulator( 0.0, 0, 0 );
 		mtrRMaster->SetIntegralAccumulator( 0.0, 0, 0 );
 
+    	seqInit();						// Init auto sequencer task.
+		enAutoSeq( true );				// Start the sequencer.
+
+		/*
+		// Load the named profile from the file-system into the RoboRIO API buffer.
+		LoadProfile( Mid_SwitchLeft, false );
+
+
 		cntProfile = 0;		// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );
+		*/
 	}
 
 	// ========================================================================
 	void AutonomousPeriodic() {
-		static uint16_t cnt=0, seq = 0;
-		bool flgMoving;
+		/*
+		//static uint16_t cnt=0, seq = 0;
+		static bool flgMoving = true;
 
-		if( seq == 0 ) {
-			flgMoving = RunProfile();	// Run the loaded profile.
-			if( flgMoving == false ) {
-				seq += 1;
-				printf( "Seg 0 Done\n" );
+		if( RunProfile() == false ) {
+			if( flgMoving ) {
+				printf( "Auto Time: %0.2f seconds.\n", cntProfile * 0.005 );
+				flgMoving = false;
 			}
 		}
-		if( seq == 1 ) {
-			LoadProfile( Mid_SwitchRight, true );
-			seq += 1;
-			printf( "Seg 1 Done\n" );
-		}
-		if( seq == 2 ) {
-			flgMoving = RunProfile();
-			if( flgMoving == false ) {
-				seq += 1;
-				printf( "Seg 2 Done\n" );
-			}
-		}
-
-		cnt += 1;	// Static var used for timing events.
-
+		*/
 		#ifdef DEBUG	// Turn debug network traffic off at competition.
 		SmartDashboard::PutNumber( "imuHeading", gyro->GetFusedHeading() );
-		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetClosedLoopError(0) );
-		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity(0) );
-		SmartDashboard::PutNumber( "chartThree", mtrLMaster->GetSelectedSensorPosition(0) );
+		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetSelectedSensorPosition(0) );
+		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity(0) * 10 );
+		SmartDashboard::PutNumber( "chartThree", gyro->GetFusedHeading() * 100 );
 		#endif
 	}
 
@@ -226,7 +227,7 @@ public:
 		printf( "TeleopInit...\n" );
 		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
 		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-		airCompressor->SetClosedLoopControl( true);
+		airCompressor->SetClosedLoopControl( COMPRESSOR );
 
 		mtrLMaster->NeutralOutput();
 		mtrRMaster->NeutralOutput();
@@ -234,16 +235,25 @@ public:
 		mtrLMaster->ConfigOpenloopRamp( 0.1, kTO );
 		mtrRMaster->ConfigOpenloopRamp( 0.1, kTO );
 
+		mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
+		mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
+
 		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetSelectedSensorVelocity(0) );
 		SmartDashboard::PutNumber( "chartTwo", 0.0 );
 		SmartDashboard::PutNumber( "chartThree", 0.0 );		
+
 	}
 
 	// ========================================================================
 	void TeleopPeriodic() {
 		//static uint16_t cnt=0;
 
-		airCompressor->SetClosedLoopControl( true);
+		if( SmartDashboard::GetBoolean( "leftPos", false ) == false )
+			SmartDashboard::PutBoolean( "leftPosInd", false );
+		else
+			SmartDashboard::PutBoolean( "leftPosInd", true );
+
+		airCompressor->SetClosedLoopControl( COMPRESSOR );
 
 		ArcadeDrive();
 

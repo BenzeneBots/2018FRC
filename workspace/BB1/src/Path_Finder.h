@@ -85,7 +85,18 @@ void Load_Waypoints() {
 	// Mid_SwitchLeft = Index 4
 	// Define Mid starting to switch on left side.
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	wp[ Mid_SwitchLeft ].wpLen = 0;		// Zero points means not yet defined.
+	wp[ Mid_SwitchLeft ].wpLen = 5;		// Zero points means not yet defined.
+	wp[ Mid_SwitchLeft ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
+	wp[ Mid_SwitchLeft ].wps[1] = { 0.0, 	2.0,	d2r(  90 ) };
+	wp[ Mid_SwitchLeft ].wps[2] = { -3.0, 	3.0,	d2r( 180 ) };
+	wp[ Mid_SwitchLeft ].wps[3] = { -5.0,	6.5,	d2r( 115 ) };
+	wp[ Mid_SwitchLeft ].wps[4] = { -5.0,	7.0,	d2r( 115 ) };
+	wp[ Mid_SwitchLeft ].vel = 3.0;			// max ft/sec
+	wp[ Mid_SwitchLeft ].accel = 3.0;		// max ft/sec^2
+	wp[ Mid_SwitchLeft ].jerk = 50.0;		// max ft/sec^3
+	strcpy( wp[ Mid_SwitchLeft ].sTrajLeft, "Mid_LeftSwitchLf.bin" );
+	strcpy( wp[ Mid_SwitchLeft ].sTrajRight, "Mid_LeftSwitchRt.bin" );
+	strcpy( wp[ Mid_SwitchLeft ].sTraj_CSV, "Mid_LeftSwitch.csv" );
 
 	// Mid_SwitchRight = Index 5
 	// Define Mid to Right Switch.
