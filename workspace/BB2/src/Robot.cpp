@@ -38,6 +38,7 @@
 #include <Auton/AutonTurnLeft.h>
 #include <Auton/AutonTurnRight.h>
 #include <Auton/MotionMagicStraight.h>
+#include <Auton/AutonSCurve.h>
 
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
@@ -197,6 +198,8 @@ public:
 		robotDrive->ResetYaw();
 		robotDrive->ResetFusedHeading();
 		//robotElevator->SetEncoderPosition(0);
+
+		robotDrive->LoadWaypoints();	// Call once to populate the waypoint data structures.
 	}
 
 	void AutonomousInit() {
@@ -330,17 +333,15 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicStraight(robotDrive, 60));
+						new AutonSCurve(robotDrive,5, true));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
 			mainAutoCommand = AUTO_SEQUENTIAL(
-					new AutonDriveStraight(robotDrive, CL_ZEROA));
+					new AutonSCurve(robotDrive,5, true));
 		}
 
 		if(mainAutoCommand) mainAutoCommand->Initialize();
-
-
 
 	}
 
@@ -502,10 +503,31 @@ public:
 
 		//Prints some relevant stuff
 	}
-
-	void TestPeriodic() {
-		robotDrive->TankDrive(0.1,.1);
+	void TestInit() {
+		printf( "TestInit...\n" );
 	}
+
+	// ========================================================================
+	void TestPeriodic() {
+		// On joystick trigger, reset the gyro to zero.
+
+		// On button 11 press, recalculate all the motion profile trajectories.
+		// Note, this may take a bit of time.
+		if(mainDriverStick->GetRawButton(11)) {
+			printf( "Recalculating Motion Trajectories...\n" );
+
+			robotDrive->LoadWaypoints();	// Load all the data into the waypoint structures.
+
+			// Step thru and calculate each path.  The result is stored as a
+			// binary/CSV file on the RoboRIO file-system.
+			for ( int idx=0 ; idx < NUM_PATHS ; idx++ ) {
+				printf( "Calculating PathFinder Path: %d\n", idx );
+				robotDrive->Pathfinder( idx );
+			}
+			printf( "Info: PathFinder Done\n" );
+		}
+	}
+
 
 private:
 	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();

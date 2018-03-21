@@ -8,8 +8,12 @@
 #ifndef SRC_SUBSYSTEMS_DRIVE_H_
 #define SRC_SUBSYSTEMS_DRIVE_H_
 
+#define NUM_PATHS	6	// There are six possible paths in Auto mode.
+#define MAX_WPS		10	// Max number of waypoints in a path.
+
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
+#include <pathfinder.h>
 
 class Drive {
 public:
@@ -47,13 +51,52 @@ public:
 	void setDriveMtrSp(float,float);
 	double dLimitVal(float,float,float);
 	void MotionMagicTurn(double);
+	void Pathfinder(int);
+	void LoadWaypoints();
+	TrajectoryDuration GetTrajectoryDuration(int);
+	void mpThread(void);
+	bool RunProfile(void);
+	void LoadProfile(int,bool);
+	void ResetAccumulator();
 
+	// Each waypoint group has a name defined in this enum.
+	enum paths {
+		Side_Switch, Side_Scale, Side_SwitchFar,
+		Side_ScaleFar, Mid_SwitchLeft, 	Mid_SwitchRight };
+	typedef paths paths;
 private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
 	PigeonIMU *pidgey;
 	bool wasStraightButtonPressed;
 	double NormalizeAngle(double);
+	// Global vars used to hold trajectory paths for left and right side.
+	Segment *leftTrajectory;	// PathFinder() uses malloc to dynamically adjust.
+	Segment *rightTrajectory;
+	int trajLen = 0;
+
+	const char *sPath = "/home/lvuser/Traj/";
+
+	// Struct holds a waypoint group.
+	struct wp {
+		Waypoint wps[ MAX_WPS ];		// Allocate Space for up to X Waypoints.
+		int wpLen;						// Save how many waypoints to are use of the ten available.
+		int trajLen;					// Number of points in the generated trajectory.
+		double vel, accel, jerk;		// Max velocity, acceleration, and jerk for this profile.
+		char sTrajLeft[32];				// Allocate space to for the Left trajectories filename.
+		char sTrajRight[32];			//   "						 Right
+		char sTraj_CSV[32];				// Filename for CSV data.
+	} wp[NUM_PATHS];
+
+
+	MotionProfileStatus mpStatus;
+	double _pos = 0, _vel = 0, _heading = 0;	// For active traj. Pt.
+
+	bool enXfer = false;
+	uint32_t cntProfile = 0;
+	bool flgRunMP = false;
+	Segment leftTraj[ 2048 ];
+	Segment rightTraj[ 2048 ];
 };
 
 #endif /* SRC_SUBSYSTEMS_DRIVE_H_ */
