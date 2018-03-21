@@ -118,7 +118,6 @@
 
 class Robot : public frc::TimedRobot {
 public:
-
 	//Initialize the subsystems
 
 	Intake *robotIntake;

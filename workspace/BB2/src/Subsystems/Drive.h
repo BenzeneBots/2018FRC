@@ -60,16 +60,19 @@ public:
 	void ResetAccumulator();
 
 	// Each waypoint group has a name defined in this enum.
-	enum paths {
-		Side_Switch, Side_Scale, Side_SwitchFar,
-		Side_ScaleFar, Mid_SwitchLeft, 	Mid_SwitchRight };
-	typedef paths paths;
+
 private:
 	DifferentialDrive *drivetrain;
 	WPI_TalonSRX *frontLeft, *frontRight, *backLeft, *backRight;
 	PigeonIMU *pidgey;
 	bool wasStraightButtonPressed;
 	double NormalizeAngle(double);
+
+	enum paths {
+		Side_Switch, Side_Scale, Side_SwitchFar,
+		Side_ScaleFar, Mid_SwitchLeft, 	Mid_SwitchRight };
+	typedef paths paths;
+
 	// Global vars used to hold trajectory paths for left and right side.
 	Segment *leftTrajectory;	// PathFinder() uses malloc to dynamically adjust.
 	Segment *rightTrajectory;
