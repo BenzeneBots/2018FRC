@@ -3,6 +3,10 @@
  *
  *
  */
+#include <iostream>
+#include <LiveWindow/LiveWindow.h>
+#include <SmartDashboard/SendableChooser.h>
+#include <SmartDashboard/SmartDashboard.h>
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
 #include <Robot.h>
@@ -139,6 +143,7 @@ public:
 		// Profile uses 10 ms timing.
 		mtrLMaster->ConfigMotionProfileTrajectoryPeriod( 10, kTimeoutMs );
 		mtrRMaster->ConfigMotionProfileTrajectoryPeriod( 10, kTimeoutMs );
+
 		// Status 10 provides the trajectory target for motion profile AND motion magic.
 		mtrLMaster->SetStatusFramePeriod(
 				StatusFrameEnhanced::Status_10_MotionMagic, 10, kTimeoutMs);
