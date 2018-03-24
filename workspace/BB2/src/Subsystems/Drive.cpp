@@ -276,6 +276,7 @@ void Drive::MotionMagicStraight(double dist){
 	double distance = dist*TICKS_PER_INCH;
 	frontLeft->Set(ControlMode::MotionMagic,distance);
 	frontRight->Set(ControlMode::MotionMagic,distance);
+	this->FollowMode();
 }
 
 void Drive::NeutralizeDrive(){
@@ -291,6 +292,7 @@ void Drive::NeutralizeDrive(){
 
 double Drive::dLimitVal(float low, float test,float high){
 	if( test > high ) return high;
+
 	if( test < low ) return low;
 	return test;
 }

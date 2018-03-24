@@ -196,6 +196,8 @@ public:
 		robotDrive->ResetYaw();
 		robotDrive->ResetFusedHeading();
 		//robotElevator->SetEncoderPosition(0);
+
+		robotDrive->FollowMode();
 	}
 
 	void AutonomousInit() {
@@ -505,6 +507,7 @@ public:
 		//Prints some relevant stuff
 	}
 	void TestInit() {
+		robotDrive->FollowMode();
 		printf( "TestInit...\n" );
 		robotDrive->ResetEncoders();
 	}
