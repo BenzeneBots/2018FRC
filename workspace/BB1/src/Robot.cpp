@@ -225,8 +225,6 @@ public:
 	// ========================================================================
 	void TeleopInit() {
 		printf( "TeleopInit...\n" );
-		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
 		airCompressor->SetClosedLoopControl( COMPRESSOR );
 
 		mtrLMaster->NeutralOutput();
@@ -264,6 +262,7 @@ public:
 			clawClamp->Set( false );
 		}
 
+
 		// Push POV up to raise claw.
 		if( (joy->GetPOV(0) == 180)  ) {
 			clawPick->Set( DoubleSolenoid::kForward );
@@ -285,11 +284,16 @@ public:
 			mtrIntake->Set( 0.0 );
 
 		// On joystick trigger, reset the gyro to zero.
-		if( joy->GetRawButton( 1 ) ) gyro->SetFusedHeading( 0.0, 0 );
+		if( joy->GetRawButton( 1 ) ) {
+			gyro->SetFusedHeading( 0.0, 0 );
+			mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
+			mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
+		}
 
-		SmartDashboard::PutNumber( "chartOne", gyro->GetFusedHeading() );
-		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity( 0 ) );
-		SmartDashboard::PutNumber( "chartThree", mtrLMaster->GetSelectedSensorPosition( 0 ) );
+		SmartDashboard::PutNumber( "chartOne", gyro->GetFusedHeading() * 100 );
+		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorPosition( 0 ) );
+		SmartDashboard::PutNumber( "chartThree", mtrRMaster->GetSelectedSensorPosition( 0 ) );
+
 		SmartDashboard::PutNumber( "imuHeading", gyro->GetFusedHeading() );
 	}
 

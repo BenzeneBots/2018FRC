@@ -22,7 +22,7 @@ uint32_t cntProfile = 0;
 bool flgRunMP = false;
 
 // Call this function often when running a motion profile.  This function will
-// return true when the profile has ended.
+// return false when the profile has ended.
 // ============================================================================
 bool RunProfile( void ) {
 	static uint16_t cnt=0;
@@ -32,7 +32,7 @@ bool RunProfile( void ) {
 	// to run another profile.
 	if( flgRunMP == false ) {
 		enXfer = false;
-		return true;			// We're done.
+		return false;			// We're done.
 	}
 
 	// On first time RunProfile is called, enXfer flag will be false.  But
@@ -40,7 +40,7 @@ bool RunProfile( void ) {
 	if( (flgRunMP == true) && (enXfer == false) ) {
 		cnt = 0;		// Reset counter.
 		enXfer = true;	// Start transferring points to the Talons.
-		return false;	// Not done yet.
+		return true;	// Not done yet.
 	}
 
 	// Wait approx 100ms for the profile points to start buffering into the Talons.
@@ -66,12 +66,12 @@ bool RunProfile( void ) {
 			if( mpStatus.hasUnderrun )
 				printf( "Error: Motion Profile UnderRun!\n\n" );
 
-			return true;	// Motion Profile is done.
+			return false;	// Motion Profile is done.
 		}
 	}
 
 	cnt += 1;		// Static var used for timing events.
-	return false;	// Not done yet.
+	return true;	// Not done yet.
 }
 
 

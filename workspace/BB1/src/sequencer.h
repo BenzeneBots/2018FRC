@@ -25,11 +25,27 @@
 #define CLAW_OPEN_TM	100
 #define CLAW_CLOSE_TM	100
 
-#define delay( ms )		std::this_thread::sleep_for( std::chrono::microseconds( (ms)*1000 - 90 ) );
+//#define delay( ms )		std::this_thread::sleep_for( std::chrono::microseconds( (ms)*1000 - 90 ) );
 
 void seqThread( void );
 bool flgAutoEn = false;
 int ltDistNU, rtDistNU;
+
+// This is a coarse delay function.  It only generates delays for auto mode.
+// The minumum delay possible is 10ms.
+// ============================================================================
+void delay( int32_t ms ) {
+
+	// Only delay if in auto mode and enabled.
+	while( frc::RobotState::IsAutonomous() && frc::RobotState::IsEnabled() ) {
+		ms -= 10;
+
+		if( ms < 0 ) return;
+
+		// Sleep 10 milliseconds.
+		std::this_thread::sleep_for( std::chrono::microseconds( 10000 - 90 ) );
+	}
+}
 
 // Given distance for left and right side, use Motion Magic to drive the motors
 // until done.
@@ -47,6 +63,7 @@ void seqMotionMagic( int lfDis, int rtDis, double vel, double accel ) {
 	mtrLMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
 	mtrRMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
 	mtrLMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
+	mtrRMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
 
 	// Convert distance in feet to native units (4096cnt/rev).
 	// Dis_nu = ft * 0.6366rot/ft * 4096nu/rot
@@ -60,20 +77,55 @@ void seqMotionMagic( int lfDis, int rtDis, double vel, double accel ) {
 // Simply dwell until X percent of the Motion Magic motion is done.  Or, a timeout
 // occurs - where timeout is given in milliseconds.  Returns false on no timeout.
 // ============================================================================
-bool seqDwellOnMotion( double percent, int timeOut ) {
+bool seqDwellOnPosition( double percent, int timeOut ) {
+	int lf, rt;
+	int lfDis, rtDis;
+
+	// Scale the distance we're happen with by a multiplier.
+	lfDis = fabs( ltDistNU ) * percent;
+	rtDis = fabs( rtDistNU ) * percent;
+
 	while( 1 ) {
-		mtrLMaster->Set( ControlMode::MotionMagic, ltDistNU );
-		mtrRMaster->Set( ControlMode::MotionMagic, rtDistNU );
+		//mtrLMaster->Set( ControlMode::MotionMagic, ltDistNU );
+		//mtrRMaster->Set( ControlMode::MotionMagic, rtDistNU );
+
+		// Get the abs values of both encoders.
+		lf = fabs(mtrLMaster->GetSelectedSensorPosition(0));
+		rt = fabs(mtrRMaster->GetSelectedSensorPosition(0));
+
 		// Dwell until X% of the distance is covered.
-		if( fabs(mtrLMaster->GetSelectedSensorPosition(0)) > (fabs(ltDistNU) * percent) &&
-				fabs(mtrRMaster->GetSelectedSensorPosition(0)) > (fabs(rtDistNU) * percent) )
+		if( (lf >= lfDis) && (rt >= rtDis) )
 			return false;		// Dist covered without timeout, return false.
 
 		delay( 20 );
 
 		timeOut -= 20;
 		if( timeOut <= 0 ) {
-			printf( "Error: Motion Magic Motion Timeout.\n" );
+			printf( "Error: Dwell on position timeout.\n" );
+			return true;		// Return true that a timeout happened.
+		}
+	}
+}
+
+// Dwell on motion on either side of the drivetrain above the threshold. Return
+// true if a timeout happened.  Timeout given in milliseconds.
+// ============================================================================
+bool seqDwellOnMotion( double velThresh, int timeOut ) {
+	double vel;
+
+	while( 1 ) {
+		// Get the absolute largest speed in ft/sec.
+		vel = fabs( mtrLMaster->GetSelectedSensorVelocity(0) ) / 260.9;
+		vel = fmax( (fabs( mtrRMaster->GetSelectedSensorVelocity(0) ) / 260.9), vel );
+		if( vel <= velThresh )
+			return false;	// No timeout.
+
+		// Else...
+		delay( 20 );
+		timeOut -= 20;
+
+		if( timeOut <= 0 ) {
+			printf( "Error: Dwell on motion timeout.\n" );
 			return true;		// Return true that a timeout happened.
 		}
 	}
@@ -103,32 +155,62 @@ void seqMid_RightSwitch() {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 	
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Mid_SwitchRight, false );
-	//while( RunProfile() );			// Run the profile until completion.
+	LoadProfile( Side_Scale, false );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
+/*
 	// Movement to switch done.
 	// Deploy cube by reversing intake.
-	mtrIntake->Set( OUTTAKE_SP );
-	delay( CLAW_DEPLOY_TM );
-	printf( "Stop intake.\n" );
+	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );
 	// Backup and rotate CCW to grab another cube.
 	// Lower the claw at the same time.
-	seqMotionMagic( -3.5, -1.0, 2.0, 3.0 );		seqDwellOnMotion( 0.85, 2000 );
+	seqMotionMagic( -2.0, 1.5, 4.0, 3.0 );		seqDwellOnPosition( 0.75, 2000 );
+	delay( 500 );
 	clawPick->Set( CLAW_LOWER );				delay( CLAW_LOWER_TM );
+	delay( 500 );
 	clawClamp->Set( CLAW_OPEN );				delay( CLAW_OPEN_TM );
-	seqMotionMagic( 2.0, 2.0, 2.0, 3.0 );		seqDwellOnMotion( 0.85, 2000 );
+	mtrIntake->Set( INTAKE_SP );
+	delay( 500 );
+	seqMotionMagic( 2.0, 2.0, 6.0, 10.0 );		seqDwellOnPosition( 0.5, 2000 );
 	clawClamp->Set( CLAW_CLOSE );				delay( CLAW_CLOSE_TM );
-	clawPick->Set( CLAW_RAISE );				delay( CLAW_RAISE_TM );
-	seqMotionMagic( -2.0, -2.0, 2.0, 3.0 );		seqDwellOnMotion( 0.85, 2000 );
-
-	// Turn to the switch.
-	delay( 1000 );
-	// Deploy cube.
-	mtrIntake->Set( OUTTAKE_SP );
-	delay( CLAW_DEPLOY_TM );
-	// Stop intake.
 	mtrIntake->Set( INTAKE_STOP );
-	delay( 20 );
+	delay( 100 );
+	clawPick->Set( CLAW_RAISE );				delay( CLAW_RAISE_TM );
+	delay( 250 );
+	seqMotionMagic( -2.5, -2.5, 6.0, 10.0 );	seqDwellOnPosition( 0.85, 2000 );
+	delay( 250 );
+
+	printf( "Rot Degrees: %0.2f\n", gyro->GetFusedHeading() );
+	double lf=0.1, rt=-0.1, heading;
+	while( 1 ) {
+		heading = gyro->GetFusedHeading();
+		if( fabs(heading) < 5.0 ) {
+			mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
+			mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
+
+			mtrLMaster->Set( ControlMode::Position, 0.0 );
+			mtrRMaster->Set( ControlMode::Position, 0.0 );
+			break;
+		}
+		if( heading > 0 ) {
+			lf += 0.005;
+			rt -= 0.005;
+		}
+		else {
+			lf -= 0.005;
+			rt += 0.005;
+		}
+		mtrLMaster->Set( ControlMode::PercentOutput, lf );
+		mtrRMaster->Set( ControlMode::PercentOutput, rt );
+		delay( 20 );
+	}
+
+	// Move forward and deploy.
+	seqMotionMagic( 1.5, 1.5, 6.0, 10.0 );		seqDwellOnPosition( 0.85, 2000 );
+	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
+	mtrIntake->Set( INTAKE_STOP );
+*/
 	printf( "Auto Mode Done.\n" );
 }
 
@@ -143,9 +225,13 @@ void seqThread() {
 				printf( "Starting auto mode...\n" );
 				seqMid_RightSwitch();	// Auto Sequence: Mid Position to Right Switch
 				flgAutoEn = false;
+				delay( 500 );
 			}
 		}
-		delay( 50 );
+		else {
+			printf( "seqThread called in wrong mode." );
+		}
+		//delay( 50 );
 	//}
 }
 
