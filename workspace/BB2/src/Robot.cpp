@@ -501,12 +501,14 @@ public:
 	}
 	void TestInit() {
 		printf( "TestInit...\n" );
+		robotDrive->ResetEncoders();
 	}
 
 	// ========================================================================
 	void TestPeriodic() {
 		if (mainDriverStick->GetRawButton(2)){
 			robotDrive->MotionMagicStraight(5.0);
+			printf("magic\n");
 		}
 		else{
 			robotDrive->TankDrive(0.0,0.0);
