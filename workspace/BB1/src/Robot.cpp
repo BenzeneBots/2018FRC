@@ -36,6 +36,9 @@ Compressor *airCompressor;
 Solenoid *clawClamp;
 DoubleSolenoid *clawPick;
 
+int firstPriority;
+int secondPriority;
+
 #include <Path_Finder.h>
 
 Segment leftTraj[ 2048 ];
@@ -54,6 +57,17 @@ public:
 
 	// ========================================================================
 	void RobotInit() {
+		auton_chooser.AddDefault(DriveStraight, DriveStraight);
+		auton_chooser.AddObject(Center1Cube, Center1Cube);
+		auton_chooser.AddObject(Left1Cube, Left1Cube);
+		auton_chooser.AddObject(Right1Cube, Right1Cube);
+
+		priority_chooser.AddDefault(Switch , Switch);
+		priority_chooser.AddObject( Scale , Scale);
+
+		frc::SmartDashboard::PutData("Auton Modes", &auton_chooser);
+		frc::SmartDashboard::PutData("Auton Priority", &priority_chooser);
+
 		imu = new PigeonIMU( 0 );
 		mtrLMaster = new TalonSRX( 2 );
 		mtrLSlave = new TalonSRX( 1 );
@@ -172,6 +186,82 @@ public:
 
 	// ========================================================================
 	void AutonomousInit() {
+		m_autoSelected = auton_chooser.GetSelected();
+		m_prioritySelected = priority_chooser.GetSelected();
+		std::cout << "Auto selected: " << m_autoSelected << std::endl;
+		std::cout << "Priority selected: " << m_prioritySelected << std::endl;
+
+		if(m_prioritySelected == "Switch"){
+			firstPriority = 0;
+			secondPriority = 1;
+		} else{
+			firstPriority = 1;
+			secondPriority = 0;
+		}
+
+		m_autoSelected = auton_chooser.GetSelected();
+				m_prioritySelected = priority_chooser.GetSelected();
+				std::cout << "Auto selected: " << m_autoSelected << std::endl;
+				std::cout << "Priority selected: " << m_prioritySelected << std::endl;
+
+				if(m_prioritySelected == "Switch"){
+					firstPriority = 0;
+					secondPriority = 1;
+				} else{
+					firstPriority = 1;
+					secondPriority = 0;
+				}
+
+
+				std::string gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+				if(gameData.length()>0){//if the auton data exists
+					if(m_autoSelected == Center1Cube){//if center auton is selected
+
+						if(gameData[0] == 'L'){//if the switch is on the left run the auton for left switch from center position
+						}
+						else{//otherwise run the auton for right switch from center position
+						}
+					}
+
+					else if(m_autoSelected == Left1Cube){//if left auton is selected
+						if(m_prioritySelected == "Scale"){//if priority is scale
+							if(gameData[1] == 'L'){//if scale is on left go for that
+							}
+							else{//if scale is on the right go for that
+							}
+
+						}
+						else{//if priority is switch
+							if(gameData[0] == 'L'){//if switch is on left go for that
+							}
+							else{//otherwise go for right switch
+							}
+						}
+					}
+
+					else if(m_autoSelected == Right1Cube){//if right auton is selected
+						if(m_prioritySelected == "Scale"){//if priority is scale
+							if(gameData[1] == 'R'){//if scale is on the right go for that
+							}
+							else{//otherwise go for opposite side scale
+							}
+
+						}
+						else{//if priority is switch
+							if(gameData[0] == 'R'){//if switch is on right side, go for that
+							}
+							else{//otherwise go for left switch
+							}
+						}
+					}
+
+					else{//defaults to drive straight code
+					}
+				}
+				else {//if the robot doesn't receive the game data, drive straight
+				}
+
+
 		//char s[120];
 		printf( "AutoInit...\n" );
 
@@ -199,8 +289,7 @@ public:
 		cntProfile = 0;		// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );
 		*/
-	}
-
+			}
 	// ========================================================================
 	void AutonomousPeriodic() {
 		/*
@@ -331,6 +420,21 @@ public:
 			printf( "Info: PathFinder Done\n" );
 		}
 	}
+private:
+	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
+
+	frc::SendableChooser<std::string> auton_chooser;
+	const std::string DriveStraight= "DriveStraight";
+	const std::string Center1Cube = "Center1Cube";
+	const std::string Left1Cube = "Left1Cube";
+	const std::string Right1Cube = "Right1Cube";
+
+	frc::SendableChooser<std::string> priority_chooser;
+	const std::string Switch = "Switch";
+	const std::string Scale = "Scale";
+
+	std::string m_autoSelected;
+	std::string m_prioritySelected;
 
 };
 
