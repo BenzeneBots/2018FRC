@@ -20,7 +20,6 @@ void MotionMagicStraight::Initialize(){
 	initTimer->Reset();
 	initTimer->Start();
 	drive->NeutralizeDrive();
-
 }
 bool MotionMagicStraight::Run(){
 	drive->MotionMagicStraight(dist);

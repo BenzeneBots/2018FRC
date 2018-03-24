@@ -80,7 +80,7 @@
 	 */
 
 //Auton Drive Straight Distance
-#define CL_ZEROA 170.0
+#define CL_ZEROA 130.0 //TODO fix measurement
 
 //Auton Center Distances
 #define C1_ONEC 30.42
@@ -234,11 +234,11 @@ public:
 				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_BOTTOM_HEIGHT));
 
 		elevatorScaleCommand = AUTO_SEQUENTIAL(
-						new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_SCALE_HEIGHT),
-						new AutonDeployIntake(robotIntake),
-						new AutonOuttake(robotIntake, 1.5),
-						new AutonStowIntake(robotIntake),
-						new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_BOTTOM_HEIGHT));
+				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_SCALE_HEIGHT),
+				new AutonDeployIntake(robotIntake),
+				new AutonOuttake(robotIntake, 1.5),
+				new AutonStowIntake(robotIntake),
+				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_BOTTOM_HEIGHT));
 
 
 		std::string gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
@@ -331,12 +331,12 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicStraight(robotDrive, 5));
+						new MotionMagicStraight(robotDrive, CL_ZEROA));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
 			mainAutoCommand = AUTO_SEQUENTIAL(
-					new AutonDriveStraight(robotDrive, 5));
+					new AutonDriveStraight(robotDrive, CL_ZEROA));
 		}
 
 		if(mainAutoCommand) mainAutoCommand->Initialize();
