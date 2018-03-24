@@ -52,6 +52,7 @@ public:
 	double dLimitVal(float,float,float);
 	void MotionMagicTurn(double);
 	void ResetAccumulator();
+	void FollowMode();
 
 	// Each waypoint group has a name defined in this enum.
 

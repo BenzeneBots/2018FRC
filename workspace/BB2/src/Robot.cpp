@@ -355,6 +355,9 @@ public:
 		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
 		robotDrive->SetBrakeMode();
+		robotDrive->NeutralizeDrive();
+
+		robotDrive->FollowMode();
 
 		//Switch/Scale Array Dashboard Display
 		std::string gameData;
@@ -495,7 +498,9 @@ public:
 		robotClimber->SpoolClimber(false);
 		}
 
-
+		if(mainDriverStick->GetRawButton(8)){
+			robotDrive->TankDrive(1.0,1.0);
+		}
 
 		//Prints some relevant stuff
 	}
@@ -507,7 +512,7 @@ public:
 	// ========================================================================
 	void TestPeriodic() {
 		if (mainDriverStick->GetRawButton(2)){
-			robotDrive->MotionMagicStraight(5.0);
+			robotDrive->MotionMagicStraight(30.0);
 			printf("magic\n");
 		}
 		else{

@@ -27,7 +27,7 @@ void MotionMagicTurn::Initialize(){
 bool MotionMagicTurn::Run(){
 	//assuming that turning right is positive
 	targetAngle = correctionAngle + ang;
-	drive->MotionMagicStraight(targetAngle);
+	drive->MotionMagicTurn(targetAngle);
 
 	if((fabs(drive->GetAverageVelocity())<=1)&&(initTimer->Get()>=2.0)){
 		initTimer->Stop();

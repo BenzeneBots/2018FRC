@@ -66,11 +66,17 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
 	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
 
-	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0,0); //sets the quad encoder as the primary sensor
-	frontRight->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder,0,0);
+	frontLeft->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
+	frontRight->ConfigSelectedFeedbackSensor( FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0 );
 
 	frontLeft->ConfigOpenloopRamp(0.1, 0.0);
 	frontRight->ConfigOpenloopRamp(0.1, 0.0);
+
+	double nuSp = 2*5.0 * 260.9;	// 4ft/s
+	frontLeft->ConfigMotionAcceleration( nuSp * 1.5, 0 );
+	frontLeft->ConfigMotionCruiseVelocity( nuSp, 0 );
+	frontRight->ConfigMotionAcceleration( nuSp * 1.5, 0 );
+	frontRight->ConfigMotionCruiseVelocity( nuSp, 0 );
 
 	// Left PID
 	frontLeft->Config_kF( PID_PRIMARY, kGains_MM.kF, kTO );
@@ -78,6 +84,8 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontLeft->Config_kI( PID_PRIMARY, kGains_MM.kI, kTO);
 	frontLeft->Config_kD( PID_PRIMARY, kGains_MM.kD, kTO);
 	frontLeft->Config_IntegralZone( PID_PRIMARY, kGains_MM.kIzone, kTO );
+	frontLeft->ConfigPeakOutputForward(1.0, kTO );
+	frontLeft->ConfigPeakOutputReverse(-1.0, kTO);
 	frontLeft->SetInverted(false);
 	backLeft->SetInverted(false);
 
@@ -87,19 +95,18 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontRight->Config_kI( PID_PRIMARY, kGains_MM.kI, kTO);
 	frontRight->Config_kD( PID_PRIMARY, kGains_MM.kD, kTO);
 	frontRight->Config_IntegralZone( PID_PRIMARY, kGains_MM.kIzone, kTO );
+	frontRight->ConfigPeakOutputForward(1.0, kTO );
+	frontRight->ConfigPeakOutputReverse(-1.0, kTO);
 	frontRight->SetInverted(true);
 	backRight->SetInverted(true);
 
-	// Setup Motion Magic values.
-	double nuSp = 5.0 * 260.9;	// 2ft/s
-	frontLeft->ConfigMotionAcceleration( nuSp * 1.5, 0 );
-	frontLeft->ConfigMotionCruiseVelocity( nuSp, 0 );
-	frontRight->ConfigMotionAcceleration( nuSp * 1.5, 0 );
-	frontRight->ConfigMotionCruiseVelocity( nuSp, 0 );
 
 	// Status 10 provides the trajectory target for motion profile AND motion magic.
 	frontLeft->SetStatusFramePeriod(StatusFrameEnhanced::Status_10_MotionMagic, 10, kTimeoutMs);
 	frontRight->SetStatusFramePeriod(StatusFrameEnhanced::Status_10_MotionMagic, 10, kTimeoutMs);
+
+	frontLeft->SetSensorPhase(true);
+	frontRight->SetSensorPhase(true);
 
 }
 
@@ -274,6 +281,12 @@ void Drive::MotionMagicStraight(double dist){
 void Drive::NeutralizeDrive(){
 	frontRight->NeutralOutput();
 	frontLeft->NeutralOutput();
+
+	frontRight->ConfigOpenloopRamp(0.1,kTO);
+	frontLeft->ConfigOpenloopRamp(0.1,kTO);
+
+	frontLeft->Set(ControlMode::PercentOutput,0.0);
+	frontRight->Set(ControlMode::PercentOutput,0.0);
 }
 
 double Drive::dLimitVal(float low, float test,float high){
@@ -291,5 +304,8 @@ void Drive::ResetAccumulator(){
 	frontLeft->SetIntegralAccumulator( 0.0, 0, 0 );
 	frontRight->SetIntegralAccumulator( 0.0, 0, 0 );
 }
-
+void Drive::FollowMode(){
+	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
+	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
+}
 //*/
