@@ -35,6 +35,7 @@ JoystickButton *btnOuttake;
 JoystickButton *btnClawClose;
 JoystickButton *btnClawOpen;
 JoystickButton *btnCalcPaths;	// Used in Test to recalculate all the Motion Paths.
+JoystickButton *btn12;
 
 Compressor *airCompressor;
 Solenoid *clawClamp;
@@ -86,6 +87,7 @@ public:
     	btnClawOpen = new JoystickButton( joy, 3 );
     	btnClawClose = new JoystickButton( joy, 4 );
     	btnCalcPaths = new JoystickButton( joy, 11 );	// In Test to recalc paths.
+    	btn12 = new JoystickButton( joy, 12 );
 
 		gyro = new PigeonIMU( 0 );
 
@@ -399,11 +401,76 @@ public:
 
 	// ========================================================================
 	void TestPeriodic() {
-		ArcadeDrive();
-		SmartDashboard::PutNumber( "imuHeading", gyro->GetFusedHeading() );
+		static bool btn12_Old = false, flgHold=false;
+		static double tarHeading=0.0, rt=0.0, lf=0.0;
+		double heading;
 
 		// On joystick trigger, reset the gyro to zero.
 		if( joy->GetRawButton( 1 ) ) gyro->SetFusedHeading( 0.0, 0 );
+		heading = gyro->GetFusedHeading();
+
+		if( btn12->Get() ) {
+			// On button first pressed...
+			if( btn12_Old == false ) {
+				btn12_Old = true;
+				tarHeading = heading + 90.0;
+				// Default turning speed of 35%.
+				lf=-0.35; rt=0.35;
+				flgHold = false;	// Reset holding flag at end of turn.
+				printf( "Heading: %0.2f\n", heading );
+				printf( "Target Heading: %0.2f\n", tarHeading );
+			}
+
+			// Wait for turn to get with 17deg of target.  Or, we're trying to
+			// hold the final position.
+			if( heading >= (tarHeading - 35.0) || flgHold ) {
+				// On first time trying to hold...
+				if( flgHold == false ) {
+					flgHold = true;
+					// Set default motor outputs depending on which side of the
+					// target we're on.
+					if( heading > tarHeading ) {
+						lf = 0.1;	// Overshot, so reverse.
+						rt = -0.1;
+					}
+					else {
+						lf = -0.1;	// Undershot, so forward.
+						rt = 0.1;
+					}
+				}
+
+				// Add some integral over time to the output depending on
+				// which side we're on.
+				if( heading > tarHeading ) {
+					lf += 0.005;
+					rt -= 0.005;
+				}
+				else {
+					lf -= 0.005;
+					rt += 0.005;
+				}
+
+				// Finally, if we're within 3deg, stop.
+				if( fabs(fabs( heading ) - fabs( tarHeading )) < 3.0 ) {
+					lf = 0.0;
+					rt = 0.0;
+					flgHold = false;
+				}
+
+			}
+
+			// Set the motor outputs.
+			mtrLMaster->Set( ControlMode::PercentOutput, lf );
+			mtrRMaster->Set( ControlMode::PercentOutput, rt );
+		}
+		else {
+			btn12_Old = false;
+			flgHold = false;
+			ArcadeDrive();
+		}
+
+
+		SmartDashboard::PutNumber( "imuHeading", heading );
 
 		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetClosedLoopError(0) );
 		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity(0) / 100.0 );

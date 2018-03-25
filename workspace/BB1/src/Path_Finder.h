@@ -62,8 +62,8 @@ void Load_Waypoints() {
 	wp[ Side_Scale ].wpLen = 3;		// Zero points means not yet defined.
 	wp[ Side_Scale ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
 	wp[ Side_Scale ].wps[1] = { 0.0, 	14.0,	d2r(  90 ) };
-	wp[ Side_Scale ].wps[2] = { -3.0, 	20.0,	d2r(  110 ) };
-	wp[ Side_Scale ].vel = 7.5;			// max ft/sec
+	wp[ Side_Scale ].wps[2] = { -3.0, 	20.0,	d2r(  140 ) };
+	wp[ Side_Scale ].vel = 6.5;			// max ft/sec
 	wp[ Side_Scale ].accel = 10.0;		// max ft/sec^2
 	wp[ Side_Scale ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Side_Scale ].sTrajLeft, "Side_ScaleLf.bin" );

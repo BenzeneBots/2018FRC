@@ -155,7 +155,7 @@ void seqMid_RightSwitch() {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 	
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Side_Scale, false );
+	LoadProfile( Side_Scale, true );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 /*
