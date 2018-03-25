@@ -38,6 +38,7 @@
 #include <Auton/AutonTurnLeft.h>
 #include <Auton/AutonTurnRight.h>
 #include <Auton/MotionMagicStraight.h>
+#include <Auton/MotionMagicTurn.h>
 
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
@@ -133,15 +134,6 @@ public:
 	DigitalInput *elevatorBottomSwitch;
 	bool wasSwitchPressed;
 	bool driveDirection;
-
-	//used to make Smart Dash Icons
-	bool leftCloseSwitchDash;
-	bool rightCloseSwitchDash;
-	bool leftScaleDash;
-	bool rightScaleDash;
-	bool leftFarSwitchDash;
-	bool rightFarSwitchDash;
-
 
 	double startYaw;
 	int firstPriority;
@@ -331,7 +323,7 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicStraight(robotDrive, CL_ZEROA));
+						new MotionMagicTurn(robotDrive, 90, true));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
@@ -360,46 +352,6 @@ public:
 		robotDrive->NeutralizeDrive();
 
 		robotDrive->FollowMode();
-
-		//Switch/Scale Array Dashboard Display
-		std::string gameData;
-		gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-		if(gameData.length() > 0){
-			if(gameData[0] == 'L')  {
-				leftCloseSwitchDash = true;
-				rightCloseSwitchDash = false;
-			}else{
-				leftCloseSwitchDash = false;
-				rightCloseSwitchDash = true;
-			}
-			if(gameData[1] == 'L')  {
-				leftScaleDash = true;
-				rightScaleDash = false;
-			}else{
-				leftScaleDash = false;
-				rightScaleDash = true;
-			}
-			if(gameData[2] == 'L')  {
-				leftFarSwitchDash = true;
-				rightFarSwitchDash = false;
-			}else{
-				leftFarSwitchDash = false;
-				rightFarSwitchDash = true;
-			}
-		}else{
-			leftCloseSwitchDash = false;
-			rightCloseSwitchDash = false;
-			leftScaleDash = false;
-			rightScaleDash = false;
-			leftFarSwitchDash = false;
-			rightFarSwitchDash = false;
-		}
-		frc::SmartDashboard::PutBoolean("Switch 1 Left", leftCloseSwitchDash);
-		frc::SmartDashboard::PutBoolean("Switch 1 Right", rightCloseSwitchDash);
-		frc::SmartDashboard::PutBoolean("Scale Left", leftScaleDash);
-		frc::SmartDashboard::PutBoolean("Scale Right", rightScaleDash);
-		frc::SmartDashboard::PutBoolean("Switch 2 Left", leftFarSwitchDash);
-		frc::SmartDashboard::PutBoolean("Switch 2 Right", rightFarSwitchDash);
 
 	}
 
@@ -510,17 +462,19 @@ public:
 		robotDrive->FollowMode();
 		printf( "TestInit...\n" );
 		robotDrive->ResetEncoders();
+		robotDrive->ResetYaw();
 	}
 
 	// ========================================================================
 	void TestPeriodic() {
-		if (mainDriverStick->GetRawButton(2)){
-			robotDrive->MotionMagicStraight(30.0);
-			printf("magic\n");
-		}
-		else{
-			robotDrive->TankDrive(0.0,0.0);
-		}
+		robotDrive->BenzeneDrive(0.0,mainDriverStick->GetRawAxis(2),false);
+		double angle = robotDrive->GetYaw();
+		double rightencoderVal = robotDrive->GetRightEncoderValue();
+		double leftencoderVal = robotDrive->GetLeftEncoderValue();
+		printf("Yaw %f \n", angle);
+		printf("LeftVal %f \n", leftencoderVal);
+		printf("RightVal %f \n", rightencoderVal);
+
 	}
 
 

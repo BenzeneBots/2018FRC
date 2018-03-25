@@ -13,7 +13,7 @@
 
 class MotionMagicTurn: public AutoCommand {
 public:
-	MotionMagicTurn(Drive*,double);
+	MotionMagicTurn(Drive*,double,bool);
 	virtual ~MotionMagicTurn();
 		void Initialize();
 		bool Run();
@@ -24,6 +24,7 @@ private:
 	Timer* initTimer;
 	double correctionAngle;
 	double targetAngle;
+	bool side;
 };
 
 #endif /* SRC_AUTON_MOTIONMAGICTURN_H_ */

@@ -299,7 +299,7 @@ double Drive::dLimitVal(float low, float test,float high){
 void Drive::MotionMagicTurn(double targetAngle){
 	double turnDist = targetAngle * TICKS_PER_DEGREE;
 	frontLeft->Set(ControlMode::MotionMagic,turnDist);
-	frontRight->Set(ControlMode::MotionMagic,turnDist);
+	frontRight->Set(ControlMode::MotionMagic,-1.0*turnDist);
 }
 
 void Drive::ResetAccumulator(){
