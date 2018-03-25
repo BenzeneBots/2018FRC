@@ -101,6 +101,7 @@ bool Elevator::MoveElevator(double joystickVal){
 		printf("Case decreasing");
 		if(this->GetElevatorPosition() < (elevatorTargetPos + 1200)){
 			elevatorState = joystick;
+			this->SetToOutput(CONST_BACKDRIVE_PREVENTION);
 			return true;
 		}
 		if(abs(joystickVal) > 0.1) elevatorState = joystick;
