@@ -26,6 +26,8 @@ bool MotionMagicStraight::Run(){
 
 	if((fabs(drive->GetAverageVelocity())<=1)&&(initTimer->Get()>=0.5)){
 		initTimer->Stop();
+		drive->TankDrive(0.0,0.0);
+		drive->ResetYaw();
 		printf("Done Driving! \n");
 		return true;
 	}else{

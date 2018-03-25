@@ -30,8 +30,8 @@
 #include <Auton/AutoCommand.h>
 #include <Auton/AutonDeployIntake.h>
 #include <Auton/SequentialCommand.h>
-#include <Auton/AutonDriveStraight.h>
 #include <Auton/AutonIntake.h>
+#include <Auton/AutonDriveStraight.h>
 #include <Auton/AutonMoveElevatorToHeight.h>
 #include <Auton/AutonOuttake.h>
 #include <Auton/AutonStowIntake.h>
@@ -170,7 +170,8 @@ public:
 		}
 
 		//Camera Stuff
-		 CameraServer::GetInstance()->StartAutomaticCapture();
+        cs::UsbCamera camera = CameraServer::GetInstance()->StartAutomaticCapture();
+
 
 		//initialize subsystems
 		robotDrive = new Drive(2,1,4,3,0); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 0
@@ -239,20 +240,20 @@ public:
 
 				if(gameData[0] == 'L'){//creates left switch from center auton
 					mainAutoCommand = AUTO_SEQUENTIAL(
-							new AutonDriveStraight(robotDrive, C1_ONEC),
+							new MotionMagicStraight(robotDrive, C1_ONEC),
 							new AutonTurnLeft(robotDrive, T1_ONEC),
-							new AutonDriveStraight(robotDrive, C2_ONEC),
+							new MotionMagicStraight(robotDrive, C2_ONEC),
 							new AutonTurnRight(robotDrive, T2_ONEC),
-							new AutonDriveStraight(robotDrive, C3_ONEC),
+							new MotionMagicStraight(robotDrive, C3_ONEC),
 							elevatorSwitchCommand);
 				}
 				else{//otherwise creates right switch from center auton
 					mainAutoCommand = AUTO_SEQUENTIAL(
-							new AutonDriveStraight(robotDrive, C1_ONEC),
+							new MotionMagicStraight(robotDrive, C1_ONEC),
 							new AutonTurnRight(robotDrive, T1_ONEC),
-							new AutonDriveStraight(robotDrive, C2_ONEC),
+							new MotionMagicStraight(robotDrive, C2_ONEC),
 							new AutonTurnLeft(robotDrive, T2_ONEC),
-							new AutonDriveStraight(robotDrive, C3_ONEC),
+							new MotionMagicStraight(robotDrive, C3_ONEC),
 							elevatorSwitchCommand);
 				}
 			}
@@ -261,16 +262,16 @@ public:
 				if(m_prioritySelected == "Scale"){//if priority is scale
 					if(gameData[1] == 'L'){//if scale is on left go for that
 						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 								new AutonTurnRight(robotDrive, T1_SCALE_ONES),
-								new AutonDriveStraight(robotDrive, C2_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
 								elevatorScaleCommand);
 					}
 					else{//otherwise go for right scale but don't drop cube
 						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_ZEROS),
+								new MotionMagicStraight(robotDrive, C1_ZEROS),
 								new AutonTurnRight(robotDrive, T1_ZEROS),
-								new AutonDriveStraight(robotDrive, C2_ZEROS),
+								new MotionMagicStraight(robotDrive, C2_ZEROS),
 								new AutonTurnLeft(robotDrive, T2_ZEROS));
 					}
 
@@ -278,9 +279,9 @@ public:
 				else{//if priority is switch
 					if(gameData[0] == 'L'){//if switch is on left go for that
 						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
+								new MotionMagicStraight(robotDrive, C1_SWITCH_ONES),
 								new AutonTurnRight(robotDrive, T1_SWITCH_ONES),
-								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
+								new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
 								elevatorSwitchCommand);
 					}
 					else{//otherwise go for right switch
@@ -293,16 +294,16 @@ public:
 				if(m_prioritySelected == "Scale"){//if priority is scale
 					if(gameData[1] == 'R'){//go for same side scale
 						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 								new AutonTurnLeft(robotDrive, T1_SCALE_ONES),
-								new AutonDriveStraight(robotDrive, C2_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
 								elevatorScaleCommand);
 					}
 					else{//otherwise go for opposite scale but don't drop the cube
 						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_ZEROS),
+								new MotionMagicStraight(robotDrive, C1_ZEROS),
 								new AutonTurnLeft(robotDrive, T1_ZEROS),
-								new AutonDriveStraight(robotDrive, C2_ZEROS),
+								new MotionMagicStraight(robotDrive, C2_ZEROS),
 								new AutonTurnRight(robotDrive, T2_ZEROS));
 					}
 
@@ -310,9 +311,9 @@ public:
 				else{//if priority is switch
 					if(gameData[0] == 'R'){//if switch is on right side, go for that
 						mainAutoCommand = AUTO_SEQUENTIAL(
-								new AutonDriveStraight(robotDrive, C1_SWITCH_ONES),
+								new MotionMagicStraight(robotDrive, C1_SWITCH_ONES),
 								new AutonTurnLeft(robotDrive, T1_SWITCH_ONES),
-								new AutonDriveStraight(robotDrive, C2_SWITCH_ONES),
+								new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
 								elevatorSwitchCommand);
 					}
 					else{//otherwise go for left switch
@@ -323,12 +324,12 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicTurn(robotDrive, 90, true));
+						new MotionMagicStraight(robotDrive, CL_ZEROA));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
 			mainAutoCommand = AUTO_SEQUENTIAL(
-					new AutonDriveStraight(robotDrive, CL_ZEROA));
+					new MotionMagicStraight(robotDrive, CL_ZEROA));
 		}
 
 		if(mainAutoCommand) mainAutoCommand->Initialize();
@@ -437,11 +438,9 @@ public:
 		//stows and deploys intake
 		if(manipStick->GetPOV(0) == 180){
 			robotIntake->StowIntake();
-			printf("Stowing Intake\n");
 		}
 		else if(manipStick->GetPOV(0) == 0){
 			robotIntake->DeployIntake();
-			printf("Deploying Intake\n");
 		}
 
 		//runs climber
@@ -457,24 +456,15 @@ public:
 		}
 
 		//Prints some relevant stuff
+
 	}
 	void TestInit() {
-		robotDrive->FollowMode();
-		printf( "TestInit...\n" );
-		robotDrive->ResetEncoders();
 		robotDrive->ResetYaw();
 	}
 
 	// ========================================================================
 	void TestPeriodic() {
-		robotDrive->BenzeneDrive(0.0,mainDriverStick->GetRawAxis(2),false);
-		double angle = robotDrive->GetYaw();
-		double rightencoderVal = robotDrive->GetRightEncoderValue();
-		double leftencoderVal = robotDrive->GetLeftEncoderValue();
-		printf("Yaw %f \n", angle);
-		printf("LeftVal %f \n", leftencoderVal);
-		printf("RightVal %f \n", rightencoderVal);
-
+		printf("Yaw: %f\n", robotDrive->GetYaw());
 	}
 
 
@@ -493,7 +483,6 @@ private:
 
 	std::string m_autoSelected;
 	std::string m_prioritySelected;
-
 };
 
 START_ROBOT_CLASS(Robot)

@@ -21,7 +21,10 @@ public:
 
 private:
 	Drive *drive;
-	double turnAngle, startAngle, targetAngle;
+	double targetAngle, rightSpeed, leftSpeed;
+	enum TurnState {turning, adjusting};
+	TurnState turnState;
+	double ScaleFunction(double);
 };
 
 #endif /* SRC_AUTON_AUTONTURNLEFT_H_ */

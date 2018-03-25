@@ -21,8 +21,9 @@ public:
 
 private:
 	Drive *drive;
-	double turnAngle, startAngle, targetAngle;
-
+	double targetAngle, rightSpeed, leftSpeed;
+	enum TurnState {turning, adjusting};
+	TurnState turnState;
 
 };
 
