@@ -72,7 +72,7 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontLeft->ConfigOpenloopRamp(0.1, 0.0);
 	frontRight->ConfigOpenloopRamp(0.1, 0.0);
 
-	double nuSp = 2*5.0 * 260.9;	// 4ft/s
+	double nuSp = 1.5 * 5.0 * 260.9;	// 4ft/s
 	frontLeft->ConfigMotionAcceleration( nuSp * 1.5, 0 );
 	frontLeft->ConfigMotionCruiseVelocity( nuSp, 0 );
 	frontRight->ConfigMotionAcceleration( nuSp * 1.5, 0 );
@@ -86,8 +86,8 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontLeft->Config_IntegralZone( PID_PRIMARY, kGains_MM.kIzone, kTO );
 	frontLeft->ConfigPeakOutputForward(1.0, kTO );
 	frontLeft->ConfigPeakOutputReverse(-1.0, kTO);
-	frontLeft->SetInverted(false);
-	backLeft->SetInverted(false);
+	frontLeft->SetInverted(true);
+	backLeft->SetInverted(true);
 
 	// Right PID
 	frontRight->Config_kF( PID_PRIMARY, kGains_MM.kF, kTO );
@@ -97,8 +97,8 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontRight->Config_IntegralZone( PID_PRIMARY, kGains_MM.kIzone, kTO );
 	frontRight->ConfigPeakOutputForward(1.0, kTO );
 	frontRight->ConfigPeakOutputReverse(-1.0, kTO);
-	frontRight->SetInverted(true);
-	backRight->SetInverted(true);
+	frontRight->SetInverted(false);
+	backRight->SetInverted(false);
 
 
 	// Status 10 provides the trajectory target for motion profile AND motion magic.

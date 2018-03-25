@@ -8,7 +8,7 @@
 #include <Auton/AutonTurnRight.h>
 
 
-#define TURN_P_CONST 0.0072
+#define TURN_P_CONST 0.0068
 
 AutonTurnRight::AutonTurnRight(Drive *robotDrive, double angle) {
 	drive = robotDrive;
@@ -30,18 +30,14 @@ void AutonTurnRight::Initialize(){
 
 bool AutonTurnRight::Run(){
 	double currentYaw = drive->GetYaw();
-	double angleError =  fabs(targetAngle) - fabs(currentYaw);
-	leftSpeed = TURN_P_CONST * angleError;
-	rightSpeed = -1.0  * TURN_P_CONST * angleError;
-
-	printf("Yaw: %f\n", currentYaw);
-
+	double angleError = fabs(targetAngle) - fabs(currentYaw);
+	leftSpeed = -1.0 * TURN_P_CONST * angleError;
+	rightSpeed = TURN_P_CONST * angleError;
 
 	if(fabs(angleError) <= 1.0){
 		drive->TankDrive(0.0,0.0);
 		drive->ResetYaw();
 		drive->ResetEncoders();
-		printf("Finished!\n");
 		return true;
 	}
 	drive->TankDrive(leftSpeed, rightSpeed);

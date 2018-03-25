@@ -338,6 +338,7 @@ public:
 
 	void AutonomousPeriodic() {
 		if(mainAutoCommand) mainAutoCommand->Run();
+
 	}
 
 	void TeleopInit() {
@@ -383,7 +384,7 @@ public:
 		}
 
 		double throttle =driveRevFactor * mainDriverStick->GetRawAxis(1);
-		robotDrive->BenzeneDrive(throttle, mainDriverStick->GetRawAxis(2), mainDriverStick->GetRawButton(2));
+		robotDrive->BenzeneDrive(throttle, -1.0 * mainDriverStick->GetRawAxis(2), mainDriverStick->GetRawButton(2));
 
 		//drives elevator and updates sensor values
 		//toggles limitswitch value to see when it changes
@@ -459,12 +460,12 @@ public:
 
 	}
 	void TestInit() {
-		robotDrive->ResetYaw();
+		robotDrive->ResetEncoders();
 	}
 
 	// ========================================================================
 	void TestPeriodic() {
-		printf("Yaw: %f\n", robotDrive->GetYaw());
+		printf("Yaw %f\n", robotDrive->GetYaw());
 	}
 
 
