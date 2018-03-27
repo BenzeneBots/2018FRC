@@ -10,6 +10,7 @@
 
 #include <Auton/AutoCommand.h>
 #include <Subsystems/Drive.h>
+#include <WPILib.h>
 
 class MotionMagicStraight: public AutoCommand {
 public:
