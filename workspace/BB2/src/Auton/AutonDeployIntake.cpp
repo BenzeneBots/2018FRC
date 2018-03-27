@@ -22,6 +22,7 @@ AutonDeployIntake::~AutonDeployIntake() {
 void AutonDeployIntake::Initialize(){}
 
 bool AutonDeployIntake::Run(){
+	printf("Deploying \n");
 	intake->DeployIntake();
 	if(IsTimeoutExpired()) return true;
 	return false;

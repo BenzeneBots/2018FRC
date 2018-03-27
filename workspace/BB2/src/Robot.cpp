@@ -93,23 +93,23 @@
 #define T2_ONEC 90.0
 
 //Auton Sides Switch Distances
-#define C1_SWITCH_ONES 126.16
-#define C2_SWITCH_ONES 3.0
+#define C1_SWITCH_ONES 145.16
+#define C2_SWITCH_ONES 18.0
 
 //Auton Sides Switch Angle
-#define T1_SWITCH_ONES 70.0
+#define T1_SWITCH_ONES 90.0
 
 //Auton Sides Scale Distances //TODO Change to 235.00
-#define C1_SCALE_ONES 235.0
-#define C2_SCALE_ONES 12.0 //TODO TUNE THIS
+#define C1_SCALE_ONES 254.93
+#define C2_SCALE_ONES 14.23 //TODO TUNE THIS
 
 //Auton Sides Scale Angle
-#define T1_SCALE_ONES 30.0
+#define T1_SCALE_ONES 45.18
 
 //Auton Sides Far Cube Scale Distances
-#define C1_ZEROS 228.08
-#define C2_ZEROS 237.38
-#define C3_ZEROS 75.11
+#define C1_ZEROS 210.9
+#define C2_ZEROS 161.32
+#define C3_ZEROS 46.54
 
 //Auton Sides Far Cube Scale Angle
 #define T1_ZEROS 90.0

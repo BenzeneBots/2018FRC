@@ -130,7 +130,7 @@ void Drive::BenzeneDrive(double throttle, double twist, bool driveStraightButton
 			heading = 0.0;
 		}
 		// Dump normal steering and twist inputs. Use gyro to drive strait instead.
-		steer = dLimitVal( -0.5, heading * 0.05, 0.5 );
+		steer = dLimitVal( -0.5, heading * -0.05, 0.5 );
 		twist = 0.0;
 	}
 	// Else, allow turning with joystick and twisting combined.

@@ -10,7 +10,7 @@
 #include <Talon.h>
 #include <Subsystems/Intake.h>
 #define INTAKE_SPEED 1.0
-#define OUTTAKE_SPEED 1.0
+#define OUTTAKE_SPEED 0.80
 #define MIDDLE_TIMEOUT 1.0
 
 
