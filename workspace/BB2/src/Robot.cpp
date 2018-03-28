@@ -39,6 +39,7 @@
 #include <Auton/AutonTurnRight.h>
 #include <Auton/MotionMagicStraight.h>
 #include <Auton/MotionMagicTurn.h>
+#include <Auton/AutonPathfinder.h>
 
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
@@ -324,12 +325,12 @@ public:
 
 			else{//defaults to driveStraight/crossLine auton
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicStraight(robotDrive, CL_ZEROA));
+						new AutonPathfinder(robotDrive, 5,false));
 			}
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
 			mainAutoCommand = AUTO_SEQUENTIAL(
-					new MotionMagicStraight(robotDrive, CL_ZEROA));
+					new AutonPathfinder(robotDrive, 5,false));
 		}
 
 		if(mainAutoCommand) mainAutoCommand->Initialize();
@@ -384,7 +385,7 @@ public:
 		}
 
 		double throttle =driveRevFactor * mainDriverStick->GetRawAxis(1);
-		robotDrive->BenzeneDrive(throttle, -1.0 * mainDriverStick->GetRawAxis(2), mainDriverStick->GetRawButton(2));
+		robotDrive->BenzeneDrive(-1.0*throttle,-1.0*mainDriverStick->GetRawAxis(4), mainDriverStick->GetRawButton(1));
 
 		//drives elevator and updates sensor values
 		//toggles limitswitch value to see when it changes
@@ -413,7 +414,7 @@ public:
 		//runs intake
 
 
-		if(manipStick->GetRawButton(2) || mainDriverStick->GetRawButton(1)){
+		/*if(manipStick->GetRawButton(2) || mainDriverStick->GetRawButton(1)){
 			robotIntake->OuttakeCubes();
 			wasIntaking = false;
 		}
@@ -426,7 +427,7 @@ public:
 		}
 		else{
 			robotIntake->StopIntake();
-		}
+		}*/ // TODO add back
 
 		//activates and deactivates claw
 		if(manipStick->GetRawButton(6)){
@@ -460,12 +461,24 @@ public:
 
 	}
 	void TestInit() {
-		robotDrive->ResetEncoders();
-	}
+			printf( "TestInit...\n" );
+		}
 
-	// ========================================================================
 	void TestPeriodic() {
-		printf("Yaw %f\n", robotDrive->GetYaw());
+		printf("TestPeriodic \n");
+		if(mainDriverStick->GetRawButton(1)) {
+			printf( "Recalculating Motion Trajectories...\n" );
+
+			robotDrive->Load_Waypoints();	// Load all the data into the waypoint structures.
+
+			// Step thru and calculate each path.  The result is stored as a
+			// binary/CSV file on the RoboRIO file-system.
+			for ( int idx=0 ; idx < NUM_PATHS ; idx++ ) {
+				printf( "Calculating PathFinder Path: %d\n", idx );
+				robotDrive->FindPath( idx );
+			}
+			printf( "Info: PathFinder Done\n" );
+		}
 	}
 
 
