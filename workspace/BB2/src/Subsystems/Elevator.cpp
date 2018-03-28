@@ -156,13 +156,14 @@ void Elevator::SetJoystickControl(){
 }
 
 void Elevator::MagicElevator(bool floorHeight,bool switchHeight,bool scaleHeight,double joyAxis){
-	if(fabs(joyAxis)>=0.3){
+
+	if(fabs(joyAxis)>=0.3){ //if the Joystick Axis is outside of the deadband, set the elevator output
 		this->SetToOutput(joyAxis + CONST_BACKDRIVE_PREVENTION);
-		lockElevator = true;
+		lockElevator = true; //Make sure the elevator doesn't fall after this (place hold current)
 	}else{
-		if(floorHeight){
+		if(floorHeight){ //If the button for the bottom height is pressed, move to height
 			elevatorMotor->Set(ControlMode::MotionMagic,ELEVATOR_BOTTOM_HEIGHT);
-			lockElevator = false;
+			lockElevator = false; //Leave the Elevator in Motion Magic Mode
 		}
 		else if(switchHeight){
 			elevatorMotor->Set(ControlMode::MotionMagic,ELEVATOR_SWITCH_HEIGHT);
@@ -172,7 +173,7 @@ void Elevator::MagicElevator(bool floorHeight,bool switchHeight,bool scaleHeight
 			elevatorMotor->Set(ControlMode::MotionMagic,ELEVATOR_SCALE_HEIGHT);
 			lockElevator = false;
 		}else{
-			if(lockElevator){
+			if(lockElevator){  //if joystick is inside deadband and the elevator is not in Motion Magic Mode, prevent backdrive
 				this->SetToOutput(CONST_BACKDRIVE_PREVENTION);
 			}
 		}
