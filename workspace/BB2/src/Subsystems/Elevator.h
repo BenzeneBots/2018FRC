@@ -22,13 +22,14 @@ public:
 	bool SetElevatorTarget(double);
 	bool MoveElevator(double);
 	void SetJoystickControl();
+	void MagicElevator(bool,bool,bool,double);
 
 private:
 	TalonSRX *elevatorMotor;
 	int elevatorTargetPos;
 	enum State {increasing, decreasing, joystick};
 	State elevatorState;
-
+	bool lockElevator;
 
 };
 
