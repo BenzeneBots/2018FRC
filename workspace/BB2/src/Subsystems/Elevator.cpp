@@ -185,21 +185,26 @@ void Elevator::BenzeneElevator(bool floorHeight,bool switchHeight,bool scaleHeig
 	double joyTarget = elevatorMotor->GetSensorCollection().GetQuadraturePosition() + addToTarget;
 
 	if(fabs(joyAxis)>=0.5){ //if the Joystick Axis is outside of the deadband, set the elevator output
+		elevatorMotor->SetIntegralAccumulator(0.0,0,0);
 		elevatorMotor->Set(ControlMode::MotionMagic,joyTarget);
 	}else{
 		if(floorHeight){ //If the button for the bottom height is pressed, move to height
+			elevatorMotor->SetIntegralAccumulator(0.0,0,0);
 			elevatorMotor->Set(ControlMode::MotionMagic,ELEVATOR_BOTTOM_HEIGHT);
 		}
 		else if(switchHeight){
+			elevatorMotor->SetIntegralAccumulator(0.0,0,0);
 			elevatorMotor->Set(ControlMode::MotionMagic,ELEVATOR_SWITCH_HEIGHT);
 		}
 		else if(scaleHeight){
+			elevatorMotor->SetIntegralAccumulator(0.0,0,0);
 			elevatorMotor->Set(ControlMode::MotionMagic,ELEVATOR_SCALE_HEIGHT);
 		}
 		else{
 			if(fabs(joyAxis)>=0.1){ //if the Joystick Axis is outside of the deadband, set the elevator output
-					elevatorMotor->Set(ControlMode::MotionMagic,joyTarget);
-				}
+				elevatorMotor->SetIntegralAccumulator(0.0,0,0);
+				elevatorMotor->Set(ControlMode::MotionMagic,joyTarget);
+			}
 		}
 	}
 }
