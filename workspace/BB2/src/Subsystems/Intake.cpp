@@ -22,12 +22,16 @@ Intake::Intake(int intake1Port, int intake2Port, int clawPort, int anglePort1, i
 	clawActuator = new Solenoid(clawPort);
 	angleActuator = new DoubleSolenoid(anglePort1, anglePort2);
 	deployTimer = new Timer();
+	clawTimer = new Timer();
 
 	//Sets initial positions
 	if(angleActuator->Get() == frc::DoubleSolenoid::Value::kReverse) intakeDeployedStatus = true;
 	else intakeDeployedStatus = false;
 	clawOpenStatus = false;
 
+	angleActuator->Set(DoubleSolenoid::kOff);
+	deployStatus = true;
+	midStatus = 0;
 }
 
 void Intake::IntakeCubes(){
@@ -86,4 +90,77 @@ bool Intake::IsIntakeDeployed(){
 bool Intake::IsClawOpen(){
 	return clawOpenStatus;
 }
+void Intake::BenzeneIntake(double joyPOV){
+	// Push POV up to raise claw.
+	//angleActuator->Set( DoubleSolenoid::kReverse );
 
+	if( joyPOV == 180  ) { //Claw is inside robot
+		deployStatus = true;
+		midStatus = 0;
+		clawTimer->Reset();
+		clawTimer->Start();
+	}
+	else if(joyPOV == 90){ //Claw is Middle Position 1
+		midStatus = 1;
+		clawTimer->Reset();
+		clawTimer->Start();
+	}
+	else if(joyPOV == 270){ //Claw is Middle Position 2
+		midStatus = 2;
+		clawTimer->Reset();
+		clawTimer->Start();
+	}
+	else if( joyPOV == 0 ) { //Claw is outside robot
+		deployStatus = false;
+		midStatus = 0;
+		clawTimer->Reset();
+		clawTimer->Start();
+	}
+
+	if(deployStatus){
+		if(midStatus == 0){
+			if(clawTimer->Get() <= 2.0){ //TODO Tune this
+				angleActuator->Set(DoubleSolenoid::kForward);
+			}else{
+				angleActuator->Set(DoubleSolenoid::kOff);
+			}
+		}
+		else if(midStatus == 1){ //TODO Tune this
+			if(clawTimer->Get() <= 0.5){
+				angleActuator->Set( DoubleSolenoid::kForward );
+			}else{
+				angleActuator->Set(DoubleSolenoid::kOff);
+			}
+		}
+		else if(midStatus == 2){ //TODO Tune this
+			if(clawTimer->Get() <= 0.2){
+				angleActuator->Set( DoubleSolenoid::kForward );
+			}else{
+				angleActuator->Set(DoubleSolenoid::kOff);
+			}
+		}
+	}
+	else{
+		if(midStatus == 0){ //TODO Tune this
+			if(clawTimer->Get() <= 2.0){
+				angleActuator->Set(DoubleSolenoid::kReverse);
+			}else{
+				angleActuator->Set(DoubleSolenoid::kOff);
+			}
+		}
+		else if(midStatus == 1){ //TODO Tune this
+			if(clawTimer->Get() <= 0.5){
+				angleActuator->Set( DoubleSolenoid::kReverse);
+			}else{
+				angleActuator->Set(DoubleSolenoid::kOff);
+			}
+		}
+		else if(midStatus == 2){ //TODO Tune this
+			if(clawTimer->Get() <= 0.8){
+				angleActuator->Set( DoubleSolenoid::kReverse);
+			}else{
+				angleActuator->Set(DoubleSolenoid::kOff);
+			}
+		}
+	}
+}
