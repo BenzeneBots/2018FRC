@@ -23,6 +23,7 @@ public:
 	bool MoveElevator(double);
 	void SetJoystickControl();
 	void MagicElevator(bool,bool,bool,double);
+	void BenzeneElevator(bool,bool,bool,double);
 
 private:
 	TalonSRX *elevatorMotor;
