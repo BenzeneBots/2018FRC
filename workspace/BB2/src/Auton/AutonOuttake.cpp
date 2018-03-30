@@ -8,8 +8,10 @@
 #include <Auton/AutonOuttake.h>
 
 AutonOuttake::AutonOuttake(Intake *robotIntake, double timeout) {
-	SetTimeout(timeout);
 	intake = robotIntake;
+	timeoutTime = timeout;
+	outtakeTimer = new Timer();
+
 }
 
 AutonOuttake::~AutonOuttake() {
@@ -17,12 +19,15 @@ AutonOuttake::~AutonOuttake() {
 }
 
 void AutonOuttake::Initialize(){
+	outtakeTimer->Reset();
+	outtakeTimer->Start();
 
 }
 
 bool AutonOuttake::Run(){
-	if(IsTimeoutExpired()){
+	if(outtakeTimer->Get() >= timeoutTime){
 		intake->StopIntake();
+		outtakeTimer->Stop();
 		return true;
 	}
 

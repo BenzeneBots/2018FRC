@@ -28,18 +28,20 @@
 
 //include all autons
 #include <Auton/AutoCommand.h>
-#include <Auton/AutonDeployIntake.h>
 #include <Auton/SequentialCommand.h>
+#include <Auton/ConcurrentCommand.h>
 #include <Auton/AutonIntake.h>
 #include <Auton/AutonDriveStraight.h>
 #include <Auton/AutonMoveElevatorToHeight.h>
 #include <Auton/AutonOuttake.h>
+#include <Auton/AutonDeployIntake.h>
 #include <Auton/AutonStowIntake.h>
 #include <Auton/AutonTurnLeft.h>
 #include <Auton/AutonTurnRight.h>
 #include <Auton/MotionMagicStraight.h>
 #include <Auton/MotionMagicTurn.h>
-
+#include <Auton/AutonOpenClaw.h>
+#include <Auton/AutonCloseClaw.h>
 
 #define ELEVATOR_BOTTOM_HEIGHT -600
 #define ELEVATOR_SWITCH_HEIGHT 5500	//TODO untested
@@ -116,6 +118,19 @@
 #define T2_ZEROS 90.0
 #define T3_ZEROS 90.0
 
+//Auton Close Side 2 Cube Distances
+#define C1_TWOS 253.47
+#define C2_TWOS 13.7
+#define C3_TWOS 62.19
+#define C4_TWOS 9.12
+#define C5_TWOS 66.15
+
+//Auton Close Side 2 Cube Angles
+#define T1_TWOS 45.0
+#define T2_TWOS 115.71
+#define T3_TWOS 19.29
+#define T4_TWOS 173.61
+
 class Robot : public frc::TimedRobot {
 public:
 	//Initialize the subsystems
@@ -154,6 +169,9 @@ public:
 		auton_chooser.AddObject(Center1Cube, Center1Cube);
 		auton_chooser.AddObject(Left1Cube, Left1Cube);
 		auton_chooser.AddObject(Right1Cube, Right1Cube);
+		auton_chooser.AddObject(Left2Cube, Left2Cube);
+		auton_chooser.AddObject(Right2Cube, Right2Cube);
+
 
 		priority_chooser.AddDefault(Switch , Switch);
 		priority_chooser.AddObject( Scale , Scale);
@@ -177,7 +195,7 @@ public:
 		robotDrive = new Drive(2,1,4,3,0); 			//drive uses Talons 1,2,3,4 and pigeonIMU port 0
 		robotElevator = new Elevator(5); 		//elevator uses Talon 5 and DIOs 0 and 1
 		robotIntake = new Intake(0,1,0,1,2);		//Intake uses PWM 0 and 1, and PCM ports 0, 1, and 2
-		robotClimber = new Climber(8);			//climber uses PWM 2
+		robotClimber = new Climber(9);
 
 
 		//initialize sensors
@@ -228,9 +246,7 @@ public:
 
 		elevatorScaleCommand = AUTO_SEQUENTIAL(
 				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_SCALE_HEIGHT),
-				new AutonDeployIntake(robotIntake),
 				new AutonOuttake(robotIntake, 1.5),
-				new AutonStowIntake(robotIntake),
 				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_BOTTOM_HEIGHT));
 
 
@@ -272,7 +288,8 @@ public:
 								new MotionMagicStraight(robotDrive, C1_ZEROS),
 								new AutonTurnRight(robotDrive, T1_ZEROS),
 								new MotionMagicStraight(robotDrive, C2_ZEROS),
-								new AutonTurnLeft(robotDrive, T2_ZEROS));
+								new AutonTurnLeft(robotDrive, T2_ZEROS),
+								elevatorScaleCommand);
 					}
 
 				}
@@ -284,8 +301,22 @@ public:
 								new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
 								elevatorSwitchCommand);
 					}
-					else{//otherwise go for right switch
-						//TODO add right switch opposite auton
+					else{//otherwise go for scale auton
+						if(gameData[1] == 'L'){//if scale is on left go for that
+							mainAutoCommand = AUTO_SEQUENTIAL(
+									new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
+									new AutonTurnRight(robotDrive, T1_SCALE_ONES),
+									new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
+									elevatorScaleCommand);
+						}
+						else{//otherwise go for right scale but don't drop cube
+							mainAutoCommand = AUTO_SEQUENTIAL(
+									new MotionMagicStraight(robotDrive, C1_ZEROS),
+									new AutonTurnRight(robotDrive, T1_ZEROS),
+									new MotionMagicStraight(robotDrive, C2_ZEROS),
+									new AutonTurnLeft(robotDrive, T2_ZEROS),
+									elevatorScaleCommand);
+						}
 					}
 				}
 			}
@@ -299,12 +330,13 @@ public:
 								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
 								elevatorScaleCommand);
 					}
-					else{//otherwise go for opposite scale but don't drop the cube
+					else{//otherwise go for opposite scale
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_ZEROS),
 								new AutonTurnLeft(robotDrive, T1_ZEROS),
 								new MotionMagicStraight(robotDrive, C2_ZEROS),
-								new AutonTurnRight(robotDrive, T2_ZEROS));
+								new AutonTurnRight(robotDrive, T2_ZEROS),
+								elevatorScaleCommand);
 					}
 
 				}
@@ -316,16 +348,168 @@ public:
 								new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
 								elevatorSwitchCommand);
 					}
-					else{//otherwise go for left switch
-						//TODO add left switch opposite auton
+					else{//otherwise go for a scale auton
+						if(gameData[1] == 'R'){//go for same side scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
+								new AutonTurnLeft(robotDrive, T1_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
+								elevatorScaleCommand);
+					}
+					else{//otherwise go for opposite scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_ZEROS),
+								new AutonTurnLeft(robotDrive, T1_ZEROS),
+								new MotionMagicStraight(robotDrive, C2_ZEROS),
+								new AutonTurnRight(robotDrive, T2_ZEROS),
+								elevatorScaleCommand);
+					}
 					}
 				}
 			}
+			else if(m_autoSelected == Left2Cube){//if cube auton from right is selected
+				if(m_prioritySelected == "Scale"){//if priority is scale
+					if(gameData[1] == 'L'){//go for same side scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_TWOS),
+								new AutonTurnRight(robotDrive, T1_TWOS),
+								new MotionMagicStraight(robotDrive, C2_TWOS),
+								elevatorScaleCommand,
+								new AutonDeployIntake(robotIntake),
+								new AutonOpenClaw(robotIntake),
+								new AutonTurnRight(robotDrive,T2_TWOS),
+								new MotionMagicStraight(robotDrive,C3_TWOS),
+								new AutonTurnRight(robotDrive,T3_TWOS),
+								new MotionMagicStraight(robotDrive,C4_TWOS),
+								new AutonCloseClaw(robotIntake),
+								new AutonIntake(robotIntake, .5),
+								new AutonStowIntake(robotIntake),
+								new AutonTurnRight(robotDrive, T4_TWOS),
+								new MotionMagicStraight(robotDrive,C5_TWOS),
+								elevatorScaleCommand);
+					}
+					else{//otherwise go for opposite scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_ZEROS),
+								new AutonTurnLeft(robotDrive, T1_ZEROS),
+								new MotionMagicStraight(robotDrive, C2_ZEROS),
+								new AutonTurnRight(robotDrive, T2_ZEROS),
+								elevatorScaleCommand);
+					}
 
-			else{//defaults to driveStraight/crossLine auton
-				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicStraight(robotDrive, CL_ZEROA));
+				}
+				else{//if priority is switch
+					if(gameData[0] == 'L'){//if switch is on right side, go for that
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_SWITCH_ONES),
+								new AutonTurnRight(robotDrive, T1_SWITCH_ONES),
+								new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
+								elevatorSwitchCommand);
+					}
+					else{//otherwise go for a scale auton
+						if(gameData[1] == 'L'){//go for same side scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_TWOS),
+								new AutonTurnLeft(robotDrive, T1_TWOS),
+								new MotionMagicStraight(robotDrive, C2_TWOS),
+								elevatorScaleCommand,
+								new AutonDeployIntake(robotIntake),//add OpenClaw
+								new AutonTurnLeft(robotDrive,T2_TWOS),
+								new MotionMagicStraight(robotDrive,C3_TWOS),
+								new AutonTurnLeft(robotDrive,T3_TWOS),
+								new MotionMagicStraight(robotDrive,C4_TWOS), //closeClaw
+								new AutonCloseClaw(robotIntake),
+								new AutonIntake(robotIntake, .5),
+								new AutonStowIntake(robotIntake),
+								new AutonTurnLeft(robotDrive, T4_TWOS),
+								new MotionMagicStraight(robotDrive,C5_TWOS),
+								elevatorScaleCommand);
+					}
+					else{//otherwise go for opposite scale but don't drop the cube
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_ZEROS),
+								new AutonTurnRight(robotDrive, T1_ZEROS),
+								new MotionMagicStraight(robotDrive, C2_ZEROS),
+								new AutonTurnLeft(robotDrive, T2_ZEROS),
+								elevatorScaleCommand);
+					}
+					}
+				}
 			}
+			else if(m_autoSelected == Right2Cube){//if cube auton from right is selected
+				if(m_prioritySelected == "Scale"){//if priority is scale
+					if(gameData[1] == 'R'){//go for same side scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_TWOS),
+								new AutonTurnLeft(robotDrive, T1_TWOS),
+								new MotionMagicStraight(robotDrive, C2_TWOS),
+								elevatorScaleCommand,
+								new AutonDeployIntake(robotIntake),//add OpenClaw
+								new AutonTurnLeft(robotDrive,T2_TWOS),
+								new MotionMagicStraight(robotDrive,C3_TWOS),
+								new AutonTurnLeft(robotDrive,T3_TWOS),
+								new MotionMagicStraight(robotDrive,C4_TWOS), //closeClaw
+								new AutonCloseClaw(robotIntake),
+								new AutonIntake(robotIntake, .5),
+								new AutonStowIntake(robotIntake),
+								new AutonTurnLeft(robotDrive, T4_TWOS),
+								new MotionMagicStraight(robotDrive,C5_TWOS),
+								elevatorScaleCommand);
+					}
+					else{//otherwise go for opposite scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_ZEROS),
+								new AutonTurnLeft(robotDrive, T1_ZEROS),
+								new MotionMagicStraight(robotDrive, C2_ZEROS),
+								new AutonTurnRight(robotDrive, T2_ZEROS),
+								elevatorScaleCommand);
+					}
+
+				}
+				else{//if priority is switch
+					if(gameData[0] == 'R'){//if switch is on right side, go for that
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_SWITCH_ONES),
+								new AutonTurnLeft(robotDrive, T1_SWITCH_ONES),
+								new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
+								elevatorSwitchCommand);
+					}
+					else{//otherwise go for a scale auton
+						if(gameData[1] == 'R'){//go for same side scale
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_TWOS),
+								new AutonTurnLeft(robotDrive, T1_TWOS),
+								new MotionMagicStraight(robotDrive, C2_TWOS),
+								elevatorScaleCommand,
+								new AutonDeployIntake(robotIntake),//add OpenClaw
+								new AutonTurnLeft(robotDrive,T2_TWOS),
+								new MotionMagicStraight(robotDrive,C3_TWOS),
+								new AutonTurnLeft(robotDrive,T3_TWOS),
+								new MotionMagicStraight(robotDrive,C4_TWOS), //closeClaw
+								new AutonCloseClaw(robotIntake),
+								new AutonIntake(robotIntake, .5),
+								new AutonStowIntake(robotIntake),
+								new AutonTurnLeft(robotDrive, T4_TWOS),
+								new MotionMagicStraight(robotDrive,C5_TWOS),
+								elevatorScaleCommand);
+					}
+					else{//otherwise go for opposite scale but don't drop the cube
+						mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_ZEROS),
+								new AutonTurnLeft(robotDrive, T1_ZEROS),
+								new MotionMagicStraight(robotDrive, C2_ZEROS),
+								new AutonTurnRight(robotDrive, T2_ZEROS),
+								elevatorScaleCommand);
+					}
+					}
+				}
+			}
+			else{
+				mainAutoCommand = AUTO_SEQUENTIAL(
+						new AutonTurnLeft(robotDrive, 90));
+						//new MotionMagicStraight(robotDrive, CL_ZEROA));
+			}
+
 		}
 		else {//if the game data doesn't exist for some reason default to crossing the line
 			mainAutoCommand = AUTO_SEQUENTIAL(
@@ -338,6 +522,7 @@ public:
 
 	void AutonomousPeriodic() {
 		if(mainAutoCommand) mainAutoCommand->Run();
+		printf("Yaw %f \n", robotDrive->GetYaw());
 
 	}
 
@@ -405,9 +590,9 @@ public:
 		else if(manipStick->GetRawButton(11)){
 			robotElevator->SetElevatorTarget(ELEVATOR_BOTTOM_HEIGHT);
 		}
-		robotElevator->MoveElevator(-.8*manipStick->GetRawAxis(1));//updates elevator positions based on targets and joysticks
+		robotElevator->MoveElevator(-1.0*manipStick->GetRawAxis(1));//updates elevator positions based on targets and joysticks
 
-		if(manipStick->GetRawButton(8) || manipStick->GetRawButton(10) || manipStick->GetRawButton(12)){
+		if(manipStick->GetRawButton(10) || manipStick->GetRawButton(12)){
 			robotElevator->SetJoystickControl();
 		}
 		//runs intake
@@ -445,7 +630,7 @@ public:
 		}
 
 		//runs climber
-		if(manipStick->GetRawButton(12)){
+		if(manipStick->GetRawButton(8)){
 			robotClimber->SpoolClimber(true);
 		}
 		else{
@@ -477,6 +662,11 @@ private:
 	const std::string Center1Cube = "Center1Cube";
 	const std::string Left1Cube = "Left1Cube";
 	const std::string Right1Cube = "Right1Cube";
+	const std::string Left2Cube = "Left2Cube";
+	const std::string Right2Cube = "Right2Cube";
+	const std::string CenterLeft2Cube = "CenterLeft2Cube";
+	const std::string LeftSwitchOnly = "LeftSwitchOnly";
+	const std::string RightSwitchOnly = "RightSwitchOnly";
 
 	frc::SendableChooser<std::string> priority_chooser;
 	const std::string Switch = "Switch";

@@ -10,6 +10,7 @@
 
 #include <Auton/AutoCommand.h>
 #include <Subsystems/Intake.h>
+#include <WPILib.h>
 
 class AutonOuttake: public AutoCommand {
 public:
@@ -21,6 +22,8 @@ public:
 
 private:
 	Intake *intake;
+	Timer* outtakeTimer;
+	double timeoutTime;
 };
 
 #endif /* SRC_AUTON_AUTONOUTTAKE_H_ */

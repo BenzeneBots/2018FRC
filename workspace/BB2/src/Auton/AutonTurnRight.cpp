@@ -8,7 +8,7 @@
 #include <Auton/AutonTurnRight.h>
 
 
-#define TURN_P_CONST 0.0068
+#define TURN_P_CONST 0.0074
 
 AutonTurnRight::AutonTurnRight(Drive *robotDrive, double angle) {
 	drive = robotDrive;

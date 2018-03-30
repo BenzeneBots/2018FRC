@@ -21,6 +21,8 @@ public:
 
 private:
 	Intake* intake;
+	Timer* intakeTimer;
+	double timeoutTime;
 };
 
 #endif /* SRC_AUTON_AUTONINTAKE_H_ */

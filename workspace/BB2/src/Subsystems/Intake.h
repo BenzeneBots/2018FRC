@@ -28,12 +28,16 @@ public:
 	bool IsClawOpen();
 	void SetIntakeStatus(bool);
 	void SetClawStatus(bool);
+	void BenzeneIntake(double);
 private:
 	Victor *intake1, *intake2;
 	Solenoid *clawActuator;
 	DoubleSolenoid *angleActuator;
 	bool intakeDeployedStatus, clawOpenStatus;
 	Timer *deployTimer;
+	Timer *clawTimer;
+	bool deployStatus;
+	double midStatus;
 };
 
 #endif /* SRC_SUBSYSTEMS_INTAKE_H_ */

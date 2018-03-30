@@ -6,12 +6,12 @@
  */
 
 #include <Auton/AutonIntake.h>
+#include <WPILib.h>
 
 AutonIntake::AutonIntake(Intake *robotIntake, double timeout) {
-	SetTimeout(timeout);
 	intake = robotIntake;
-	// TODO Auto-generated constructor stub
-
+	timeoutTime = timeout;
+	intakeTimer = new Timer();
 }
 
 AutonIntake::~AutonIntake() {
@@ -19,12 +19,14 @@ AutonIntake::~AutonIntake() {
 }
 
 void AutonIntake::Initialize(){
-
+intakeTimer->Reset();
+intakeTimer->Start();
 }
 
 bool AutonIntake::Run(){
-	if(IsTimeoutExpired()){
+	if(intakeTimer->Get() >= timeoutTime){
 		intake->StopIntake();
+		intakeTimer->Stop();
 		return true;
 	}
 

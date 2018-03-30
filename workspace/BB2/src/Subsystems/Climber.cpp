@@ -9,7 +9,7 @@
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
 
-#define CLIMBER_SPEED 0.45
+#define CLIMBER_SPEED 1.00
 
 
 Climber::Climber(int motorChannel) {
@@ -21,7 +21,7 @@ void Climber::SpoolClimber(bool state){
 	//double time = DriverStation::GetInstance().GetMatchTime();
 	//if(time < 40 && state){//little more than 30s to allow for field lag and stuff
 	if(state) Climber::climberMotor->Set(CLIMBER_SPEED);
-	else Climber::climberMotor->Set(0);
+	else Climber::climberMotor->Set(0.0);
 	//}
 }
 void Climber::RunClimber(){
