@@ -9,6 +9,7 @@
 #define SRC_AUTON_AUTONTURNLEFT_H_
 
 #include <Auton/AutoCommand.h>
+#include <WPILib.h>
 #include <Subsystems/Drive.h>
 
 class AutonTurnLeft: public AutoCommand {
@@ -25,6 +26,7 @@ private:
 	enum TurnState {turning, adjusting};
 	TurnState turnState;
 	double ScaleFunction(double);
+	Timer* turnTimer;
 };
 
 #endif /* SRC_AUTON_AUTONTURNLEFT_H_ */
