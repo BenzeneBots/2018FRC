@@ -389,22 +389,6 @@ public:
 								intakeCommand,
 								new AutonStowIntake(robotIntake),
 								new AutonTurnRight(robotDrive, T4_TWOS),
-			else if(m_autoSelected == Right2Cube){//if cube auton from right is selected
-				if(m_prioritySelected == "Scale"){//if priority is scale
-					if(gameData[1] == 'R'){//go for same side scale
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new MotionMagicStraight(robotDrive, C1_TWOS),
-								new AutonTurnLeft(robotDrive, T1_TWOS),
-								new MotionMagicStraight(robotDrive, C2_TWOS),
-								elevatorScaleCommand,
-								new AutonDeployIntake(robotIntake),//add OpenClaw
-								new AutonTurnLeft(robotDrive,T2_TWOS),
-								new MotionMagicStraight(robotDrive,C3_TWOS),
-								new AutonTurnLeft(robotDrive,T3_TWOS),
-								new MotionMagicStraight(robotDrive,C4_TWOS), //closeClaw
-								new AutonIntake(robotIntake),
-								new AutonStowIntake(robotIntake),
-								new AutonTurnLeft(robotDrive, T4_TWOS),
 								new MotionMagicStraight(robotDrive,C5_TWOS),
 								elevatorScaleCommand);
 					}
@@ -680,11 +664,8 @@ private:
 	const std::string Left2Cube = "Left2Cube";
 	const std::string Right2Cube = "Right2Cube";
 	const std::string CenterLeft2Cube = "CenterLeft2Cube";
-<<<<<<< HEAD
 	const std::string LeftSwitchOnly = "LeftSwitchOnly";
 	const std::string RightSwitchOnly = "RightSwitchOnly";
-=======
->>>>>>> 7dd4cdc54165484914b7374639bf3397c9521f8f
 
 	frc::SendableChooser<std::string> priority_chooser;
 	const std::string Switch = "Switch";
