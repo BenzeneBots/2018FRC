@@ -158,6 +158,7 @@ public:
 	SequentialCommand* mainAutoCommand = NULL;
 	SequentialCommand* elevatorSwitchCommand;
 	SequentialCommand* elevatorScaleCommand;
+	ConcurrentCommand* intakeCommand;
 
 	//Init joysticks
 	Joystick *mainDriverStick, *secondaryDriverStick, *manipStick;
@@ -248,6 +249,10 @@ public:
 				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_SCALE_HEIGHT),
 				new AutonOuttake(robotIntake, 1.5),
 				new AutonMoveElevatorToHeight(robotElevator, ELEVATOR_BOTTOM_HEIGHT));
+
+		intakeCommand = AUTO_CONCURRENT(
+				new AutonOpenClaw(robotIntake),
+				new AutonIntake(robotIntake, 1.0));
 
 
 		std::string gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
@@ -381,8 +386,7 @@ public:
 								new MotionMagicStraight(robotDrive,C3_TWOS),
 								new AutonTurnRight(robotDrive,T3_TWOS),
 								new MotionMagicStraight(robotDrive,C4_TWOS),
-								new AutonCloseClaw(robotIntake),
-								new AutonIntake(robotIntake, .5),
+								intakeCommand,
 								new AutonStowIntake(robotIntake),
 								new AutonTurnRight(robotDrive, T4_TWOS),
 								new MotionMagicStraight(robotDrive,C5_TWOS),
@@ -418,8 +422,7 @@ public:
 								new MotionMagicStraight(robotDrive,C3_TWOS),
 								new AutonTurnLeft(robotDrive,T3_TWOS),
 								new MotionMagicStraight(robotDrive,C4_TWOS), //closeClaw
-								new AutonCloseClaw(robotIntake),
-								new AutonIntake(robotIntake, .5),
+								intakeCommand,
 								new AutonStowIntake(robotIntake),
 								new AutonTurnLeft(robotDrive, T4_TWOS),
 								new MotionMagicStraight(robotDrive,C5_TWOS),
@@ -449,8 +452,7 @@ public:
 								new MotionMagicStraight(robotDrive,C3_TWOS),
 								new AutonTurnLeft(robotDrive,T3_TWOS),
 								new MotionMagicStraight(robotDrive,C4_TWOS), //closeClaw
-								new AutonCloseClaw(robotIntake),
-								new AutonIntake(robotIntake, .5),
+								intakeCommand,
 								new AutonStowIntake(robotIntake),
 								new AutonTurnLeft(robotDrive, T4_TWOS),
 								new MotionMagicStraight(robotDrive,C5_TWOS),
@@ -486,8 +488,7 @@ public:
 								new MotionMagicStraight(robotDrive,C3_TWOS),
 								new AutonTurnLeft(robotDrive,T3_TWOS),
 								new MotionMagicStraight(robotDrive,C4_TWOS), //closeClaw
-								new AutonCloseClaw(robotIntake),
-								new AutonIntake(robotIntake, .5),
+								intakeCommand,
 								new AutonStowIntake(robotIntake),
 								new AutonTurnLeft(robotDrive, T4_TWOS),
 								new MotionMagicStraight(robotDrive,C5_TWOS),
@@ -506,8 +507,7 @@ public:
 			}
 			else{
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new AutonTurnLeft(robotDrive, 90));
-						//new MotionMagicStraight(robotDrive, CL_ZEROA));
+						new MotionMagicStraight(robotDrive, CL_ZEROA));
 			}
 
 		}
@@ -522,7 +522,6 @@ public:
 
 	void AutonomousPeriodic() {
 		if(mainAutoCommand) mainAutoCommand->Run();
-		printf("Yaw %f \n", robotDrive->GetYaw());
 
 	}
 
