@@ -125,6 +125,7 @@ bool Elevator::MoveElevator(double joystickVal){
 	case increasing:
 		if(this->GetElevatorPosition() > elevatorTargetPos){
 			elevatorState = joystick;
+			this->SetToOutput(CONST_BACKDRIVE_PREVENTION);
 			return true;
 		}
 		if(abs(joystickVal) > 0.1) elevatorState = joystick;

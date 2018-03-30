@@ -21,13 +21,6 @@ void AutonMoveElevatorToHeight::Initialize(){
 }
 
 bool AutonMoveElevatorToHeight::Run(){
-	elevator->MoveElevator(0.0);
-	printf("Height: %f\n", elevator->GetElevatorHeight());
-	if(elevator->GetElevatorPosition() >= targetHeight){
-		elevator->SetToOutput(0.0);
-		printf("Finished\n");
-		return true;
-	}
-	return false;
+	return elevator->MoveElevator(0.0);
 }
 

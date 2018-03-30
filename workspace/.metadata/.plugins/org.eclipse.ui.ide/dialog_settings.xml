@@ -17,6 +17,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="\\vmware-host\Shared Folders\Documents\GitHub\2018FRC\workspace\BB1"/>
 			<item value="\\vmware-host\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2Working"/>
 			<item value="\\vmware-host\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB2"/>
 			<item value="\\vmware-host\Shared Folders\Documents\GitHub\2018FRC\2018FRC\workspace\BB5"/>

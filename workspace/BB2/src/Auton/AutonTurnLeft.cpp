@@ -7,16 +7,24 @@
 
 #include <Auton/AutonTurnLeft.h>
 
-#define TURN_P_CONST 0.0068
+//Drive Constants
+#define RIGHT_DRIVE_CORRECTION 1.0
 
+//Auton Left Turning Ramping Constants
+#define MIN_LEFT_TURN_DRIVE_SPEED 0.26
+#define MIN_LEFT_TURN_ANG_DIFFERENCE 20.0
+#define STEP1_LEFT_TURN_ANG_DIFFERENCE 32.0
+#define STEP2_LEFT_TURN_ANG_DIFFERENCE 48.0
+//#define LEFT_TURN_RAMP_RATE 0.55
+#define STEP1_LEFT_TURN_DRIVE_SPEED 0.30
+#define STEP2_LEFT_TURN_DRIVE_SPEED 0.35
+#define MAX_LEFT_TURN_DRIVE_SPEED 0.45
 
 AutonTurnLeft::AutonTurnLeft(Drive *robotDrive, double angle) {
 	drive = robotDrive;
-	targetAngle = angle;
-	turnState = turning;
-
-	leftSpeed = 0.0;
-	rightSpeed = 0.0;
+	turnAngle = angle;
+	startAngle = 0;
+	targetAngle = 0;
 }
 
 AutonTurnLeft::~AutonTurnLeft() {
@@ -24,30 +32,25 @@ AutonTurnLeft::~AutonTurnLeft() {
 }
 
 void AutonTurnLeft::Initialize(){
-	drive->ResetYaw();
-	turnState = turning;
+	startAngle = drive->GetYaw();
+	targetAngle = turnAngle + startAngle;
 }
 
 bool AutonTurnLeft::Run(){
+	double currentAngle = drive->GetYaw();
+	double angDifference = targetAngle - currentAngle;
 
-	double currentYaw = drive->GetYaw();
-	double angleError =  fabs(targetAngle) - fabs(currentYaw);
-	leftSpeed = TURN_P_CONST * angleError;
-	rightSpeed = -1.0  * TURN_P_CONST * angleError;
-
-	printf("Yaw: %f\n", currentYaw);
-
-
-	if(fabs(angleError) <= 1.0){
+	if(currentAngle >= targetAngle){
 		drive->TankDrive(0.0,0.0);
-		drive->ResetYaw();
 		drive->ResetEncoders();
-		printf("Finished!\n");
 		return true;
 	}
-	drive->TankDrive(leftSpeed, rightSpeed);
+	else{
+		printf("Current Angle %f \n", currentAngle);
+		printf("startYaw %f \n", startAngle);
 
-	return false;
-
+		double adjTurnSpeed= drive->AutonRamping2(angDifference,MIN_LEFT_TURN_DRIVE_SPEED, STEP1_LEFT_TURN_DRIVE_SPEED,STEP2_LEFT_TURN_DRIVE_SPEED,MAX_LEFT_TURN_DRIVE_SPEED,MIN_LEFT_TURN_ANG_DIFFERENCE,STEP1_LEFT_TURN_ANG_DIFFERENCE,STEP2_LEFT_TURN_ANG_DIFFERENCE);
+		drive->TankDrive(-1.0 *adjTurnSpeed,adjTurnSpeed *RIGHT_DRIVE_CORRECTION);
+		return false;
+	}
 }
-
