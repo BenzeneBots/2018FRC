@@ -9,3 +9,14 @@ waypoint
 intake
 rev
 undershot
+init
+gyro
+joysticks
+pneumatics
+joystick
+dashboard
+keypress
+struct
+setpoint
+deadband
+teleop

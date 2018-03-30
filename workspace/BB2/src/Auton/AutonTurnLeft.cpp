@@ -6,6 +6,8 @@
  */
 
 #include <Auton/AutonTurnLeft.h>
+#include <Subsystems/Drive.h>
+#include <WPILib.h>
 
 #define TURN_P_CONST 0.0074
 
@@ -17,6 +19,8 @@ AutonTurnLeft::AutonTurnLeft(Drive *robotDrive, double angle) {
 
 	leftSpeed = 0.0;
 	rightSpeed = 0.0;
+
+	turnTimer = new Timer();
 }
 
 AutonTurnLeft::~AutonTurnLeft() {
@@ -26,6 +30,9 @@ AutonTurnLeft::~AutonTurnLeft() {
 void AutonTurnLeft::Initialize(){
 	drive->ResetYaw();
 	turnState = turning;
+
+	turnTimer->Reset();
+	turnTimer->Start();
 }
 
 bool AutonTurnLeft::Run(){
@@ -40,14 +47,18 @@ bool AutonTurnLeft::Run(){
 
 	if(fabs(angleError) <= 1.0){
 		drive->TankDrive(0.0,0.0);
+
+	}else{
+	drive->TankDrive(leftSpeed, rightSpeed);
+	}
+
+	if((drive->GetLeftVelocity() <= 1) && (turnTimer->Get() >= 0.3)){
 		drive->ResetYaw();
 		drive->ResetEncoders();
-		printf("Finished!\n");
+		turnTimer->Stop();
 		return true;
-	}
-	drive->TankDrive(leftSpeed, rightSpeed);
-
+	}else{
 	return false;
-
+	}
 }
 

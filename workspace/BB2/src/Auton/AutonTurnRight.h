@@ -24,6 +24,7 @@ private:
 	double targetAngle, rightSpeed, leftSpeed;
 	enum TurnState {turning, adjusting};
 	TurnState turnState;
+	Timer* turnTimer;
 
 };
 
