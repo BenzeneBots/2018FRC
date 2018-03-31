@@ -7,8 +7,9 @@
 
 #include <Auton/AutonTurnRight1.h>
 #include <Subsystems/Drive.h>
+#include <WPILib.h>
 
-#define ACCEPTABLE_ANG 2.0
+#define ACCEPTABLE_ANG 3.5
 #define MIN_TURN_SPEED 0.23
 #define MAX_TURN_SPEED 0.5
 
@@ -35,7 +36,11 @@ void AutonTurnRight1::Initialize(){
 
 bool AutonTurnRight1::Run(){
 	double currentYaw = drive->GetYaw();
-	double angleError =fabs(targetAngle) - fabs(currentYaw);
+	double angleError =fabs(currentYaw) - fabs(targetAngle);
+
+	printf("Yaw %f \n", drive->GetYaw());
+	printf("Speed %f \n", drive->GetYaw());
+
 
 	if(angleError >= 0){
 		speed = (MAX_TURN_SPEED-MIN_TURN_SPEED) * pow(angleError,2)/(pow(angleError,2)+1300) + MIN_TURN_SPEED;
@@ -43,8 +48,8 @@ bool AutonTurnRight1::Run(){
 		speed = -1.0*((MAX_TURN_SPEED-MIN_TURN_SPEED) * pow(angleError,2)/(pow(angleError,2)+1300) + MIN_TURN_SPEED);
 	}
 
-	leftSpeed = -1.0 * speed;
-	rightSpeed = speed;
+	leftSpeed = speed;
+	rightSpeed = -1.0 * speed;
 
 	if(fabs(angleError) <= 1.0){
 		drive->TankDrive(0.0,0.0);
@@ -58,7 +63,7 @@ bool AutonTurnRight1::Run(){
 	drive->TankDrive(leftSpeed, rightSpeed);
 	}
 
-	if(fabs(drive->GetLeftVelocity()) <= 1){
+	if(fabs(drive->GetLeftVelocity()) <= .3){
 		if(doneFlag ){
 		turnTimer->Start();
 		doneFlag = false;
@@ -72,7 +77,9 @@ bool AutonTurnRight1::Run(){
 	if(turnTimer->Get() >= 0.254){
 		drive->ResetYaw();
 		drive->ResetEncoders();
+		drive->TankDrive(0.0,0.0);
 		turnTimer->Stop();
+		printf("Done turning! \n");
 		return true;
 	}else{
 		return false;

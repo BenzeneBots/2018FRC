@@ -8,7 +8,7 @@
 #include <Subsystems/Drive.h>
 #include <WPILib.h>
 
-#define ACCEPTABLE_ANG 2.0
+#define ACCEPTABLE_ANG 3.5
 #define MIN_TURN_SPEED 0.23
 #define MAX_TURN_SPEED 0.5
 
@@ -58,7 +58,7 @@ bool AutonTurnLeft1::Run(){
 	drive->TankDrive(leftSpeed, rightSpeed);
 	}
 
-	if(fabs(drive->GetLeftVelocity()) <= 1){
+	if(fabs(drive->GetLeftVelocity()) <= .3){
 		if(doneFlag ){
 		turnTimer->Start();
 		doneFlag = false;
@@ -72,6 +72,7 @@ bool AutonTurnLeft1::Run(){
 	if(turnTimer->Get() >= 0.254){
 		drive->ResetYaw();
 		drive->ResetEncoders();
+		drive->TankDrive(0.0,0.0);
 		turnTimer->Stop();
 		return true;
 	}else{

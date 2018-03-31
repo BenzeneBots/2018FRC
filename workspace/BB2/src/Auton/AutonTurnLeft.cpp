@@ -52,13 +52,14 @@ bool AutonTurnLeft::Run(){
 	drive->TankDrive(leftSpeed, rightSpeed);
 	}
 
-	if((drive->GetLeftVelocity() <= 1) && (turnTimer->Get() >= 0.3)){
+	if((fabs(drive->GetLeftVelocity()) <= 1) && (turnTimer->Get() >= 0.3)){
 		drive->ResetYaw();
 		drive->ResetEncoders();
 		turnTimer->Stop();
+		printf("Done Turning! \n");
 		return true;
-	}else{
-	return false;
 	}
+	return false;
+
 }
 

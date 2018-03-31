@@ -29,6 +29,7 @@ public:
 	void SetIntakeStatus(bool);
 	void SetClawStatus(bool);
 	void BenzeneIntake(double);
+	void StopSolenoid();
 private:
 	Victor *intake1, *intake2;
 	Solenoid *clawActuator;

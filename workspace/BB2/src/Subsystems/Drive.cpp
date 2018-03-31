@@ -10,7 +10,6 @@
 #include <WPILib.h>
 #include <Math.h>
 
-
 //Defined drive constants
 #define INCHES_PER_TICK 0.004636 //measured 02-20-18
 #define TICKS_PER_INCH 217.299549
@@ -72,7 +71,7 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontLeft->ConfigOpenloopRamp(0.1, 0.0);
 	frontRight->ConfigOpenloopRamp(0.1, 0.0);
 
-	double nuSp = 1.5 * 5.0 * 260.9;	// 4ft/s
+	double nuSp = 1.75 * 5.0 * 260.9;	// 3.5ft/s
 	frontLeft->ConfigMotionAcceleration( nuSp * 1.5, 0 );
 	frontLeft->ConfigMotionCruiseVelocity( nuSp, 0 );
 	frontRight->ConfigMotionAcceleration( nuSp * 1.5, 0 );

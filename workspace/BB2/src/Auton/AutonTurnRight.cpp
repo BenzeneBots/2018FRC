@@ -13,7 +13,7 @@
 
 AutonTurnRight::AutonTurnRight(Drive *robotDrive, double angle) {
 	drive = robotDrive;
-	targetAngle = angle;
+	targetAngle = -1.0 * angle;
 	turnState = turning;
 
 	leftSpeed = 0.0;
@@ -34,23 +34,32 @@ void AutonTurnRight::Initialize(){
 	turnTimer->Start();
 }
 
+
 bool AutonTurnRight::Run(){
+
 	double currentYaw = drive->GetYaw();
-	double angleError = fabs(targetAngle) - fabs(currentYaw);
-	leftSpeed = -1.0 * TURN_P_CONST * angleError;
-	rightSpeed = TURN_P_CONST * angleError;
+	double angleError =  fabs(currentYaw) - fabs(targetAngle);
+	leftSpeed = TURN_P_CONST * angleError;
+	rightSpeed = -1.0  * TURN_P_CONST * angleError;
+
+	printf("Yaw: %f\n", currentYaw);
+
 
 	if(fabs(angleError) <= 1.0){
 		drive->TankDrive(0.0,0.0);
-	}
-	drive->TankDrive(leftSpeed, rightSpeed);
 
-	if((drive->GetLeftVelocity() <= 1) && (turnTimer->Get() >= 0.3)){
-			drive->ResetYaw();
-			drive->ResetEncoders();
-			turnTimer->Stop();
-			return true;
-		}else{
-		return false;
-		}
+	}else{
+	drive->TankDrive(leftSpeed, rightSpeed);
+	}
+
+	if((fabs(drive->GetLeftVelocity()) <= 1) && (turnTimer->Get() >= 0.3)){
+		drive->ResetYaw();
+		drive->ResetEncoders();
+		drive->TankDrive(0.0,0.0);
+		turnTimer->Stop();
+		printf("Done Turning! \n");
+		return true;
+	}
+	return false;
+
 }
