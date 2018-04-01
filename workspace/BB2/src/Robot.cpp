@@ -106,15 +106,16 @@
 
 //Auton Sides Scale Distances //TODO Change to 235.00
 #define C1_SCALE_ONES 282.1
-#define C2_SCALE_ONES 22.3 //TODO TUNE THIS
+#define C2_SCALE_ONES 0.0 //TODO TUNE THIS
+#define C3_SCALE_ONES 18.0
 
 //Auton Sides Scale Angle
 #define T1_SCALE_ONES 80.0
 
 //Auton Sides Far Cube Scale Distances
 #define C1_ZEROS 210.9
-#define C2_ZEROS 214.32
-#define C3_ZEROS 31.04
+#define C2_ZEROS 50.0 //Change to 214.32
+#define C3_ZEROS 0.0 // Change to 34.04
 
 //Auton Sides Far Cube Scale Angle
 #define T1_ZEROS 92.0
@@ -132,6 +133,16 @@
 #define T2_TWOS 115.71
 #define T3_TWOS 19.29
 #define T4_TWOS 173.61
+
+//Auton Center 2 Cube Distances
+#define C1_TWOC 12.79
+#define C2_TWOC 82.96
+#define C3_TWOC 54.2
+#define C4_TWOC 9.85
+
+#define T1_TWOC 21.42
+#define T2_TWOC 13.86
+#define T3_TWOC 35.27
 
 class Robot : public frc::TimedRobot {
 public:
@@ -176,6 +187,7 @@ public:
 		auton_chooser.AddObject(Right2Cube, Right2Cube);
 		auton_chooser.AddObject(RightSwitchOnly, RightSwitchOnly);
 		auton_chooser.AddObject(LeftSwitchOnly,LeftSwitchOnly);
+		auton_chooser.AddObject(Center2Cube,Center2Cube);
 
 		priority_chooser.AddDefault(Switch , Switch);
 		priority_chooser.AddObject( Scale , Scale);
@@ -283,6 +295,51 @@ public:
 							elevatorSwitchCommand);
 				}
 			}
+			else if(m_autoSelected == Center2Cube){//if center auton is selected
+
+				if(gameData[0] == 'L'){//creates left switch from center auton
+					mainAutoCommand = AUTO_SEQUENTIAL(
+							new MotionMagicStraight(robotDrive, C1_TWOC),
+							new AutonTurnLeft1(robotDrive, T1_TWOC),
+							new MotionMagicStraight(robotDrive, C2_TWOC),
+							new AutonStowIntake1(robotIntake,90),
+							new AutonOuttake(robotIntake,1.0),
+							new AutonTurnLeft1(robotDrive, T2_TWOC),
+							new MotionMagicStraight(robotDrive, -1.0 * C3_TWOC),
+							new AutonTurnRight1(robotDrive, T3_TWOC),
+							new AutonDeployIntake(robotIntake),
+							new AutonOpenClaw(robotIntake),
+							new MotionMagicStraight(robotDrive,C4_TWOC),
+							new AutonCloseClaw(robotIntake),
+							new AutonIntake(robotIntake, 0.7),
+							new MotionMagicStraight(robotDrive, -1.0 * C4_TWOC),
+							new AutonTurnLeft1(robotDrive,T3_TWOC),
+							new AutonStowIntake1(robotIntake,90),
+							new MotionMagicStraight(robotDrive,C3_TWOC),
+							new AutonOuttake(robotIntake,1.0));
+				}
+				else{//otherwise creates right switch from center auton
+					mainAutoCommand = AUTO_SEQUENTIAL(
+							new MotionMagicStraight(robotDrive, C1_TWOC),
+							new AutonTurnRight1(robotDrive, T1_TWOC),
+							new MotionMagicStraight(robotDrive, C2_TWOC),
+							new AutonStowIntake1(robotIntake,90),
+							new AutonOuttake(robotIntake,1.0),
+							new AutonTurnRight1(robotDrive, T2_TWOC),
+							new MotionMagicStraight(robotDrive, -1.0 * C3_TWOC),
+							new AutonTurnLeft1(robotDrive, T3_TWOC),
+							new AutonDeployIntake(robotIntake),
+							new AutonOpenClaw(robotIntake),
+							new MotionMagicStraight(robotDrive,C4_TWOC),
+							new AutonCloseClaw(robotIntake),
+							new AutonIntake(robotIntake, 0.7),
+							new MotionMagicStraight(robotDrive, -1.0 * C4_TWOC),
+							new AutonTurnRight1(robotDrive,T3_TWOC),
+							new AutonStowIntake1(robotIntake,90),
+							new MotionMagicStraight(robotDrive,C3_TWOC),
+							new AutonOuttake(robotIntake,1.0));
+				}
+			}
 
 			else if(m_autoSelected == Left1Cube){//if cube auton from left is selected
 				if(m_prioritySelected == "Scale"){//if priority is scale
@@ -291,16 +348,25 @@ public:
 								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 								new AutonTurnRight1(robotDrive, T1_SCALE_ONES),
 								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, -1.0 * C3_SCALE_ONES),
 								elevatorScaleCommand);
 					}
-					else{//otherwise go for right scale but don't drop cube
-						mainAutoCommand = AUTO_SEQUENTIAL(
-								new MotionMagicStraight(robotDrive, C1_ZEROS),
-								new AutonTurnRight1(robotDrive, T1_ZEROS),
-								new MotionMagicStraight(robotDrive, C2_ZEROS),
-								new AutonTurnLeft1(robotDrive, T2_ZEROS),
-								new MotionMagicStraight(robotDrive,C3_ZEROS),
-								elevatorScaleCommand);
+					else{
+						if(gameData[0] == 'L'){//if switch is on left go for that
+							mainAutoCommand = AUTO_SEQUENTIAL(
+									new MotionMagicStraight(robotDrive, C1_SWITCH_ONES),
+									new AutonTurnRight1(robotDrive, T1_SWITCH_ONES),
+									new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
+									elevatorSwitchCommand);
+						}
+						else{//otherwise go for right scale but don't drop cube
+							mainAutoCommand = AUTO_SEQUENTIAL(
+									new MotionMagicStraight(robotDrive, C1_ZEROS),
+									new AutonTurnRight1(robotDrive, T1_ZEROS),
+									new MotionMagicStraight(robotDrive, C2_ZEROS)
+									/*new AutonTurnLeft1(robotDrive, T2_ZEROS),
+									new MotionMagicStraight(robotDrive,C3_ZEROS)*/);
+						}
 					}
 				}
 				else{//if priority is switch
@@ -317,16 +383,17 @@ public:
 									new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 									new AutonTurnRight1(robotDrive, T1_SCALE_ONES),
 									new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
-									elevatorScaleCommand);
+									new MotionMagicStraight(robotDrive, -1.0 * C3_SCALE_ONES),
+									elevatorScaleCommand,
+									new MotionMagicStraight(robotDrive, -1.0 * C3_SCALE_ONES));
 						}
 						else{//otherwise go for right scale but don't drop cube
 							mainAutoCommand = AUTO_SEQUENTIAL(
 									new MotionMagicStraight(robotDrive, C1_ZEROS),
 									new AutonTurnRight1(robotDrive, T1_ZEROS),
-									new MotionMagicStraight(robotDrive, C2_ZEROS),
-									new AutonTurnLeft1(robotDrive, T2_ZEROS),
-									new MotionMagicStraight(robotDrive,C3_ZEROS),
-									elevatorScaleCommand);
+									new MotionMagicStraight(robotDrive, C2_ZEROS)
+									/*new AutonTurnLeft1(robotDrive, T2_ZEROS),
+									new MotionMagicStraight(robotDrive,C3_ZEROS)*/);
 						}
 					}
 				}
@@ -376,14 +443,13 @@ public:
 					}
 				}
 			}
-			else if(m_autoSelected == Right1Cube){//if cube auton from right is selected
+			else if(m_autoSelected == RightSwitchOnly){//if cube auton from right is selected
 				if(m_prioritySelected == "Scale"){//if priority is scale
 					if(gameData[1] == 'R'){//go for same side scale
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 								new AutonTurnLeft1(robotDrive, T1_SCALE_ONES),
-								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
-								elevatorScaleCommand);
+								new MotionMagicStraight(robotDrive, C2_SCALE_ONES));
 					}
 					else{//otherwise go for opposite scale
 						mainAutoCommand = AUTO_SEQUENTIAL(
@@ -391,8 +457,7 @@ public:
 								new AutonTurnLeft1(robotDrive, T1_ZEROS),
 								new MotionMagicStraight(robotDrive, C2_ZEROS),
 								new AutonTurnRight1(robotDrive, T2_ZEROS),
-								new MotionMagicStraight(robotDrive,C3_ZEROS),
-								elevatorScaleCommand);
+								new MotionMagicStraight(robotDrive,C3_ZEROS));
 					}
 
 				}
@@ -409,18 +474,16 @@ public:
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 								new AutonTurnLeft1(robotDrive, T1_SCALE_ONES),
-								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
-								elevatorScaleCommand);
+								new MotionMagicStraight(robotDrive, C2_SCALE_ONES));
 					}
-					else{//otherwise go for opposite scale
+						else{//otherwise go for opposite scale
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_ZEROS),
 								new AutonTurnLeft1(robotDrive, T1_ZEROS),
 								new MotionMagicStraight(robotDrive, C2_ZEROS),
 								new AutonTurnRight1(robotDrive, T2_ZEROS),
-								new MotionMagicStraight(robotDrive,C3_ZEROS),
-								elevatorScaleCommand);
-					}
+								new MotionMagicStraight(robotDrive,C3_ZEROS));
+						}
 					}
 				}
 			}
@@ -430,17 +493,28 @@ public:
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 								new AutonTurnLeft1(robotDrive, T1_SCALE_ONES),
-								new MotionMagicStraight(robotDrive, C2_SCALE_ONES));
+								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, -1.0 * C3_SCALE_ONES),
+								elevatorScaleCommand);
 					}
-					else{//otherwise go for opposite scale
+					else{
+						if(gameData[0] == 'R'){//if switch is on right side, go for that
+							mainAutoCommand = AUTO_SEQUENTIAL(
+								new MotionMagicStraight(robotDrive, C1_SWITCH_ONES),
+								new AutonTurnLeft1(robotDrive, T1_SWITCH_ONES),
+								new MotionMagicStraight(robotDrive, C2_SWITCH_ONES),
+								elevatorSwitchCommand);
+						}
+						else{//otherwise go for a far scale auton
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_ZEROS),
 								new AutonTurnLeft1(robotDrive, T1_ZEROS),
-								new MotionMagicStraight(robotDrive, C2_ZEROS),
-								new AutonTurnRight1(robotDrive, T2_ZEROS),
-								new MotionMagicStraight(robotDrive,C3_ZEROS));
-					}
+								new MotionMagicStraight(robotDrive, C2_ZEROS)
+								/*new AutonTurnRight1(robotDrive, T2_ZEROS),
+								new MotionMagicStraight(robotDrive,C3_ZEROS)*/);
+						}
 
+					}
 				}
 				else{//if priority is switch
 					if(gameData[0] == 'R'){//if switch is on right side, go for that
@@ -455,15 +529,18 @@ public:
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_SCALE_ONES),
 								new AutonTurnLeft1(robotDrive, T1_SCALE_ONES),
-								new MotionMagicStraight(robotDrive, C2_SCALE_ONES));
+								new MotionMagicStraight(robotDrive, C2_SCALE_ONES),
+								new MotionMagicStraight(robotDrive, -1.0 * C3_SCALE_ONES),
+								elevatorScaleCommand,
+								new MotionMagicStraight(robotDrive, -1.0 * C3_SCALE_ONES));
 					}
 					else{//otherwise go for opposite scale
 						mainAutoCommand = AUTO_SEQUENTIAL(
 								new MotionMagicStraight(robotDrive, C1_ZEROS),
 								new AutonTurnLeft1(robotDrive, T1_ZEROS),
-								new MotionMagicStraight(robotDrive, C2_ZEROS),
-								new AutonTurnRight1(robotDrive, T2_ZEROS),
-								new MotionMagicStraight(robotDrive,C3_ZEROS));
+								new MotionMagicStraight(robotDrive, C2_ZEROS)
+								/*new AutonTurnRight1(robotDrive, T2_ZEROS),
+								new MotionMagicStraight(robotDrive,C3_ZEROS)*/);
 					}
 					}
 				}
@@ -607,7 +684,9 @@ public:
 			}
 			else{
 				mainAutoCommand = AUTO_SEQUENTIAL(
-						new MotionMagicStraight(robotDrive, CL_ZEROA));
+						//elevatorScaleCommand
+						new MotionMagicStraight(robotDrive, CL_ZEROA)
+				);
 			}
 
 		}
@@ -669,7 +748,6 @@ public:
 		}
 
 		double throttle =driveRevFactor * mainDriverStick->GetRawAxis(1);
-		robotDrive->BenzeneDrive(throttle, -1.0 * mainDriverStick->GetRawAxis(2), mainDriverStick->GetRawButton(2));
 
 		//drives elevator and updates sensor values
 		//toggles limitswitch value to see when it changes
@@ -742,8 +820,12 @@ public:
 			robotDrive->TankDrive(1.0,1.0);
 		}
 
-		//Prints some relevant stuff
-
+		/*if((fabs(mainDriverStick->GetRawAxis(1))<0.01) && (fabs(mainDriverStick->GetRawAxis(1))<0.01)){
+		robotDrive->TeleOpTurn(mainDriverStick->GetRawButton(12),false);
+		}else{
+			robotDrive->TeleOpTurn(false,true);
+		}*/
+		robotDrive->BenzeneDrive(throttle, -1.0 * mainDriverStick->GetRawAxis(2), mainDriverStick->GetRawButton(2));
 	}
 	void TestInit() {
 		robotDrive->ResetEncoders();
@@ -768,7 +850,7 @@ private:
 	const std::string Right1Cube = "Right1Cube";
 	const std::string Left2Cube = "Left2Cube";
 	const std::string Right2Cube = "Right2Cube";
-	const std::string CenterLeft2Cube = "CenterLeft2Cube";
+	const std::string Center2Cube = "Center2Cube";
 	const std::string LeftSwitchOnly = "LeftSwitchOnly";
 	const std::string RightSwitchOnly = "RightSwitchOnly";
 

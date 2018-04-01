@@ -10,6 +10,10 @@
 #include <WPILib.h>
 #include <Math.h>
 
+#define ACCEPTABLE_ANG 3.5
+#define MIN_TURN_SPEED 0.23
+#define MAX_TURN_SPEED 0.5
+
 //Defined drive constants
 #define INCHES_PER_TICK 0.004636 //measured 02-20-18
 #define TICKS_PER_INCH 217.299549
@@ -71,7 +75,7 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontLeft->ConfigOpenloopRamp(0.1, 0.0);
 	frontRight->ConfigOpenloopRamp(0.1, 0.0);
 
-	double nuSp = 1.75 * 5.0 * 260.9;	// 3.5ft/s
+	double nuSp = 2.0 * 5.0 * 260.9;	// 3.5ft/s
 	frontLeft->ConfigMotionAcceleration( nuSp * 1.5, 0 );
 	frontLeft->ConfigMotionCruiseVelocity( nuSp, 0 );
 	frontRight->ConfigMotionAcceleration( nuSp * 1.5, 0 );
@@ -107,6 +111,11 @@ Drive::Drive(int frontLeftPort,int backLeftPort, int frontRightPort, int backRig
 	frontLeft->SetSensorPhase(true);
 	frontRight->SetSensorPhase(true);
 
+	turnTimer = new Timer();
+	speed = 0;
+
+	doneFlag = true;
+	done2Flag = true;
 }
 
 void Drive::TankDrive(double left, double right){
@@ -144,6 +153,8 @@ void Drive::BenzeneDrive(double throttle, double twist, bool driveStraightButton
 	double rightSpeed = throttle - steer;
 
 	this->TankDrive(leftSpeed, rightSpeed);
+
+
 }
 
 double Drive::InputScale(double value,double power){
@@ -309,4 +320,61 @@ void Drive::FollowMode(){
 	backLeft->Set(ControlMode::Follower, frontLeft->GetDeviceID());
 	backRight->Set(ControlMode::Follower, frontRight->GetDeviceID());
 }
+void Drive::TeleOpTurn(bool turnButton, bool override){
+	double targetAngle = 180;
+	double currentYaw = this->GetYaw();
+	double angleError =fabs(currentYaw) - fabs(targetAngle);
+
+	if(angleError >= 0){
+		speed = (MAX_TURN_SPEED-MIN_TURN_SPEED) * pow(angleError,2)/(pow(angleError,2)+1300) + MIN_TURN_SPEED;
+	}else {
+		speed = -1.0*((MAX_TURN_SPEED-MIN_TURN_SPEED) * pow(angleError,2)/(pow(angleError,2)+1300) + MIN_TURN_SPEED);
+	}
+
+	if(turnButton){
+		done2Flag = true;
+	}else{
+		done2Flag = false;
+	}
+
+	double leftSpeed = speed;
+	double rightSpeed = -1.0 * speed;
+
+	if(done2Flag){
+		if(fabs(angleError) <= 1.0){
+			this->TankDrive(0.0,0.0);
+		}
+		this->TankDrive(leftSpeed, rightSpeed);
+
+		if(fabs(angleError) <= ACCEPTABLE_ANG){
+			this->TankDrive(0.0,0.0);
+		}else{
+		this->TankDrive(leftSpeed, rightSpeed);
+		}
+
+		if(fabs(this->GetLeftVelocity()) <= .5){
+			if(doneFlag){
+			turnTimer->Start();
+			doneFlag = false;
+			}
+		}else{
+			doneFlag = true;
+			turnTimer->Stop();
+			turnTimer->Reset();
+		}
+
+		if(turnTimer->Get() >= 0.254){
+			this->ResetYaw();
+			this->NeutralizeDrive();
+			turnTimer->Stop();
+			printf("Done turning! \n");
+			done2Flag = false;
+		}
+	}
+	if(override){
+		done2Flag = false;
+	}
+}
+
+
 //*/

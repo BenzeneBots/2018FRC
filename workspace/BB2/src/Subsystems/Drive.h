@@ -53,6 +53,7 @@ public:
 	void MotionMagicTurn(double);
 	void ResetAccumulator();
 	void FollowMode();
+	void TeleOpTurn(bool,bool);
 
 	// Each waypoint group has a name defined in this enum.
 
@@ -61,6 +62,10 @@ private:
 	PigeonIMU *pidgey;
 	bool wasStraightButtonPressed;
 	double NormalizeAngle(double);
+	Timer* turnTimer;
+	double speed;
+	bool doneFlag;
+	bool done2Flag;
 };
 
 #endif /* SRC_SUBSYSTEMS_DRIVE_H_ */

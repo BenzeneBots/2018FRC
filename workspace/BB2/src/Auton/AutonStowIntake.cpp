@@ -29,7 +29,7 @@ void AutonStowIntake::Initialize(){
 bool AutonStowIntake::Run(){
 	printf("Deploying \n");
 	intake->StowIntake();
-	if(autonTimer->Get() >= 1.5){
+	if(autonTimer->Get() >= 1.0){
 		autonTimer->Stop();
 		return true;
 	}
