@@ -4,52 +4,47 @@
  *
  */
 #include <iostream>
-#include <LiveWindow/LiveWindow.h>
-#include <SmartDashboard/SendableChooser.h>
-#include <SmartDashboard/SmartDashboard.h>
+#include <string>
+
 #include <WPILib.h>
 #include <ctre/Phoenix.h>
 #include <Robot.h>
 #include <CameraServer.h>
+#include <Init.h>
+#include <utils.h>
+#include <buttons.h>
+#include <elevator.h>
+#include <climber.h>
+#include <Autonomous.h>
 
-// Defining "DEBUG" enables extra debug stuff. Like smart dashboard data.
-// Comment out this line during competition.
-#define DEBUG
-
-// Set true to enable the compressor.
-#define COMPRESSOR	true
-
-PigeonIMU *imu;
 TalonSRX *mtrLMaster, *mtrLSlave;
 TalonSRX *mtrRMaster, *mtrRSlave;
-TalonSRX *mtrElavator;
-Victor *mtrIntake;
+//TalonSRX *mtrElavator;
+Victor *mtrIntake, *mtrClimber;
 
-Joystick *joy;
+//CANifier *ultraSensor;
+
+Joystick *joy, *joy2;
 PigeonIMU *gyro;
-JoystickButton *btnStrait;
-JoystickButton *btnDrive;
-
-JoystickButton *btnIntake;
-JoystickButton *btnOuttake;
-JoystickButton *btnClawClose;
-JoystickButton *btnClawOpen;
-JoystickButton *btnCalcPaths;	// Used in Test to recalculate all the Motion Paths.
-JoystickButton *btn12;
 
 Compressor *airCompressor;
 Solenoid *clawClamp;
 DoubleSolenoid *clawPick;
 
-int firstPriority;
-int secondPriority;
+DigitalInput *elevatorSW;				// Home Position for Elevator
+
+gains mpGains;							// PID Gains for Motion Profiling.
 
 #include <Path_Finder.h>
 
-Segment leftTraj[ 2048 ];
+Segment leftTraj[ 2048 ];				// Current trajectories are stored here.
 Segment rightTraj[ 2048 ];
 
+struct btns btns;						// Struct holds all values of the joysticks.
+
 std::string gameData;
+paths pathIdx = NA;
+startPos sPos = left;
 
 #include <Motion_Profile.h>
 #include <Arcade_Drive.h>
@@ -62,107 +57,37 @@ public:
 
 	// ========================================================================
 	void RobotInit() {
-		auton_chooser.AddDefault(DriveStraight, DriveStraight);
-		auton_chooser.AddObject(Center1Cube, Center1Cube);
-		auton_chooser.AddObject(Left1Cube, Left1Cube);
-		auton_chooser.AddObject(Right1Cube, Right1Cube);
-
-		priority_chooser.AddDefault(Switch , Switch);
-		priority_chooser.AddObject( Scale , Scale);
-
-		frc::SmartDashboard::PutData("Auton Modes", &auton_chooser);
-		frc::SmartDashboard::PutData("Auton Priority", &priority_chooser);
-
-		imu = new PigeonIMU( 0 );
-		mtrLMaster = new TalonSRX( 2 );
-		mtrLSlave = new TalonSRX( 1 );
-		mtrRMaster = new TalonSRX( 4 );
-		mtrRSlave = new TalonSRX( 3 );
-		mtrElavator = new TalonSRX( 5 );
-		mtrIntake = new Victor( 0 );
-		joy = new Joystick( 1 );
-    	btnStrait = new JoystickButton( joy, 2 );	// Thumb Button.
-    	btnIntake = new JoystickButton( joy, 1 );	// Trigger Button.
-    	btnOuttake = new JoystickButton( joy, 7 );
-    	btnClawOpen = new JoystickButton( joy, 3 );
-    	btnClawClose = new JoystickButton( joy, 4 );
-    	btnCalcPaths = new JoystickButton( joy, 11 );	// In Test to recalc paths.
-    	btn12 = new JoystickButton( joy, 12 );
-
+		mtrLMaster = new TalonSRX( 2 );				// Left Master
+		mtrLSlave = new TalonSRX( 1 );				// Left Slave
+		mtrRMaster = new TalonSRX( 4 );				// Right Master
+		mtrRSlave = new TalonSRX( 3 );				// Right Slave
 		gyro = new PigeonIMU( 0 );
+		//mtrElavator = new TalonSRX( 5 );
+		elevatorSW = new DigitalInput( 0 );			// Home SW / RoboRIO Channel 0.
+		mtrIntake = new Victor( 0 );
+		mtrClimber = new Victor( 8 );
+		airCompressor = new Compressor( 0 );
+		joy = new Joystick( 0 );
+		joy2 = new Joystick( 1 );
+		clawClamp = new Solenoid( 0 );				// Cube clamping cylinders.
+		clawPick = new DoubleSolenoid( 1, 2 );		// Claw raise / lower.
+		//ultraSensor = new CANifier( 10 );
 
-		airCompressor = new Compressor(0);
-		clawClamp = new Solenoid( 0 );
-		clawPick = new DoubleSolenoid( 1, 2 );
 
-		clawPick->Set( DoubleSolenoid::kOff );
-		clawClamp->Set( false );
+		// Initialize the four motors on the drivetrain.
+		DrivetrainInit( mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 
-		mtrIntake->Set( 0.0 );
+		//InitElevator( mtrElavator );			// Init the elevator motor.
+		AuxMotorInit( mtrClimber, mtrIntake );	// Init the Climber and Intake motors.
+		GyroInit( gyro );						// Setup the Pigeon Gyro.
+		JoystickInit( joy, joy2 );				// Joysticks Init
 
-		mtrLMaster->NeutralOutput();
-		mtrRMaster->NeutralOutput();
+		// Setup all the pneumatics (Claw Clamp / Claw Pick).
+		PnumaticsInit( airCompressor, clawPick, clawClamp );
 
-		mtrLMaster->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
-    	mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-		mtrLMaster->SetSensorPhase(true);
-    	mtrLMaster->SetInverted( false );
-    	mtrLSlave->SetInverted( false );
-
-    	// Right side motors get inverted!
-    	mtrRMaster->ConfigSelectedFeedbackSensor( FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0 );
-    	mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
-    	mtrRMaster->SetSensorPhase( true );
-    	mtrRMaster->SetInverted( true );
-    	mtrRSlave->SetInverted( true );
-
-		// Left Side
-		mtrLMaster->ConfigNominalOutputForward(0, kTO);
-		mtrLMaster->ConfigNominalOutputReverse(0, kTO);
-		mtrLMaster->Config_kF(kPIDLoopIdx, mpGains.ff,	kTO);
-		mtrLMaster->Config_kP(kPIDLoopIdx, mpGains.p,   kTO);
-		mtrLMaster->Config_kI(kPIDLoopIdx, mpGains.i,   kTO);
-		mtrLMaster->Config_kD(kPIDLoopIdx, mpGains.d,   kTO);
-		mtrLMaster->Config_IntegralZone( 0, mpGains.iZone, kTO );
-		mtrLMaster->ConfigPeakOutputForward( mpGains.peakOut, kTO );
-		mtrLMaster->ConfigPeakOutputReverse(-1 * mpGains.peakOut, kTO);
-
-		// Right Side
-		mtrRMaster->ConfigNominalOutputForward(0, kTimeoutMs);
-		mtrRMaster->ConfigNominalOutputReverse(0, kTimeoutMs);
-		mtrRMaster->Config_kF(kPIDLoopIdx, mpGains.ff,	kTO);
-		mtrRMaster->Config_kP(kPIDLoopIdx, mpGains.p,   kTO);
-		mtrRMaster->Config_kI(kPIDLoopIdx, mpGains.i,   kTO);
-		mtrRMaster->Config_kD(kPIDLoopIdx, mpGains.d,   kTO);
-		mtrRMaster->Config_IntegralZone( 0, mpGains.iZone, kTO );
-		mtrRMaster->ConfigPeakOutputForward( mpGains.peakOut, kTO );
-		mtrRMaster->ConfigPeakOutputReverse(-1 * mpGains.peakOut, kTO);
-
-		// Setup Follower Slaves.
-		mtrLSlave->Set( ControlMode::Follower, mtrLMaster->GetDeviceID() );
-		mtrRSlave->Set( ControlMode::Follower, mtrRMaster->GetDeviceID() );
-
-		// Profile uses 10 ms timing.
-		mtrLMaster->ConfigMotionProfileTrajectoryPeriod( 10, kTimeoutMs );
-		mtrRMaster->ConfigMotionProfileTrajectoryPeriod( 10, kTimeoutMs );
-
-		// Status 10 provides the trajectory target for motion profile AND motion magic.
-		mtrLMaster->SetStatusFramePeriod(
-				StatusFrameEnhanced::Status_10_MotionMagic, 10, kTimeoutMs);
-		mtrRMaster->SetStatusFramePeriod(
-				StatusFrameEnhanced::Status_10_MotionMagic, 10, kTimeoutMs);
-
-		mtrLMaster->ClearMotionProfileTrajectories();
-		mtrRMaster->ClearMotionProfileTrajectories();
-
-		TrajectoryDuration dt = TrajectoryDuration_10ms;
-		mtrLMaster->ConfigMotionProfileTrajectoryPeriod( dt, kTimeoutMs);
-		mtrRMaster->ConfigMotionProfileTrajectoryPeriod( dt, kTimeoutMs);
-
-		mtrLMaster->ChangeMotionControlFramePeriod( TrajectoryDuration_10ms / 2 );
-		mtrRMaster->ChangeMotionControlFramePeriod( TrajectoryDuration_10ms / 2 );
-
-		gyro->SetFusedHeading( 0.0, 0 );
+		#ifdef PRACTICE_BOT
+			RebuildMotionProfiles();	// Note, this may take a bit of time.
+		#endif
 
 		// The mpThread handles shoveling trajectory points from the Top
 		// API buffer out to the Talon(s).
@@ -189,118 +114,28 @@ public:
 
 	// ========================================================================
 	void DisabledPeriodic() {
+		// Zeros the elevator position while disabled.
+		//resetElevatorPos( mtrElavator, elevatorSW );
 	}
 
 	// ========================================================================
 	void AutonomousInit() {
-		m_autoSelected = auton_chooser.GetSelected();
-		m_prioritySelected = priority_chooser.GetSelected();
-		std::cout << "Auto selected: " << m_autoSelected << std::endl;
-		std::cout << "Priority selected: " << m_prioritySelected << std::endl;
 
-		if(m_prioritySelected == "Switch"){
-			firstPriority = 0;
-			secondPriority = 1;
-		} else{
-			firstPriority = 1;
-			secondPriority = 0;
-		}
+		AutoInit( mtrLMaster, mtrRMaster, gyro );
+		sPos = AutoGetStartPos();
+		pathIdx = AutoFindPath();
 
-		m_autoSelected = auton_chooser.GetSelected();
-				m_prioritySelected = priority_chooser.GetSelected();
-				std::cout << "Auto selected: " << m_autoSelected << std::endl;
-				std::cout << "Priority selected: " << m_prioritySelected << std::endl;
-
-				if(m_prioritySelected == "Switch"){
-					firstPriority = 0;
-					secondPriority = 1;
-				} else{
-					firstPriority = 1;
-					secondPriority = 0;
-				}
-
-
-				std::string gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-				if(gameData.length()>0){//if the auton data exists
-					if(m_autoSelected == Center1Cube){//if center auton is selected
-
-						if(gameData[0] == 'L'){//if the switch is on the left run the auton for left switch from center position
-						}
-						else{//otherwise run the auton for right switch from center position
-						}
-					}
-
-					else if(m_autoSelected == Left1Cube){//if left auton is selected
-						if(m_prioritySelected == "Scale"){//if priority is scale
-							if(gameData[1] == 'L'){//if scale is on left go for that
-							}
-							else{//if scale is on the right go for that
-							}
-
-						}
-						else{//if priority is switch
-							if(gameData[0] == 'L'){//if switch is on left go for that
-							}
-							else{//otherwise go for right switch
-							}
-						}
-					}
-
-					else if(m_autoSelected == Right1Cube){//if right auton is selected
-						if(m_prioritySelected == "Scale"){//if priority is scale
-							if(gameData[1] == 'R'){//if scale is on the right go for that
-							}
-							else{//otherwise go for opposite side scale
-							}
-
-						}
-						else{//if priority is switch
-							if(gameData[0] == 'R'){//if switch is on right side, go for that
-							}
-							else{//otherwise go for left switch
-							}
-						}
-					}
-
-					else{//defaults to drive straight code
-					}
-				}
-				else {//if the robot doesn't receive the game data, drive straight
-				}
-
-
-		//char s[120];
-		printf( "AutoInit...\n" );
-
-		mtrLMaster->NeutralOutput();
-		mtrRMaster->NeutralOutput();
-
-		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-		mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
-		gyro->SetFusedHeading( 0.0, 0 );
-
-		gameData = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-		printf( "Auto Game Data: '%c%c%c'\n", gameData[0], gameData[1], gameData[2] );
-
-		mtrLMaster->SetIntegralAccumulator( 0.0, 0, 0 );
-		mtrRMaster->SetIntegralAccumulator( 0.0, 0, 0 );
-
-    	seqInit();						// Init auto sequencer task.
+    	seqInit( pathIdx, sPos );		// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
 
-		/*
-		// Load the named profile from the file-system into the RoboRIO API buffer.
-		LoadProfile( Mid_SwitchLeft, false );
-
-
-		cntProfile = 0;		// Reset real-time task counter/timer.
+		cntProfile = 0;					// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );
-		*/
-			}
+	}
+
 	// ========================================================================
 	void AutonomousPeriodic() {
-		/*
 		//static uint16_t cnt=0, seq = 0;
+		/*
 		static bool flgMoving = true;
 
 		if( RunProfile() == false ) {
@@ -310,204 +145,63 @@ public:
 			}
 		}
 		*/
-		#ifdef DEBUG	// Turn debug network traffic off at competition.
-		SmartDashboard::PutNumber( "imuHeading", gyro->GetFusedHeading() );
-		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetSelectedSensorPosition(0) );
-		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity(0) * 10 );
-		SmartDashboard::PutNumber( "chartThree", gyro->GetFusedHeading() * 100 );
-		#endif
 	}
 
 	// ========================================================================
 	void TeleopInit() {
 		printf( "TeleopInit...\n" );
-		airCompressor->SetClosedLoopControl( COMPRESSOR );
-
-		mtrLMaster->NeutralOutput();
-		mtrRMaster->NeutralOutput();
-
-		mtrLMaster->ConfigOpenloopRamp( 0.1, kTO );
-		mtrRMaster->ConfigOpenloopRamp( 0.1, kTO );
-
-		mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
-		mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
-
-		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetSelectedSensorVelocity(0) );
-		SmartDashboard::PutNumber( "chartTwo", 0.0 );
-		SmartDashboard::PutNumber( "chartThree", 0.0 );		
-
+		DriverModeInit( airCompressor, mtrLMaster, mtrRMaster );
 	}
 
 	// ========================================================================
 	void TeleopPeriodic() {
-		//static uint16_t cnt=0;
-
-		if( SmartDashboard::GetBoolean( "leftPos", false ) == false )
-			SmartDashboard::PutBoolean( "leftPosInd", false );
-		else
-			SmartDashboard::PutBoolean( "leftPosInd", true );
-
-		airCompressor->SetClosedLoopControl( COMPRESSOR );
-
-		ArcadeDrive();
-
-		if( btnClawOpen->Get() ) {
-			clawClamp->Set( true );
-		}
-		if( btnClawClose->Get() ) {
-			clawClamp->Set( false );
-		}
-
-
-		// Push POV up to raise claw.
-		if( (joy->GetPOV(0) == 180)  ) {
-			clawPick->Set( DoubleSolenoid::kForward );
-		}
-		// Push POV down to lower claw.
-		else if( (joy->GetPOV(0) == 0) ) {
-			clawPick->Set( DoubleSolenoid::kReverse );
-		}
-		// On no POV pushed, stop the claw mid way up/down.
-		else {
-			clawPick->Set( DoubleSolenoid::kOff );
-		}
-
-		if( btnIntake->Get() )
-			mtrIntake->Set( (-1.0 * joy->GetThrottle() + 1.0) / 2.0 );
-		else if ( btnOuttake->Get() )
-			mtrIntake->Set( -1.0 );
-		else
-			mtrIntake->Set( 0.0 );
-
-		// On joystick trigger, reset the gyro to zero.
-		if( joy->GetRawButton( 1 ) ) {
-			gyro->SetFusedHeading( 0.0, 0 );
-			mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-			mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-		}
-
-		SmartDashboard::PutNumber( "chartOne", gyro->GetFusedHeading() * 100 );
-		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorPosition( 0 ) );
-		SmartDashboard::PutNumber( "chartThree", mtrRMaster->GetSelectedSensorPosition( 0 ) );
-
-		SmartDashboard::PutNumber( "imuHeading", gyro->GetFusedHeading() );
+		OpRobot();	// This handles all the regular robot operations.
 	}
 
 	// ========================================================================
 	void TestInit() {
-		setDriveMtrSp( 0.0, 0.0 );
 		printf( "TestInit...\n" );
+		DriverModeInit( airCompressor, mtrLMaster, mtrRMaster );
 	}
 
 	// ========================================================================
 	void TestPeriodic() {
-		static bool btn12_Old = false, flgHold=false;
-		static double tarHeading=0.0, rt=0.0, lf=0.0;
-		double heading;
+		//static uint32_t cnt=0;
+		OpRobot();	// This handles all the regular robot operations.
 
-		// On joystick trigger, reset the gyro to zero.
-		if( joy->GetRawButton( 1 ) ) gyro->SetFusedHeading( 0.0, 0 );
-		heading = gyro->GetFusedHeading();
-
-		if( btn12->Get() ) {
-			// On button first pressed...
-			if( btn12_Old == false ) {
-				btn12_Old = true;
-				tarHeading = heading + 90.0;
-				// Default turning speed of 35%.
-				lf=-0.35; rt=0.35;
-				flgHold = false;	// Reset holding flag at end of turn.
-				printf( "Heading: %0.2f\n", heading );
-				printf( "Target Heading: %0.2f\n", tarHeading );
-			}
-
-			// Wait for turn to get with 17deg of target.  Or, we're trying to
-			// hold the final position.
-			if( heading >= (tarHeading - 35.0) || flgHold ) {
-				// On first time trying to hold...
-				if( flgHold == false ) {
-					flgHold = true;
-					// Set default motor outputs depending on which side of the
-					// target we're on.
-					if( heading > tarHeading ) {
-						lf = 0.1;	// Overshot, so reverse.
-						rt = -0.1;
-					}
-					else {
-						lf = -0.1;	// Undershot, so forward.
-						rt = 0.1;
-					}
-				}
-
-				// Add some integral over time to the output depending on
-				// which side we're on.
-				if( heading > tarHeading ) {
-					lf += 0.005;
-					rt -= 0.005;
-				}
-				else {
-					lf -= 0.005;
-					rt += 0.005;
-				}
-
-				// Finally, if we're within 3deg, stop.
-				if( fabs(fabs( heading ) - fabs( tarHeading )) < 3.0 ) {
-					lf = 0.0;
-					rt = 0.0;
-					flgHold = false;
-				}
-
-			}
-
-			// Set the motor outputs.
-			mtrLMaster->Set( ControlMode::PercentOutput, lf );
-			mtrRMaster->Set( ControlMode::PercentOutput, rt );
+		/*
+		if( ++cnt > 10 ) {
+			double duty[4];
+			ultraSensor->GetPWMInput( CANifier::PWMChannel0, duty );
+			printf( "Dist: %0.2f\n", duty[0] );
+			cnt = 0;
+			SmartDashboard::PutNumber( "chartOne", duty[0] );
+			SmartDashboard::PutNumber( "chartTwo", 0 );
+			SmartDashboard::PutNumber( "chartThree", 0 );
 		}
-		else {
-			btn12_Old = false;
-			flgHold = false;
-			ArcadeDrive();
-		}
+		*/
 
-
-		SmartDashboard::PutNumber( "imuHeading", heading );
-
-		SmartDashboard::PutNumber( "chartOne", mtrLMaster->GetClosedLoopError(0) );
-		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorVelocity(0) / 100.0 );
-		SmartDashboard::PutNumber( "chartTwo", mtrLMaster->GetSelectedSensorPosition(0) / 100.0 );
-
-		// On button 11 press, recalculate all the motion profile trajectories.
-		// Note, this may take a bit of time.
-		if( btnCalcPaths->Get() ) {
-			printf( "Recalculating Motion Trajectories...\n" );
-
-			Load_Waypoints();	// Load all the data into the waypoint structures.
-
-			// Step thru and calculate each path.  The result is stored as a 
-			// binary/CSV file on the RoboRIO file-system.
-			for ( int idx=0 ; idx < NUM_PATHS ; idx++ ) {
-				printf( "Calculating PathFinder Path: %d\n", idx );
-				PathFinder( idx );
-			}
-			printf( "Info: PathFinder Done\n" );
-		}
+		// Recalculate all the motion profile trajectories on a button press.
+		if( btns.btn[ eleven ] )
+			RebuildMotionProfiles();	// Note, this may take a bit of time.
 	}
-private:
-	frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
 
-	frc::SendableChooser<std::string> auton_chooser;
-	const std::string DriveStraight= "DriveStraight";
-	const std::string Center1Cube = "Center1Cube";
-	const std::string Left1Cube = "Left1Cube";
-	const std::string Right1Cube = "Right1Cube";
+	// For teleop and test, this function does all the "regular" robot operating stuff.
+	// ========================================================================
+	void OpRobot() {
 
-	frc::SendableChooser<std::string> priority_chooser;
-	const std::string Switch = "Switch";
-	const std::string Scale = "Scale";
+		airCompressor->SetClosedLoopControl( COMPRESSOR );
 
-	std::string m_autoSelected;
-	std::string m_prioritySelected;
+		ReadButtons( &btns, joy, joy2 );	// Update all the buttons.
+		ArcadeDrive( &btns );  				// Drive the robot drivetrain in arcade mode.
 
+		// Handle all the claw and climber buttons here.
+		ProcessClawButtons( &btns, clawPick, clawClamp, mtrIntake );
+		ProcessClimberButtons( &btns, mtrClimber );
+
+		// Update the smart dashboard.
+		//UpdateSmartDash( gyro, mtrLMaster, mtrRMaster );
+	}
 };
 
 

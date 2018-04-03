@@ -1,6 +1,8 @@
 #pragma once
 
+#include <Robot.h>
 #include <pathfinder.h>
+
 
 // Global vars used to hold trajectory paths for left and right side.
 Segment *leftTrajectory;	// PathFinder() uses malloc to dynamically adjust.
@@ -9,14 +11,7 @@ int trajLen = 0;
 
 const char *sPath = "/home/lvuser/Traj/";
 
-#define NUM_PATHS	6	// There are six possible paths in Auto mode.
 #define MAX_WPS		10	// Max number of waypoints in a path.
-
-// Each waypoint group has a name defined in this enum.
-enum paths {
-	Side_Switch, Side_Scale, Side_SwitchFar,
-	Side_ScaleFar, Mid_SwitchLeft, 	Mid_SwitchRight };
-typedef paths paths;
 
 // Struct holds a waypoint group.
 struct wp {
@@ -46,8 +41,8 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Side_Switch ].wpLen = 3;
 	wp[ Side_Switch ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
-	wp[ Side_Switch ].wps[1] = { 2.0, 	5.0,	d2r(  60 ) };
-	wp[ Side_Switch ].wps[2] = { -1.0, 	14.0,	d2r(  180 ) };
+	wp[ Side_Switch ].wps[1] = { 2.0, 	10.0,	d2r(  90 ) };
+	wp[ Side_Switch ].wps[2] = { -1.0, 	12.0,	d2r(  183 ) };
 	wp[ Side_Switch ].vel = 5.0;			// max ft/sec
 	wp[ Side_Switch ].accel = 10.0;		// max ft/sec^2
 	wp[ Side_Switch ].jerk = 75.0;		// max ft/sec^3
@@ -61,18 +56,14 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Side_Scale ].wpLen = 3;		// Zero points means not yet defined.
 	wp[ Side_Scale ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
-	wp[ Side_Scale ].wps[1] = { 0.0, 	14.0,	d2r(  90 ) };
-	wp[ Side_Scale ].wps[2] = { -3.0, 	20.0,	d2r(  140 ) };
-	wp[ Side_Scale ].vel = 6.5;			// max ft/sec
-	wp[ Side_Scale ].accel = 10.0;		// max ft/sec^2
-	wp[ Side_Scale ].jerk = 75.0;		// max ft/sec^3
+	wp[ Side_Scale ].wps[1] = { 1.0, 	20.0,	d2r(  90 ) };
+	wp[ Side_Scale ].wps[2] = { -1.0, 	23.0,	d2r(  170 ) };
+	wp[ Side_Scale ].vel = 9.5;			// max ft/sec
+	wp[ Side_Scale ].accel = 15.0;		// max ft/sec^2
+	wp[ Side_Scale ].jerk = 100.0;		// max ft/sec^3
 	strcpy( wp[ Side_Scale ].sTrajLeft, "Side_ScaleLf.bin" );
 	strcpy( wp[ Side_Scale ].sTrajRight, "Side_ScaleRt.bin" );
 	strcpy( wp[ Side_Scale ].sTraj_CSV, "Side_Scale.csv" );
-
-
-
-
 
 
 	// Side_SwitchFar = Index 2
@@ -94,19 +85,30 @@ void Load_Waypoints() {
 	// Side_ScaleFar = Index 3
 	// Define Side to Scale on far side.
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	wp[ Side_ScaleFar ].wpLen = 0;		// Zero points means not yet defined.
+	wp[ Side_ScaleFar ].wpLen = 6;		// Zero points means not yet defined.
+	wp[ Side_ScaleFar ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
+	wp[ Side_ScaleFar ].wps[1] = { 1.0, 	14.5,	d2r(  90 ) };
+	wp[ Side_ScaleFar ].wps[2] = { -3.0, 	17.5,	d2r(  170 ) };
+	wp[ Side_ScaleFar ].wps[3] = { -10.5, 	18.0,	d2r(  180 ) };
+	wp[ Side_ScaleFar ].wps[4] = { -15.0, 	20.0,	d2r(  90 ) };
+	wp[ Side_ScaleFar ].wps[5] = { -15.0, 	21.0,	d2r(  80 ) };
+	wp[ Side_ScaleFar ].vel = 7.5;			// max ft/sec
+	wp[ Side_ScaleFar ].accel = 5.0;		// max ft/sec^2
+	wp[ Side_ScaleFar ].jerk = 50.0;		// max ft/sec^3
+	strcpy( wp[ Side_ScaleFar ].sTrajLeft, "Side_ScaleFarLf.bin" );
+	strcpy( wp[ Side_ScaleFar ].sTrajRight, "Side_ScaleFarRt.bin" );
+	strcpy( wp[ Side_ScaleFar ].sTraj_CSV, "Side_ScaleFar.csv" );
 
 	// Mid_SwitchLeft = Index 4
 	// Define Mid starting to switch on left side.
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	wp[ Mid_SwitchLeft ].wpLen = 5;		// Zero points means not yet defined.
+	wp[ Mid_SwitchLeft ].wpLen = 4;		// Zero points means not yet defined.
 	wp[ Mid_SwitchLeft ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
 	wp[ Mid_SwitchLeft ].wps[1] = { 0.0, 	2.0,	d2r(  90 ) };
 	wp[ Mid_SwitchLeft ].wps[2] = { -3.0, 	3.0,	d2r( 180 ) };
-	wp[ Mid_SwitchLeft ].wps[3] = { -5.0,	6.5,	d2r( 115 ) };
-	wp[ Mid_SwitchLeft ].wps[4] = { -5.0,	7.0,	d2r( 115 ) };
-	wp[ Mid_SwitchLeft ].vel = 3.0;			// max ft/sec
-	wp[ Mid_SwitchLeft ].accel = 3.0;		// max ft/sec^2
+	wp[ Mid_SwitchLeft ].wps[3] = { -6.5,	5.8,	d2r( 108 ) };
+	wp[ Mid_SwitchLeft ].vel = 5.0;			// max ft/sec
+	wp[ Mid_SwitchLeft ].accel = 5.0;		// max ft/sec^2
 	wp[ Mid_SwitchLeft ].jerk = 50.0;		// max ft/sec^3
 	strcpy( wp[ Mid_SwitchLeft ].sTrajLeft, "Mid_LeftSwitchLf.bin" );
 	strcpy( wp[ Mid_SwitchLeft ].sTrajRight, "Mid_LeftSwitchRt.bin" );
@@ -115,12 +117,11 @@ void Load_Waypoints() {
 	// Mid_SwitchRight = Index 5
 	// Define Mid to Right Switch.
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	wp[ Mid_SwitchRight ].wpLen = 3;
+	wp[ Mid_SwitchRight ].wpLen = 2;
 	wp[ Mid_SwitchRight ].wps[0] = { 0, 	0, 		d2r(  90 ) };
-	wp[ Mid_SwitchRight ].wps[1] = { 3, 	3, 		d2r(  60 ) };
-	wp[ Mid_SwitchRight ].wps[2] = { 5.5,	7.5,	d2r(  87 ) };
+	wp[ Mid_SwitchRight ].wps[1] = { 4.5,	7.7,	d2r(  90 ) };
 	wp[ Mid_SwitchRight ].vel = 5.0;			// max ft/sec
-	wp[ Mid_SwitchRight ].accel = 10.0;		// max ft/sec^2
+	wp[ Mid_SwitchRight ].accel = 5.0;		// max ft/sec^2
 	wp[ Mid_SwitchRight ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Mid_SwitchRight ].sTrajLeft, "Mid_RightSwitchLf.bin" );
 	strcpy( wp[ Mid_SwitchRight ].sTrajRight, "Mid_RightSwitchRt.bin" );

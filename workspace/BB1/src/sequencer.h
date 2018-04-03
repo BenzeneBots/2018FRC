@@ -4,6 +4,9 @@
  *  Created on: Mar 20, 2018
  *      Author: James Kemp
  */
+#include <WPILib.h>
+#include <ctre/Phoenix.h>
+#include <Robot.h>
 
 #ifndef SRC_SEQUENCER_H_
 #define SRC_SEQUENCER_H_
@@ -12,13 +15,14 @@
 #define OUTTAKE_SP	1.00
 #define INTAKE_STOP	0.0
 
-#define	CLAW_RAISE		DoubleSolenoid::kForward
-#define CLAW_LOWER		DoubleSolenoid::kReverse
+#define	CLAW_RAISE		DoubleSolenoid::kReverse
+#define CLAW_LOWER		DoubleSolenoid::kForward
 #define CLAW_NEUTRAL	DoubleSolenoid::kOff
 
 #define CLAW_OPEN		true
 #define CLAW_CLOSE		false
 
+#define CLAW_DEPLAY_SM	400
 #define CLAW_DEPLOY_TM	750		// Amount to time for cube to eject from intake.
 #define CLAW_LOWER_TM	750		// Amount needed to lower the claw before opening.
 #define CLAW_RAISE_TM	900
@@ -133,7 +137,10 @@ bool seqDwellOnMotion( double velThresh, int timeOut ) {
 
 // This just gets the sequencer thread running.
 // ============================================================================
-void seqInit( ) {
+void seqInit( paths _pathIdx, startPos _sPos ) {
+
+	pathIdx = _pathIdx;
+	sPos = _sPos;
 
 	std::thread t1( seqThread );	// This starts the thread right away.
 	t1.detach();					// Detach from this thread.
@@ -155,14 +162,25 @@ void seqMid_RightSwitch() {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 	
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Side_Scale, true );
+	LoadProfile( Mid_SwitchRight, false );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
-/*
+
+	/*
+	std::string s0 = SmartDashboard::GetString( "DB/String 0", "-1.0" );
+	uint32_t n0 = atoi( s0.c_str() );
+	std::string s1 = SmartDashboard::GetString( "DB/String 1", "-1.0" );
+	uint32_t n1 = atoi( s0.c_str() );
+	*/
+
 	// Movement to switch done.
 	// Deploy cube by reversing intake.
+	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
+	clawPick->Set( CLAW_NEUTRAL );
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );
+
+	/*
 	// Backup and rotate CCW to grab another cube.
 	// Lower the claw at the same time.
 	seqMotionMagic( -2.0, 1.5, 4.0, 3.0 );		seqDwellOnPosition( 0.75, 2000 );
@@ -211,7 +229,72 @@ void seqMid_RightSwitch() {
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );
 */
-	printf( "Auto Mode Done.\n" );
+}
+
+// ============================================================================
+void seqMid_LeftSwitch() {
+	printf( "Starting Mid Position to Left Switch sequence.\n" );
+	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
+
+	// Load the named profile from the file-system into the RoboRIO API buffer.
+	LoadProfile( Mid_SwitchLeft, false );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
+
+	// Deploy cube by reversing intake.
+	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
+	clawPick->Set( CLAW_NEUTRAL );
+	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
+	mtrIntake->Set( INTAKE_STOP );
+}
+
+// ============================================================================
+void seqSide_Switch( bool invert ) {
+
+	printf( "Starting Side Position to Switch sequence.\n" );
+	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
+
+	// Load the named profile from the file-system into the RoboRIO API buffer.
+	LoadProfile( Side_Switch, invert );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
+
+	// Deploy cube by reversing intake.
+	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
+	clawPick->Set( CLAW_NEUTRAL );
+	mtrIntake->Set( 0.70 );						delay( CLAW_DEPLOY_TM );
+	mtrIntake->Set( INTAKE_STOP );
+}
+
+
+//	From side position to far scale.
+// ============================================================================
+void seqSide_ScaleFar( bool invert ) {
+
+	printf( "Starting Side Position to Far Scale sequence.\n" );
+	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
+
+	// Load the named profile from the file-system into the RoboRIO API buffer.
+	LoadProfile( Side_ScaleFar, invert );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
+
+	// Deploy cube by reversing intake.
+	//clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
+	//clawPick->Set( CLAW_NEUTRAL );
+	//mtrIntake->Set( 0.70 );						delay( CLAW_DEPLOY_TM );
+	//mtrIntake->Set( INTAKE_STOP );
+}
+
+// ============================================================================
+void seqSide_Scale( bool invert ) {
+	printf( "Starting Side Position to Near Scale sequence.\n" );
+	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
+
+	// Load the named profile from the file-system into the RoboRIO API buffer.
+	LoadProfile( Side_Scale, invert );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 }
 
 // ============================================================================
@@ -223,8 +306,19 @@ void seqThread() {
 
 			if( flgAutoEn ) {
 				printf( "Starting auto mode...\n" );
-				seqMid_RightSwitch();	// Auto Sequence: Mid Position to Right Switch
+
+				//seqMid_RightSwitch();	// Auto Sequence: Mid Position to Right Switch
+
+				//seqMid_LeftSwitch();
+
+				//seqSide_Switch( true );
+
+				// seqSide_ScaleFar( false );
+
+				seqSide_Scale( true );
+
 				flgAutoEn = false;
+				printf( "Auto Mode Done: %0.2f\n", cntProfile * 0.005 );
 				delay( 500 );
 			}
 		}

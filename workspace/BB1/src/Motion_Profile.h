@@ -86,7 +86,7 @@ void LoadProfile( int idx, bool flgMirror ) {
 
 	strcpy( s, sPath );
 	strcat( s, wp[idx].sTrajLeft );
-	printf( "Reading: %s\n", s );
+	printf( "Reading Index: %d -> %s\n", idx, s );
 	FILE *fpLf = fopen( s, "r" );
 	wp[idx].trajLen = pathfinder_deserialize( fpLf, leftTraj );
 	fclose( fpLf );
