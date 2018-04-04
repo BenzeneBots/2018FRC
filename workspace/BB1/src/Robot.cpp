@@ -135,7 +135,7 @@ public:
 		AutonPathId pathIdx = ChooseAuton(sGame);
 
     	seqInit( pathIdx );					// Init auto sequencer task.
-		//enAutoSeq( true );				// Start the sequencer.
+		enAutoSeq( true );				// Start the sequencer.
 
 		cntProfile = 0;					// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );

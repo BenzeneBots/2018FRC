@@ -81,6 +81,7 @@ bool RunProfile( void ) {
 void LoadProfile( int idx, bool flgMirror ) {
 	char s[120];
 
+	printf( "Load Profile started...\n" );
 	enXfer = false;		// My master enable flag for MP buffer xfer.
 	flgRunMP = true;	// My master run flag.
 

@@ -87,14 +87,14 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Side_ScaleFar ].wpLen = 6;		// Zero points means not yet defined.
 	wp[ Side_ScaleFar ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
-	wp[ Side_ScaleFar ].wps[1] = { 1.0, 	14.5,	d2r(  90 ) };
-	wp[ Side_ScaleFar ].wps[2] = { -3.0, 	17.5,	d2r(  170 ) };
-	wp[ Side_ScaleFar ].wps[3] = { -10.5, 	18.0,	d2r(  180 ) };
-	wp[ Side_ScaleFar ].wps[4] = { -15.0, 	20.0,	d2r(  90 ) };
-	wp[ Side_ScaleFar ].wps[5] = { -15.0, 	21.0,	d2r(  80 ) };
-	wp[ Side_ScaleFar ].vel = 7.5;			// max ft/sec
-	wp[ Side_ScaleFar ].accel = 5.0;		// max ft/sec^2
-	wp[ Side_ScaleFar ].jerk = 50.0;		// max ft/sec^3
+	wp[ Side_ScaleFar ].wps[1] = { 1.0, 	12.5,	d2r(  90 ) };
+	wp[ Side_ScaleFar ].wps[2] = { -3.0, 	15.5,	d2r(  170 ) };
+	wp[ Side_ScaleFar ].wps[3] = { -10.5, 	16.0,	d2r(  180 ) };
+	wp[ Side_ScaleFar ].wps[4] = { -15.0, 	18.0,	d2r(  90 ) };
+	wp[ Side_ScaleFar ].wps[5] = { -15.0, 	19.0,	d2r(  80 ) };
+	wp[ Side_ScaleFar ].vel = 5.0;			// max ft/sec
+	wp[ Side_ScaleFar ].accel = 10.0;		// max ft/sec^2
+	wp[ Side_ScaleFar ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Side_ScaleFar ].sTrajLeft, "Side_ScaleFarLf.bin" );
 	strcpy( wp[ Side_ScaleFar ].sTrajRight, "Side_ScaleFarRt.bin" );
 	strcpy( wp[ Side_ScaleFar ].sTraj_CSV, "Side_ScaleFar.csv" );
