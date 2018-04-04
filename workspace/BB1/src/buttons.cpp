@@ -10,6 +10,7 @@
 #include <Robot.h>
 #include <buttons.h>
 
+extern Joystick *joy;
 
 // Read all the buttons from the joysticks.  Also, maintains a set of flags
 // that go true one time on each keypress.
@@ -52,6 +53,17 @@ void ProcessClawButtons( struct btns *b, DoubleSolenoid *cp, Solenoid *cc, Victo
 		cc->Set( false );
 
 
+#ifdef XBOX
+	// Push POV up to lower claw.
+	if( (b->pov == povS) || (b->pov2 == povN) )
+		cp->Set( DoubleSolenoid::kForward );
+	// Push POV down to raise claw.
+	else if( (b->pov == povN) || (b->pov2 == povS) )
+		cp->Set( DoubleSolenoid::kReverse );
+	// On no POV pushed, stop the claw mid way up/down.
+	else
+		cp->Set( DoubleSolenoid::kOff );
+#else
 	// Push POV up to lower claw.
 	if( (b->pov == povN) || (b->pov2 == povN) )
 		cp->Set( DoubleSolenoid::kForward );
@@ -61,8 +73,22 @@ void ProcessClawButtons( struct btns *b, DoubleSolenoid *cp, Solenoid *cc, Victo
 	// On no POV pushed, stop the claw mid way up/down.
 	else
 		cp->Set( DoubleSolenoid::kOff );
+#endif
 
+#ifdef XBOX
+	double ejectSp = joy->GetRawAxis( 3 );		// Driver eject speed.
+	double intakeSp = joy->GetRawAxis( 2 );		// Driver eject speed.
 
+	// Run intake motor according to the buttons.
+	if( intakeSp > 0.05 || b->btn2[ intake2 ] )
+		if( intakeSp < 0.05 ) it->Set( -1.0 );
+		else it->Set( intakeSp * -1.0 );
+	else if ( ejectSp > 0.05 || b->btn2[ eject2 ] )
+		if( ejectSp < 0.05 ) it->Set( 1.0 );
+		else it->Set( ejectSp );
+	else
+		it->Set( 0.0 );
+#else
 	// Run intake motor according to the buttons.
 	if( b->btn[ intake ] || b->btn2[ intake2 ] )
 		//it->Set( (-1.0 * joy->GetThrottle() + 1.0) / 2.0 );
@@ -71,5 +97,6 @@ void ProcessClawButtons( struct btns *b, DoubleSolenoid *cp, Solenoid *cc, Victo
 		it->Set( 1.0 );
 	else
 		it->Set( 0.0 );
+#endif
 }
 

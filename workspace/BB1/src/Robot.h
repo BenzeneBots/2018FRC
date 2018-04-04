@@ -23,7 +23,15 @@
 
 #define NUM_PATHS	6	// There are six possible paths in Auto mode.
 
-#define NUM_BTN		13			// Number of buttons on a Joystick.
+#define XBOX
+#define NUM_BTN		11			// Number of buttons on a Joystick.
+
+enum AutonPathId {
+	CenterLeftSwitch, CenterRightSwitch, LeftSideSwitch, RightSideSwitch,
+	LeftNearScale, RightNearScale, LeftFarScale, RightFarScale, DriveStraight,
+	TestFunction, unknownPathID
+};
+typedef AutonPathId AutonPathId;
 
 // Store all the buttons from all the joysticks in this one structure.
 struct btns {

@@ -34,6 +34,7 @@
 void seqThread( void );
 bool flgAutoEn = false;
 int ltDistNU, rtDistNU;
+AutonPathId pathIdx;
 
 // This is a coarse delay function.  It only generates delays for auto mode.
 // The minumum delay possible is 10ms.
@@ -137,9 +138,11 @@ bool seqDwellOnMotion( double velThresh, int timeOut ) {
 
 // This just gets the sequencer thread running.
 // ============================================================================
-void seqInit( int PathID, startPos _sPos ) {
-	pathIdx = PathID;
-	sPos = _sPos;
+void seqInit( AutonPathId idx ) {
+
+	//pathIdx = _pathIdx;
+	//sPos = _sPos;
+	pathIdx = idx;
 
 	std::thread t1( seqThread );	// This starts the thread right away.
 	t1.detach();					// Detach from this thread.
@@ -304,38 +307,60 @@ void seqThread() {
 		if( frc::RobotState::IsAutonomous() && frc::RobotState::IsEnabled() ) {
 
 			if( flgAutoEn ) {
-				printf( "Starting auto mode...\n" );
 
-				if(pathIdx == 0){
-					seqMid_RightSwitch();
-				}
-				else if(pathIdx == 1){
+				switch( pathIdx ) {
+				case CenterLeftSwitch:
 					seqMid_LeftSwitch();
+					break;
+
+				case CenterRightSwitch:
+					seqMid_RightSwitch();
+					break;
+
+				case LeftSideSwitch:
+					seqSide_Switch( true );
+					break;
+
+				case RightSideSwitch:
+					seqSide_Switch( false );
+					break;
+
+				case LeftNearScale:
+					seqSide_Scale( true );
+					break;
+
+				case RightNearScale:
+					seqSide_Scale( false );
+					break;
+
+				case RightFarScale:
+					seqSide_ScaleFar( false );
+					break;
+
+				case LeftFarScale:
+					seqSide_ScaleFar( true );
+					break;
+
+				case DriveStraight:
+					break;
+
+				case TestFunction:
+					break;
+
+				default:
+					break;
 				}
-				else if(pathIdx == 2){
-					seqSide_Switch(true);
-				}
-				else if(pathIdx == 3){
-					seqSide_Switch(false);
-				}
-				else if(pathIdx == 4){
-					seqSide_Scale(true);
-				}
-				else if(pathIdx == 5){
-					seqSide_Scale(false);
-				}
-				else if(pathIdx == 6){
-					seqSide_ScaleFar(true);
-				}
-				else if(pathIdx == 7){
-					seqSide_ScaleFar(false);
-				}
-				else if(pathIdx == 8){
-					//add DriveStraight
-				}
-				else if(pathIdx == 9){
-					//add any Test Autons
-				}
+
+
+				//seqMid_RightSwitch();	// Auto Sequence: Mid Position to Right Switch
+
+				//seqMid_LeftSwitch();
+
+				//seqSide_Switch( true );
+
+				// seqSide_ScaleFar( false );
+
+				// seqSide_Scale( true );
 
 				flgAutoEn = false;
 				printf( "Auto Mode Done: %0.2f\n", cntProfile * 0.005 );

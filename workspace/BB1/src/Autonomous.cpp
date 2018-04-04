@@ -43,6 +43,7 @@ void AutoInit( TalonSRX *lf, TalonSRX *rt, PigeonIMU *gyro ) {
 
 	printf( "AutoInit...\n" );
 
+	/*
 	sPos = SmartDashboard::GetString( "DB/String 0", "na" );	// Starting Location
 	sPrim = SmartDashboard::GetString( "DB/String 1", "na" );	// Primary Move
 	sSec = SmartDashboard::GetString( "DB/String 2", "na" );	// Secondary Move
@@ -54,6 +55,7 @@ void AutoInit( TalonSRX *lf, TalonSRX *rt, PigeonIMU *gyro ) {
 	printf( "Second Auto: %s\n", sSec.c_str() );
 	printf( "Third Pick Auto: %s\n", sThird.c_str() );
 	printf( "Auto Game Data: %c%c%c\n", sGame[0], sGame[1], sGame[2] );
+	*/
 
 	lf->NeutralOutput();
 	rt->NeutralOutput();

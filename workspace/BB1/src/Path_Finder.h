@@ -120,9 +120,9 @@ void Load_Waypoints() {
 	wp[ Mid_SwitchRight ].wpLen = 2;
 	wp[ Mid_SwitchRight ].wps[0] = { 0, 	0, 		d2r(  90 ) };
 	wp[ Mid_SwitchRight ].wps[1] = { 4.5,	7.7,	d2r(  90 ) };
-	wp[ Mid_SwitchRight ].vel = 5.0;			// max ft/sec
-	wp[ Mid_SwitchRight ].accel = 5.0;		// max ft/sec^2
-	wp[ Mid_SwitchRight ].jerk = 75.0;		// max ft/sec^3
+	wp[ Mid_SwitchRight ].vel = 7.5;			// max ft/sec
+	wp[ Mid_SwitchRight ].accel = 10.0;		// max ft/sec^2
+	wp[ Mid_SwitchRight ].jerk = 100.0;		// max ft/sec^3
 	strcpy( wp[ Mid_SwitchRight ].sTrajLeft, "Mid_RightSwitchLf.bin" );
 	strcpy( wp[ Mid_SwitchRight ].sTrajRight, "Mid_RightSwitchRt.bin" );
 	strcpy( wp[ Mid_SwitchRight ].sTraj_CSV, "Mid_RightSwitch.csv" );

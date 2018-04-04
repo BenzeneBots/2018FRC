@@ -46,10 +46,16 @@ void ArcadeDrive( struct btns *b ) {
 	float lf=0.0, rt=0.0;
 	static double headingTar;
 
-	// Only use joystick twist for steering.
-	//steer = joy->GetX( frc::GenericHID::JoystickHand::kRightHand );
-	throttle = -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
-	twist = joy->GetTwist();
+	#ifdef XBOX
+		steer = joy->GetRawAxis( 4 );
+		twist = 0.0;
+		throttle = -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
+	#else
+		// Only use joystick twist for steering.
+		//steer = joy->GetX( frc::GenericHID::JoystickHand::kRightHand );
+		throttle = -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
+		twist = joy->GetTwist();
+	#endif
 
 	// If joystick thumb button for strait driving is pressed...
 	if( b->btn[ strait ] ) {
@@ -64,8 +70,8 @@ void ArcadeDrive( struct btns *b ) {
 	// Else, allow turning with joystick and twisting combined.
 	else {
 		// Else, apply deadband on steering and twist.
-		//if( fabs(steer) < 0.10 ) steer = 0.0;	// Must be at least 10% or above.
-		//steer *= 0.5;
+		if( fabs(steer) < 0.10 ) steer = 0.0;	// Must be at least 10% or above.
+		steer *= 0.5;
 		if( fabs(twist) < 0.25 ) twist = 0.0;	// Deadband twist above 25%.
 		steer += (twist * 0.50);		// Scale twist down by 50% then add to steer.
 	}

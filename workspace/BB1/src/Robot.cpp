@@ -42,14 +42,11 @@ Segment rightTraj[ 2048 ];
 
 struct btns btns;						// Struct holds all values of the joysticks.
 
-std::string gameData;
-int pathIdx = NA;
-startPos sPos = left;
-
 #include <Motion_Profile.h>
 #include <Arcade_Drive.h>
 #include <sequencer.h>
 #include <AutonChooser.h>
+
 
 
 class Robot : public TimedRobot {
@@ -97,8 +94,7 @@ public:
 
 		Load_Waypoints();	// Call once to populate the waypoint data structures.
 
-		//Populates the Dashboard with all of the AutonChoosers
-		AutonDashboard();
+		AutonDashboardInit();
 
     	CameraServer::GetInstance()->StartAutomaticCapture();
 	}
@@ -112,6 +108,9 @@ public:
 	void DisabledInit() {
 		mtrLMaster->NeutralOutput();
 		mtrRMaster->NeutralOutput();
+		mtrLMaster->SetNeutralMode( NeutralMode::Coast );
+		mtrRMaster->SetNeutralMode( NeutralMode::Coast );
+
 		enXfer = false;
 		printf( "Disabled...\n" );
 	}
@@ -125,24 +124,17 @@ public:
 	// ========================================================================
 	void AutonomousInit() {
 
-
-
-
 		AutoInit( mtrLMaster, mtrRMaster, gyro );
-		sPos = AutoGetStartPos();
 
-		std::string gamePositions = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-		pathIdx = ChooseAuton(gamePositions); // get the Id of the chosen autonomous command
+		std::string sGame = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+		//AutonPathId pathIdx = ChooseAuton( sGame );
+		AutonPathId pathIdx = CenterRightSwitch;
 
-		//override with
-		//pathIdx = 0;
-
-    	seqInit( pathIdx, sPos );		// Init auto sequencer task.
-		enAutoSeq( true );				// Start the sequencer.
+    	seqInit( pathIdx );					// Init auto sequencer task.
+		//enAutoSeq( true );				// Start the sequencer.
 
 		cntProfile = 0;					// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );
-
 	}
 
 	// ========================================================================

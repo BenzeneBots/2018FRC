@@ -30,6 +30,10 @@ void DriverModeInit( Compressor *cp, TalonSRX *lf, TalonSRX *rt ) {
 	lf->Set( ControlMode::PercentOutput, 0.0 );
 	rt->Set( ControlMode::PercentOutput, 0.0 );
 
+	lf->SetNeutralMode( NeutralMode::Brake );
+	rt->SetNeutralMode( NeutralMode::Brake );
+
+
 	SmartDashboard::PutNumber( "chartOne", lf->GetSelectedSensorVelocity(0) );
 	SmartDashboard::PutNumber( "chartTwo", 0.0 );
 	SmartDashboard::PutNumber( "chartThree", 0.0 );		
@@ -145,6 +149,7 @@ void DrivetrainInit( TalonSRX *lm, TalonSRX *ls, TalonSRX *rm, TalonSRX *rs ) {
 
 	lm->ConfigClosedloopRamp( 0.1, kTO );
 	rm->ConfigClosedloopRamp( 0.1, kTO );
+
+	lm->SetNeutralMode( NeutralMode::Coast );
+	rm->SetNeutralMode( NeutralMode::Coast );
 }
-
-
