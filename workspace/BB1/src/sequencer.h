@@ -137,9 +137,8 @@ bool seqDwellOnMotion( double velThresh, int timeOut ) {
 
 // This just gets the sequencer thread running.
 // ============================================================================
-void seqInit( paths _pathIdx, startPos _sPos ) {
-
-	pathIdx = _pathIdx;
+void seqInit( int PathID, startPos _sPos ) {
+	pathIdx = PathID;
 	sPos = _sPos;
 
 	std::thread t1( seqThread );	// This starts the thread right away.
@@ -307,15 +306,36 @@ void seqThread() {
 			if( flgAutoEn ) {
 				printf( "Starting auto mode...\n" );
 
-				//seqMid_RightSwitch();	// Auto Sequence: Mid Position to Right Switch
-
-				//seqMid_LeftSwitch();
-
-				//seqSide_Switch( true );
-
-				// seqSide_ScaleFar( false );
-
-				seqSide_Scale( true );
+				if(pathIdx == 0){
+					seqMid_RightSwitch();
+				}
+				else if(pathIdx == 1){
+					seqMid_LeftSwitch();
+				}
+				else if(pathIdx == 2){
+					seqSide_Switch(true);
+				}
+				else if(pathIdx == 3){
+					seqSide_Switch(false);
+				}
+				else if(pathIdx == 4){
+					seqSide_Scale(true);
+				}
+				else if(pathIdx == 5){
+					seqSide_Scale(false);
+				}
+				else if(pathIdx == 6){
+					seqSide_ScaleFar(true);
+				}
+				else if(pathIdx == 7){
+					seqSide_ScaleFar(false);
+				}
+				else if(pathIdx == 8){
+					//add DriveStraight
+				}
+				else if(pathIdx == 9){
+					//add any Test Autons
+				}
 
 				flgAutoEn = false;
 				printf( "Auto Mode Done: %0.2f\n", cntProfile * 0.005 );

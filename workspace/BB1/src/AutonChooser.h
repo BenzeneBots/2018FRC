@@ -14,8 +14,10 @@
 
 #include <WPILib.h>
 
-#include <AutonModes.h>
-
+enum AutonPathId{
+	CenterLeftSwitch,CenterRightSwitch,LeftSideSwitch,RightSideSwitch,LeftNearScale,
+	RightNearScale,LeftFarScale,RightFarScale,DriveStraight,TestFunction
+};
 
 frc::LiveWindow& m_lw = *LiveWindow::GetInstance();
 
@@ -76,257 +78,254 @@ void AutonDashboard(){
 	frc::SmartDashboard::PutData("Auton 3rd Priority", &third_priority_chooser);
 }
 
-void ChooseAuton(std::string gameData){
-
+int ChooseAuton(std::string gameData){
 	if(gameData.length()>0){//if the auton data exists
-
 		if(autoSelected == CenterAuton){//if center auto is selected
 			if(gameData[0] == 'L'){//if the switch is on the left run the center left auto
-				CenterLeftSwitch();
+				return CenterLeftSwitch;
 			}
 			else{ //if the switch is on the right run the center right auto
-				CenterRightSwitch();
+				return CenterLeftSwitch;
 			}
 		}//end CenterAuton logic
 
 		if(autoSelected == LeftAuton){//if left auto is selected
 			if(firstPrioritySelected == Switch){
 				if(gameData[0] == 'L'){//if the switch is on the left run the center left auto
-					LeftSideSwitch();
+					return LeftSideSwitch;
 				}
 				else{
 					if(secondPrioritySelected == NearScale1){
 						if(gameData[1] == 'L'){
-							LeftNearScale();
+							return LeftNearScale;
 						}
 						else{
 							if(thirdPrioritySelected == FarScale2){
-								LeftFarScale();
+								return LeftFarScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else if(secondPrioritySelected == FarScale1){
 						if(gameData[1] == 'R'){
-							LeftFarScale();
+							return LeftFarScale;
 						}
 						else{
 							if(thirdPrioritySelected == NearScale2){
-								LeftNearScale();
+								return LeftNearScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else{
-						DriveStraight();
+						return DriveStraight;
 					}
 				}
 			}
 			else if(firstPrioritySelected == NearScale){
 				if(gameData[1] == 'L'){
-					LeftNearScale();
+					return LeftNearScale;
 				}
 				else{
 					if(secondPrioritySelected == FarScale1){
 						if(gameData[1] == 'R'){
-							LeftFarScale();
+							return LeftFarScale;
 						}
 						else{
 							if(thirdPrioritySelected == Switch2){
-								LeftSideSwitch();
+								return LeftSideSwitch;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else if(secondPrioritySelected == Switch1){
 						if(gameData[0] == 'L'){
-							LeftNearScale();
+							return LeftNearScale;
 						}
 						else{
 							if(thirdPrioritySelected == FarScale2){
-								LeftFarScale();
+								return LeftFarScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else{
-						DriveStraight();
+						return DriveStraight;
 					}
 				}
 			}
 			else if(firstPrioritySelected==FarScale){
 				if(gameData[1] == 'R'){
-					LeftFarScale();
+					return LeftFarScale;
 				}
 				else{
 					if(secondPrioritySelected == NearScale1){
 						if(gameData[1]=='L'){
-							LeftNearScale();
+							return LeftNearScale;
 						}
 						else{
 							if(thirdPrioritySelected == Switch2){
-								LeftSideSwitch();
+								return LeftSideSwitch;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else if(secondPrioritySelected == Switch1){
 						if(gameData[0]=='L'){
-							LeftSideSwitch();
+							return LeftSideSwitch;
 						}
 						else{
 							if(thirdPrioritySelected == NearScale2){
-								LeftNearScale();
+								return LeftNearScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else{
-						DriveStraight();
+						return DriveStraight;
 					}
 				}
 			}
 			else{
-				DriveStraight();
+				return DriveStraight;
 			}
 		}
 
 		if(autoSelected == RightAuton){//if right auto is selected
 			if(firstPrioritySelected == Switch){
 				if(gameData[0] == 'R'){//if the switch is on the Right run the center Right auto
-					RightSideSwitch();
+					return RightSideSwitch;
 				}
 				else{
 					if(secondPrioritySelected == NearScale1){
 						if(gameData[1] == 'R'){
-							RightNearScale();
+							return RightNearScale;
 						}
 						else{
 							if(thirdPrioritySelected == FarScale2){
-								RightFarScale();
+								return RightFarScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else if(secondPrioritySelected == FarScale1){
 						if(gameData[1] == 'L'){
-							RightFarScale();
+							return RightFarScale;
 						}
 						else{
 							if(thirdPrioritySelected == NearScale2){
-								RightNearScale();
+								return RightNearScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else{
-						DriveStraight();
+						return DriveStraight;
 					}
 				}
 			}
 			else if(firstPrioritySelected == NearScale){
 				if(gameData[1] == 'R'){
-					RightNearScale();
+					return RightNearScale;
 				}
 				else{
 					if(secondPrioritySelected == FarScale1){
 						if(gameData[1] == 'L'){
-							RightFarScale();
+							return RightFarScale;
 						}
 						else{
 							if(thirdPrioritySelected == Switch2){
-								RightSideSwitch();
+								return RightSideSwitch;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else if(secondPrioritySelected == Switch1){
 						if(gameData[0] == 'R'){
-							RightNearScale();
+							return RightNearScale;
 						}
 						else{
 							if(thirdPrioritySelected == FarScale2){
-								RightFarScale();
+								return RightFarScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else{
-						DriveStraight();
+						return DriveStraight;
 					}
 				}
 			}
 			else if(firstPrioritySelected==FarScale){
 				if(gameData[1] == 'L'){
-					RightFarScale();
+					return RightFarScale;
 				}
 				else{
 					if(secondPrioritySelected == NearScale1){
 						if(gameData[1]=='R'){
-							RightNearScale();
+							return RightNearScale;
 						}
 						else{
 							if(thirdPrioritySelected == Switch2){
-								RightSideSwitch();
+								return RightSideSwitch;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else if(secondPrioritySelected == Switch1){
 						if(gameData[0]=='R'){
-							RightSideSwitch();
+							return RightSideSwitch;
 						}
 						else{
 							if(thirdPrioritySelected == NearScale2){
-								RightNearScale();
+								return RightNearScale;
 							}
 							else{
-								DriveStraight();
+								return DriveStraight;
 							}
 						}
 					}
 					else{
-						DriveStraight();
+						return DriveStraight;
 					}
 				}
 			}
 			else{
-				DriveStraight();
+				return DriveStraight;
 			}
 		}
 
 		else if(autoSelected == DriveStraight0){//if drive straight is selected
-			DriveStraight();
+			return DriveStraight;
 		}
 		else if(autoSelected == TestAuton){
-			TestFunction();
+			return TestFunction;
 		}
 	}
 	else{ //if no gama data is received
-		DriveStraight();
+		return DriveStraight;
 	}
-
 }
 #endif /* AUTONCHOOSER_H_ */

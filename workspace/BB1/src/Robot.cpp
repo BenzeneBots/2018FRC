@@ -43,7 +43,7 @@ Segment rightTraj[ 2048 ];
 struct btns btns;						// Struct holds all values of the joysticks.
 
 std::string gameData;
-paths pathIdx = NA;
+int pathIdx = NA;
 startPos sPos = left;
 
 #include <Motion_Profile.h>
@@ -124,19 +124,25 @@ public:
 
 	// ========================================================================
 	void AutonomousInit() {
+
+
+
+
 		AutoInit( mtrLMaster, mtrRMaster, gyro );
 		sPos = AutoGetStartPos();
 
 		std::string gamePositions = frc::DriverStation::GetInstance().GetGameSpecificMessage();
-		ChooseAuton(gamePositions);
+		pathIdx = ChooseAuton(gamePositions); // get the Id of the chosen autonomous command
 
-		pathIdx = AutoFindPath();
+		//override with
+		//pathIdx = 0;
 
     	seqInit( pathIdx, sPos );		// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
 
 		cntProfile = 0;					// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );
+
 	}
 
 	// ========================================================================
