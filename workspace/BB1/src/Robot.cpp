@@ -49,6 +49,7 @@ startPos sPos = left;
 #include <Motion_Profile.h>
 #include <Arcade_Drive.h>
 #include <sequencer.h>
+#include <AutonChooser.h>
 
 
 class Robot : public TimedRobot {
@@ -96,6 +97,9 @@ public:
 
 		Load_Waypoints();	// Call once to populate the waypoint data structures.
 
+		//Populates the Dashboard with all of the AutonChoosers
+		AutonDashboard();
+
     	CameraServer::GetInstance()->StartAutomaticCapture();
 	}
 
@@ -120,9 +124,12 @@ public:
 
 	// ========================================================================
 	void AutonomousInit() {
-
 		AutoInit( mtrLMaster, mtrRMaster, gyro );
 		sPos = AutoGetStartPos();
+
+		std::string gamePositions = frc::DriverStation::GetInstance().GetGameSpecificMessage();
+		ChooseAuton(gamePositions);
+
 		pathIdx = AutoFindPath();
 
     	seqInit( pathIdx, sPos );		// Init auto sequencer task.
