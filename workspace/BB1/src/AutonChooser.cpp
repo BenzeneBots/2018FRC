@@ -37,11 +37,6 @@ frc::SendableChooser<std::string> third_priority_chooser;
 	const std::string FarScale2 = "FarScale";
 	const std::string DriveStraight2 = "DriveStraight";
 
-std::string autoSelected = auton_chooser.GetSelected();
-std::string	firstPrioritySelected = first_priority_chooser.GetSelected();
-std::string	secondPrioritySelected = second_priority_chooser.GetSelected();
-std::string	thirdPrioritySelected = third_priority_chooser.GetSelected();
-
 // ============================================================================
 void AutonDashboardInit( ) {
 	//populates auto chooser on dashboard
@@ -75,6 +70,16 @@ void AutonDashboardInit( ) {
 // ============================================================================
 AutonPathId ChooseAuton( std::string gameData ){
 
+	std::string autoSelected = auton_chooser.GetSelected();
+	std::string	firstPrioritySelected = first_priority_chooser.GetSelected();
+	std::string	secondPrioritySelected = second_priority_chooser.GetSelected();
+	std::string	thirdPrioritySelected = third_priority_chooser.GetSelected();
+
+	printf("Auton Mode: %s \n", autoSelected.c_str());
+	printf("First Priority: %s \n", firstPrioritySelected.c_str());
+	printf("Second Priority: %s \n", secondPrioritySelected.c_str());
+	printf("Third Priority: %s \n", thirdPrioritySelected.c_str());
+
 	AutonPathId ret = DriveStraight;	// Default
 
 	if(gameData.length()>0){//if the auton data exists
@@ -83,7 +88,7 @@ AutonPathId ChooseAuton( std::string gameData ){
 				ret = CenterLeftSwitch;
 			}
 			else{ //if the switch is on the right run the center right auto
-				ret = CenterLeftSwitch;
+				ret = CenterRightSwitch;
 			}
 		}//end CenterAuton logic
 
