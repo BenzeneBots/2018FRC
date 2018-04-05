@@ -41,9 +41,9 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Side_Switch ].wpLen = 3;
 	wp[ Side_Switch ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
-	wp[ Side_Switch ].wps[1] = { 2.0, 	10.0,	d2r(  90 ) };
-	wp[ Side_Switch ].wps[2] = { -1.0, 	12.0,	d2r(  183 ) };
-	wp[ Side_Switch ].vel = 5.0;			// max ft/sec
+	wp[ Side_Switch ].wps[1] = { 2.0, 	8.0,	d2r(  90 ) };
+	wp[ Side_Switch ].wps[2] = { -2.0, 	10.0,	d2r(  191) };
+	wp[ Side_Switch ].vel = 5.0;		// max ft/sec
 	wp[ Side_Switch ].accel = 10.0;		// max ft/sec^2
 	wp[ Side_Switch ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Side_Switch ].sTrajLeft, "Side_SwitchLf.bin" );
@@ -104,9 +104,9 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Mid_SwitchLeft ].wpLen = 4;		// Zero points means not yet defined.
 	wp[ Mid_SwitchLeft ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
-	wp[ Mid_SwitchLeft ].wps[1] = { 0.0, 	2.0,	d2r(  90 ) };
-	wp[ Mid_SwitchLeft ].wps[2] = { -3.0, 	3.0,	d2r( 180 ) };
-	wp[ Mid_SwitchLeft ].wps[3] = { -6.5,	5.8,	d2r( 108 ) };
+	wp[ Mid_SwitchLeft ].wps[1] = { 0.0, 	0.8,	d2r(  90 ) };
+	wp[ Mid_SwitchLeft ].wps[2] = { -3.0, 	2.0,	d2r( 180 ) };
+	wp[ Mid_SwitchLeft ].wps[3] = { -6.5,	4.3,	d2r( 110 ) };
 	wp[ Mid_SwitchLeft ].vel = 5.0;			// max ft/sec
 	wp[ Mid_SwitchLeft ].accel = 5.0;		// max ft/sec^2
 	wp[ Mid_SwitchLeft ].jerk = 50.0;		// max ft/sec^3
