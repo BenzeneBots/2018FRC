@@ -42,7 +42,7 @@ struct btns {
 
 // Primary Joystick Button Defs
 enum joyBtn { unknown = -1,
-	eject = 1, strait = 2, clawClose = 3, clawOpen = 4, five = 5,
+	reverse = 1, strait = 2, clawClose = 3, clawOpen = 4, five = 5,
 	revDir = 6, intake = 7, tankDrive = 8, nine = 9,
 	ten = 10, eleven = 11, climber = 12
 };
