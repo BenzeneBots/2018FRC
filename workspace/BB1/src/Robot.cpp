@@ -129,15 +129,19 @@ public:
 		std::string sGame = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 
 		//AutonPathId pathIdx = ChooseAuton( sGame );
+<<<<<<< HEAD
 
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
 		AutonPathId pathIdx = ChooseAuton(sGame);
+=======
+		AutonPathId pathIdx = RightFarScale;
+>>>>>>> 92981824f96d43d284e64c4f4ec47c5a58e03f39
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
 
-		cntProfile = 0;					// Reset real-time task counter/timer.
+		cntProfile = 0;						// Reset real-time task counter/timer.
 		printf( "Auto Pts Running...\n" );
 	}
 
