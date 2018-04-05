@@ -45,11 +45,24 @@ void ArcadeDrive( struct btns *b ) {
 	double throttle=0.0, steer=0.0, twist=0, heading;
 	float lf=0.0, rt=0.0;
 	static double headingTar;
+	static bool isDriveReversed = false;
+	static bool wasRevButtonPressed = false;
+	static double driveRevFactor = 1.0;
+
+	//updates drive reverse button stuff
+	if(b->btn[reverse] && !wasRevButtonPressed){
+		wasRevButtonPressed = true;
+		driveRevFactor *= -1.0; //reverse drive direction
+	}
+	else if(!(b->btn[reverse])){
+		wasRevButtonPressed = false;
+	}
+
 
 	#ifdef XBOX
 		steer = joy->GetRawAxis( 4 );
 		twist = 0.0;
-		throttle = -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
+		throttle = driveRevFactor * -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
 	#else
 		// Only use joystick twist for steering.
 		//steer = joy->GetX( frc::GenericHID::JoystickHand::kRightHand );
@@ -78,6 +91,7 @@ void ArcadeDrive( struct btns *b ) {
 
 	lf = throttle + steer;		// Calculate left and right motor speeds.
 	rt = throttle - steer;
+	printf("left %f\n", lf);
 	setDriveMtrSp( lf, rt);
 }
 
