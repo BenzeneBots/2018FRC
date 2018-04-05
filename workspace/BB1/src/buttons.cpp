@@ -9,6 +9,7 @@
 #include <ctre/Phoenix.h>
 #include <Robot.h>
 #include <buttons.h>
+#include <intake.h>
 
 extern Joystick *joy;
 
@@ -44,50 +45,13 @@ void ReadButtons( struct btns *b, Joystick *joy, Joystick *joy2 ) {
 
 //	Based on the joystick buttons, perform actions on the claw.
 // ============================================================================
-void ProcessClawButtons( struct btns *b, DoubleSolenoid *cp, Solenoid *cc, Victor *it ) {
-
-	// Claw Clamp Control: Open / Close 
-	if( b->btnPress[ clawOpen ] || b->btnPress2[ clawOpen2 ] )
-		cc->Set( true );
-	if( b->btnPress[ clawClose ] || b->btnPress2[ clawClose2 ] )
-		cc->Set( false );
-
-
-#ifdef XBOX
-	// Push POV up to lower claw.
-	if( (b->pov == povS) || (b->pov2 == povN) )
-		cp->Set( DoubleSolenoid::kForward );
-	// Push POV down to raise claw.
-	else if( (b->pov == povN) || (b->pov2 == povS) )
-		cp->Set( DoubleSolenoid::kReverse );
-	// On no POV pushed, stop the claw mid way up/down.
-	else
-		cp->Set( DoubleSolenoid::kOff );
-#else
-	// Push POV up to lower claw.
-	if( (b->pov == povN) || (b->pov2 == povN) )
-		cp->Set( DoubleSolenoid::kForward );
-	// Push POV down to raise claw.
-	else if( (b->pov == povS) || (b->pov2 == povS) )
-		cp->Set( DoubleSolenoid::kReverse );
-	// On no POV pushed, stop the claw mid way up/down.
-	else
-		cp->Set( DoubleSolenoid::kOff );
-#endif
+void ProcessClawButtons(struct btns *b, DoubleSolenoid *cp, Solenoid *cc, Victor *it) {
 
 #ifdef XBOX
 	double ejectSp = joy->GetRawAxis( 3 );		// Driver eject speed.
 	double intakeSp = joy->GetRawAxis( 2 );		// Driver eject speed.
 
-	// Run intake motor according to the buttons.
-	if( intakeSp > 0.05 || b->btn2[ intake2 ] )
-		if( intakeSp < 0.05 ) it->Set( -1.0 );
-		else it->Set( intakeSp * -1.0 );
-	else if ( ejectSp > 0.05 || b->btn2[ eject2 ] )
-		if( ejectSp < 0.05 ) it->Set( 1.0 );
-		else it->Set( ejectSp );
-	else
-		it->Set( 0.0 );
+	BenzeneIntake(b->pov2,cc,cp,it,ejectSp,intakeSp,b->btn2[ intake2 ],b->btn2[ eject2 ],b->btnPress2[ clawOpen2 ],b->btnPress2[ clawClose2 ]);
 #else
 	// Run intake motor according to the buttons.
 	if( b->btn[ intake ] || b->btn2[ intake2 ] )

@@ -46,6 +46,7 @@ struct btns btns;						// Struct holds all values of the joysticks.
 #include <Arcade_Drive.h>
 #include <sequencer.h>
 #include <AutonChooser.h>
+#include <intake.h>
 
 
 
@@ -95,6 +96,8 @@ public:
 		Load_Waypoints();	// Call once to populate the waypoint data structures.
 
 		AutonDashboardInit();
+
+		IntakeInit(clawPick);
 
     	CameraServer::GetInstance()->StartAutomaticCapture();
 	}
