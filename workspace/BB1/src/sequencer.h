@@ -140,11 +140,13 @@ bool seqDwellOnMotion( double velThresh, int timeOut ) {
 // ============================================================================
 void seqInit( AutonPathId idx ) {
 
+	//pathIdx = _pathIdx;
+	//sPos = _sPos;
 	pathIdx = idx;
-	flgAutoEn = false;
 
 	std::thread t1( seqThread );	// This starts the thread right away.
 	t1.detach();					// Detach from this thread.
+	flgAutoEn = true;
 }
 
 // Enables or disables auto mode sequencer.
@@ -349,13 +351,24 @@ void seqThread() {
 					break;
 				}
 
+
+				//seqMid_RightSwitch();	// Auto Sequence: Mid Position to Right Switch
+
+				//seqMid_LeftSwitch();
+
+				//seqSide_Switch( true );
+
+				// seqSide_ScaleFar( false );
+
+				// seqSide_Scale( true );
+
 				flgAutoEn = false;
 				printf( "Auto Mode Done: %0.2f\n", cntProfile * 0.005 );
 				delay( 500 );
 			}
 		}
 		else {
-			printf( "Error: seqThread called in wrong mode." );
+			printf( "seqThread called in wrong mode." );
 		}
 		//delay( 50 );
 	//}
