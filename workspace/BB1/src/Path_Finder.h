@@ -137,7 +137,7 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Right_SwitchMid ].wpLen = 2;
 	wp[ Right_SwitchMid ].wps[0] = { 0, 	0, 		d2r(  90 ) };
-	wp[ Right_SwitchMid ].wps[1] = { -5.0,	-5.0,	d2r(  90 ) };
+	wp[ Right_SwitchMid ].wps[1] = { -4.5,	-5.0,	d2r(  90 ) };
 	wp[ Right_SwitchMid ].vel = 5.0;			// max ft/sec
 	wp[ Right_SwitchMid ].accel = 10.0;		// max ft/sec^2
 	wp[ Right_SwitchMid ].jerk = 100.0;		// max ft/sec^3

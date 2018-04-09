@@ -85,7 +85,7 @@ public:
 		PnumaticsInit( airCompressor, clawPick, clawClamp );
 
 		#ifdef PRACTICE_BOT
-			RebuildMotionProfiles();	// Note, this may take a bit of time.
+			//RebuildMotionProfiles();	// Note, this may take a bit of time.
 		#endif
 
 		// The mpThread handles shoveling trajectory points from the Top
@@ -194,7 +194,7 @@ public:
 		*/
 
 		// Recalculate all the motion profile trajectories on a button press.
-		if( btns.btn[ eleven ] )
+		if( btns.btn2[ eleven ] )
 			RebuildMotionProfiles();	// Note, this may take a bit of time.
 	}
 

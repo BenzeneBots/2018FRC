@@ -45,7 +45,7 @@ bool RunProfile( void ) {
 
 	// Wait approx 100ms for the profile points to start buffering into the Talons.
 	// Then, turn on the motors in profile mode!
-	if( cnt > 5 ) {
+	if( cnt > 1 ) {
 		// Turn on the motion profile in the Talons!
 		mtrLMaster->Set( ControlMode::MotionProfile, 1 );
 		mtrRMaster->Set( ControlMode::MotionProfile, 1 );

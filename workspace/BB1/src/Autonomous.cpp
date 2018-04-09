@@ -66,4 +66,7 @@ void AutoInit( TalonSRX *lf, TalonSRX *rt, PigeonIMU *gyro ) {
 
 	lf->SetIntegralAccumulator( 0.0, 0, 0 );
 	rt->SetIntegralAccumulator( 0.0, 0, 0 );
+
+	lf->ClearMotionProfileTrajectories();
+	rt->ClearMotionProfileTrajectories();
 }

@@ -87,8 +87,8 @@ bool seqDwellOnPosition( double percent, int timeOut ) {
 	int lfDis, rtDis;
 
 	// Scale the distance we're happen with by a multiplier.
-	lfDis = fabs( ltDistNU ) * percent;
-	rtDis = fabs( rtDistNU ) * percent;
+	lfDis = abs( ltDistNU ) * percent;
+	rtDis = abs( rtDistNU ) * percent;
 
 	while( 1 ) {
 		//mtrLMaster->Set( ControlMode::MotionMagic, ltDistNU );
@@ -194,11 +194,21 @@ void seqMid_RightSwitch() {
 	mtrRMaster->NeutralOutput();
 	setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 
-	delay( 200 );
+	clawPick->Set(CLAW_LOWER);					delay(1200);
+	clawClamp->Set(CLAW_OPEN);
 
-	seqMotionMagic(2,2,5,10);
+	seqMotionMagic(1.7,1.7,5,10);
+	seqDwellOnMotion(.05, 1000);
+	printf("Magic finished\n");
 
-	delay(200);
+	delay(1000);
+
+	clawClamp->Set(CLAW_CLOSE);
+	mtrIntake->Set(INTAKE_SP);					delay(500);
+	mtrIntake->Set(0.0);
+
+	clawPick->Set(CLAW_RAISE);
+
 }
 
 // ============================================================================
@@ -310,6 +320,7 @@ void seqThread() {
 					break;
 
 				case DriveStraight:
+					seqMotionMagic(13.0, 13.0, 5.0, 10.0);
 					break;
 
 				case TestFunction:

@@ -327,7 +327,7 @@ AutonPathId ChooseAuton( std::string gameData ){
 			ret = TestFunction;
 		}
 	}
-	else{ //if no gama data is received
+	else{ //if no game data is received
 		ret = DriveStraight;
 	}
 
