@@ -97,7 +97,7 @@ public:
 
 		AutonDashboardInit();
 
-		IntakeInit(clawPick);
+		IntakeInit( clawPick );
 
     	CameraServer::GetInstance()->StartAutomaticCapture();
 	}

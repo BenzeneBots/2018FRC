@@ -45,7 +45,7 @@ void ArcadeDrive( struct btns *b ) {
 	double throttle=0.0, steer=0.0, twist=0, heading;
 	float lf=0.0, rt=0.0;
 	static double headingTar;
-	static bool isDriveReversed = false;
+	//static bool isDriveReversed = false;
 	static bool wasRevButtonPressed = false;
 	static double driveRevFactor = 1.0;
 
