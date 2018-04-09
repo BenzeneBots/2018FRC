@@ -91,7 +91,6 @@ void ArcadeDrive( struct btns *b ) {
 
 	lf = throttle + steer;		// Calculate left and right motor speeds.
 	rt = throttle - steer;
-	printf("left %f\n", lf);
 	setDriveMtrSp( lf, rt);
 }
 

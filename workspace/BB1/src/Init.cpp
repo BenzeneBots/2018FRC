@@ -72,6 +72,42 @@ void GyroInit( PigeonIMU *gyro ) {
 }
 
 
+// ============================================================================
+void setDirModeNormal( bool flgNormal, TalonSRX *lm, TalonSRX *ls, TalonSRX *rm, TalonSRX *rs  ) {
+	if( flgNormal ) {
+		#ifdef PRACTICE_BOT
+			lm->SetInverted( false );
+			ls->SetInverted( false );
+		#else
+			lm->SetInverted( true );
+			ls->SetInverted( true );
+		#endif
+		#ifdef PRACTICE_BOT
+			rm->SetInverted( true );
+			rs->SetInverted( true );
+		#else
+			rm->SetInverted( false );
+			rs->SetInverted( false );
+		#endif
+	}
+	else {
+		#ifdef PRACTICE_BOT
+			lm->SetInverted( true );
+			ls->SetInverted( true );
+		#else
+			lm->SetInverted( false );
+			ls->SetInverted( false );
+		#endif
+		#ifdef PRACTICE_BOT
+			rm->SetInverted( false );
+			rs->SetInverted( false );
+		#else
+			rm->SetInverted( true );
+			rs->SetInverted( true );
+		#endif
+	}
+}
+
 //	Everything to init the drivetrain motors goes here.
 // ============================================================================
 void DrivetrainInit( TalonSRX *lm, TalonSRX *ls, TalonSRX *rm, TalonSRX *rs ) {
@@ -79,30 +115,25 @@ void DrivetrainInit( TalonSRX *lm, TalonSRX *ls, TalonSRX *rm, TalonSRX *rs ) {
 	lm->NeutralOutput();
 	rm->NeutralOutput();
 
-	lm->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
-	lm->SetSelectedSensorPosition( 0, 0, 0 );
+	setDirModeNormal( true,  lm, ls, rm, rs  );
 	#ifdef PRACTICE_BOT
 		lm->SetSensorPhase( true );
-		lm->SetInverted( false );
-		ls->SetInverted( false );
 	#else
 		lm->SetSensorPhase( false );
-		lm->SetInverted( true );
-		ls->SetInverted( true );
 	#endif
+	#ifdef PRACTICE_BOT
+		rm->SetSensorPhase( true );
+	#else
+		rm->SetSensorPhase( false );
+	#endif
+
+	lm->ConfigSelectedFeedbackSensor(FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0);
+	lm->SetSelectedSensorPosition( 0, 0, 0 );
 
 	// Right side motors get inverted!
 	rm->ConfigSelectedFeedbackSensor( FeedbackDevice::CTRE_MagEncoder_Relative, 0, 0 );
 	rm->SetSelectedSensorPosition( 0, 0, 0 );
-	#ifdef PRACTICE_BOT
-		rm->SetSensorPhase( true );
-		rm->SetInverted( true );
-		rs->SetInverted( true );
-	#else
-		rm->SetSensorPhase( false );
-		rm->SetInverted( false );
-		rs->SetInverted( false );
-	#endif
+
 
 	// Left Side
 	lm->ConfigNominalOutputForward(0, kTO);

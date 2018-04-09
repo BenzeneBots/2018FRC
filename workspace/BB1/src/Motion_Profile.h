@@ -66,6 +66,7 @@ bool RunProfile( void ) {
 			if( mpStatus.hasUnderrun )
 				printf( "Error: Motion Profile UnderRun!\n\n" );
 
+			setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 			return false;	// Motion Profile is done.
 		}
 	}
@@ -78,7 +79,7 @@ bool RunProfile( void ) {
 // Given an index to a waypoint group, load the trajectory from the file-system.
 // If flgMirror is true, switch sides of the drivetrain to mirror the profile.
 // ============================================================================
-void LoadProfile( int idx, bool flgMirror ) {
+void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 	char s[120];
 
 	printf( "Load Profile started...\n" );
@@ -104,6 +105,14 @@ void LoadProfile( int idx, bool flgMirror ) {
 
 	mtrLMaster->ClearMotionProfileHasUnderrun( 0 );
 	mtrRMaster->ClearMotionProfileHasUnderrun( 0 );
+
+	mtrLMaster->SetSelectedSensorPosition(0,0,0);
+	mtrRMaster->SetSelectedSensorPosition(0,0,0);
+
+	if( flgReverse )
+		setDirModeNormal( false, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
+	else
+		setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 
 	// Fill the top buffer with Talon points.  Note, there is room for
 	// about 2048 points for each Talon.  So, don't go too crazy!

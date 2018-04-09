@@ -164,7 +164,7 @@ void seqMid_RightSwitch() {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 	
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Mid_SwitchRight, false );
+	LoadProfile( Mid_SwitchRight, false, false );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
@@ -180,57 +180,13 @@ void seqMid_RightSwitch() {
 	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
 	clawPick->Set( CLAW_NEUTRAL );
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
-	mtrIntake->Set( INTAKE_STOP );
+	mtrIntake->Set( INTAKE_STOP );				delay( 250 );
 
-	/*
-	// Backup and rotate CCW to grab another cube.
-	// Lower the claw at the same time.
-	seqMotionMagic( -2.0, 1.5, 4.0, 3.0 );		seqDwellOnPosition( 0.75, 2000 );
-	delay( 500 );
-	clawPick->Set( CLAW_LOWER );				delay( CLAW_LOWER_TM );
-	delay( 500 );
-	clawClamp->Set( CLAW_OPEN );				delay( CLAW_OPEN_TM );
-	mtrIntake->Set( INTAKE_SP );
-	delay( 500 );
-	seqMotionMagic( 2.0, 2.0, 6.0, 10.0 );		seqDwellOnPosition( 0.5, 2000 );
-	clawClamp->Set( CLAW_CLOSE );				delay( CLAW_CLOSE_TM );
-	mtrIntake->Set( INTAKE_STOP );
-	delay( 100 );
-	clawPick->Set( CLAW_RAISE );				delay( CLAW_RAISE_TM );
-	delay( 250 );
-	seqMotionMagic( -2.5, -2.5, 6.0, 10.0 );	seqDwellOnPosition( 0.85, 2000 );
-	delay( 250 );
+	// Load the named profile from the file-system into the RoboRIO API buffer.
+	LoadProfile( Right_SwitchMid, true, true );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
-	printf( "Rot Degrees: %0.2f\n", gyro->GetFusedHeading() );
-	double lf=0.1, rt=-0.1, heading;
-	while( 1 ) {
-		heading = gyro->GetFusedHeading();
-		if( fabs(heading) < 5.0 ) {
-			mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-			mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
-
-			mtrLMaster->Set( ControlMode::Position, 0.0 );
-			mtrRMaster->Set( ControlMode::Position, 0.0 );
-			break;
-		}
-		if( heading > 0 ) {
-			lf += 0.005;
-			rt -= 0.005;
-		}
-		else {
-			lf -= 0.005;
-			rt += 0.005;
-		}
-		mtrLMaster->Set( ControlMode::PercentOutput, lf );
-		mtrRMaster->Set( ControlMode::PercentOutput, rt );
-		delay( 20 );
-	}
-
-	// Move forward and deploy.
-	seqMotionMagic( 1.5, 1.5, 6.0, 10.0 );		seqDwellOnPosition( 0.85, 2000 );
-	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
-	mtrIntake->Set( INTAKE_STOP );
-*/
 }
 
 // ============================================================================
@@ -239,7 +195,7 @@ void seqMid_LeftSwitch() {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Mid_SwitchLeft, false );
+	LoadProfile( Mid_SwitchLeft, false, false );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
@@ -257,7 +213,7 @@ void seqSide_Switch( bool invert ) {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Side_Switch, invert );
+	LoadProfile( Side_Switch, invert, false );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
@@ -277,7 +233,7 @@ void seqSide_ScaleFar( bool invert ) {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Side_ScaleFar, invert );
+	LoadProfile( Side_ScaleFar, invert, false );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
@@ -294,7 +250,7 @@ void seqSide_Scale( bool invert ) {
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Side_Scale, invert );
+	LoadProfile( Side_Scale, invert, false );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 }

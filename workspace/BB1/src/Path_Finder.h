@@ -126,6 +126,24 @@ void Load_Waypoints() {
 	strcpy( wp[ Mid_SwitchRight ].sTrajLeft, "Mid_RightSwitchLf.bin" );
 	strcpy( wp[ Mid_SwitchRight ].sTrajRight, "Mid_RightSwitchRt.bin" );
 	strcpy( wp[ Mid_SwitchRight ].sTraj_CSV, "Mid_RightSwitch.csv" );
+
+	// Right_SwitchMid = Index 6
+	// Define Right to Mid Switch.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Left_SwitchMid ].wpLen = 0;
+
+	// Right_SwitchMid = Index 7
+	// Define Right to Mid Switch.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Right_SwitchMid ].wpLen = 2;
+	wp[ Right_SwitchMid ].wps[0] = { 0, 	0, 		d2r(  90 ) };
+	wp[ Right_SwitchMid ].wps[1] = { -5.0,	-5.0,	d2r(  90 ) };
+	wp[ Right_SwitchMid ].vel = 5.0;			// max ft/sec
+	wp[ Right_SwitchMid ].accel = 10.0;		// max ft/sec^2
+	wp[ Right_SwitchMid ].jerk = 100.0;		// max ft/sec^3
+	strcpy( wp[ Right_SwitchMid ].sTrajLeft, "Right_MidSwitchLf.bin" );
+	strcpy( wp[ Right_SwitchMid ].sTrajRight, "Right_MidSwitchRt.bin" );
+	strcpy( wp[ Right_SwitchMid ].sTraj_CSV, "Right_MidSwitch.csv" );
 }
 
 
