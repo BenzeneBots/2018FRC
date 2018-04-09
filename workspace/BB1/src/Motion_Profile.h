@@ -66,7 +66,8 @@ bool RunProfile( void ) {
 			if( mpStatus.hasUnderrun )
 				printf( "Error: Motion Profile UnderRun!\n\n" );
 
-			setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
+			//setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
+
 			return false;	// Motion Profile is done.
 		}
 	}

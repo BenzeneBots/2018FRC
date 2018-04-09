@@ -187,6 +187,15 @@ void seqMid_RightSwitch() {
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
+
+	//mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
+	//mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
+	mtrLMaster->NeutralOutput();
+	mtrRMaster->NeutralOutput();
+	setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
+
+	delay( 200 );
+
 }
 
 // ============================================================================

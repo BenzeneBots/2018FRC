@@ -111,8 +111,8 @@ public:
 	void DisabledInit() {
 		mtrLMaster->NeutralOutput();
 		mtrRMaster->NeutralOutput();
-		mtrLMaster->SetNeutralMode( NeutralMode::Coast );
-		mtrRMaster->SetNeutralMode( NeutralMode::Coast );
+		mtrLMaster->SetNeutralMode( NeutralMode::Brake );
+		mtrRMaster->SetNeutralMode( NeutralMode::Brake );
 
 		enXfer = false;
 		printf( "Disabled...\n" );
