@@ -50,7 +50,6 @@ int cntDisable = 0;
 #include <intake.h>
 
 
-
 class Robot : public TimedRobot {
 private:
 public:
@@ -157,7 +156,7 @@ public:
 
 		AutonPathId pathIdx = ChooseAuton(sGame);
 		*/
-		AutonPathId pathIdx = CenterRightSwitch;	// This line is for testing only.
+		AutonPathId pathIdx = RightSideSwitch;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
@@ -175,6 +174,7 @@ public:
 	// ========================================================================
 	void TeleopInit() {
 		printf( "TeleopInit...\n" );
+		enXfer = false;
 		DriverModeInit( airCompressor, mtrLMaster, mtrRMaster );
 	}
 

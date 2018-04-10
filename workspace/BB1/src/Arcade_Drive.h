@@ -35,7 +35,7 @@ void setDriveMtrSp( float mtrLeftSp, float mtrRightSp ) {
 	mtrLMaster->Set( ControlMode::PercentOutput, mtrLeftSp );
 
 	mtrRightSp = fLimitVal( -MAX_SPEED, mtrRightSp, MAX_SPEED );
-	mtrRMaster ->Set( ControlMode::PercentOutput, mtrRightSp );
+	mtrRMaster->Set( ControlMode::PercentOutput, mtrRightSp );
 }
 
 

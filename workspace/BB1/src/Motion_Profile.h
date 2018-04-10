@@ -55,7 +55,7 @@ bool RunProfile( void ) {
 		mtrLMaster->GetMotionProfileStatus( mpStatus );		// Get the MP status from the Talon.
 
 		// On last MP point in the Talon, the move must be done.
-		if( mpStatus.isLast ) {
+		if( mpStatus.isLast || (frc::RobotState::IsEnabled() == false) ) {
 			enXfer = false;		// Stop the real-time thread activity.
 			flgRunMP = false;	// End motion profile running.
 
@@ -66,8 +66,6 @@ bool RunProfile( void ) {
 			// This should not happen - but if it does let people know!
 			if( mpStatus.hasUnderrun )
 				printf( "Error: Motion Profile UnderRun!\n\n" );
-
-			//setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 
 			return false;	// Motion Profile is done.
 		}
@@ -111,6 +109,9 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 
 	mtrLMaster->ClearMotionProfileHasUnderrun( 0 );
 	mtrRMaster->ClearMotionProfileHasUnderrun( 0 );
+
+	mtrLMaster->SetIntegralAccumulator( 0, 0, 0 );
+	mtrRMaster->SetIntegralAccumulator( 0, 0, 0 );
 
 	mtrLMaster->SetSelectedSensorPosition(0,0,0);
 	mtrRMaster->SetSelectedSensorPosition(0,0,0);

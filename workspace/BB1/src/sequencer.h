@@ -118,6 +118,23 @@ bool seqDwellOnPosition( double percent, int timeOut ) {
 bool seqDwellOnMotion( double velThresh, int timeOut ) {
 	double vel;
 
+	// First, make sure the speed is above the threshold.
+	while( 1 ) {
+		// Get the absolute largest speed in ft/sec.
+		vel = fabs( mtrLMaster->GetSelectedSensorVelocity(0) ) / 260.9;
+		vel = fmax( (fabs( mtrRMaster->GetSelectedSensorVelocity(0) ) / 260.9), vel );
+
+		if( vel > velThresh ) break;
+
+		delay( 20 );
+		timeOut -= 20;
+		if( timeOut <= 0 ) {
+			printf( "Error: dwell on motion never saw motion.\n" );
+			return true;	// Return true that a timeout occured.
+		}
+	}
+
+	// Next, wait until the speed falls back below the threshold.
 	while( 1 ) {
 		// Get the absolute largest speed in ft/sec.
 		vel = fabs( mtrLMaster->GetSelectedSensorVelocity(0) ) / 260.9;
@@ -183,8 +200,8 @@ void seqMid_RightSwitch() {
 	clawPick->Set( CLAW_LOWER );					delay( 1200 );
 	clawClamp->Set( CLAW_OPEN );
 
-	seqMotionMagic( 1.7, 1.7, 5, 10 );
-	seqDwellOnMotion( .05, 1500 );
+	seqMotionMagic( 1.8, 1.8, 5, 10 );
+	seqDwellOnMotion( .05, 2000 );
 
 	delay( 1000 );
 
@@ -228,6 +245,19 @@ void seqSide_Switch( bool invert ) {
 	clawPick->Set( CLAW_NEUTRAL );
 	mtrIntake->Set( 0.70 );						delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );
+	clawPick->Set( CLAW_RAISE );
+
+	seqMotionMagic( -0.5, -4.0, 5, 10 );
+	seqDwellOnMotion( .05, 2000 );
+
+	LoadProfile( Switch_Cube, invert, false );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+
+
+
+
+
+
 }
 
 

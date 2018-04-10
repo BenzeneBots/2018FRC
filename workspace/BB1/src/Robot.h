@@ -21,7 +21,7 @@
 // UnComment for Practice Bot
 #define PRACTICE_BOT
 
-#define NUM_PATHS	8	// There are six possible paths in Auto mode.
+#define NUM_PATHS	9	// There are six possible paths in Auto mode.
 
 #define XBOX
 #define NUM_BTN		11			// Number of buttons on a Joystick.
@@ -107,8 +107,10 @@ typedef gains gains;
 
 // Each waypoint group has a name defined in this enum.
 enum paths {
-	Side_Switch, Side_Scale, Side_SwitchFar,
-	Side_ScaleFar, Mid_SwitchLeft, 	Mid_SwitchRight, Left_SwitchMid, Right_SwitchMid, NA };
+	Side_Switch=0, Side_Scale=1, Side_SwitchFar=2,
+	Side_ScaleFar=3, Mid_SwitchLeft=4, 	Mid_SwitchRight=5, Left_SwitchMid=6,
+	Right_SwitchMid=7, Switch_Cube=8,
+	NA=100 };
 typedef paths paths;
 
 enum startPos { left, mid, right };

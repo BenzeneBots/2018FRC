@@ -137,13 +137,28 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Right_SwitchMid ].wpLen = 2;
 	wp[ Right_SwitchMid ].wps[0] = { 0, 	0, 		d2r(  90 ) };
-	wp[ Right_SwitchMid ].wps[1] = { -4.5,	-5.0,	d2r(  90 ) };
+	wp[ Right_SwitchMid ].wps[1] = { -4.8,	-5.0,	d2r(  90 ) };
 	wp[ Right_SwitchMid ].vel = 5.0;			// max ft/sec
 	wp[ Right_SwitchMid ].accel = 10.0;		// max ft/sec^2
 	wp[ Right_SwitchMid ].jerk = 100.0;		// max ft/sec^3
 	strcpy( wp[ Right_SwitchMid ].sTrajLeft, "Right_MidSwitchLf.bin" );
 	strcpy( wp[ Right_SwitchMid ].sTrajRight, "Right_MidSwitchRt.bin" );
 	strcpy( wp[ Right_SwitchMid ].sTraj_CSV, "Right_MidSwitch.csv" );
+
+	// Switch_Cube = Index 8
+	// Define switch to cube on back wall.
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	wp[ Switch_Cube ].wpLen = 4;
+	wp[ Switch_Cube ].wps[0] = { 0, 	0, 		d2r(  90 ) };
+	wp[ Switch_Cube ].wps[1] = { 0.0,	1.0,	d2r(  90 ) };
+	wp[ Switch_Cube ].wps[2] = { -2.0,	4.0,	d2r(  180 ) };
+	wp[ Switch_Cube ].wps[3] = { -4.0,	2.0,	d2r(  275 ) };
+	wp[ Switch_Cube ].vel = 5.0;			// max ft/sec
+	wp[ Switch_Cube ].accel = 10.0;		// max ft/sec^2
+	wp[ Switch_Cube ].jerk = 100.0;		// max ft/sec^3
+	strcpy( wp[ Switch_Cube ].sTrajLeft, "Switch_CubeLf.bin" );
+	strcpy( wp[ Switch_Cube ].sTrajRight, "Switch_CubeRt.bin" );
+	strcpy( wp[ Switch_Cube ].sTraj_CSV, "Switch_Cube.csv" );
 }
 
 
