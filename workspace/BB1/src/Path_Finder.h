@@ -44,7 +44,7 @@ void Load_Waypoints() {
 	wp[ Side_Switch ].wps[1] = { 2.0, 	8.0,	d2r(  90 ) };
 	wp[ Side_Switch ].wps[2] = { -3.0, 	10.0,	d2r(  191) };
 	wp[ Side_Switch ].vel = 5.0;		// max ft/sec
-	wp[ Side_Switch ].accel = 10.0;		// max ft/sec^2
+	wp[ Side_Switch ].accel = 15.0;		// max ft/sec^2
 	wp[ Side_Switch ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Side_Switch ].sTrajLeft, "Side_SwitchLf.bin" );
 	strcpy( wp[ Side_Switch ].sTrajRight, "Side_SwitchRt.bin" );
@@ -159,9 +159,9 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Switch_Cube ].wpLen = 4;
 	wp[ Switch_Cube ].wps[0] = { 0, 	0, 		d2r(  90 ) };
-	wp[ Switch_Cube ].wps[1] = { -1.0,	-1.0,	d2r(  0 ) };
-	wp[ Switch_Cube ].wps[2] = { -2.0,	0.0,	d2r(  315 ) };
-	wp[ Switch_Cube ].wps[3] = { -3.0,	2.0,	d2r(  180 ) };
+	wp[ Switch_Cube ].wps[1] = { -1.0,	-1.37,	d2r( 45 ) };
+	wp[ Switch_Cube ].wps[2] = { -3.0,	-1.87,	d2r(  160 ) };
+	wp[ Switch_Cube ].wps[3] = { -5.87,	4.13,	d2r(  -5 ) };
 	wp[ Switch_Cube ].vel = 5.0;			// max ft/sec
 	wp[ Switch_Cube ].accel = 10.0;		// max ft/sec^2
 	wp[ Switch_Cube ].jerk = 100.0;		// max ft/sec^3

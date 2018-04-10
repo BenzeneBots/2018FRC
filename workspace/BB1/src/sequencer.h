@@ -14,6 +14,7 @@
 #define INTAKE_SP	-0.75
 #define OUTTAKE_SP	1.00
 #define INTAKE_STOP	0.0
+#define INTAKE_HOLD 0.12
 
 #define	CLAW_RAISE		DoubleSolenoid::kReverse
 #define CLAW_LOWER		DoubleSolenoid::kForward
@@ -203,13 +204,18 @@ void seqMid_RightSwitch() {
 	mtrIntake->Set( INTAKE_SP );
 	seqMotionMagic( 2.25, 2.25, 5, 10 );
 	seqDwellOnMotion( .05, 2000 );
-
 	delay( 100 );
 
 	clawClamp->Set( CLAW_CLOSE );					delay( 500 );
-	mtrIntake->Set( 0.0 );
+	mtrIntake->Set( INTAKE_HOLD );
+
+	seqMotionMagic( -3.0, -3.0, 5, 10 );
+	seqDwellOnMotion( .05, 2000 );
 
 	clawPick->Set( CLAW_RAISE );
+	mtrIntake->Set( INTAKE_STOP );
+
+
 }
 
 // ============================================================================
@@ -236,15 +242,21 @@ void seqMid_LeftSwitch() {
 	clawClamp->Set( CLAW_OPEN );
 
 	mtrIntake->Set( INTAKE_SP );
-	seqMotionMagic( 2.25, 2.25, 5, 10 );
-	seqDwellOnMotion( .05, 2000 );
+	seqMotionMagic( 2.75, 2.75, 5, 10 );
+	seqDwellOnMotion( .03, 2000 );
 
 	delay( 100 );
 
 	clawClamp->Set( CLAW_CLOSE );					delay( 500 );
-	mtrIntake->Set( 0.0 );
+	mtrIntake->Set( INTAKE_HOLD );
+
+	seqMotionMagic( -3.0, -3.0, 5, 10 );
+	seqDwellOnMotion( .05, 2000 );
 
 	clawPick->Set( CLAW_RAISE );
+	mtrIntake->Set( INTAKE_STOP );
+
+
 }
 
 // ============================================================================
@@ -268,7 +280,20 @@ void seqSide_Switch( bool invert ) {
 	LoadProfile( Switch_Cube, !invert, true );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 
-	delay( 5000 );
+	clawPick->Set( CLAW_LOWER );					delay( 1200 );
+	clawClamp->Set( CLAW_OPEN );
+
+	mtrIntake->Set( INTAKE_SP );
+	seqMotionMagic( 2.5, 2.5, 5, 10 );
+	seqDwellOnMotion( .03, 2000 );
+
+	delay( 100 );
+
+	clawClamp->Set( CLAW_CLOSE );					delay( 500 );
+	mtrIntake->Set( INTAKE_HOLD );
+
+	clawPick->Set( CLAW_RAISE );
+	mtrIntake->Set( INTAKE_STOP );
 
 
 

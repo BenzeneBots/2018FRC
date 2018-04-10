@@ -147,7 +147,7 @@ public:
 
 		AutoInit( mtrLMaster, mtrRMaster, gyro );
 
-		/*
+
 		std::string sGame = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 
 		//AutonPathId pathIdx = ChooseAuton( sGame );
@@ -155,8 +155,8 @@ public:
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
 		AutonPathId pathIdx = ChooseAuton(sGame);
-		*/
-		AutonPathId pathIdx = LeftSideSwitch;	// This line is for testing only.
+
+//		AutonPathId pathIdx = LeftSideSwitch;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
