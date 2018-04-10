@@ -284,21 +284,16 @@ void seqSide_Switch( bool invert ) {
 	clawClamp->Set( CLAW_OPEN );
 
 	mtrIntake->Set( INTAKE_SP );
-	seqMotionMagic( 2.5, 2.5, 5, 10 );
+	seqMotionMagic( 3.0, 3.0, 5, 10 );
 	seqDwellOnMotion( .03, 2000 );
 
-	delay( 100 );
+	delay( 200 );
 
 	clawClamp->Set( CLAW_CLOSE );					delay( 500 );
 	mtrIntake->Set( INTAKE_HOLD );
 
 	clawPick->Set( CLAW_RAISE );
 	mtrIntake->Set( INTAKE_STOP );
-
-
-
-
-
 }
 
 
