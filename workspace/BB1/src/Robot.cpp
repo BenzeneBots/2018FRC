@@ -156,7 +156,7 @@ public:
 
 		AutonPathId pathIdx = ChooseAuton(sGame);
 		*/
-		AutonPathId pathIdx = LeftSideSwitch;	// This line is for testing only.
+		AutonPathId pathIdx = RightFarScale;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
