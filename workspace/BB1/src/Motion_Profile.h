@@ -19,6 +19,7 @@ double _pos = 0, _vel = 0, _heading = 0;	// For active traj. Pt.
 
 bool enXfer = false;
 uint32_t cntProfile = 0;
+uint32_t cntAuto = 0;
 bool flgRunMP = false;
 
 // Call this function often when running a motion profile.  This function will
@@ -82,6 +83,10 @@ bool RunProfile( void ) {
 // ============================================================================
 void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 	char s[120];
+	double dir=1.0;		// Assume forward.
+
+	// Automatically mirror if running backwards.
+	if( flgReverse ) flgMirror = !flgMirror;
 
 	printf( "Load Profile started...\n" );
 	enXfer = false;		// My master enable flag for MP buffer xfer.
@@ -110,10 +115,7 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 	mtrLMaster->SetSelectedSensorPosition(0,0,0);
 	mtrRMaster->SetSelectedSensorPosition(0,0,0);
 
-	if( flgReverse )
-		setDirModeNormal( false, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
-	else
-		setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
+	if( flgReverse ) dir = -1.0;
 
 	// Fill the top buffer with Talon points.  Note, there is room for
 	// about 2048 points for each Talon.  So, don't go too crazy!
@@ -125,8 +127,8 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 		TrajectoryPoint point;
 
 		/* for each point, fill our structure and pass it to API */
-		point.position = positionRot * 2607.6;  // Convert ft to nu.
-		point.velocity = velocityRPM * 260.76; 	// Convert ft/s to nu/100ms
+		point.position = positionRot * 2607.6 * dir;  // Convert ft to nu.
+		point.velocity = velocityRPM * 260.76 * dir; 	// Convert ft/s to nu/100ms
 		point.headingDeg = 0; /* future feature - not used in this example*/
 		point.profileSlotSelect0 = 0; /* which set of gains would you like to use [0,3]? */
 		point.profileSlotSelect1 = 0; /* future feature  - not used in this example - cascaded PID [0,1], leave zero */
@@ -146,8 +148,8 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 		s = rightTraj[i];
 		positionRot = s.position;
 		velocityRPM = s.velocity;
-		point.position = positionRot * 2607.6;  // Convert ft to nu.
-		point.velocity = velocityRPM * 260.76; 	// Convert ft/s to nu/100ms
+		point.position = positionRot * 2607.6 * dir;  // Convert ft to nu.
+		point.velocity = velocityRPM * 260.76 * dir; 	// Convert ft/s to nu/100ms
 
 		// If flag is true, switch which sides of the drivetrain.
 		if( flgMirror )
@@ -185,6 +187,13 @@ void mpThread( void ) {
 					cntProfile += 1;
 				}
 			}
+
+			cntAuto += 1;	// General counter for counting auto mode total.
+		}
+		else {
+			// In any other mode, set the flag to false. Therefore, next time we
+			// enter auto the flag will be defaulted off and WAIT to be set.
+			enXfer = false;
 		}
 
 		// Sleep the thread for X milliseconds.  Note, there is about 90uS of overhead.

@@ -41,6 +41,7 @@ Segment leftTraj[ 2048 ];				// Current trajectories are stored here.
 Segment rightTraj[ 2048 ];
 
 struct btns btns;						// Struct holds all values of the joysticks.
+int cntDisable = 0;
 
 #include <Motion_Profile.h>
 #include <Arcade_Drive.h>
@@ -99,7 +100,7 @@ public:
 
 		IntakeInit( clawPick );
 
-    	CameraServer::GetInstance()->StartAutomaticCapture();
+    	//CameraServer::GetInstance()->StartAutomaticCapture();
 	}
 
 	// ========================================================================
@@ -109,17 +110,33 @@ public:
 
 	// ========================================================================
 	void DisabledInit() {
+
+		enXfer = false;
+
 		mtrLMaster->NeutralOutput();
 		mtrRMaster->NeutralOutput();
+
+		// For the safety Mur-Dog, turn on them brakes!
 		mtrLMaster->SetNeutralMode( NeutralMode::Brake );
 		mtrRMaster->SetNeutralMode( NeutralMode::Brake );
 
-		enXfer = false;
+		mtrLMaster->ClearMotionProfileTrajectories();
+		mtrRMaster->ClearMotionProfileTrajectories();
+
+		cntDisable = 0;
 		printf( "Disabled...\n" );
 	}
 
 	// ========================================================================
 	void DisabledPeriodic() {
+
+		// After a couple seconds, switch back to coast mode so the robot is easy
+		// to push around.
+		if( ++cntDisable == 150 ) {
+			mtrLMaster->SetNeutralMode( NeutralMode::Coast );
+			mtrRMaster->SetNeutralMode( NeutralMode::Coast );
+		}
+
 		// Zeros the elevator position while disabled.
 		//resetElevatorPos( mtrElavator, elevatorSW );
 	}
@@ -127,8 +144,11 @@ public:
 	// ========================================================================
 	void AutonomousInit() {
 
+		cntAuto = 0;
+
 		AutoInit( mtrLMaster, mtrRMaster, gyro );
 
+		/*
 		std::string sGame = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 
 		//AutonPathId pathIdx = ChooseAuton( sGame );
@@ -136,27 +156,20 @@ public:
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
 		AutonPathId pathIdx = ChooseAuton(sGame);
+		*/
+		AutonPathId pathIdx = CenterRightSwitch;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
 
 		cntProfile = 0;					// Reset real-time task counter/timer.
-		printf( "Auto Pts Running...\n" );
+		printf( "Auto Running...\n" );
 	}
 
 	// ========================================================================
 	void AutonomousPeriodic() {
-		//static uint16_t cnt=0, seq = 0;
-		/*
-		static bool flgMoving = true;
-
-		if( RunProfile() == false ) {
-			if( flgMoving ) {
-				printf( "Auto Time: %0.2f seconds.\n", cntProfile * 0.005 );
-				flgMoving = false;
-			}
-		}
-		*/
+		// The sequencer thread takes care of running all the operations in Auto
+		// mode.  The thread even prints the amount of total time taken to complete.
 	}
 
 	// ========================================================================
@@ -194,7 +207,7 @@ public:
 		*/
 
 		// Recalculate all the motion profile trajectories on a button press.
-		if( btns.btn2[ eleven ] )
+		if( btns.btn2[ eight2 ] )
 			RebuildMotionProfiles();	// Note, this may take a bit of time.
 	}
 

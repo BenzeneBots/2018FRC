@@ -168,13 +168,6 @@ void seqMid_RightSwitch() {
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
-	/*
-	std::string s0 = SmartDashboard::GetString( "DB/String 0", "-1.0" );
-	uint32_t n0 = atoi( s0.c_str() );
-	std::string s1 = SmartDashboard::GetString( "DB/String 1", "-1.0" );
-	uint32_t n1 = atoi( s0.c_str() );
-	*/
-
 	// Movement to switch done.
 	// Deploy cube by reversing intake.
 	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
@@ -183,32 +176,23 @@ void seqMid_RightSwitch() {
 	mtrIntake->Set( INTAKE_STOP );				delay( 250 );
 
 	// Load the named profile from the file-system into the RoboRIO API buffer.
-	LoadProfile( Right_SwitchMid, true, true );
+	LoadProfile( Right_SwitchMid, false, true );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
+	clawPick->Set( CLAW_LOWER );					delay( 1200 );
+	clawClamp->Set( CLAW_OPEN );
 
-	//mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
-	//mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
-	mtrLMaster->NeutralOutput();
-	mtrRMaster->NeutralOutput();
-	setDirModeNormal( true, mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
+	seqMotionMagic( 1.7, 1.7, 5, 10 );
+	seqDwellOnMotion( .05, 1500 );
 
-	clawPick->Set(CLAW_LOWER);					delay(1200);
-	clawClamp->Set(CLAW_OPEN);
+	delay( 1000 );
 
-	seqMotionMagic(1.7,1.7,5,10);
-	seqDwellOnMotion(.05, 1000);
-	printf("Magic finished\n");
+	clawClamp->Set( CLAW_CLOSE );
+	mtrIntake->Set( INTAKE_SP );					delay( 500 );
+	mtrIntake->Set( 0.0 );
 
-	delay(1000);
-
-	clawClamp->Set(CLAW_CLOSE);
-	mtrIntake->Set(INTAKE_SP);					delay(500);
-	mtrIntake->Set(0.0);
-
-	clawPick->Set(CLAW_RAISE);
-
+	clawPick->Set( CLAW_RAISE );
 }
 
 // ============================================================================
@@ -320,13 +304,16 @@ void seqThread() {
 					break;
 
 				case DriveStraight:
-					seqMotionMagic(13.0, 13.0, 5.0, 10.0);
+					// Run 13 feet forward.  We should never do this!
+					seqMotionMagic( 13.0, 13.0, 5.0, 10.0 );
 					break;
 
 				case TestFunction:
+					printf( "Sequencer hit TestFunction. This is not what you want.\n" );
 					break;
 
 				default:
+					printf( "Sequencer hit Default. This is not what you want.\n" );
 					break;
 				}
 
@@ -342,7 +329,7 @@ void seqThread() {
 				// seqSide_Scale( true );
 
 				flgAutoEn = false;
-				printf( "Auto Mode Done: %0.2f\n", cntProfile * 0.005 );
+				printf( "Auto Mode Done: %0.2f sec.\n", cntAuto * 0.005 );
 				delay( 500 );
 			}
 		}
