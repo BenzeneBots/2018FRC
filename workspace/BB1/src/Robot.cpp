@@ -99,7 +99,7 @@ public:
 
 		IntakeInit( clawPick );
 
-    	//CameraServer::GetInstance()->StartAutomaticCapture();
+    	CameraServer::GetInstance()->StartAutomaticCapture();
 	}
 
 	// ========================================================================
@@ -156,7 +156,7 @@ public:
 
 		AutonPathId pathIdx = ChooseAuton(sGame);
 		*/
-		AutonPathId pathIdx = RightSideSwitch;	// This line is for testing only.
+		AutonPathId pathIdx = LeftSideSwitch;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.

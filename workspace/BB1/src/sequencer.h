@@ -200,13 +200,13 @@ void seqMid_RightSwitch() {
 	clawPick->Set( CLAW_LOWER );					delay( 1200 );
 	clawClamp->Set( CLAW_OPEN );
 
-	seqMotionMagic( 1.8, 1.8, 5, 10 );
+	mtrIntake->Set( INTAKE_SP );
+	seqMotionMagic( 2.25, 2.25, 5, 10 );
 	seqDwellOnMotion( .05, 2000 );
 
-	delay( 1000 );
+	delay( 100 );
 
-	clawClamp->Set( CLAW_CLOSE );
-	mtrIntake->Set( INTAKE_SP );					delay( 500 );
+	clawClamp->Set( CLAW_CLOSE );					delay( 500 );
 	mtrIntake->Set( 0.0 );
 
 	clawPick->Set( CLAW_RAISE );
@@ -226,7 +226,25 @@ void seqMid_LeftSwitch() {
 	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
 	clawPick->Set( CLAW_NEUTRAL );
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
-	mtrIntake->Set( INTAKE_STOP );
+	mtrIntake->Set( INTAKE_STOP );				delay( 500 );
+
+	LoadProfile( Left_SwitchMid, false, true );
+	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
+	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
+
+	clawPick->Set( CLAW_LOWER );					delay( 1200 );
+	clawClamp->Set( CLAW_OPEN );
+
+	mtrIntake->Set( INTAKE_SP );
+	seqMotionMagic( 2.25, 2.25, 5, 10 );
+	seqDwellOnMotion( .05, 2000 );
+
+	delay( 100 );
+
+	clawClamp->Set( CLAW_CLOSE );					delay( 500 );
+	mtrIntake->Set( 0.0 );
+
+	clawPick->Set( CLAW_RAISE );
 }
 
 // ============================================================================
@@ -247,12 +265,10 @@ void seqSide_Switch( bool invert ) {
 	mtrIntake->Set( INTAKE_STOP );
 	clawPick->Set( CLAW_RAISE );
 
-	seqMotionMagic( -0.5, -4.0, 5, 10 );
-	seqDwellOnMotion( .05, 2000 );
-
-	LoadProfile( Switch_Cube, invert, false );
+	LoadProfile( Switch_Cube, !invert, true );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 
+	delay( 5000 );
 
 
 

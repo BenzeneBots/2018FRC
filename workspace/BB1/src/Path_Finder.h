@@ -42,7 +42,7 @@ void Load_Waypoints() {
 	wp[ Side_Switch ].wpLen = 3;
 	wp[ Side_Switch ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
 	wp[ Side_Switch ].wps[1] = { 2.0, 	8.0,	d2r(  90 ) };
-	wp[ Side_Switch ].wps[2] = { -2.0, 	10.0,	d2r(  191) };
+	wp[ Side_Switch ].wps[2] = { -3.0, 	10.0,	d2r(  191) };
 	wp[ Side_Switch ].vel = 5.0;		// max ft/sec
 	wp[ Side_Switch ].accel = 10.0;		// max ft/sec^2
 	wp[ Side_Switch ].jerk = 75.0;		// max ft/sec^3
@@ -106,10 +106,10 @@ void Load_Waypoints() {
 	wp[ Mid_SwitchLeft ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
 	wp[ Mid_SwitchLeft ].wps[1] = { 0.0, 	0.8,	d2r(  90 ) };
 	wp[ Mid_SwitchLeft ].wps[2] = { -3.0, 	2.0,	d2r( 180 ) };
-	wp[ Mid_SwitchLeft ].wps[3] = { -6.5,	4.3,	d2r( 110 ) };
+	wp[ Mid_SwitchLeft ].wps[3] = { -6.0,	6.0,	d2r( 95 ) };
 	wp[ Mid_SwitchLeft ].vel = 5.0;			// max ft/sec
 	wp[ Mid_SwitchLeft ].accel = 5.0;		// max ft/sec^2
-	wp[ Mid_SwitchLeft ].jerk = 50.0;		// max ft/sec^3
+	wp[ Mid_SwitchLeft ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Mid_SwitchLeft ].sTrajLeft, "Mid_LeftSwitchLf.bin" );
 	strcpy( wp[ Mid_SwitchLeft ].sTrajRight, "Mid_LeftSwitchRt.bin" );
 	strcpy( wp[ Mid_SwitchLeft ].sTraj_CSV, "Mid_LeftSwitch.csv" );
@@ -127,10 +127,19 @@ void Load_Waypoints() {
 	strcpy( wp[ Mid_SwitchRight ].sTrajRight, "Mid_RightSwitchRt.bin" );
 	strcpy( wp[ Mid_SwitchRight ].sTraj_CSV, "Mid_RightSwitch.csv" );
 
-	// Right_SwitchMid = Index 6
-	// Define Right to Mid Switch.
+	// Left_SwitchMid = Index 6
+	// Define Left to Mid Cube Pile.
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	wp[ Left_SwitchMid ].wpLen = 0;
+	wp[ Left_SwitchMid ].wpLen = 2;
+	wp[ Left_SwitchMid ].wps[0] = { 0, 	0, 		d2r(  90 ) };
+	wp[ Left_SwitchMid ].wps[1] = { 6.0, -5.0,	d2r(  95 ) };
+	wp[ Left_SwitchMid ].vel = 5.0;			// max ft/sec
+	wp[ Left_SwitchMid ].accel = 10.0;		// max ft/sec^2
+	wp[ Left_SwitchMid ].jerk = 75.0;		// max ft/sec^3
+	strcpy( wp[ Left_SwitchMid ].sTrajLeft, "Left_MidSwitchLf.bin" );
+	strcpy( wp[ Left_SwitchMid ].sTrajRight, "Left_MidSwitchRt.bin" );
+	strcpy( wp[ Left_SwitchMid ].sTraj_CSV, "Left_MidSwitch.csv" );
+
 
 	// Right_SwitchMid = Index 7
 	// Define Right to Mid Switch.
@@ -150,15 +159,17 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Switch_Cube ].wpLen = 4;
 	wp[ Switch_Cube ].wps[0] = { 0, 	0, 		d2r(  90 ) };
-	wp[ Switch_Cube ].wps[1] = { 0.0,	1.0,	d2r(  90 ) };
-	wp[ Switch_Cube ].wps[2] = { -2.0,	4.0,	d2r(  180 ) };
-	wp[ Switch_Cube ].wps[3] = { -4.0,	2.0,	d2r(  275 ) };
+	wp[ Switch_Cube ].wps[1] = { -1.0,	-1.0,	d2r(  0 ) };
+	wp[ Switch_Cube ].wps[2] = { -2.0,	0.0,	d2r(  315 ) };
+	wp[ Switch_Cube ].wps[3] = { -3.0,	2.0,	d2r(  180 ) };
 	wp[ Switch_Cube ].vel = 5.0;			// max ft/sec
 	wp[ Switch_Cube ].accel = 10.0;		// max ft/sec^2
 	wp[ Switch_Cube ].jerk = 100.0;		// max ft/sec^3
 	strcpy( wp[ Switch_Cube ].sTrajLeft, "Switch_CubeLf.bin" );
 	strcpy( wp[ Switch_Cube ].sTrajRight, "Switch_CubeRt.bin" );
 	strcpy( wp[ Switch_Cube ].sTraj_CSV, "Switch_Cube.csv" );
+
+
 }
 
 

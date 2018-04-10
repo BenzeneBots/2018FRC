@@ -47,9 +47,11 @@ bool RunProfile( void ) {
 	// Wait approx 100ms for the profile points to start buffering into the Talons.
 	// Then, turn on the motors in profile mode!
 	if( cnt > 1 ) {
-		// Turn on the motion profile in the Talons!
-		mtrLMaster->Set( ControlMode::MotionProfile, 1 );
-		mtrRMaster->Set( ControlMode::MotionProfile, 1 );
+		if( frc::RobotState::IsEnabled() ) {
+			// Turn on the motion profile in the Talons!
+			mtrLMaster->Set( ControlMode::MotionProfile, 1 );
+			mtrRMaster->Set( ControlMode::MotionProfile, 1 );
+		}
 
 		MotionProfileStatus mpStatus;
 		mtrLMaster->GetMotionProfileStatus( mpStatus );		// Get the MP status from the Talon.
