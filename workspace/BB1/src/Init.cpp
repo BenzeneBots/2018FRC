@@ -85,7 +85,7 @@ void DrivetrainInit( TalonSRX *lm, TalonSRX *ls, TalonSRX *rm, TalonSRX *rs ) {
 		lm->SetInverted( false );
 		ls->SetInverted( false );
 	#else
-		lm->SetSensorPhase( false );
+		lm->SetSensorPhase( true );
 		lm->SetInverted( true );
 		ls->SetInverted( true );
 	#endif
@@ -98,7 +98,7 @@ void DrivetrainInit( TalonSRX *lm, TalonSRX *ls, TalonSRX *rm, TalonSRX *rs ) {
 		rm->SetInverted( true );
 		rs->SetInverted( true );
 	#else
-		rm->SetSensorPhase( false );
+		rm->SetSensorPhase( true );
 		rm->SetInverted( false );
 		rs->SetInverted( false );
 	#endif

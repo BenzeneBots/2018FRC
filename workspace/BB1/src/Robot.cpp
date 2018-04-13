@@ -19,7 +19,7 @@
 
 TalonSRX *mtrLMaster, *mtrLSlave;
 TalonSRX *mtrRMaster, *mtrRSlave;
-//TalonSRX *mtrElavator;
+TalonSRX *mtrElavator;
 Victor *mtrIntake, *mtrClimber;
 
 //CANifier *ultraSensor;
@@ -61,7 +61,7 @@ public:
 		mtrRMaster = new TalonSRX( 4 );				// Right Master
 		mtrRSlave = new TalonSRX( 3 );				// Right Slave
 		gyro = new PigeonIMU( 0 );
-		//mtrElavator = new TalonSRX( 5 );
+		mtrElavator = new TalonSRX( 5 );
 		elevatorSW = new DigitalInput( 0 );			// Home SW / RoboRIO Channel 0.
 		mtrIntake = new Victor( 0 );
 		mtrClimber = new Victor( 8 );
@@ -76,7 +76,7 @@ public:
 		// Initialize the four motors on the drivetrain.
 		DrivetrainInit( mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 
-		//InitElevator( mtrElavator );			// Init the elevator motor.
+		InitElevator( mtrElavator );			// Init the elevator motor.
 		AuxMotorInit( mtrClimber, mtrIntake );	// Init the Climber and Intake motors.
 		GyroInit( gyro );						// Setup the Pigeon Gyro.
 		JoystickInit( joy, joy2 );				// Joysticks Init
@@ -137,7 +137,7 @@ public:
 		}
 
 		// Zeros the elevator position while disabled.
-		//resetElevatorPos( mtrElavator, elevatorSW );
+		resetElevatorPos( mtrElavator, elevatorSW );
 	}
 
 	// ========================================================================
@@ -147,16 +147,14 @@ public:
 
 		AutoInit( mtrLMaster, mtrRMaster, gyro );
 
-		/*
-		std::string sGame = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 
-		//AutonPathId pathIdx = ChooseAuton( sGame );
+		std::string sGame = frc::DriverStation::GetInstance().GetGameSpecificMessage();
 
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
-		AutonPathId pathIdx = ChooseAuton(sGame);
-		*/
-		AutonPathId pathIdx = RightFarScale;	// This line is for testing only.
+		AutonPathId pathIdx = ChooseAuton( sGame );
+
+		//AutonPathId pathIdx = DriveStraight;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
@@ -169,6 +167,7 @@ public:
 	void AutonomousPeriodic() {
 		// The sequencer thread takes care of running all the operations in Auto
 		// mode.  The thread even prints the amount of total time taken to complete.
+		//printf("Gyro Angle %f /n", gyro->GetFusedHeading());
 	}
 
 	// ========================================================================
@@ -214,6 +213,8 @@ public:
 	// For teleop and test, this function does all the "regular" robot operating stuff.
 	// ========================================================================
 	void OpRobot() {
+		double matchTime = DriverStation::GetInstance().GetMatchTime();
+		frc::SmartDashboard::PutNumber("Match Time", matchTime);
 
 		airCompressor->SetClosedLoopControl( COMPRESSOR );
 
@@ -222,7 +223,14 @@ public:
 
 		// Handle all the claw and climber buttons here.
 		ProcessClawButtons( &btns, clawPick, clawClamp, mtrIntake );
-		ProcessClimberButtons( &btns, mtrClimber );
+		//ProcessClimberButtons( &btns, mtrClimber );
+		if(joy2->GetRawButton(12)){
+			mtrClimber->Set(1.0);
+		}else{
+			mtrClimber->Set(0.0);
+		}
+
+		DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
 
 		// Update the smart dashboard.
 		//UpdateSmartDash( gyro, mtrLMaster, mtrRMaster );

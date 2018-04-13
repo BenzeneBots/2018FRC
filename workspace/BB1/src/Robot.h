@@ -19,7 +19,7 @@
 #define COMPRESSOR	true
 
 // UnComment for Practice Bot
-#define PRACTICE_BOT
+//#define PRACTICE_BOT
 
 #define NUM_PATHS	9	// There are six possible paths in Auto mode.
 
@@ -85,6 +85,11 @@ enum pov {
 	povSW = 225, 
 	povW = 270, 
 	povNW = 315
+};
+enum elevatorHeight{
+	Ground,
+	SwitchHeight,
+	ScaleHeight
 };
 
 

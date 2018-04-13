@@ -60,7 +60,7 @@ void ArcadeDrive( struct btns *b ) {
 
 
 	#ifdef XBOX
-		steer = joy->GetRawAxis( 4 );
+		steer = -1.0 * joy->GetRawAxis( 4 );
 		twist = 0.0;
 		throttle = driveRevFactor * -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
 	#else
