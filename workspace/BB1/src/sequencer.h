@@ -262,7 +262,7 @@ void seqMid_LeftSwitch() {
 	clawClamp->Set( CLAW_OPEN );
 
 	mtrIntake->Set( INTAKE_SP );
-	seqMotionMagic( 2.7, 2.7, 5, 10 );
+	seqMotionMagic( 3.0, 3.0, 5, 10 );
 	delay( 200  );
 	seqDwellOnMotion( .02, 2000 );
 
@@ -348,18 +348,23 @@ void seqSide_Scale( bool invert ) {
 
 	//TODO Add Elevator Logic
 
+	seqMotionMagic( 1.0, 1.0, 5.0, 10.0 );
+	delay( 500 );
+
+	/*
 	double reverse = 1.0;
 	if( invert ) reverse = -1.0;
 
 	seqMotionMagic( reverse*-2.0, reverse*2.0, 4, 10 );
 	seqDwellOnMotion( .03, 2000 );
+	*/
 }
 
 void seqTestFunction() {
 	printf( "Starting Test Function\n" );
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 
-	seqMotionMagic( -2.0, 2.0, 4, 10 );
+	seqMoveElevator(SwitchHeight);
 }
 
 // ============================================================================

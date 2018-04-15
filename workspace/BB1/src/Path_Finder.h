@@ -56,11 +56,11 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Side_Scale ].wpLen = 3;		// Zero points means not yet defined.
 	wp[ Side_Scale ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
-	wp[ Side_Scale ].wps[1] = { 1.0, 	20.0,	d2r(  90 ) };
-	wp[ Side_Scale ].wps[2] = { -2.5, 	23.0,	d2r(  170 ) };
-	wp[ Side_Scale ].vel = 9.5;			// max ft/sec
-	wp[ Side_Scale ].accel = 15.0;		// max ft/sec^2
-	wp[ Side_Scale ].jerk = 100.0;		// max ft/sec^3
+	wp[ Side_Scale ].wps[1] = { 2.0, 	20.0,	d2r(  90 ) };
+	wp[ Side_Scale ].wps[2] = { 0.5, 	23.0,	d2r(  180 ) };
+	wp[ Side_Scale ].vel = 5.0;			// max ft/sec
+	wp[ Side_Scale ].accel = 10.0;		// max ft/sec^2
+	wp[ Side_Scale ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Side_Scale ].sTrajLeft, "Side_ScaleLf.bin" );
 	strcpy( wp[ Side_Scale ].sTrajRight, "Side_ScaleRt.bin" );
 	strcpy( wp[ Side_Scale ].sTraj_CSV, "Side_Scale.csv" );
@@ -119,7 +119,7 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Mid_SwitchRight ].wpLen = 2;
 	wp[ Mid_SwitchRight ].wps[0] = { 0, 	0, 		d2r(  90 ) };
-	wp[ Mid_SwitchRight ].wps[1] = { 4.2,	7.7,	d2r(  90 ) };
+	wp[ Mid_SwitchRight ].wps[1] = { 4.2,	7.9,	d2r(  90 ) };
 	wp[ Mid_SwitchRight ].vel = 5.0;			// max ft/sec
 	wp[ Mid_SwitchRight ].accel = 10.0;		// max ft/sec^2
 	wp[ Mid_SwitchRight ].jerk = 100.0;		// max ft/sec^3
@@ -146,7 +146,7 @@ void Load_Waypoints() {
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	wp[ Right_SwitchMid ].wpLen = 2;
 	wp[ Right_SwitchMid ].wps[0] = { 0, 	0, 		d2r(  90 ) };
-	wp[ Right_SwitchMid ].wps[1] = { -5.1,	-5.0,	d2r(  95 ) };
+	wp[ Right_SwitchMid ].wps[1] = { -4.3,	-5.0,	d2r(  95 ) };
 	wp[ Right_SwitchMid ].vel = 5.0;			// max ft/sec
 	wp[ Right_SwitchMid ].accel = 10.0;		// max ft/sec^2
 	wp[ Right_SwitchMid ].jerk = 100.0;		// max ft/sec^3

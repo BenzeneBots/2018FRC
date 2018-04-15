@@ -154,7 +154,7 @@ public:
 
 		AutonPathId pathIdx = ChooseAuton( sGame );
 
-		//AutonPathId pathIdx = DriveStraight;	// This line is for testing only.
+		//AutonPathId pathIdx = CenterRightSwitch;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
