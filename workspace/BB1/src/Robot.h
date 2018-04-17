@@ -19,7 +19,7 @@
 #define COMPRESSOR	true
 
 // UnComment for Practice Bot
-//#define PRACTICE_BOT
+#define PRACTICE_BOT
 
 #define NUM_PATHS	9	// There are six possible paths in Auto mode.
 
@@ -42,8 +42,8 @@ struct btns {
 
 // Primary Joystick Button Defs
 enum joyBtn { unknown = -1,
-	reverse = 1, strait = 2, clawClose = 3, clawOpen = 4, five = 5,
-	revDir = 6, intake = 7, tankDrive = 8, nine = 9,
+	reverse = 1, strait = 2, clawClose = 3, clawOpen = 4, clockwiseTurn = 5,
+	counterTurn = 6, intake = 7, tankDrive = 8, nine = 9,
 	ten = 10, eleven = 11, climber = 12
 };
 

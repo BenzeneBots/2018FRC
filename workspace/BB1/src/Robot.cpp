@@ -19,7 +19,9 @@
 
 TalonSRX *mtrLMaster, *mtrLSlave;
 TalonSRX *mtrRMaster, *mtrRSlave;
+#ifndef PRACTICE_BOT
 TalonSRX *mtrElavator;
+#endif
 Victor *mtrIntake, *mtrClimber;
 
 //CANifier *ultraSensor;
@@ -61,7 +63,9 @@ public:
 		mtrRMaster = new TalonSRX( 4 );				// Right Master
 		mtrRSlave = new TalonSRX( 3 );				// Right Slave
 		gyro = new PigeonIMU( 0 );
+#ifndef PRACTICE_BOT
 		mtrElavator = new TalonSRX( 5 );
+#endif
 		elevatorSW = new DigitalInput( 0 );			// Home SW / RoboRIO Channel 0.
 		mtrIntake = new Victor( 0 );
 		mtrClimber = new Victor( 8 );
@@ -76,7 +80,9 @@ public:
 		// Initialize the four motors on the drivetrain.
 		DrivetrainInit( mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 
+#ifndef PRACTICE_BOT
 		InitElevator( mtrElavator );			// Init the elevator motor.
+#endif
 		AuxMotorInit( mtrClimber, mtrIntake );	// Init the Climber and Intake motors.
 		GyroInit( gyro );						// Setup the Pigeon Gyro.
 		JoystickInit( joy, joy2 );				// Joysticks Init
@@ -137,7 +143,9 @@ public:
 		}
 
 		// Zeros the elevator position while disabled.
+#ifndef PRACTICE_BOT
 		resetElevatorPos( mtrElavator, elevatorSW );
+#endif
 	}
 
 	// ========================================================================
@@ -152,9 +160,9 @@ public:
 
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
-		AutonPathId pathIdx = ChooseAuton( sGame );
+		//AutonPathId pathIdx = ChooseAuton( sGame );
 
-		//AutonPathId pathIdx = CenterRightSwitch;	// This line is for testing only.
+		AutonPathId pathIdx = TestFunction; //CenterLeftSwitch;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
@@ -167,7 +175,7 @@ public:
 	void AutonomousPeriodic() {
 		// The sequencer thread takes care of running all the operations in Auto
 		// mode.  The thread even prints the amount of total time taken to complete.
-		//printf("Gyro Angle %f /n", gyro->GetFusedHeading());
+		printf("Gyro Angle %f /n", gyro->GetFusedHeading());
 	}
 
 	// ========================================================================
@@ -229,9 +237,9 @@ public:
 		}else{
 			mtrClimber->Set(0.0);
 		}
-
+#ifndef PRACTICE_BOT
 		DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
-
+#endif
 		// Update the smart dashboard.
 		//UpdateSmartDash( gyro, mtrLMaster, mtrRMaster );
 	}

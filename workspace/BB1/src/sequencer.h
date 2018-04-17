@@ -95,7 +95,9 @@ void seqMoveElevator( int height ){
 		break;
 	}
 
+#ifndef PRACTICE_BOT
 	DriveElevator( 0, mtrElavator , elevatorSW, &btns );
+#endif
 }
 
 // Simply dwell until X percent of the Motion Magic motion is done.  Or, a timeout
@@ -251,6 +253,11 @@ void seqMid_LeftSwitch() {
 	// Deploy cube by reversing intake.
 	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
 	clawPick->Set( CLAW_NEUTRAL );
+
+	// Switch back to open-loop to get rid of the glitch.
+	mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
+	mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
+
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );				delay( 500 );
 
@@ -364,7 +371,7 @@ void seqTestFunction() {
 	printf( "Starting Test Function\n" );
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 
-	seqMoveElevator(SwitchHeight);
+	seqMotionMagic(-4.0,4.0,5,15);
 }
 
 // ============================================================================
