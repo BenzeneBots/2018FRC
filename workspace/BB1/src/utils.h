@@ -13,7 +13,7 @@
 #include <Robot.h>
 
 
-void UpdateSmartDash( PigeonIMU *gyro, TalonSRX *lf, TalonSRX *rt );
+void UpdateSmartDash( PigeonIMU *gyro, TalonSRX *lf, TalonSRX *rt, Joystick *joy );
 void RotateBase( TalonSRX *lf, TalonSRX *rt, PigeonIMU *gyro );
 void RebuildMotionProfiles( void );
 

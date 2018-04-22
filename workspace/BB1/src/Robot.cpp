@@ -160,9 +160,11 @@ public:
 
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
-		//AutonPathId pathIdx = ChooseAuton( sGame );
-
-		AutonPathId pathIdx = TestFunction; //CenterLeftSwitch;	// This line is for testing only.
+		#ifndef PRACTICE_BOT
+				AutonPathId pathIdx = ChooseAuton( sGame );
+		#else
+				AutonPathId pathIdx = CenterLeftSwitch; //CenterLeftSwitch;	// This line is for testing only.
+		#endif
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
@@ -175,7 +177,7 @@ public:
 	void AutonomousPeriodic() {
 		// The sequencer thread takes care of running all the operations in Auto
 		// mode.  The thread even prints the amount of total time taken to complete.
-		printf("Gyro Angle %f /n", gyro->GetFusedHeading());
+		//printf("Gyro Angle %f /n", gyro->GetFusedHeading());
 	}
 
 	// ========================================================================
@@ -237,11 +239,13 @@ public:
 		}else{
 			mtrClimber->Set(0.0);
 		}
-#ifndef PRACTICE_BOT
-		DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
-#endif
-		// Update the smart dashboard.
-		//UpdateSmartDash( gyro, mtrLMaster, mtrRMaster );
+
+		#ifndef PRACTICE_BOT
+			DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
+		#else
+			// Update the smart dashboard.
+			UpdateSmartDash( gyro, mtrLMaster, mtrRMaster, joy );
+		#endif
 	}
 };
 

@@ -101,11 +101,14 @@ void RotateBase( TalonSRX *lf, TalonSRX *rt, PigeonIMU *gyro ) {
 
 
 // ============================================================================
-void UpdateSmartDash( PigeonIMU *gyro, TalonSRX *lf, TalonSRX *rt ) {
+void UpdateSmartDash( PigeonIMU *gyro, TalonSRX *lf, TalonSRX *rt, Joystick *joy ) {
 
-	SmartDashboard::PutNumber( "chartOne", gyro->GetFusedHeading() * 100 );
-	SmartDashboard::PutNumber( "chartTwo", lf->GetSelectedSensorVelocity(0) );
-	SmartDashboard::PutNumber( "chartThree", rt->GetSelectedSensorVelocity( 0 ) );
+	SmartDashboard::PutNumber( "chartOne", joy->GetY( frc::GenericHID::JoystickHand::kRightHand ) );
+	SmartDashboard::PutNumber( "chartTwo", 0 );
+	SmartDashboard::PutNumber( "chartThree", 0 );
+	//SmartDashboard::PutNumber( "chartOne", gyro->GetFusedHeading() * 100 );
+	//SmartDashboard::PutNumber( "chartTwo", lf->GetSelectedSensorVelocity(0) );
+	//SmartDashboard::PutNumber( "chartThree", rt->GetSelectedSensorVelocity( 0 ) );
 
 	SmartDashboard::PutNumber( "imuHeading", gyro->GetFusedHeading() );
 }
