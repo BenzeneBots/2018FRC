@@ -12,6 +12,9 @@
 #include "ctre/Phoenix.h"
 #include <pathfinder.h>
 
+#define FTTONU					2607.6		// Conversion factor for ft to nu.
+#define FTPERSECTONUPER100MS	260.76		// Conversion factor for Ft/sec to NU/100ms.
+
 TrajectoryDuration GetTrajectoryDuration( int durationMs );
 
 MotionProfileStatus mpStatus;
@@ -46,7 +49,7 @@ bool RunProfile( void ) {
 
 	// Wait approx 100ms for the profile points to start buffering into the Talons.
 	// Then, turn on the motors in profile mode!
-	if( cnt > 1 ) {
+	if( cnt > 5 ) {
 		if( frc::RobotState::IsEnabled() ) {
 			// Turn on the motion profile in the Talons!
 			mtrLMaster->Set( ControlMode::MotionProfile, 1 );
@@ -84,6 +87,10 @@ bool RunProfile( void ) {
 void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 	char s[120];
 	double dir=1.0;		// Assume forward.
+
+	#ifdef PRACTICE_BOT
+		flgMirror = !flgMirror;
+	#endif
 
 	// Automatically mirror if running backwards.
 	if( flgReverse ) flgMirror = !flgMirror;
@@ -130,8 +137,8 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 		TrajectoryPoint point;
 
 		/* for each point, fill our structure and pass it to API */
-		point.position = positionRot * 2607.6 * dir;  // Convert ft to nu.
-		point.velocity = velocityRPM * 260.76 * dir; 	// Convert ft/s to nu/100ms
+		point.position = positionRot * FTTONU * dir;  				// Convert ft to nu.
+		point.velocity = velocityRPM * FTPERSECTONUPER100MS * dir; 	// Convert ft/s to nu/100ms
 		point.headingDeg = 0; /* future feature - not used in this example*/
 		point.profileSlotSelect0 = 0; /* which set of gains would you like to use [0,3]? */
 		point.profileSlotSelect1 = 0; /* future feature  - not used in this example - cascaded PID [0,1], leave zero */
@@ -151,8 +158,8 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 		s = rightTraj[i];
 		positionRot = s.position;
 		velocityRPM = s.velocity;
-		point.position = positionRot * 2607.6 * dir;  // Convert ft to nu.
-		point.velocity = velocityRPM * 260.76 * dir; 	// Convert ft/s to nu/100ms
+		point.position = positionRot * FTTONU * dir;  				// Convert ft to nu.
+		point.velocity = velocityRPM * FTPERSECTONUPER100MS * dir; 	// Convert ft/s to nu/100ms
 
 		// If flag is true, switch which sides of the drivetrain.
 		if( flgMirror )

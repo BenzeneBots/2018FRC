@@ -55,11 +55,12 @@ bool resetElevatorPos( TalonSRX *mtr, DigitalInput *sw ) {
 void DriveElevator( double fMove, TalonSRX *mtr, DigitalInput *sw, struct btns *btns) {
 	static bool flgStop = false;
 	int rate = 0;
+	static int cnt=0;
 
 	// On button press, jump the target position to the given height.
-	if( btns->btnPress2[eHome2] ) setElevatorPos( 0 );
-	if( btns->btnPress2[eSwitch2] ) setElevatorPos( 4000 );
-	if( btns->btnPress2[eScale2] ) setElevatorPos( 8000 );
+	//if( btns->btnPress2[eHome2] ) setElevatorPos( 0 );
+	//if( btns->btnPress2[eSwitch2] ) setElevatorPos( 4000 );
+	//if( btns->btnPress2[eScale2] ) setElevatorPos( 8000 );
 
 	// On neutral move, stop adjusting stuff!
 	if( fabs(fMove) < 0.2 ) {		// Deadband of 20% on the move desire.
@@ -73,9 +74,18 @@ void DriveElevator( double fMove, TalonSRX *mtr, DigitalInput *sw, struct btns *
 	else {
 		flgStop = false;
 		// fMove ranges from +1.0 to -1.0;
-		posTar += fMove * 200;	// Add or subtract to the desired position target.
+		if(fMove>=0){
+			posTar += fMove * 200;	// Add or subtract to the desired position target.
+		}else{
+			posTar += fMove * 200;
+		}
+
 		if( posTar > MAX_CNTS )	 posTar = MAX_CNTS;	// Clamp target to acceptable range.
 		if( posTar < HOME_CNTS ) posTar = HOME_CNTS;
+		if( ++cnt > 20 ) {
+			printf( "posTar: %d\n", posTar );
+			cnt = 0;
+		}
 	}
 
 	rate = fabs(fMove) * 250;	// Scale the rate of change into 0 to 150cnts per loop.

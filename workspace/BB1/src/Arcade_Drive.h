@@ -58,9 +58,29 @@ void ArcadeDrive( struct btns *b ) {
 		wasRevButtonPressed = false;
 	}
 
+	/*if(b->btn[clockwiseTurn]){
+		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
+		mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
+
+		double vel = 5;
+		double accel = 15;
+		mtrLMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
+		mtrRMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
+		mtrLMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
+		mtrRMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
+
+			// Convert distance in feet to native units (4096cnt/rev).
+		mtrLMaster->Set( ControlMode::MotionMagic, 10428.0 );
+		mtrRMaster->Set( ControlMode::MotionMagic, -10428.0 );
+	}*/
+
 
 	#ifdef XBOX
-		steer = joy->GetRawAxis( 4 );
+		#ifdef PRACTICE_BOT
+			steer = +1.0 * joy->GetRawAxis( 4 );
+		#else
+			steer = -1.0 * joy->GetRawAxis( 4 );
+		#endif
 		twist = 0.0;
 		throttle = driveRevFactor * -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
 	#else
