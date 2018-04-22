@@ -77,7 +77,7 @@ void ArcadeDrive( struct btns *b ) {
 		if( b->btnPress[ strait ] ) headingTar = heading;
 		double err = heading - headingTar;
 		// Dump normal steering and twist inputs / Use gyro to drive strait instead.
-		steer = fLimitVal( -0.5, err * 0.05, 0.5 );
+		steer = fLimitVal( -0.85, err * 0.05, 0.85 );
 		twist = 0.0;	// Don't allow twist inputs while in this mode.
 	}
 	// Else, allow turning with joystick and twisting combined.
