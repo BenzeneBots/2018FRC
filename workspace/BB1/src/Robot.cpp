@@ -145,9 +145,9 @@ public:
 		}
 
 		// Zeros the elevator position while disabled.
-#ifndef PRACTICE_BOT
-		resetElevatorPos( mtrElavator, elevatorSW );
-#endif
+		#ifndef PRACTICE_BOT
+			resetElevatorPos( mtrElavator, elevatorSW );
+		#endif
 	}
 
 	// ========================================================================
@@ -162,18 +162,14 @@ public:
 
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
-<<<<<<< HEAD
 		//AutonPathId pathIdx = ChooseAuton( sGame );
+		AutonPathId pathIdx;
 
-		AutonPathId pathIdx = LeftNearScale; //CenterLeftSwitch;	// This line is for testing only.
-=======
 		#ifndef PRACTICE_BOT
-				AutonPathId pathIdx = ChooseAuton( sGame );
+				pathIdx = ChooseAuton( sGame );
 		#else
-				AutonPathId pathIdx = CenterLeftSwitch; //CenterLeftSwitch;	// This line is for testing only.
+				 pathIdx = CenterLeftSwitch; //CenterLeftSwitch;	// This line is for testing only.
 		#endif
->>>>>>> c0dd784160f82884fc17d701d4d4197f85d43f1d
-
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
 
