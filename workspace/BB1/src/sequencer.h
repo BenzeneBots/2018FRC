@@ -254,10 +254,6 @@ void seqMid_LeftSwitch() {
 	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
 	clawPick->Set( CLAW_NEUTRAL );
 
-	// Switch back to open-loop to get rid of the glitch.
-	mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
-	mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
-
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );				delay( 500 );
 

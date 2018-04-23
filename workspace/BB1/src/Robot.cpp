@@ -162,9 +162,17 @@ public:
 
 		printf("Chosen Auton is %i \n", ChooseAuton( sGame ));
 
+<<<<<<< HEAD
 		//AutonPathId pathIdx = ChooseAuton( sGame );
 
 		AutonPathId pathIdx = LeftNearScale; //CenterLeftSwitch;	// This line is for testing only.
+=======
+		#ifndef PRACTICE_BOT
+				AutonPathId pathIdx = ChooseAuton( sGame );
+		#else
+				AutonPathId pathIdx = CenterLeftSwitch; //CenterLeftSwitch;	// This line is for testing only.
+		#endif
+>>>>>>> c0dd784160f82884fc17d701d4d4197f85d43f1d
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
@@ -227,11 +235,13 @@ public:
 		}else{
 			mtrClimber->Set(0.0);
 		}
-#ifndef PRACTICE_BOT
-		DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
-#endif
-		// Update the smart dashboard.
-		//UpdateSmartDash( gyro, mtrLMaster, mtrRMaster );
+
+		#ifndef PRACTICE_BOT
+			DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
+		#else
+			// Update the smart dashboard.
+			UpdateSmartDash( gyro, mtrLMaster, mtrRMaster, joy );
+		#endif
 	}
 };
 
