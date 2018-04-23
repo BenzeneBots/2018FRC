@@ -12,6 +12,8 @@
 
 #define MAX_SPEED	1.0	// Limit Drive Speed to X%.
 
+
+
 /*
 #ifdef PRACTICE_BOT
 double fwdMult = -1.0;
@@ -38,6 +40,60 @@ void setDriveMtrSp( float mtrLeftSp, float mtrRightSp ) {
 	mtrRMaster->Set( ControlMode::PercentOutput, mtrRightSp );
 }
 
+//	On primary joystick, perform 180 degree turn when button is pressed
+// ========================================================================
+void turn180 (struct btns *b) {
+
+	static bool turningState = false;
+	static double turnRevFactor = 1.0;
+
+	if(b->btn[clockwiseTurn]){
+		turningState = true ;
+		turnRevFactor = 1.0 ;
+
+		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
+		mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
+
+		double vel = 5;
+		double accel = 15;
+		mtrLMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
+		mtrRMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
+		mtrLMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
+		mtrRMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
+		turnTimer->Reset();
+		turnTimer->Start();
+	}
+	if(b->btn[counterTurn]){
+		turningState = true ;
+		turnRevFactor = -1.0 ;
+
+		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
+		mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
+
+		double vel = 5;
+		double accel = 15;
+		mtrLMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
+		mtrRMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
+		mtrLMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
+		mtrRMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
+		turnTimer->Reset();
+		turnTimer->Start();
+	}
+
+	if(turningState){
+		mtrLMaster->Set( ControlMode::MotionMagic, turnRevFactor * -10428.0 );
+		mtrRMaster->Set( ControlMode::MotionMagic, turnRevFactor * 10428.0 );
+
+		if((fabs(mtrLMaster->GetSensorCollection().GetQuadratureVelocity())<=150)&&(turnTimer->Get()>=0.5)){
+			mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
+			mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
+			mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
+			mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
+			turnTimer->Stop();
+			turningState = false;
+		}
+	}
+}
 
 //	On primary joystick, perform regular arcade style driving.
 // ========================================================================
@@ -57,23 +113,6 @@ void ArcadeDrive( struct btns *b ) {
 	else if(!(b->btn[reverse])){
 		wasRevButtonPressed = false;
 	}
-
-	/*if(b->btn[clockwiseTurn]){
-		mtrLMaster->SetSelectedSensorPosition( 0, 0, 0 );
-		mtrRMaster->SetSelectedSensorPosition( 0, 0, 0 );
-
-		double vel = 5;
-		double accel = 15;
-		mtrLMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
-		mtrRMaster->ConfigMotionCruiseVelocity( vel * 260.9, 0 );
-		mtrLMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
-		mtrRMaster->ConfigMotionAcceleration( accel * 260.9, 0 );
-
-			// Convert distance in feet to native units (4096cnt/rev).
-		mtrLMaster->Set( ControlMode::MotionMagic, 10428.0 );
-		mtrRMaster->Set( ControlMode::MotionMagic, -10428.0 );
-	}*/
-
 
 	#ifdef XBOX
 		#ifdef PRACTICE_BOT
@@ -112,6 +151,9 @@ void ArcadeDrive( struct btns *b ) {
 	lf = throttle + steer;		// Calculate left and right motor speeds.
 	rt = throttle - steer;
 	setDriveMtrSp( lf, rt);
+
+
+	turn180(b);
 }
 
 

@@ -23,6 +23,7 @@ TalonSRX *mtrRMaster, *mtrRSlave;
 TalonSRX *mtrElavator;
 #endif
 Victor *mtrIntake, *mtrClimber;
+Timer* turnTimer;
 
 //CANifier *ultraSensor;
 
@@ -74,6 +75,7 @@ public:
 		joy2 = new Joystick( 1 );
 		clawClamp = new Solenoid( 0 );				// Cube clamping cylinders.
 		clawPick = new DoubleSolenoid( 1, 2 );		// Claw raise / lower.
+		turnTimer = new Timer();
 		//ultraSensor = new CANifier( 10 );
 
 
@@ -162,7 +164,7 @@ public:
 
 		//AutonPathId pathIdx = ChooseAuton( sGame );
 
-		AutonPathId pathIdx = TestFunction; //CenterLeftSwitch;	// This line is for testing only.
+		AutonPathId pathIdx = LeftNearScale; //CenterLeftSwitch;	// This line is for testing only.
 
     	seqInit( pathIdx );					// Init auto sequencer task.
 		enAutoSeq( true );				// Start the sequencer.
@@ -175,7 +177,7 @@ public:
 	void AutonomousPeriodic() {
 		// The sequencer thread takes care of running all the operations in Auto
 		// mode.  The thread even prints the amount of total time taken to complete.
-		printf("Gyro Angle %f /n", gyro->GetFusedHeading());
+		//printf("Gyro Angle %f /n", gyro->GetFusedHeading());
 	}
 
 	// ========================================================================
@@ -200,18 +202,6 @@ public:
 	void TestPeriodic() {
 		//static uint32_t cnt=0;
 		OpRobot();	// This handles all the regular robot operations.
-
-		/*
-		if( ++cnt > 10 ) {
-			double duty[4];
-			ultraSensor->GetPWMInput( CANifier::PWMChannel0, duty );
-			printf( "Dist: %0.2f\n", duty[0] );
-			cnt = 0;
-			SmartDashboard::PutNumber( "chartOne", duty[0] );
-			SmartDashboard::PutNumber( "chartTwo", 0 );
-			SmartDashboard::PutNumber( "chartThree", 0 );
-		}
-		*/
 
 		// Recalculate all the motion profile trajectories on a button press.
 		if( btns.btn2[ eight2 ] )
