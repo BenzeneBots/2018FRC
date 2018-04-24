@@ -51,7 +51,8 @@ void ProcessClawButtons(struct btns *b, DoubleSolenoid *cp, Solenoid *cc, Victor
 	double ejectSp = joy->GetRawAxis( 3 );		// Driver eject speed.
 	double intakeSp = joy->GetRawAxis( 2 );		// Driver eject speed.
 
-	BenzeneIntake(b->pov2,cc,cp,it,ejectSp,intakeSp,b->btn2[ intake2 ],b->btn2[ eject2 ],b->btnPress2[ clawOpen2 ],b->btnPress2[ clawClose2 ]);
+	BenzeneIntake( b->pov2, cc, cp, it, ejectSp, intakeSp, b->btn2[ intake2 ], b->btn2[ eject2 ],
+			b->btnPress2[ clawOpen2 ], b->btnPress2[ clawClose2 ] );
 #else
 	// Run intake motor according to the buttons.
 	if( b->btn[ intake ] || b->btn2[ intake2 ] )

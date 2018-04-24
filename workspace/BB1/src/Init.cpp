@@ -147,9 +147,17 @@ void DrivetrainInit( TalonSRX *lm, TalonSRX *ls, TalonSRX *rm, TalonSRX *rs ) {
 	lm->ChangeMotionControlFramePeriod( TrajectoryDuration_10ms / 2 );
 	rm->ChangeMotionControlFramePeriod( TrajectoryDuration_10ms / 2 );
 
+	// Minimum of 100ms to go full speed in close-loop mode.
 	lm->ConfigClosedloopRamp( 0.1, kTO );
 	rm->ConfigClosedloopRamp( 0.1, kTO );
 
+	// Makes it easy to push the robot around (brake mode off).  The brakes
+	// get turned on in teleop mode.
 	lm->SetNeutralMode( NeutralMode::Coast );
 	rm->SetNeutralMode( NeutralMode::Coast );
+
+	// Default lower limit on open-loop percent output.  This keeps the motor
+	// controller from outputting a voltage when the robot is not moving.
+	lm->ConfigNeutralDeadband( 0.01, kTO );
+	rm->ConfigNeutralDeadband( 0.01, kTO );
 }

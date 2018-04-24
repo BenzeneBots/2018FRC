@@ -38,6 +38,12 @@ void setDriveMtrSp( float mtrLeftSp, float mtrRightSp ) {
 
 	mtrRightSp = fLimitVal( -MAX_SPEED, mtrRightSp, MAX_SPEED );
 	mtrRMaster->Set( ControlMode::PercentOutput, mtrRightSp );
+
+	static int cnt=0;
+	if( ++cnt > 50 ) {
+		cnt = 0;
+		printf( "Sp: %0.3f   %0.3f\n", mtrLeftSp, mtrRightSp );
+	}
 }
 
 //	On primary joystick, perform 180 degree turn when button is pressed
@@ -128,6 +134,8 @@ void ArcadeDrive( struct btns *b ) {
 		throttle = -1.0 * joy->GetY( frc::GenericHID::JoystickHand::kRightHand );
 		twist = joy->GetTwist();
 	#endif
+
+	if( fabs(throttle) <= 0.01 ) throttle = 0.0;	// Deadband the throttle joystick value.
 
 	// If joystick thumb button for strait driving is pressed...
 	if( b->btn[ strait ] ) {
