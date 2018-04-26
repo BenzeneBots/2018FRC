@@ -25,6 +25,8 @@ TalonSRX *mtrElavator;
 Victor *mtrIntake, *mtrClimber;
 Timer* turnTimer;
 
+
+
 //CANifier *ultraSensor;
 
 Joystick *joy, *joy2;
@@ -40,6 +42,8 @@ gains mpGains;							// PID Gains for Motion Profiling.
 
 #include <Path_Finder.h>
 
+double elevatorOverrideSp=1.0;
+
 Segment leftTraj[ 2048 ];				// Current trajectories are stored here.
 Segment rightTraj[ 2048 ];
 
@@ -51,6 +55,7 @@ int cntDisable = 0;
 #include <sequencer.h>
 #include <AutonChooser.h>
 #include <intake.h>
+
 
 
 class Robot : public TimedRobot {

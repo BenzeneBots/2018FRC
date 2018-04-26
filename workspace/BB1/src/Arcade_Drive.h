@@ -12,8 +12,6 @@
 
 #define MAX_SPEED	1.0	// Limit Drive Speed to X%.
 
-
-
 /*
 #ifdef PRACTICE_BOT
 double fwdMult = -1.0;
@@ -39,11 +37,11 @@ void setDriveMtrSp( float mtrLeftSp, float mtrRightSp ) {
 	mtrRightSp = fLimitVal( -MAX_SPEED, mtrRightSp, MAX_SPEED );
 	mtrRMaster->Set( ControlMode::PercentOutput, mtrRightSp );
 
-	static int cnt=0;
-	if( ++cnt > 50 ) {
-		cnt = 0;
-		printf( "Sp: %0.3f   %0.3f\n", mtrLeftSp, mtrRightSp );
-	}
+	//static int cnt=0;
+	//if( ++cnt > 50 ) {
+	//	cnt = 0;
+	//	printf( "Sp: %0.3f   %0.3f\n", mtrLeftSp, mtrRightSp );
+	//}
 }
 
 //	On primary joystick, perform 180 degree turn when button is pressed
@@ -156,8 +154,8 @@ void ArcadeDrive( struct btns *b ) {
 		steer += (twist * 0.50);		// Scale twist down by 50% then add to steer.
 	}
 
-	lf = throttle + steer;		// Calculate left and right motor speeds.
-	rt = throttle - steer;
+	lf = elevatorOverrideSp * (throttle + steer);		// Calculate left and right motor speeds.
+	rt = elevatorOverrideSp * (throttle - steer);
 	setDriveMtrSp( lf, rt);
 
 

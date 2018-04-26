@@ -94,9 +94,6 @@ bool Intake::IsClawOpen(){
 void Intake::BenzeneIntake(double joyPOV){
 	// Push POV up to raise claw.
 	//angleActuator->Set( DoubleSolenoid::kReverse );
-	printf("MidStatus %f \n", midStatus);
-	printf("POV %f \n", joyPOV);
-	printf("IntakeDeployedStatus %f \n", intakeDeployedStatus);
 	if( joyPOV == 180 ) { //Claw is stowed
 		midStatus = 0;
 		clawTimer->Reset();

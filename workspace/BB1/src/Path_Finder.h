@@ -57,7 +57,7 @@ void Load_Waypoints() {
 	wp[ Side_Scale ].wpLen = 3;		// Zero points means not yet defined.
 	wp[ Side_Scale ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
 	wp[ Side_Scale ].wps[1] = { 2.0, 	20.0,	d2r(  90 ) };
-	wp[ Side_Scale ].wps[2] = { 0.5, 	23.0,	d2r(  180 ) };
+	wp[ Side_Scale ].wps[2] = { 0.5, 	24.0,	d2r(  180 ) };
 	wp[ Side_Scale ].vel = 5.0;			// max ft/sec
 	wp[ Side_Scale ].accel = 10.0;		// max ft/sec^2
 	wp[ Side_Scale ].jerk = 75.0;		// max ft/sec^3

@@ -18,8 +18,8 @@
 // Set true to enable the compressor.
 #define COMPRESSOR	true
 
-// UnComment for Practice Bot
-#define PRACTICE_BOT
+// Comment for Practice Bot
+//#define PRACTICE_BOT
 
 #define NUM_PATHS	9	// There are six possible paths in Auto mode.
 
@@ -32,6 +32,7 @@ enum AutonPathId {
 	TestFunction, unknownPathID
 };
 typedef AutonPathId AutonPathId;
+
 
 // Store all the buttons from all the joysticks in this one structure.
 struct btns {

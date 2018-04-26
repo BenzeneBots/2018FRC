@@ -349,10 +349,37 @@ void seqSide_Scale( bool invert ) {
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 
-	//TODO Add Elevator Logic
-
 	seqMotionMagic( 1.0, 1.0, 5.0, 10.0 );
-	delay( 500 );
+	delay( 5200 );
+
+	//TODO Add Elevator Logic
+	setElevatorPos( 16000 / 2 );
+	int cnt = 0;
+	while( mtrElavator->GetSelectedSensorPosition(0) < 7000 ) {
+		DriveElevator( 0, mtrElavator, elevatorSW, &btns );
+		delay(20);
+		if( ++cnt > 200 )
+			break;
+	}
+
+	// Deploy cube by reversing intake.
+	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
+	clawPick->Set( CLAW_NEUTRAL );
+
+	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
+	mtrIntake->Set( INTAKE_STOP );				delay( 500 );
+
+	clawPick->Set( CLAW_RAISE );				delay( CLAW_DEPLAY_SM );
+
+	setElevatorPos( 0 );
+	cnt = 0;
+	while( mtrElavator->GetSelectedSensorPosition(0) > 500 ) {
+		DriveElevator( 0, mtrElavator, elevatorSW, &btns );
+		delay(20);
+		if( ++cnt > 200 )
+			break;
+	}
+
 
 	/*
 	double reverse = 1.0;

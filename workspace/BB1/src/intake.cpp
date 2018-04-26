@@ -15,6 +15,7 @@ Timer *deployTimer;
 Timer *clawTimer;
 bool deployStatus;
 double midStatus;
+static bool wasIntaking = false;
 
 // ============================================================================
 void IntakeInit( DoubleSolenoid *cp ) {
@@ -34,7 +35,6 @@ void IntakeInit( DoubleSolenoid *cp ) {
 
 // ============================================================================
 void CheesyIntake(Victor *it, double ejectSp, double intakeSp, bool intake2, bool eject2 ) {
-	static bool wasIntaking = false;
 	// Run intake motor according to the buttons.
 	if ( ejectSp > 0.05 || eject2) {
 			if( ejectSp < 0.05 ) it->Set( 1.0 );
@@ -47,7 +47,8 @@ void CheesyIntake(Victor *it, double ejectSp, double intakeSp, bool intake2, boo
 		wasIntaking = true;
 	}
 	else if( wasIntaking ) {
-		it->Set( -0.13 );
+		it->Set( -0.20 );
+		printf("Holding /n");
 	}
 	else{
 		it->Set( 0.0 );
@@ -105,9 +106,12 @@ void BenzeneIntake( int joyPOV, Solenoid* clawActuator, DoubleSolenoid* angleAct
 	else if( closeClaw ){
 		CloseClaw( clawActuator );
 	}
-
-
-	CheesyIntake( it, ejectSp, intakeSp, intake2, eject2 );
+	if( clawOpenStatus ){
+		it->Set( -1.0 );
+		wasIntaking = true;
+	}else{
+		CheesyIntake( it, ejectSp, intakeSp, intake2, eject2 );
+	}
 
 	if( joyPOV == 180 ) { //Claw is stowed
 		midStatus = 0;

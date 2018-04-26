@@ -122,8 +122,8 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 	mtrLMaster->SetIntegralAccumulator( 0, 0, 0 );
 	mtrRMaster->SetIntegralAccumulator( 0, 0, 0 );
 
-	//mtrLMaster->SetSelectedSensorPosition(0,0,0);
-	//mtrRMaster->SetSelectedSensorPosition(0,0,0);
+	mtrLMaster->SetSelectedSensorPosition(0,0,0);
+	mtrRMaster->SetSelectedSensorPosition(0,0,0);
 
 	if( flgReverse ) dir = -1.0;
 

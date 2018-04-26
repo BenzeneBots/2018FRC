@@ -12,6 +12,9 @@
 #include <buttons.h>
 #include <elevator.h>
 
+extern double elevatorOverrideSp;
+
+
 // 8000cnt / 32inch = 250 cnts/inch
 // 12000 / 50inch = 240 cnts/inch
 
@@ -57,6 +60,11 @@ void DriveElevator( double fMove, TalonSRX *mtr, DigitalInput *sw, struct btns *
 	int rate = 0;
 	static int cnt=0;
 
+	if(posTar>=4000){
+		elevatorOverrideSp = 0.4;
+	}else{
+		elevatorOverrideSp = 1.0;
+	}
 	// On button press, jump the target position to the given height.
 	//if( btns->btnPress2[eHome2] ) setElevatorPos( 0 );
 	//if( btns->btnPress2[eSwitch2] ) setElevatorPos( 4000 );
