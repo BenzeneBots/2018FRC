@@ -75,6 +75,7 @@ void DriveElevator( double fMove, TalonSRX *mtr, DigitalInput *sw, struct btns *
 		if( flgStop == false) {
 			flgStop = true;
 			fMove = 0.0;
+			posTar = mtr->GetSelectedSensorPosition(0);
 			posSp = posTar;
 			mtr->SetIntegralAccumulator( 0.0, 0, kTO );
 		}

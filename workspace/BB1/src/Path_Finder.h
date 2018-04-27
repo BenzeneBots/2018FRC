@@ -58,9 +58,9 @@ void Load_Waypoints() {
 	wp[ Side_Scale ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
 	wp[ Side_Scale ].wps[1] = { 2.0, 	20.0,	d2r(  90 ) };
 	wp[ Side_Scale ].wps[2] = { 0.5, 	24.0,	d2r(  180 ) };
-	wp[ Side_Scale ].vel = 5.0;			// max ft/sec
-	wp[ Side_Scale ].accel = 10.0;		// max ft/sec^2
-	wp[ Side_Scale ].jerk = 75.0;		// max ft/sec^3
+	wp[ Side_Scale ].vel = 7.0;			// max ft/sec
+	wp[ Side_Scale ].accel = 15.0;		// max ft/sec^2
+	wp[ Side_Scale ].jerk = 100.0;		// max ft/sec^3
 	strcpy( wp[ Side_Scale ].sTrajLeft, "Side_ScaleLf.bin" );
 	strcpy( wp[ Side_Scale ].sTrajRight, "Side_ScaleRt.bin" );
 	strcpy( wp[ Side_Scale ].sTraj_CSV, "Side_Scale.csv" );

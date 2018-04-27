@@ -88,6 +88,9 @@ void LoadProfile( int idx, bool flgMirror, bool flgReverse) {
 	char s[120];
 	double dir=1.0;		// Assume forward.
 
+	mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
+	mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
+
 	#ifdef PRACTICE_BOT
 		flgMirror = !flgMirror;
 	#endif

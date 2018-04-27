@@ -212,6 +212,7 @@ void seqMid_RightSwitch() {
 	clawPick->Set( CLAW_NEUTRAL );
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );				delay( 500 );
+	clawPick->Set( CLAW_RAISE );				delay( CLAW_DEPLOY_TM );
 
 	// Load the named profile from the file-system into the RoboRIO API buffer.
 	LoadProfile( Right_SwitchMid, true, true );
@@ -344,22 +345,34 @@ void seqSide_Scale( bool invert ) {
 	printf( "Starting Side Position to Near Scale sequence.\n" );
 	gyro->SetFusedHeading( 0.0, 0 );	// Start with a zeroed gyro.
 
+	mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
+	mtrRMaster->Set( ControlMode::PercentOutput, 0.0 );
+	delay( 20 );
+
 	// Load the named profile from the file-system into the RoboRIO API buffer.
 	LoadProfile( Side_Scale, !invert, false );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
+	printf( "Run Profile Done.\n" );
+
+	delay (500);
 
 	seqMotionMagic( 1.0, 1.0, 5.0, 10.0 );
-	delay( 5200 );
+	printf( "Motion Magic Done.\n" );
+	delay( 1000 );
 
-	//TODO Add Elevator Logic
-	setElevatorPos( 16000 / 2 );
+
+	mtrElavator->ConfigPeakOutputForward( 0.7,	kTO );	// Peak Forward
+	setElevatorPos( 10000 );
 	int cnt = 0;
-	while( mtrElavator->GetSelectedSensorPosition(0) < 7000 ) {
-		DriveElevator( 0, mtrElavator, elevatorSW, &btns );
+	mtrElavator->Set( ControlMode::Position, 15000 );
+	while( mtrElavator->GetSelectedSensorPosition(0) < 14500 ) {
+		//DriveElevator( 0, mtrElavator, elevatorSW, &btns );
 		delay(20);
-		if( ++cnt > 200 )
+		if( ++cnt > 400 ) {
+			printf( "Error: Timeout on elevator move!\n" );
 			break;
+		}
 	}
 
 	// Deploy cube by reversing intake.
@@ -372,14 +385,17 @@ void seqSide_Scale( bool invert ) {
 	clawPick->Set( CLAW_RAISE );				delay( CLAW_DEPLAY_SM );
 
 	setElevatorPos( 0 );
+	mtrElavator->Set( ControlMode::Position, 0 );
+
 	cnt = 0;
 	while( mtrElavator->GetSelectedSensorPosition(0) > 500 ) {
-		DriveElevator( 0, mtrElavator, elevatorSW, &btns );
+		//DriveElevator( 0, mtrElavator, elevatorSW, &btns );
 		delay(20);
 		if( ++cnt > 200 )
 			break;
 	}
 
+	mtrElavator->ConfigPeakOutputForward( 1.0,	kTO );	// Peak Forward
 
 	/*
 	double reverse = 1.0;
@@ -388,6 +404,7 @@ void seqSide_Scale( bool invert ) {
 	seqMotionMagic( reverse*-2.0, reverse*2.0, 4, 10 );
 	seqDwellOnMotion( .03, 2000 );
 	*/
+
 }
 
 void seqTestFunction() {
