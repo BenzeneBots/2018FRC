@@ -20,7 +20,7 @@
 TalonSRX *mtrLMaster, *mtrLSlave;
 TalonSRX *mtrRMaster, *mtrRSlave;
 #ifndef PRACTICE_BOT
-TalonSRX *mtrElavator;
+TalonSRX *mtrElevator;
 #endif
 Victor *mtrIntake, *mtrClimber;
 Timer* turnTimer;
@@ -70,7 +70,7 @@ public:
 		mtrRSlave = new TalonSRX( 3 );				// Right Slave
 		gyro = new PigeonIMU( 0 );
 #ifndef PRACTICE_BOT
-		mtrElavator = new TalonSRX( 5 );
+		mtrElevator = new TalonSRX( 5 );
 #endif
 		elevatorSW = new DigitalInput( 0 );			// Home SW / RoboRIO Channel 0.
 		mtrIntake = new Victor( 0 );
@@ -88,7 +88,7 @@ public:
 		DrivetrainInit( mtrLMaster, mtrLSlave, mtrRMaster, mtrRSlave );
 
 #ifndef PRACTICE_BOT
-		InitElevator( mtrElavator );			// Init the elevator motor.
+		InitElevator( mtrElevator );			// Init the elevator motor.
 #endif
 		AuxMotorInit( mtrClimber, mtrIntake );	// Init the Climber and Intake motors.
 		GyroInit( gyro );						// Setup the Pigeon Gyro.
@@ -151,7 +151,7 @@ public:
 
 		// Zeros the elevator position while disabled.
 		#ifndef PRACTICE_BOT
-			resetElevatorPos( mtrElavator, elevatorSW );
+			resetElevatorPos( mtrElevator, elevatorSW );
 		#endif
 	}
 
@@ -238,7 +238,7 @@ public:
 		}
 
 		#ifndef PRACTICE_BOT
-			DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
+			DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElevator, elevatorSW, &btns);
 		#else
 			// Update the smart dashboard.
 			UpdateSmartDash( gyro, mtrLMaster, mtrRMaster, joy );

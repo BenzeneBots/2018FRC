@@ -96,7 +96,7 @@ void seqMoveElevator( int height ){
 	}
 
 #ifndef PRACTICE_BOT
-	DriveElevator( 0, mtrElavator , elevatorSW, &btns );
+	DriveElevator( 0, mtrElevator , elevatorSW, &btns );
 #endif
 }
 
@@ -362,12 +362,12 @@ void seqSide_Scale( bool invert ) {
 	delay( 1000 );
 
 
-	mtrElavator->ConfigPeakOutputForward( 0.7,	kTO );	// Peak Forward
+	mtrElevator->ConfigPeakOutputForward( 0.7,	kTO );	// Peak Forward
 	setElevatorPos( 10000 );
 	int cnt = 0;
-	mtrElavator->Set( ControlMode::Position, 15000 );
-	while( mtrElavator->GetSelectedSensorPosition(0) < 14500 ) {
-		//DriveElevator( 0, mtrElavator, elevatorSW, &btns );
+	mtrElevator->Set( ControlMode::Position, 15000 );
+	while( mtrElevator->GetSelectedSensorPosition(0) < 14500 ) {
+		//DriveElevator( 0, mtrElevator, elevatorSW, &btns );
 		delay(20);
 		if( ++cnt > 400 ) {
 			printf( "Error: Timeout on elevator move!\n" );
@@ -385,17 +385,17 @@ void seqSide_Scale( bool invert ) {
 	clawPick->Set( CLAW_RAISE );				delay( CLAW_DEPLAY_SM );
 
 	setElevatorPos( 0 );
-	mtrElavator->Set( ControlMode::Position, 0 );
+	mtrElevator->Set( ControlMode::Position, 0 );
 
 	cnt = 0;
-	while( mtrElavator->GetSelectedSensorPosition(0) > 500 ) {
+	while( mtrElevator->GetSelectedSensorPosition(0) > 500 ) {
 		//DriveElevator( 0, mtrElavator, elevatorSW, &btns );
 		delay(20);
 		if( ++cnt > 200 )
 			break;
 	}
 
-	mtrElavator->ConfigPeakOutputForward( 1.0,	kTO );	// Peak Forward
+	mtrElevator->ConfigPeakOutputForward( 1.0,	kTO );	// Peak Forward
 
 	/*
 	double reverse = 1.0;
