@@ -54,13 +54,20 @@ void Load_Waypoints() {
 	// Side_Scale = Index 1
 	// Define Side to Scale on near side.
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	wp[ Side_Scale ].wpLen = 3;		// Zero points means not yet defined.
+	wp[ Side_Scale ].wpLen = 4;		// Zero points means not yet defined.
+	/*
 	wp[ Side_Scale ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
 	wp[ Side_Scale ].wps[1] = { 2.0, 	20.0,	d2r(  90 ) };
 	wp[ Side_Scale ].wps[2] = { 0.5, 	24.0,	d2r(  180 ) };
-	wp[ Side_Scale ].vel = 7.0;			// max ft/sec
-	wp[ Side_Scale ].accel = 15.0;		// max ft/sec^2
-	wp[ Side_Scale ].jerk = 100.0;		// max ft/sec^3
+	*/
+	wp[ Side_Scale ].wps[0] = { 0.0, 	0.0,	d2r(  90 ) };
+	wp[ Side_Scale ].wps[1] = { 1.5, 	22.0,	d2r(  90 ) };
+	wp[ Side_Scale ].wps[2] = { 1.0, 	25.6,	d2r(  135 ) };
+	wp[ Side_Scale ].wps[3] = { 0.5, 	26.0,	d2r(  180 ) };
+
+	wp[ Side_Scale ].vel = 5.0;			// max ft/sec
+	wp[ Side_Scale ].accel = 10.0;		// max ft/sec^2
+	wp[ Side_Scale ].jerk = 75.0;		// max ft/sec^3
 	strcpy( wp[ Side_Scale ].sTrajLeft, "Side_ScaleLf.bin" );
 	strcpy( wp[ Side_Scale ].sTrajRight, "Side_ScaleRt.bin" );
 	strcpy( wp[ Side_Scale ].sTraj_CSV, "Side_Scale.csv" );

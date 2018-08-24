@@ -85,8 +85,9 @@ void turn180 (struct btns *b) {
 	}
 
 	if(turningState){
-		mtrLMaster->Set( ControlMode::MotionMagic, turnRevFactor * -10428.0 );
-		mtrRMaster->Set( ControlMode::MotionMagic, turnRevFactor * 10428.0 );
+		//10428
+		mtrLMaster->Set( ControlMode::MotionMagic, turnRevFactor * -8500.0 );
+		mtrRMaster->Set( ControlMode::MotionMagic, turnRevFactor * 8500.0 );
 
 		if((fabs(mtrLMaster->GetSensorCollection().GetQuadratureVelocity())<=150)&&(turnTimer->Get()>=0.5)){
 			mtrLMaster->Set( ControlMode::PercentOutput, 0.0 );
@@ -102,7 +103,7 @@ void turn180 (struct btns *b) {
 //	On primary joystick, perform regular arcade style driving.
 // ========================================================================
 void ArcadeDrive( struct btns *b ) {
-	double throttle=0.0, steer=0.0, twist=0, heading;
+	double throttle=0.0, steer=0.0, twist=0.0, heading;
 	float lf=0.0, rt=0.0;
 	static double headingTar;
 	//static bool isDriveReversed = false;
@@ -133,8 +134,6 @@ void ArcadeDrive( struct btns *b ) {
 		twist = joy->GetTwist();
 	#endif
 
-	if( fabs(throttle) <= 0.01 ) throttle = 0.0;	// Deadband the throttle joystick value.
-
 	// If joystick thumb button for strait driving is pressed...
 	if( b->btn[ strait ] ) {
 		heading = gyro->GetFusedHeading();
@@ -154,8 +153,10 @@ void ArcadeDrive( struct btns *b ) {
 		steer += (twist * 0.50);		// Scale twist down by 50% then add to steer.
 	}
 
+	//Baby Wheels On (50%)
 	lf = elevatorOverrideSp * (throttle + steer);		// Calculate left and right motor speeds.
 	rt = elevatorOverrideSp * (throttle - steer);
+
 	setDriveMtrSp( lf, rt);
 
 

@@ -258,6 +258,8 @@ void seqMid_LeftSwitch() {
 	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );				delay( 500 );
 
+	clawPick->Set( CLAW_RAISE );				delay( CLAW_DEPLOY_TM );
+
 	LoadProfile( Left_SwitchMid, true, true );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
@@ -300,7 +302,7 @@ void seqSide_Switch( bool invert ) {
 	mtrIntake->Set( 0.70 );						delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );
 	clawPick->Set( CLAW_RAISE );
-
+	/*
 	LoadProfile( Switch_Cube, invert, true );
 	while( RunProfile() ) delay( 20 );		// Run the profile until completion.
 
@@ -318,6 +320,7 @@ void seqSide_Switch( bool invert ) {
 
 	clawPick->Set( CLAW_RAISE );
 	mtrIntake->Set( INTAKE_STOP );
+	*/
 }
 
 
@@ -355,9 +358,9 @@ void seqSide_Scale( bool invert ) {
 	seqDwellOnPosition( 0.85, 3000 );		// Wait for X% of position to be covered.
 	printf( "Run Profile Done.\n" );
 
-	delay (500);
+	delay (300);
 
-	seqMotionMagic( 1.0, 1.0, 5.0, 10.0 );
+	seqMotionMagic( -1.0, -3.0, 5.0, 10.0 );
 	printf( "Motion Magic Done.\n" );
 	delay( 1000 );
 
@@ -379,7 +382,7 @@ void seqSide_Scale( bool invert ) {
 	clawPick->Set( CLAW_LOWER );				delay( CLAW_DEPLAY_SM );
 	clawPick->Set( CLAW_NEUTRAL );
 
-	mtrIntake->Set( OUTTAKE_SP );				delay( CLAW_DEPLOY_TM );
+	mtrIntake->Set( 0.65 );				delay( CLAW_DEPLOY_TM );
 	mtrIntake->Set( INTAKE_STOP );				delay( 500 );
 
 	clawPick->Set( CLAW_RAISE );				delay( CLAW_DEPLAY_SM );

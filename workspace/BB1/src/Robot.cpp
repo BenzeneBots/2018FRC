@@ -25,8 +25,6 @@ TalonSRX *mtrElavator;
 Victor *mtrIntake, *mtrClimber;
 Timer* turnTimer;
 
-
-
 //CANifier *ultraSensor;
 
 Joystick *joy, *joy2;
@@ -237,6 +235,7 @@ public:
 			mtrClimber->Set(0.0);
 		}
 
+		printf("GyroVal: %f/n",gyro->GetFusedHeading());
 		#ifndef PRACTICE_BOT
 			DriveElevator( joy2->GetRawAxis(1) * -1.0, mtrElavator, elevatorSW, &btns);
 		#else
