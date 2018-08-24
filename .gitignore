@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
 *.xmi
@@ -8,3 +9,16 @@ workspace/.metadata/.plugins/org.eclipse.cdt.core/.log
 workspace/.metadata/.log
 workspace/.metadata/.plugins/org.eclipse.cdt.core/.log
 *.xml
+=======
+.DS_Store
+workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+*.xmi
+*.xml
+*.xml
+*.resources
+workspace/.metadata/.plugins/org.eclipse.cdt.core/.log
+workspace/.metadata/.log
+workspace/.metadata/.plugins/org.eclipse.cdt.core/.log
+*.xml
+/.metadata/
+>>>>>>> 250f45edec640b651699ec8e9be6868e2f76cc5e

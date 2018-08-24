@@ -3,7 +3,6 @@
 #include <Robot.h>
 #include <pathfinder.h>
 
-
 // Global vars used to hold trajectory paths for left and right side.
 Segment *leftTrajectory;	// PathFinder() uses malloc to dynamically adjust.
 Segment *rightTrajectory;
